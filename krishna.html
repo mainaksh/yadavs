@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter IV — Lord Krishna: The Crown of the Yadav Race | Yadav Vansh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:          #D4A017;
+      --gold-light:    #F5C842;
+      --gold-pale:     #FDE89A;
+      --peacock:       #004D6E;
+      --peacock-mid:   #007A9E;
+      --peacock-light: #00B4CC;
+      --lotus-pink:    #C75B7A;
+      --lotus-deep:    #8B1A3A;
+      --midnight:      #060814;
+      --deep-blue:     #080F1E;
+      --indigo:        #0C1535;
+      --twilight:      #121A3A;
+      --saffron:       #FF7F00;
+      --amber:         #B8621A;
+      --cream:         #FDF6E3;
+      --parchment:     #F5E6C8;
+      --parchment-dk:  #E8D5A3;
+      --silver:        #C8D8F0;
+      --ink:           #0A0510;
+      --sg:            rgba(212,160,23,0.4);
+      --font-display:  'Cinzel Decorative', serif;
+      --font-heading:  'Cinzel', serif;
+      --font-body:     'EB Garamond', serif;
+      --font-dev:      'Noto Serif Devanagari', serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--midnight);
+      color: var(--cream);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      font-size: 18px;
+    }
+
+    /* ─── CANVAS ─── */
+    #cosmos { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+    /* Sacred border with peacock-blue accent */
+    .sacred-frame {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      border: 2px solid rgba(212,160,23,0.5);
+    }
+    .sacred-frame::before {
+      content: ''; position: absolute; inset: 8px;
+      border: 1px solid rgba(0,180,204,0.15);
+    }
+
+    /* ═══ NAV ═══ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 2rem;
+      background: linear-gradient(to bottom, rgba(6,8,20,0.98), transparent);
+      transition: background .4s;
+    }
+    nav.scrolled {
+      background: rgba(6,8,20,0.99);
+      border-bottom: 1px solid rgba(212,160,23,0.25);
+      box-shadow: 0 4px 40px rgba(0,0,0,0.9);
+    }
+    .nav-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .nav-logo {
+      font-family: var(--font-dev); font-size: 1.4rem;
+      color: var(--gold); text-decoration: none; text-shadow: 0 0 20px var(--sg);
+    }
+    .nav-logo span {
+      font-family: var(--font-heading); font-size: .6rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--parchment-dk); display: block; margin-top: -2px;
+    }
+    .nav-chapter {
+      font-family: var(--font-heading); font-size: .62rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--peacock-light); padding: .3rem .8rem;
+      border: 1px solid rgba(0,180,204,0.3); border-radius: 2px;
+    }
+    .nav-back {
+      font-family: var(--font-heading); font-size: .6rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none;
+      display: flex; align-items: center; gap: .5rem; transition: gap .2s;
+    }
+    .nav-back:hover { gap: .8rem; }
+    @media(max-width:700px){ .nav-chapter{ display:none; } }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      position: relative; z-index: 10;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 7rem 2rem 5rem;
+      overflow: hidden;
+    }
+
+    /* Rotating sudarshana chakra */
+    .sudarshana {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -52%);
+      width: min(680px, 95vw); height: min(680px, 95vw);
+      opacity: .06; pointer-events: none;
+      animation: chakraSpin 25s linear infinite;
+    }
+    @keyframes chakraSpin { to { transform: translate(-50%,-52%) rotate(360deg); } }
+
+    /* Counter-rotating inner */
+    .sudarshana-inner {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -52%);
+      width: min(420px, 65vw); height: min(420px, 65vw);
+      opacity: .04; pointer-events: none;
+      animation: chakraSpin 15s linear infinite reverse;
+    }
+
+    /* Divine aura gradient */
+    .divine-aura {
+      position: absolute; top: 30%; left: 50%;
+      transform: translateX(-50%);
+      width: 70vw; height: 70vh;
+      background: radial-gradient(ellipse at center,
+        rgba(0,122,158,0.12) 0%,
+        rgba(212,160,23,0.06) 35%,
+        rgba(199,91,122,0.04) 60%,
+        transparent 80%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .8rem;
+      font-family: var(--font-heading); font-size: .62rem;
+      letter-spacing: .35em; text-transform: uppercase;
+      color: var(--peacock-light); margin-bottom: 1rem;
+      border: 1px solid rgba(0,180,204,0.3);
+      padding: .4rem 1.2rem; border-radius: 2px;
+      opacity: 0; animation: fadeUp 1s .3s forwards;
+    }
+    .hero-badge::before,.hero-badge::after { content:'🪶'; font-size:.75rem; }
+
+    .hero-om {
+      font-family: var(--font-dev);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: rgba(212,160,23,0.4);
+      letter-spacing: .5em;
+      margin-bottom: .5rem;
+      opacity: 0; animation: fadeIn 2s .5s forwards;
+    }
+
+    .hero-glyph {
+      font-family: var(--font-dev);
+      font-size: clamp(5rem, 14vw, 11rem);
+      background: linear-gradient(180deg,
+        #ffffff 0%,
+        var(--gold-pale) 15%,
+        var(--gold-light) 35%,
+        var(--gold) 55%,
+        var(--peacock-light) 75%,
+        var(--peacock-mid) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1; margin-bottom: .2rem;
+      filter: drop-shadow(0 0 60px rgba(0,180,204,0.3)) drop-shadow(0 0 30px rgba(212,160,23,0.4));
+      opacity: 0; animation: krishnaReveal 2s .6s forwards;
+    }
+    @keyframes krishnaReveal {
+      0%{ opacity:0; filter:drop-shadow(0 0 0 rgba(0,180,204,0)) blur(15px); transform:scale(.85); }
+      60%{ filter:drop-shadow(0 0 80px rgba(0,180,204,0.5)) drop-shadow(0 0 40px rgba(212,160,23,0.6)) blur(0); }
+      100%{ opacity:1; filter:drop-shadow(0 0 60px rgba(0,180,204,0.3)) drop-shadow(0 0 30px rgba(212,160,23,0.4)); transform:scale(1); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5.5vw, 4.5rem);
+      background: linear-gradient(135deg, var(--gold-pale), var(--gold-light), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1.1; margin-bottom: .3rem;
+      opacity: 0; animation: fadeUp 1.1s 1s forwards;
+    }
+    .hero-epithets {
+      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 1rem;
+      opacity: 0; animation: fadeUp 1s 1.2s forwards;
+    }
+    .epithet {
+      font-family: var(--font-heading); font-size: .58rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--peacock-light); padding: .25rem .8rem;
+      border: 1px solid rgba(0,180,204,0.2); border-radius: 1px;
+    }
+    .hero-sub {
+      font-family: var(--font-dev); font-size: clamp(.95rem,2vw,1.3rem);
+      color: var(--gold-pale); margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 1s 1.3s forwards;
+    }
+    .hero-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: .5rem auto 1.5rem; width: min(500px,85vw);
+      opacity: 0; animation: fadeIn 1s 1.5s forwards;
+    }
+    .hero-divider::before,.hero-divider::after {
+      content:''; flex:1; height:1px;
+      background: linear-gradient(to right,transparent,var(--gold),transparent);
+    }
+    .hdg { width:10px; height:10px; background:var(--gold); transform:rotate(45deg); box-shadow:0 0 10px var(--gold); }
+
+    .hero-lead {
+      font-size: clamp(.95rem,1.5vw,1.15rem); font-style: italic;
+      color: var(--parchment); max-width: 740px; line-height: 2;
+      margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 1s 1.7s forwards;
+    }
+    .chapter-pills {
+      display: flex; gap: .65rem; flex-wrap: wrap; justify-content: center;
+      opacity: 0; animation: fadeUp 1s 2s forwards;
+    }
+    .pill {
+      font-family: var(--font-heading); font-size: .55rem;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--parchment-dk); border: 1px solid rgba(212,160,23,0.22);
+      padding: .32rem .85rem; text-decoration: none; border-radius: 2px; transition: all .25s;
+    }
+    .pill:hover,.pill.active {
+      background: rgba(212,160,23,0.1); border-color: var(--gold-light); color: var(--gold-light);
+    }
+    .scroll-cue {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      opacity: 0; animation: fadeIn 1s 3s forwards;
+    }
+    .scroll-cue span { font-family:var(--font-heading); font-size:.5rem; letter-spacing:.3em; text-transform:uppercase; color:rgba(212,160,23,0.4); }
+    .scroll-line { width:1px; height:55px; background:linear-gradient(to bottom,var(--gold),transparent); animation:sp 2s ease-in-out infinite; }
+    @keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+
+    /* ═══ SLOKA BAND ═══ */
+    .sloka-band {
+      position: relative; z-index: 10;
+      background: linear-gradient(135deg, rgba(0,77,110,0.6), rgba(12,21,53,0.9));
+      border-top: 1px solid rgba(212,160,23,0.5);
+      border-bottom: 1px solid rgba(212,160,23,0.5);
+      padding: 3.5rem 2rem; text-align: center; overflow: hidden;
+    }
+    .sloka-band::before {
+      content:''; position:absolute; inset:0;
+      background: repeating-linear-gradient(60deg,transparent,transparent 50px,rgba(0,180,204,0.02) 50px,rgba(0,180,204,0.02) 51px);
+    }
+    .sloka-dev { font-family:var(--font-dev); font-size:clamp(1rem,2vw,1.4rem); color:var(--gold-pale); line-height:2.1; margin-bottom:1rem; position:relative; }
+    .sloka-trans { font-style:italic; font-size:clamp(.9rem,1.5vw,1.05rem); color:var(--parchment); line-height:1.9; max-width:800px; margin:0 auto .8rem; position:relative; }
+    .sloka-ref { font-family:var(--font-heading); font-size:.6rem; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); position:relative; }
+
+    /* ═══ CORE LAYOUT ═══ */
+    main { position: relative; z-index: 10; }
+    section { padding: 6rem 2rem; }
+    .inner { max-width: 1200px; margin: 0 auto; }
+
+    .eyebrow {
+      font-family:var(--font-heading); font-size:.62rem; letter-spacing:.4em; text-transform:uppercase;
+      color:var(--saffron); margin-bottom:1rem; display:flex; align-items:center; gap:1rem;
+    }
+    .eyebrow::before { content:''; width:35px; height:1px; background:var(--saffron); }
+    h2.sec-title { font-family:var(--font-display); font-size:clamp(1.7rem,3.5vw,2.8rem); color:var(--gold); line-height:1.2; margin-bottom:1.2rem; }
+    h3.sub-title { font-family:var(--font-heading); font-size:clamp(1.1rem,2vw,1.45rem); color:var(--gold-light); line-height:1.3; margin-bottom:.8rem; margin-top:2.5rem; }
+    .lead { font-size:1.05rem; color:var(--parchment); max-width:820px; line-height:2; margin-bottom:2rem; }
+    .body-text { font-size:.97rem; color:var(--parchment); line-height:2; max-width:830px; margin-bottom:1.5rem; }
+    .body-text strong { color:var(--gold-light); }
+    .body-text em { color:var(--gold-pale); font-style:italic; }
+    .dev-inline { font-family:var(--font-dev); color:var(--gold); font-size:1.05em; }
+
+    /* ═══ BIRTH STORY — CINEMATIC LAYOUT ═══ */
+    .birth-section { background: linear-gradient(180deg, var(--midnight) 0%, var(--deep-blue) 100%); }
+
+    .birth-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+    }
+
+    /* Prison cell visual */
+    .prison-visual {
+      position: relative; min-height: 380px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .prison-bars {
+      position: absolute; inset: 0;
+      display: flex; gap: 22px; padding: 0 30px;
+      pointer-events: none;
+    }
+    .bar {
+      flex: 0 0 4px; background: linear-gradient(to bottom, rgba(184,200,232,0.4), rgba(184,200,232,0.15));
+      border-radius: 2px; height: 100%;
+    }
+    .prison-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(212,160,23,0.15) 0%, transparent 65%);
+    }
+    .birth-text-center {
+      position: relative; z-index: 2; text-align: center; padding: 2rem;
+    }
+    .birth-glyph {
+      font-family: var(--font-dev); font-size: 5rem; line-height: 1;
+      background: linear-gradient(180deg, #fff 0%, var(--gold-light) 50%, var(--peacock-light) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      filter: drop-shadow(0 0 30px rgba(212,160,23,0.5));
+      animation: birthPulse 4s ease-in-out infinite;
+    }
+    @keyframes birthPulse {
+      0%,100% { filter:drop-shadow(0 0 30px rgba(212,160,23,0.5)); }
+      50% { filter:drop-shadow(0 0 60px rgba(212,160,23,0.8)) drop-shadow(0 0 20px rgba(0,180,204,0.4)); }
+    }
+    .birth-date-badge {
+      display: inline-block; margin-top: 1rem;
+      font-family: var(--font-heading); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--peacock-light); border: 1px solid rgba(0,180,204,0.3); padding: .4rem 1rem;
+    }
+    .birth-miracle {
+      margin-top: 1rem; font-size: .82rem; color: var(--parchment-dk); font-style: italic; line-height: 1.7;
+    }
+
+    /* ═══ KRISHNA PROFILE CARD ═══ */
+    .krishna-profile {
+      display: grid; grid-template-columns: 340px 1fr; gap: 4.5rem; align-items: start;
+    }
+    .profile-card {
+      background: linear-gradient(160deg, rgba(0,77,110,0.25), rgba(6,8,20,0.85));
+      border: 1px solid rgba(212,160,23,0.35);
+      padding: 2.5rem;
+      position: sticky; top: 85px;
+      clip-path: polygon(20px 0%,calc(100% - 20px) 0%,100% 20px,100% calc(100% - 20px),calc(100% - 20px) 100%,20px 100%,0% calc(100% - 20px),0% 20px);
+      box-shadow: 0 0 80px rgba(0,122,158,0.08), inset 0 1px 0 rgba(212,160,23,0.15);
+    }
+    .pc-peacock { font-size: 3rem; text-align: center; display: block; margin-bottom: .3rem; }
+    .pc-glyph {
+      font-family: var(--font-dev); font-size: 5rem; text-align: center; line-height: 1;
+      margin-bottom: .3rem; display: block;
+      background: linear-gradient(180deg, var(--gold-pale), var(--gold), var(--peacock-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      filter: drop-shadow(0 0 20px rgba(0,180,204,0.3));
+    }
+    .pc-name-en { font-family:var(--font-heading); font-size:1.4rem; color:var(--gold-light); text-align:center; margin-bottom:.15rem; }
+    .pc-name-dev { font-family:var(--font-dev); font-size:1rem; color:var(--gold); text-align:center; margin-bottom:1.2rem; }
+    .pc-divider { height:1px; background:linear-gradient(to right,transparent,var(--gold),rgba(0,180,204,0.5),transparent); margin:1rem 0; }
+    .pc-attrs { display:flex; flex-direction:column; gap:.65rem; }
+    .pa-row { display:flex; gap:.7rem; }
+    .pa-label { font-family:var(--font-heading); font-size:.5rem; letter-spacing:.18em; text-transform:uppercase; color:var(--saffron); flex-shrink:0; width:78px; padding-top:.1rem; }
+    .pa-val { font-size:.78rem; color:var(--parchment); line-height:1.6; }
+    .pa-val.dev { font-family:var(--font-dev); font-size:.88rem; color:var(--gold-pale); }
+    .pa-val.highlight { color:var(--peacock-light); }
+
+    /* ═══ QUOTE BLOCK ═══ */
+    .qblock {
+      border-left: 3px solid var(--gold); padding: 1.6rem 2rem; margin: 2.5rem 0;
+      background: rgba(212,160,23,0.03); position: relative; overflow: hidden;
+    }
+    .qblock::before { content:'"'; font-family:var(--font-display); font-size:4rem; color:rgba(212,160,23,0.15); position:absolute; top:-.5rem; left:.8rem; line-height:1; }
+    .qdev { font-family:var(--font-dev); font-size:1.05rem; color:var(--gold-pale); line-height:1.95; margin-bottom:.8rem; }
+    .qtrans { font-style:italic; color:var(--parchment); font-size:.95rem; line-height:1.85; margin-bottom:.6rem; }
+    .qsrc { font-family:var(--font-heading); font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--saffron); }
+
+    /* ═══ HIGHLIGHT BOX ═══ */
+    .hbox {
+      background: linear-gradient(135deg, rgba(0,77,110,0.15), rgba(12,21,53,0.3));
+      border: 1px solid rgba(212,160,23,0.18); padding: 2rem; margin: 2rem 0;
+    }
+    .hb-title { font-family:var(--font-heading); font-size:.68rem; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; display:flex; align-items:center; gap:.8rem; }
+    .hb-title::after { content:''; flex:1; height:1px; background:rgba(212,160,23,0.2); }
+    .hb-list { list-style:none; display:flex; flex-direction:column; gap:.7rem; }
+    .hb-list li { font-size:.88rem; color:var(--parchment); line-height:1.75; display:flex; gap:.8rem; align-items:flex-start; }
+    .hb-list li::before { content:'◆'; color:var(--gold); font-size:.5rem; margin-top:.35rem; flex-shrink:0; }
+
+    /* ═══ LIFE PHASES TIMELINE ═══ */
+    .timeline-section { background: linear-gradient(180deg, var(--deep-blue) 0%, var(--indigo) 100%); border-top:1px solid rgba(212,160,23,0.12); }
+
+    .life-phases { display:flex; flex-direction:column; gap:0; margin:3rem 0; position:relative; }
+    .life-phases::before {
+      content:''; position:absolute; left:34px; top:0; bottom:0;
+      width:2px; background:linear-gradient(to bottom, var(--gold), rgba(0,180,204,0.5), rgba(212,160,23,0.1));
+    }
+
+    .phase {
+      display:grid; grid-template-columns:70px 1fr; gap:2rem;
+      margin-bottom:3rem; opacity:0; transform:translateX(-20px);
+      transition:all .7s cubic-bezier(.16,1,.3,1);
+    }
+    .phase.visible { opacity:1; transform:none; }
+
+    .phase-icon-wrap {
+      display:flex; flex-direction:column; align-items:center; position:relative; z-index:1;
+    }
+    .phase-icon {
+      width:68px; height:68px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.6rem;
+      border:2px solid rgba(212,160,23,0.4);
+      background: linear-gradient(135deg, var(--indigo), var(--deep-blue));
+      box-shadow: 0 0 20px rgba(212,160,23,0.15);
+      flex-shrink:0;
+    }
+    .phase-icon.active-phase {
+      border-color:var(--gold);
+      background:linear-gradient(135deg, rgba(0,77,110,0.4), var(--indigo));
+      box-shadow:0 0 30px rgba(212,160,23,0.3), 0 0 15px rgba(0,180,204,0.2);
+    }
+
+    .phase-content { padding:.5rem 0 2.5rem; border-bottom:1px solid rgba(212,160,23,0.07); }
+    .phase-label { font-family:var(--font-heading); font-size:.55rem; letter-spacing:.2em; text-transform:uppercase; color:var(--peacock-light); margin-bottom:.3rem; }
+    .phase-title { font-family:var(--font-heading); font-size:1.05rem; color:var(--gold-light); margin-bottom:.4rem; }
+    .phase-dev { font-family:var(--font-dev); font-size:.92rem; color:var(--gold); margin-bottom:.7rem; }
+    .phase-text { font-size:.88rem; color:var(--parchment); line-height:1.85; }
+    .phase-text strong { color:var(--gold-pale); }
+
+    /* ═══ GITA SECTION ═══ */
+    .gita-section {
+      background: linear-gradient(180deg, var(--indigo) 0%, var(--deep-blue) 50%, var(--midnight) 100%);
+      border-top:1px solid rgba(212,160,23,0.2);
+    }
+
+    .gita-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; margin:3rem 0;
+    }
+
+    /* Gita visual — Arjuna's chariot between armies */
+    .gita-visual {
+      position:relative; min-height:380px;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .gita-mandala {
+      width:min(320px,85vw); height:min(320px,85vw);
+      animation:mandalaFloat 6s ease-in-out infinite;
+    }
+    @keyframes mandalaFloat {
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-12px)}
+    }
+
+    .gita-cards { display:grid; grid-template-columns:1fr; gap:1.2rem; }
+    .gita-card {
+      background:linear-gradient(160deg, rgba(0,77,110,0.2), rgba(6,8,20,0.8));
+      border:1px solid rgba(212,160,23,0.15); padding:1.5rem;
+      transition:all .3s; position:relative; overflow:hidden;
+    }
+    .gita-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:linear-gradient(to right,transparent,var(--gold),transparent);
+      transform:scaleX(0); transition:transform .4s;
+    }
+    .gita-card:hover::before { transform:scaleX(1); }
+    .gita-card:hover { border-color:rgba(212,160,23,0.35); }
+    .gc-num { font-family:var(--font-heading); font-size:.55rem; letter-spacing:.2em; color:var(--saffron); }
+    .gc-title { font-family:var(--font-heading); font-size:.92rem; color:var(--gold-light); margin:.35rem 0; }
+    .gc-dev { font-family:var(--font-dev); font-size:.85rem; color:var(--gold); margin-bottom:.5rem; }
+    .gc-text { font-size:.8rem; color:var(--parchment-dk); line-height:1.75; }
+
+    /* ═══ DWARKA SECTION ═══ */
+    .dwarka-section { background:linear-gradient(180deg, var(--midnight) 0%, rgba(0,20,40,1) 100%); border-top:1px solid rgba(0,180,204,0.2); }
+
+    .dwarka-stats {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1.2rem; margin:2.5rem 0;
+    }
+    .dw-stat {
+      background:linear-gradient(160deg, rgba(0,77,110,0.25), rgba(6,8,20,0.7));
+      border:1px solid rgba(0,180,204,0.2); padding:1.8rem; text-align:center; transition:all .3s;
+    }
+    .dw-stat:hover { border-color:rgba(0,180,204,0.5); transform:translateY(-3px); }
+    .dw-num {
+      font-family:var(--font-heading); font-size:clamp(1.5rem,3vw,2.2rem);
+      color:var(--peacock-light); font-weight:700; line-height:1;
+      text-shadow:0 0 20px rgba(0,180,204,0.4);
+    }
+    .dw-label { font-family:var(--font-heading); font-size:.55rem; letter-spacing:.18em; text-transform:uppercase; color:var(--parchment-dk); margin-top:.5rem; }
+
+    /* ═══ VRISHNI CLAN TABLE ═══ */
+    .vrishni-section { background:linear-gradient(180deg, rgba(0,20,40,1) 0%, var(--indigo) 100%); border-top:1px solid rgba(212,160,23,0.1); }
+
+    .clan-table { width:100%; border-collapse:collapse; margin:2rem 0; }
+    .clan-table th { font-family:var(--font-heading); font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border-bottom:1px solid rgba(212,160,23,0.3); padding:.9rem 1rem; text-align:left; background:rgba(212,160,23,0.04); }
+    .clan-table td { padding:.85rem 1rem; color:var(--parchment); border-bottom:1px solid rgba(212,160,23,0.07); line-height:1.7; vertical-align:top; font-size:.84rem; }
+    .clan-table tr:hover td { background:rgba(212,160,23,0.03); }
+    .clan-table .dev-cell { font-family:var(--font-dev); font-size:.88rem; color:var(--gold-pale); }
+    .cbadge { display:inline-block; font-family:var(--font-heading); font-size:.5rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); background:var(--gold); padding:.15rem .5rem; border-radius:2px; white-space:nowrap; }
+    .cbadge-b { background:rgba(0,180,204,0.3); color:var(--peacock-light); border:1px solid rgba(0,180,204,0.3); }
+    .clan-table tr.krishna-row td { background:rgba(0,122,158,0.06); }
+    .clan-table tr.krishna-row td:first-child { border-left:2px solid var(--peacock-light); }
+
+    /* ═══ FAMILY CARDS ═══ */
+    .family-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.4rem; margin:2.5rem 0; }
+    .family-card {
+      background:linear-gradient(160deg, rgba(6,8,20,0.8), rgba(12,21,53,0.6));
+      border:1px solid rgba(212,160,23,0.15); padding:1.8rem; transition:all .3s; position:relative;
+      overflow:hidden;
+    }
+    .family-card::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+      background:linear-gradient(to right,transparent,var(--peacock-light),transparent);
+      transform:scaleX(0); transition:transform .4s;
+    }
+    .family-card:hover { border-color:rgba(0,180,204,0.35); transform:translateY(-3px); }
+    .family-card:hover::after { transform:scaleX(1); }
+    .fc-rel { font-family:var(--font-heading); font-size:.52rem; letter-spacing:.18em; text-transform:uppercase; color:var(--peacock-light); margin-bottom:.4rem; }
+    .fc-name { font-family:var(--font-heading); font-size:1rem; color:var(--gold-light); margin-bottom:.2rem; }
+    .fc-dev { font-family:var(--font-dev); font-size:.9rem; color:var(--gold); margin-bottom:.6rem; }
+    .fc-divider { height:1px; background:linear-gradient(to right,rgba(0,180,204,0.3),transparent); margin:.5rem 0; }
+    .fc-text { font-size:.8rem; color:var(--parchment-dk); line-height:1.75; }
+
+    /* ═══ LEELAS — DIVINE ACTS ═══ */
+    .leela-section { background:linear-gradient(180deg, var(--indigo) 0%, var(--deep-blue) 100%); border-top:1px solid rgba(212,160,23,0.12); }
+
+    .leela-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.4rem; margin:2.5rem 0; }
+    .leela-card {
+      background:linear-gradient(160deg, rgba(6,8,20,0.7), rgba(0,20,40,0.7));
+      border:1px solid rgba(212,160,23,0.12); padding:1.8rem; transition:all .3s;
+      position:relative; cursor:default;
+    }
+    .leela-card:hover { border-color:rgba(212,160,23,0.4); transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.5); }
+    .leela-num { font-family:var(--font-display); font-size:2.2rem; color:rgba(212,160,23,0.2); line-height:1; margin-bottom:.4rem; }
+    .leela-title { font-family:var(--font-heading); font-size:.95rem; color:var(--gold-light); margin-bottom:.3rem; }
+    .leela-dev { font-family:var(--font-dev); font-size:.85rem; color:var(--gold); margin-bottom:.6rem; }
+    .leela-text { font-size:.8rem; color:var(--parchment-dk); line-height:1.75; }
+    .leela-source { font-family:var(--font-heading); font-size:.5rem; letter-spacing:.15em; text-transform:uppercase; color:var(--saffron); margin-top:.6rem; border-top:1px solid rgba(212,160,23,0.1); padding-top:.5rem; }
+
+    /* ═══ DWARKA SUBMERSION ═══ */
+    .submersion-section { background:linear-gradient(180deg, var(--deep-blue) 0%, var(--midnight) 100%); border-top:1px solid rgba(0,180,204,0.2); }
+
+    .dual-panel { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin:2.5rem 0; }
+    .dp-panel { padding:2rem; border-top:3px solid; position:relative; }
+    .dp-panel.era { border-color:var(--gold); background:rgba(212,160,23,0.04); }
+    .dp-panel.after { border-color:var(--peacock-mid); background:rgba(0,77,110,0.08); }
+    .dp-label { font-family:var(--font-heading); font-size:.62rem; letter-spacing:.25em; text-transform:uppercase; margin-bottom:1rem; }
+    .dp-panel.era .dp-label { color:var(--gold); }
+    .dp-panel.after .dp-label { color:var(--peacock-light); }
+    .dp-text { font-size:.88rem; color:var(--parchment); line-height:1.85; }
+    .dp-text strong { color:var(--gold-light); }
+
+    /* ═══ BHAGAVAD GITA VERSES ═══ */
+    .gita-verses-section { background:linear-gradient(180deg, var(--midnight) 0%, var(--indigo) 100%); border-top:1px solid rgba(212,160,23,0.15); }
+
+    .verse-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin:2.5rem 0; }
+    .verse-card {
+      background:linear-gradient(160deg, rgba(0,77,110,0.12), rgba(6,8,20,0.8));
+      border:1px solid rgba(212,160,23,0.15); padding:2rem; transition:all .3s;
+    }
+    .verse-card:hover { border-color:rgba(212,160,23,0.4); }
+    .verse-ref { font-family:var(--font-heading); font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--saffron); margin-bottom:.6rem; }
+    .verse-dev { font-family:var(--font-dev); font-size:.95rem; color:var(--gold-pale); line-height:1.9; margin-bottom:.7rem; }
+    .verse-trans { font-style:italic; font-size:.85rem; color:var(--parchment); line-height:1.8; margin-bottom:.5rem; }
+    .verse-theme { font-family:var(--font-heading); font-size:.55rem; letter-spacing:.15em; text-transform:uppercase; color:var(--peacock-light); }
+
+    /* ═══ REFERENCE TABLE ═══ */
+    .ref-section { background:linear-gradient(180deg, var(--indigo) 0%, var(--midnight) 100%); border-top:1px solid rgba(212,160,23,0.12); }
+    .ref-table { width:100%; border-collapse:collapse; margin:2rem 0; }
+    .ref-table th { font-family:var(--font-heading); font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border-bottom:1px solid rgba(212,160,23,0.3); padding:.9rem 1rem; text-align:left; background:rgba(212,160,23,0.04); }
+    .ref-table td { padding:.85rem 1rem; color:var(--parchment); border-bottom:1px solid rgba(212,160,23,0.07); line-height:1.65; vertical-align:top; font-size:.83rem; }
+    .ref-table tr:hover td { background:rgba(212,160,23,0.03); }
+    .ref-table .dev-cell { font-family:var(--font-dev); font-size:.88rem; color:var(--gold-pale); }
+    .rbadge { display:inline-block; font-family:var(--font-heading); font-size:.5rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); background:var(--gold); padding:.15rem .5rem; border-radius:2px; white-space:nowrap; }
+
+    /* ═══ NEXT / FOOTER ═══ */
+    .next-chapter {
+      position:relative; z-index:10;
+      background:linear-gradient(135deg, rgba(0,77,110,0.2), var(--midnight));
+      border-top:1px solid rgba(212,160,23,0.4); border-bottom:1px solid rgba(212,160,23,0.4);
+      padding:5rem 2rem; text-align:center;
+    }
+    .nc-eyebrow { font-family:var(--font-heading); font-size:.6rem; letter-spacing:.35em; text-transform:uppercase; color:var(--saffron); margin-bottom:1rem; }
+    .nc-title { font-family:var(--font-display); font-size:clamp(1.5rem,3vw,2.5rem); color:var(--gold-pale); margin-bottom:.8rem; }
+    .nc-sub { font-family:var(--font-dev); font-size:1.1rem; color:var(--gold); margin-bottom:2rem; }
+    .nc-desc { font-size:.95rem; font-style:italic; color:var(--parchment); max-width:620px; margin:0 auto 2.5rem; line-height:1.85; }
+
+    .btn-gold { font-family:var(--font-heading); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink); background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--amber)); border:none; padding:1rem 2.2rem; cursor:pointer; text-decoration:none; display:inline-block; transition:all .3s; box-shadow:0 4px 20px rgba(212,160,23,0.4); clip-path:polygon(10px 0%,calc(100% - 10px) 0%,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0% calc(100% - 10px),0% 10px); }
+    .btn-gold:hover { transform:translateY(-3px); box-shadow:0 8px 35px rgba(212,160,23,0.6); }
+    .btn-outline { font-family:var(--font-heading); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); background:transparent; border:1px solid var(--gold); padding:1rem 2.2rem; text-decoration:none; display:inline-block; transition:all .3s; clip-path:polygon(10px 0%,calc(100% - 10px) 0%,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0% calc(100% - 10px),0% 10px); }
+    .btn-outline:hover { background:rgba(212,160,23,0.1); transform:translateY(-3px); }
+
+    footer { position:relative; z-index:10; background:rgba(2,3,8,1); border-top:1px solid rgba(212,160,23,0.15); padding:2.5rem 2rem; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-brand { font-family:var(--font-dev); font-size:1.3rem; color:var(--gold); }
+    .footer-row { display:flex; gap:1.5rem; flex-wrap:wrap; }
+    .footer-row a { font-family:var(--font-heading); font-size:.58rem; letter-spacing:.15em; text-transform:uppercase; color:var(--parchment-dk); text-decoration:none; transition:color .2s; }
+    .footer-row a:hover { color:var(--gold); }
+    .footer-copy { font-family:var(--font-heading); font-size:.55rem; letter-spacing:.1em; color:rgba(212,160,23,0.3); }
+
+    /* ═══ ANIMATIONS ═══ */
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(25px)} to{opacity:1;transform:none} }
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:none} }
+    @keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+
+    .reveal { opacity:0; transform:translateY(35px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity:1; transform:none; }
+    .rd1{transition-delay:.1s} .rd2{transition-delay:.2s} .rd3{transition-delay:.3s}
+    .rd4{transition-delay:.4s} .rd5{transition-delay:.5s}
+
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:1100px){
+      .birth-grid { grid-template-columns:1fr; }
+      .krishna-profile { grid-template-columns:1fr; }
+      .profile-card { position:static; }
+      .gita-grid { grid-template-columns:1fr; }
+      .dual-panel { grid-template-columns:1fr; }
+      .verse-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:700px){
+      .family-grid { grid-template-columns:1fr; }
+      .dwarka-stats { grid-template-columns:repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="cosmos"></canvas>
+<div class="sacred-frame"></div>
+
+<!-- ══ SUDARSHANA CHAKRA VISUALS ══ -->
+<svg class="sudarshana" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="300" cy="300" r="290" stroke="rgba(212,160,23,1)" stroke-width="4"/>
+  <circle cx="300" cy="300" r="265" stroke="rgba(0,180,204,1)" stroke-width="2"/>
+  <circle cx="300" cy="300" r="240" stroke="rgba(212,160,23,1)" stroke-width="1"/>
+  <circle cx="300" cy="300" r="80" stroke="rgba(212,160,23,1)" stroke-width="2"/>
+  <circle cx="300" cy="300" r="40" stroke="rgba(0,180,204,1)" stroke-width="1.5" fill="rgba(0,180,204,0.1)"/>
+  <!-- 32 spokes -->
+  <g stroke="rgba(212,160,23,1)" stroke-width="1.2">
+    <line x1="300" y1="10" x2="300" y2="590"/>
+    <line x1="10" y1="300" x2="590" y2="300"/>
+    <line x1="77" y1="77" x2="523" y2="523"/>
+    <line x1="523" y1="77" x2="77" y2="523"/>
+    <line x1="44" y1="188" x2="556" y2="412"/>
+    <line x1="556" y1="188" x2="44" y2="412"/>
+    <line x1="188" y1="44" x2="412" y2="556"/>
+    <line x1="412" y1="44" x2="188" y2="556"/>
+    <line x1="27" y1="137" x2="573" y2="463"/>
+    <line x1="573" y1="137" x2="27" y2="463"/>
+    <line x1="137" y1="27" x2="463" y2="573"/>
+    <line x1="463" y1="27" x2="137" y2="573"/>
+    <line x1="20" y1="244" x2="580" y2="356"/>
+    <line x1="580" y1="244" x2="20" y2="356"/>
+    <line x1="244" y1="20" x2="356" y2="580"/>
+    <line x1="356" y1="20" x2="244" y2="580"/>
+  </g>
+  <!-- Flame points around edge -->
+  <g fill="rgba(212,160,23,0.8)">
+    <polygon points="300,5 308,25 292,25"/>
+    <polygon points="300,595 308,575 292,575"/>
+    <polygon points="5,300 25,308 25,292"/>
+    <polygon points="595,300 575,308 575,292"/>
+    <polygon points="77,77 88,99 66,99"/>
+    <polygon points="523,523 512,501 534,501"/>
+    <polygon points="523,77 512,99 534,99"/>
+    <polygon points="77,523 88,501 66,501"/>
+  </g>
+</svg>
+
+<svg class="sudarshana-inner" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="200" cy="200" r="190" stroke="rgba(0,180,204,0.8)" stroke-width="1.5"/>
+  <circle cx="200" cy="200" r="160" stroke="rgba(212,160,23,0.5)" stroke-width="1"/>
+  <!-- 16 inner spokes -->
+  <g stroke="rgba(0,180,204,0.6)" stroke-width="1">
+    <line x1="200" y1="10" x2="200" y2="390"/>
+    <line x1="10" y1="200" x2="390" y2="200"/>
+    <line x1="67" y1="67" x2="333" y2="333"/>
+    <line x1="333" y1="67" x2="67" y2="333"/>
+    <line x1="38" y1="130" x2="362" y2="270"/>
+    <line x1="362" y1="130" x2="38" y2="270"/>
+    <line x1="130" y1="38" x2="270" y2="362"/>
+    <line x1="270" y1="38" x2="130" y2="362"/>
+  </g>
+  <circle cx="200" cy="200" r="50" stroke="rgba(212,160,23,0.4)" stroke-width="1" fill="rgba(212,160,23,0.05)"/>
+</svg>
+
+<!-- ══ NAV ══ -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">यादव वंश <span>Yadav Lineage</span></a>
+    <span class="nav-chapter">Chapter IV — Lord Krishna</span>
+    <a href="yadu.html" class="nav-back">← Chapter III</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="divine-aura"></div>
+
+  <p class="hero-badge">Chapter IV · चतुर्थ अध्याय</p>
+  <div class="hero-om">ॐ नमो भगवते वासुदेवाय</div>
+  <div class="hero-glyph">कृष्ण</div>
+  <h1 class="hero-title">Lord Krishna</h1>
+  <div class="hero-epithets">
+    <span class="epithet">Vasudeva</span>
+    <span class="epithet">Govinda</span>
+    <span class="epithet">Madhava</span>
+    <span class="epithet">Murari</span>
+    <span class="epithet">Gopala</span>
+    <span class="epithet">Chakrapani</span>
+    <span class="epithet">Parthasarathi</span>
+  </div>
+  <p class="hero-sub">यादव शिरोमणि — The Crown Jewel of the Yadav Race</p>
+  <div class="hero-divider"><div class="hdg"></div></div>
+  <p class="hero-lead">
+    At the end of an unbroken chain of ancestors stretching from Brahma himself — through the Moon, through Pururavas, through the great Yayati, through King Yadu — was born the most celebrated being in all of human history. <em>Lord Krishna</em>: the 8th avatar of Vishnu, the speaker of the Bhagavad Gita, the founder of Dwarka, the king of kings who chose to be a cowherd, the Yadav who became the universe itself.
+  </p>
+  <div class="chapter-pills">
+    <a href="#birth" class="pill active">The Birth</a>
+    <a href="#profile" class="pill">Full Profile</a>
+    <a href="#life-phases" class="pill">Life Phases</a>
+    <a href="#leelas" class="pill">Divine Leelas</a>
+    <a href="#dwarka" class="pill">Dwarka</a>
+    <a href="#vrishni-clan" class="pill">Vrishni Clan</a>
+    <a href="#family" class="pill">Krishna's Family</a>
+    <a href="#gita" class="pill">Bhagavad Gita</a>
+    <a href="#mahabharata" class="pill">Mahabharata Role</a>
+    <a href="#submersion" class="pill">End of Dwarka</a>
+    <a href="#Yadav-legacy" class="pill">Yadav Legacy</a>
+    <a href="#references" class="pill">Scripture</a>
+  </div>
+  <div class="scroll-cue"><span>Enter the Sacred Story</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ══ SLOKA ══ -->
+<div class="sloka-band">
+  <p class="sloka-dev">वसुदेवसुतं देवं कंसचाणूरमर्दनम्।<br/>देवकीपरमानन्दं कृष्णं वन्दे जगद्गुरुम्।।</p>
+  <p class="sloka-trans">"I bow to Krishna — son of Vasudeva, destroyer of Kamsa and Chanura, the supreme bliss of Devaki, the teacher of all worlds."</p>
+  <p class="sloka-ref">— Traditional Mangalacharana · Recited at the opening of all Krishna worship</p>
+</div>
+
+<main>
+
+<!-- ══════════════════════════════════════════
+     THE MIRACULOUS BIRTH
+══════════════════════════════════════════ -->
+<section id="birth" class="birth-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Most Celebrated Birth in Human History</p>
+    <h2 class="sec-title reveal">The Birth of Krishna — Ashtami at Midnight</h2>
+    <p class="lead reveal">On the <strong>8th night of the dark fortnight of the month of Shravana</strong> (Bhadrapada in some traditions), when the constellation Rohini was ascendant — in the deepest darkness of a monsoon night — in a prison cell in the city of Mathura — was born the being who would change everything.</p>
+
+    <div class="birth-grid">
+      <div class="reveal">
+        <h3 class="sub-title" style="margin-top:0;">The Context — Why Krishna Was Born</h3>
+        <div class="body-text">
+          The earth was groaning under the weight of <em>adharma</em>. Wicked kings — most prominently <strong>Kamsa</strong>, king of Mathura — had subjugated righteous people, slaughtered sages, and desecrated sacred sites. The gods appealed to Lord Vishnu. Vishnu promised: <em>"I shall descend."</em> He chose to be born as the 8th child of <strong>Vasudeva</strong> (a Vrishni Yadav) and <strong>Devaki</strong> (Kamsa's own cousin), so that the instrument of evil's destruction would come from within evil's own family.
+        </div>
+
+        <div class="qblock">
+          <p class="qdev">यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।<br/>अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्।।<br/>परित्राणाय साधूनां विनाशाय च दुष्कृताम्।<br/>धर्मसंस्थापनार्थाय सम्भवामि युगे युगे।।</p>
+          <p class="qtrans">"Whenever there is a decline in righteousness, O Bharata, and a rise of unrighteousness — then I manifest Myself. For the protection of the righteous, for the destruction of the wicked, and to re-establish dharma, I take birth age after age."</p>
+          <p class="qsrc">— Bhagavad Gita 4.7–8 — Krishna's own declaration of the purpose of his incarnation</p>
+        </div>
+
+        <h3 class="sub-title">The Night of the Birth</h3>
+        <div class="body-text">
+          The Bhagavata Purana (X.3) describes the birth night with extraordinary poetic power. As the hour of midnight approached, all of nature responded: <strong>the rivers ran clear, the forests bloomed, the sky filled with stars, celestial drums sounded, the gandharvas sang</strong>. Kamsa's sentries fell into divine sleep. The prison chains of Vasudeva and Devaki fell away on their own. The prison doors opened by themselves.
+        </div>
+        <div class="body-text">
+          Vasudeva lifted the newborn Krishna — radiant, four-armed, bearing the conch, discus, mace, and lotus, wearing the Kaustubha jewel, adorned with a peacock feather — and carried him through the flooded Yamuna river. The Yamuna parted to let him pass. A multi-hooded serpent (Shesha Naga) spread its hoods over the child as an umbrella in the monsoon rain. Vasudeva placed the baby in Gokul, with the cowherd chief <strong>Nanda Maharaja</strong> and his wife <strong>Yashoda</strong> — and returned to the prison with their newborn daughter.
+        </div>
+
+        <div class="hbox">
+          <div class="hb-title">The Eight Miracles of Krishna's Birth Night</div>
+          <ul class="hb-list">
+            <li>The prison chains of Vasudeva and Devaki fell away spontaneously at the moment of birth</li>
+            <li>The eight heavily-bolted prison doors opened on their own without any human touch</li>
+            <li>All guards fell into a deep supernatural sleep — undisturbable until morning</li>
+            <li>The flooded Yamuna parted to allow Vasudeva to cross on foot, the water touching only Krishna's feet</li>
+            <li>Shesha Naga descended from Vaikuntha to shelter the child with his thousand hoods</li>
+            <li>All of nature — forest, river, sky — responded with joy: flowers bloomed, stars brightened, celestial music sounded</li>
+            <li>In Gokul, Yashoda's memory of giving birth was erased — she believed the child Vasudeva left was her own</li>
+            <li>The daughter of Yashoda (the goddess Yogamaya) who was exchanged for Krishna, when Kamsa tried to kill her, flew from his hands and proclaimed: "Your destroyer is already born elsewhere!"</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Prison visual -->
+      <div class="prison-visual reveal">
+        <div class="prison-bars">
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        </div>
+        <div class="prison-glow"></div>
+        <div class="birth-text-center">
+          <div class="birth-glyph">कृष्ण</div>
+          <div class="birth-date-badge">Rohini Nakshatra · Ashtami · Midnight</div>
+          <div class="birth-miracle">Born in a prison cell in Mathura<br/>to free the entire world</div>
+          <div style="margin-top:1.5rem; font-family:var(--font-dev); font-size:1.3rem; color:rgba(212,160,23,0.6);">
+            वसुदेव-देवकी-सुत
+          </div>
+          <div style="margin-top:.5rem; font-size:.75rem; color:var(--parchment-dk); font-style:italic;">
+            Son of Vasudeva & Devaki<br/>
+            Raised by Nanda & Yashoda
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     KRISHNA — FULL PROFILE
+══════════════════════════════════════════ -->
+<section id="profile" style="background:linear-gradient(180deg, var(--deep-blue) 0%, var(--indigo) 100%); border-top:1px solid rgba(212,160,23,0.15); padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Complete Divine Portrait</p>
+    <h2 class="sec-title reveal">Lord Krishna — A Full Profile</h2>
+
+    <div class="krishna-profile">
+      <div class="reveal">
+        <div class="profile-card">
+          <span class="pc-peacock">🪶</span>
+          <span class="pc-glyph">कृष्ण</span>
+          <div class="pc-name-en">Lord Krishna</div>
+          <div class="pc-name-dev">श्री कृष्ण वासुदेव</div>
+          <div class="pc-divider"></div>
+          <div class="pc-attrs">
+            <div class="pa-row"><span class="pa-label">Lineage</span><span class="pa-val">Brahma → Atri → Chandra → Budha → Pururavas → Ayus → Nahusha → Yayati → Yadu → Kroshtu → … → Shurasena → Vasudeva → <strong>Krishna</strong></span></div>
+            <div class="pa-row"><span class="pa-label">Generation</span><span class="pa-val">~24th from Brahma · ~17th from Yadu</span></div>
+            <div class="pa-row"><span class="pa-label">Clan</span><span class="pa-val highlight">Vrishni — the most celebrated sub-clan of the Yadavs</span></div>
+            <div class="pa-row"><span class="pa-label">Birth Parents</span><span class="pa-val">Vasudeva (father) · Devaki (mother)</span></div>
+            <div class="pa-row"><span class="pa-label">Foster Parents</span><span class="pa-val">Nanda Maharaja (foster father) · Yashoda (foster mother) — Abhira Yadavs of Gokul</span></div>
+            <div class="pa-row"><span class="pa-label">Birth Place</span><span class="pa-val">Mathura — prison of Kamsa (3228 BCE per traditional dating)</span></div>
+            <div class="pa-row"><span class="pa-label">Principal Wives</span><span class="pa-val">Rukmini (principal queen, avatar of Lakshmi) · Satyabhama · Jambavati · Kalindi · Mitravinda · Nagnajiti · Bhadra · Lakshmana — 8 principal queens</span></div>
+            <div class="pa-row"><span class="pa-label">Sons</span><span class="pa-val">Pradyumna (by Rukmini) · Samba (by Jambavati) · Aniruddha (Pradyumna's son, Krishna's grandson) · and many others</span></div>
+            <div class="pa-row"><span class="pa-label">Colour</span><span class="pa-val">Shyama (dark blue-black) — the colour of a monsoon cloud, of infinite depth</span></div>
+            <div class="pa-row"><span class="pa-label">Attributes</span><span class="pa-val">Sudarshana Chakra · Panchajanya conch · Kaumodaki mace · Sharanga bow · Nandaka sword · Peacock feather · Vaijayanti garland · Kaustubha jewel</span></div>
+            <div class="pa-row"><span class="pa-label">Vehicle</span><span class="pa-val">Garuda (eagle — vehicle of Vishnu)</span></div>
+            <div class="pa-row"><span class="pa-label">Flute</span><span class="pa-val">Murali — the divine flute whose music draws all living beings irresistibly</span></div>
+            <div class="pa-row"><span class="pa-label">Capital</span><span class="pa-val">Dwarka — the golden city built by Vishwakarma on the western seacoast</span></div>
+            <div class="pa-row"><span class="pa-label">Avatar</span><span class="pa-val">8th of the 10 principal Dashavatara of Vishnu</span></div>
+            <div class="pa-row"><span class="pa-label">Philosophy</span><span class="pa-val">Bhagavad Gita — 700 verses spoken on the battlefield of Kurukshetra to Arjuna</span></div>
+            <div class="pa-row"><span class="pa-label">Departure</span><span class="pa-val">Departed earth at Bhalka Tirth (Somnath, Gujarat) — struck by a hunter's arrow at his foot</span></div>
+            <div class="pc-divider"></div>
+            <div class="pa-row"><span class="pa-label">In Gita</span><span class="pa-val dev">वृष्णीनां वासुदेवोऽस्मि — "Among the Vrishnis, I am Vasudeva (Krishna)" — Bhagavad Gita 10.37</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <h3 class="sub-title" style="margin-top:0;">The Supreme Yadav</h3>
+        <div class="body-text">
+          Lord Krishna is not merely the greatest figure in Yadav history — he is, in the Puranic and Vedantic understanding, the source from which the entire Yadav lineage draws its ultimate meaning. The Bhagavata Purana (I.3.28) declares: <em>ete chamsha-kalah pumsa krishnas tu bhagavan svayam</em> — <strong>"All the avatars are partial manifestations; Krishna alone is Bhagavan himself in fullness."</strong>
+        </div>
+        <div class="body-text">
+          For the Yadav community, this means something extraordinary: <strong>their ancestor-community gave birth to the divine itself</strong>. Not a partial divine — the complete, unlimited, infinite divine in human form. The entire genealogical chain from Brahma to Yadu to Vasudeva was not merely history — it was the universe preparing the vessel through which God would walk the earth.
+        </div>
+
+        <div class="qblock">
+          <p class="qdev">एते चांशकलाः पुंसः कृष्णस्तु भगवान् स्वयम्।<br/>इन्द्रारिव्याकुलं लोकं मृडयन्ति युगे युगे।।</p>
+          <p class="qtrans">"All of these [avatars] are parts or partial manifestations of the Lord — but Krishna is Bhagavan (God) Himself. They all appear age after age to protect the worlds disturbed by the enemies of Indra."</p>
+          <p class="qsrc">— Bhagavata Purana I.3.28 — the definitive verse on Krishna's supreme status</p>
+        </div>
+
+        <h3 class="sub-title">Krishna as Yadav — Not Despite, But Because</h3>
+        <div class="body-text">
+          A profound question: why did the supreme divine choose to incarnate specifically as a Yadav? The Bhagavatam's answer is multilayered. First, <strong>the Yadavs' freedom from the ego of kingship</strong> (resulting from Yayati's curse on Yadu) meant Krishna could be born into a community that was proud but not power-obsessed — a community where love and bhakti, not political calculation, were the primary values.
+        </div>
+        <div class="body-text">
+          Second, the <strong>pastoral nature of the Abhira-Yadavs of Gokul</strong> — their life among cows, forests, rivers — provided the perfect environment for an avatar whose fundamental message was <em>love as the highest spiritual path</em>. Krishna's childhood in Gokul, surrounded by simple cowherd folk who loved him purely, without knowledge of his divinity, demonstrates the deepest form of divine-human relationship: <strong>love that knows no calculation</strong>.
+        </div>
+        <div class="body-text">
+          Third, the <strong>warrior tradition of the Vrishni Yadavs</strong> — from which Vasudeva came — gave Krishna the martial context in which the Bhagavad Gita's deepest teachings about action, duty, and detachment could be delivered. Without the Yadav warrior-heritage, there would be no battlefield, no Arjuna's crisis, no Gita.
+        </div>
+
+        <h3 class="sub-title">108 Names of Krishna — The Yadav Identities</h3>
+        <div class="body-text">
+          Among Krishna's 108 principal names, several directly reference his Yadav identity:
+          <strong>Vasudeva</strong> (son of Vasudeva / son of the Yadav king) · <strong>Madhava</strong> (of the Madhu/Yadav clan) · <strong>Yadav</strong> (of the Yadu lineage) · <strong>Vrishni-sattama</strong> (best of the Vrishnis) · <strong>Gopala</strong> (protector of cows — the Yadav tradition) · <strong>Gokula-nandana</strong> (joy of the Gokul Yadavs) · <strong>Mathura-natha</strong> (lord of Mathura) · <strong>Dwarkadhisha</strong> (king of Dwarka). <em>Every one of these names is a Yadav name</em> — God incarnated with the full, proud identity of his community.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     LIFE PHASES TIMELINE
+══════════════════════════════════════════ -->
+<section id="life-phases" class="timeline-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">A Divine Life in Seven Movements</p>
+    <h2 class="sec-title reveal">The Life of Krishna — From Birth to Departure</h2>
+    <p class="lead reveal">Krishna's life, as recorded in the Bhagavata Purana (Skandhas X and XI), the Harivamsa, and the Mahabharata, unfolds in seven magnificent movements — each one a world unto itself.</p>
+
+    <div class="life-phases">
+      <div class="phase">
+        <div class="phase-icon-wrap">
+          <div class="phase-icon active-phase">🌙</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-label">Phase I · Birth Period</div>
+          <div class="phase-title">The Mathura Birth — Divine Arrival</div>
+          <div class="phase-dev">मथुरा · जन्म</div>
+          <div class="phase-text">Born at midnight on Krishnashtami in the prison of Kamsa. Transferred to Gokul by Vasudeva across the monsoon Yamuna. The city of Mathura — already ancient and sacred — became forever sanctified as the birthplace of God. <strong>Mathura is one of the seven moksha-puri (cities of liberation) in Hinduism specifically because of Krishna's birth there.</strong> The original Keshava Deva temple marks the exact birth spot (janmabhoomi).</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-icon-wrap">
+          <div class="phase-icon">🐄</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-label">Phase II · Childhood · Ages 0–11</div>
+          <div class="phase-title">Gokul and Vrindavan — The Lila Years</div>
+          <div class="phase-dev">गोकुल · वृन्दावन · बाल्यकाल</div>
+          <div class="phase-text">The most beloved phase — Krishna's childhood among the Abhira-Yadavs of Gokul and Vrindavan. Here he was <strong>Gopal</strong> (the cowherd), <strong>Makhan-chor</strong> (the butter-stealer), the child who danced with the Gopis, who lifted the Govardhan mountain, who played the flute under the kadamba tree. The sheer concentration of supernatural events (leelas) in this period — killing of Putana, Trinavarta, Bakasura, Aghasura, Dhenukasura, and many others — shows the divine systematically dismantling the forces of evil while appearing as a charming child.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-icon-wrap">
+          <div class="phase-icon active-phase">⚔️</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-label">Phase III · Youth · Ages 11–16</div>
+          <div class="phase-title">The Return to Mathura — Kamsa's End</div>
+          <div class="phase-dev">मथुरा-प्रत्यावर्तन · कंसवध</div>
+          <div class="phase-text">Akrura (of the Kukura Yadav clan) came to Gokul bearing Kamsa's invitation to a wrestling tournament. Krishna and Balarama entered Mathura and systematically dismantled Kamsa's forces. <strong>Krishna killed Kamsa's elephant Kuvalayapida, then defeated the wrestling champions Chanura and Mushtika, and finally killed Kamsa himself</strong> — fulfilling the prophecy made at Kamsa and Devaki's wedding. He restored King Ugrasena (Kamsa's father, whom Kamsa had imprisoned) to the Mathura throne. He then met his parents Vasudeva and Devaki for the first time consciously and touched their feet.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-icon-wrap">
+          <div class="phase-icon">📚</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-label">Phase IV · Education</div>
+          <div class="phase-title">Sandipani's Ashram — The Education of God</div>
+          <div class="phase-dev">सान्दीपनि आश्रम · उज्जैन</div>
+          <div class="phase-text">Krishna and Balarama studied for <strong>64 days at the ashram of Sandipani Muni</strong> in Ujjain — and mastered in 64 days what ordinarily takes 64 years. They learned the 64 arts, the Vedas, the Vedangas, military science, political science, music, and all branches of knowledge. As guru-dakshina (teacher's fee), they retrieved Sandipani's dead son from the realm of Yama — demonstrating that even death must yield to Krishna's will. <strong>The tradition of Yadavs as quick learners and multi-talented people reflects this ancestral heritage.</strong></div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-icon-wrap">
+          <div class="phase-icon active-phase">🏛️</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-label">Phase V · Kingship · Ages 17–100+</div>
+          <div class="phase-title">Dwarka — The Golden City</div>
+          <div class="phase-dev">द्वारका · यादव राज्य</div>
+          <div class="phase-text">After repeated attacks on Mathura by Jarasandha (king of Magadha, father-in-law of Kamsa), Krishna made a strategic decision: to relocate the entire Yadav community to a new, purpose-built, impregnable city on the western coast. <strong>Dwarka was built in a single day by Vishwakarma</strong>, the divine architect, on land reclaimed from the sea. Its 12-league (96 km) perimeter, 900,000 royal palaces, and million residents made it the greatest city in India. Here Krishna ruled as the supreme king of the Yadavs while also guiding the destinies of all kingdoms in Bharatavarsha.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-icon-wrap">
+          <div class="phase-icon active-phase">📖</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-label">Phase VI · The Great War</div>
+          <div class="phase-title">Kurukshetra — The Bhagavad Gita</div>
+          <div class="phase-dev">कुरुक्षेत्र · गीता · सारथि</div>
+          <div class="phase-text">The Pandavas (descendants of Puru, Yadu's brother) went to war against the Kauravas. Krishna, refusing to fight directly, chose to serve as <strong>charioteer to Arjuna</strong> — the greatest act of divine humility in human history. God chose to drive a man's chariot. On the first day of battle, when Arjuna collapsed in grief and refused to fight, Krishna spoke the <strong>Bhagavad Gita</strong> — 18 chapters, 700 verses, the most compressed and complete philosophical document ever produced. The Gita is the Supreme Yadav's gift to all humanity for all time.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-icon-wrap">
+          <div class="phase-icon">🌊</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-label">Phase VII · Departure</div>
+          <div class="phase-title">The End of the Yadav Age — Return to the Eternal</div>
+          <div class="phase-dev">यादव-संहार · द्वारका-समाधि · बैकुण्ठ-गमन</div>
+          <div class="phase-text">36 years after the Mahabharata war, a curse from the sage Durvasa — provoked by the irreverence of Samba (Krishna's son) — caused the Yadavs to destroy each other in a fratricidal conflict at Prabhasa. Krishna, whose only way to prevent it was to allow it (for it was karma), meditated at Bhalka Tirth. A hunter named Jara mistook his lotus foot for a deer and shot an arrow. Krishna departed from his mortal form at that moment — and simultaneously, the city of Dwarka submerged into the ocean. The Yadav age was complete.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     DIVINE LEELAS
+══════════════════════════════════════════ -->
+<section id="leelas" class="leela-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Divine Acts · लीला</p>
+    <h2 class="sec-title reveal">Krishna's Divine Leelas — Miracles Recorded in Scripture</h2>
+    <p class="lead reveal">The Bhagavata Purana (Skandha X) records <strong>over 100 distinct divine acts</strong> (leelas) of Krishna — each one a complete theological statement about the nature of the divine. Here are the 18 most celebrated, with their scriptural source and spiritual significance for the Yadav tradition.</p>
+
+    <div class="leela-grid">
+      <div class="leela-card reveal rd1">
+        <div class="leela-num">I</div>
+        <div class="leela-title">Killing of Putana</div>
+        <div class="leela-dev">पूतना मोक्ष</div>
+        <div class="leela-text">Kamsa sent the demoness Putana disguised as a beautiful woman to nurse baby Krishna with poison in her breast. Krishna drank the poison but sucked out her life-force — liberating her simultaneously. <em>Even the killer who touched him received liberation.</em> The deepest teaching: Krishna's touch transforms even evil.</div>
+        <div class="leela-source">Bhagavata X.6 · Harivamsa II.1</div>
+      </div>
+      <div class="leela-card reveal rd2">
+        <div class="leela-num">II</div>
+        <div class="leela-title">The Cosmic Form in Yashoda's Mouth</div>
+        <div class="leela-dev">विश्वरूप दर्शन</div>
+        <div class="leela-text">Yashoda, scolding Krishna for eating mud, opened his mouth to check — and saw the entire universe within: all the planets, all the gods, all of time, the cosmic ocean, the stellar systems. She immediately forgot what she had seen, by divine grace — for no mortal mind can hold that vision. <em>God chose a simple cowherd woman for the highest vision in all of scripture.</em></div>
+        <div class="leela-source">Bhagavata X.8.37–45</div>
+      </div>
+      <div class="leela-card reveal rd3">
+        <div class="leela-num">III</div>
+        <div class="leela-title">Lifting of Govardhan Mountain</div>
+        <div class="leela-dev">गोवर्धन-धारण</div>
+        <div class="leela-text">When Indra sent catastrophic rains to punish the Gokul residents for not performing his worship, Krishna lifted the entire Govardhan mountain on his little finger and held it as an umbrella for 7 days and nights. This establishes the Yadav community as protected by God himself — and simultaneously establishes the Yadav tradition of <strong>Govardhan Puja</strong> that continues to this day.</div>
+        <div class="leela-source">Bhagavata X.24–25</div>
+      </div>
+      <div class="leela-card reveal rd1">
+        <div class="leela-num">IV</div>
+        <div class="leela-title">The Rasa Lila</div>
+        <div class="leela-dev">रास लीला — वृन्दावन</div>
+        <div class="leela-text">On a full-moon night in autumn in Vrindavan, Krishna played his flute. Every Gopi (cowherd woman) left her home, her duties, her sleeping husband — drawn irresistibly by the divine music. The subsequent dance — the Rasa Lila — is the Bhagavata's supreme symbol of the soul's total absorption in God. Each Gopi thought Krishna was dancing only with her. He had multiplied himself to be with each one simultaneously. <em>The model of bhakti in its highest form.</em></div>
+        <div class="leela-source">Bhagavata X.29–33</div>
+      </div>
+      <div class="leela-card reveal rd2">
+        <div class="leela-num">V</div>
+        <div class="leela-title">Killing of Kamsa</div>
+        <div class="leela-dev">कंसवध</div>
+        <div class="leela-text">The central political act of Krishna's youth. After defeating all of Kamsa's champions in the wrestling arena, Krishna leaped over the arena wall, grabbed Kamsa by the hair, and slew him. <strong>He then freed his parents Vasudeva and Devaki from prison</strong> and touched their feet — the son meeting his birth parents for the first time consciously. Kamsa's death liberated all of Mathura and restored the Yadav kingdom of the Yadavs' rightful king Ugrasena.</div>
+        <div class="leela-source">Bhagavata X.43–44</div>
+      </div>
+      <div class="leela-card reveal rd3">
+        <div class="leela-num">VI</div>
+        <div class="leela-title">Rukmini's Abduction — The Great Romance</div>
+        <div class="leela-dev">रुक्मिणी-हरण</div>
+        <div class="leela-text">Rukmini — princess of Vidarbha, avatar of Lakshmi — sent a secret letter to Krishna professing her love and asking him to come to her before her unwanted marriage to Shishupala. On the appointed day, as Rukmini walked out of the temple to fetch flowers for worship, Krishna appeared on his chariot, lifted her in a single motion, and carried her away while Balarama and the Yadav army held off pursuers. <em>The greatest love story in Yadav history.</em></div>
+        <div class="leela-source">Bhagavata X.52–54</div>
+      </div>
+      <div class="leela-card reveal rd1">
+        <div class="leela-num">VII</div>
+        <div class="leela-title">Killing of Narakasura</div>
+        <div class="leela-dev">नरकासुर-वध</div>
+        <div class="leela-text">The demon Narakasura had imprisoned 16,100 women in his palace after capturing them from kings across the world. Krishna and Satyabhama attacked Narakasura's city of Pragjyotishapura at dawn. Krishna killed Narakasura. He freed all 16,100 women and — to restore their honour and give them a respectable position — <strong>married all of them</strong>, giving each her own palace in Dwarka. This act of divine compassion is one of the most remarkable in the entire Bhagavata.</div>
+        <div class="leela-source">Bhagavata X.59</div>
+      </div>
+      <div class="leela-card reveal rd2">
+        <div class="leela-num">VIII</div>
+        <div class="leela-title">The Syamantaka Jewel Episode</div>
+        <div class="leela-dev">स्यमन्तक मणि</div>
+        <div class="leela-text">The Syamantaka was a gem that produced 8 bharas of gold daily and prevented drought, disease, and calamity in its vicinity. After complex events — its theft, loss, recovery — the jewel passed through several hands. Krishna's involvement in its recovery, and his eventual clearing of false accusations related to it, demonstrates the Yadav ideal of <strong>integrity above convenience</strong>. The episode occupies a full chapter of the Bhagavata (X.56–57).</div>
+        <div class="leela-source">Bhagavata X.56–57</div>
+      </div>
+      <div class="leela-card reveal rd3">
+        <div class="leela-num">IX</div>
+        <div class="leela-title">Killing of Shishupala</div>
+        <div class="leela-dev">शिशुपालवध</div>
+        <div class="leela-text">At Yudhishthira's Rajasuya yajna, Shishupala (king of Chedi) verbally abused Krishna 100 times — having been promised by Krishna's mother that his first 100 offenses would be pardoned. At the 101st offense, Krishna calmly hurled his Sudarshana Chakra and decapitated Shishupala. A divine light from Shishupala's body merged into Krishna — for even his enemies were liberated by his grace. <strong>The message: patience has limits, and even enemies receive liberation from God.</strong></div>
+        <div class="leela-source">Bhagavata X.74–75 · Mahabharata Sabha Parva</div>
+      </div>
+      <div class="leela-card reveal rd1">
+        <div class="leela-num">X</div>
+        <div class="leela-title">The Bhagavad Gita</div>
+        <div class="leela-dev">भगवद्गीता — कुरुक्षेत्र</div>
+        <div class="leela-text">On the first day of the Mahabharata war, Krishna — as Arjuna's charioteer — delivered the Bhagavad Gita: 18 chapters covering karma yoga, jnana yoga, bhakti yoga, raja yoga, the nature of the Atman, the nature of God, the nature of action, duty, and liberation. <strong>This single conversation changed the course of human philosophy and spirituality for all time.</strong> It remains the world's most read and studied spiritual text after the Bible.</div>
+        <div class="leela-source">Mahabharata Bhishma Parva · Bhagavad Gita Ch.1–18</div>
+      </div>
+      <div class="leela-card reveal rd2">
+        <div class="leela-num">XI</div>
+        <div class="leela-title">The Vishvarupa — Universal Form</div>
+        <div class="leela-dev">विश्वरूप दर्शन — अर्जुन को</div>
+        <div class="leela-text">When Arjuna asked to see Krishna's true cosmic form, Krishna granted him divine vision and revealed the <em>Vishvarupa</em> — all of creation simultaneously present: a form with infinite heads, eyes, arms, bellies, blazing with the light of a thousand suns simultaneously. Even the greatest warriors saw themselves already consumed within that cosmic form — time devouring the world. <em>Arjuna alone of all mortals has seen the Vishvarupa in its fullness.</em></div>
+        <div class="leela-source">Bhagavad Gita Chapter 11 · Mahabharata Bhishma Parva</div>
+      </div>
+      <div class="leela-card reveal rd3">
+        <div class="leela-num">XII</div>
+        <div class="leela-title">Rescuing Draupadi's Honour</div>
+        <div class="leela-dev">द्रौपदी-रक्षण</div>
+        <div class="leela-text">When Duryodhana ordered Draupadi to be disrobed in the Kaurava court after the dice game, and all the warriors present — including her five husbands — failed to protect her, Draupadi cried out to Krishna: <em>"Govinda!"</em> Krishna, though physically absent in Dwarka, sent an endless flow of cloth to wrap around her. The humiliation was averted by pure devotion. <strong>The Yadav promise: call the name, and protection comes.</strong></div>
+        <div class="leela-source">Mahabharata Sabha Parva, Chapter 68</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     DWARKA — THE GOLDEN CITY
+══════════════════════════════════════════ -->
+<section id="dwarka" class="dwarka-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Yadav Capital · द्वारका</p>
+    <h2 class="sec-title reveal">Dwarka — The Most Magnificent City Ever Built</h2>
+    <p class="lead reveal">The city of <strong>Dwarka</strong> (<span class="dev-inline">द्वारका</span>) — built by the divine architect Vishwakarma on land reclaimed from the sea by Lord Varuna — was the supreme expression of Yadav civilization at its height. Under Krishna's stewardship, it became not just a political capital but a sacred city, a cultural capital, and a spiritual centre of the ancient world.</p>
+
+    <div class="dwarka-stats">
+      <div class="dw-stat reveal rd1">
+        <div class="dw-num">900,000</div>
+        <div class="dw-label">Royal Palaces</div>
+      </div>
+      <div class="dw-stat reveal rd2">
+        <div class="dw-num">12</div>
+        <div class="dw-label">Leagues in Circumference</div>
+      </div>
+      <div class="dw-stat reveal rd3">
+        <div class="dw-num">18</div>
+        <div class="dw-label">Akshauhini Army</div>
+      </div>
+      <div class="dw-stat reveal rd1">
+        <div class="dw-num">1 Day</div>
+        <div class="dw-label">Time to Build (by Vishwakarma)</div>
+      </div>
+      <div class="dw-stat reveal rd2">
+        <div class="dw-num">16,108</div>
+        <div class="dw-label">Queens of Krishna</div>
+      </div>
+      <div class="dw-stat reveal rd3">
+        <div class="dw-num">36 Years</div>
+        <div class="dw-label">After Mahabharata War</div>
+      </div>
+    </div>
+
+    <div class="body-text reveal" style="max-width:100%;">
+      The Bhagavata Purana (X.50, X.69) describes Dwarka in extraordinary detail. The city was <strong>built on an island 12 leagues in circumference</strong>, surrounded by the ocean and protected by Vishwakarma's divine engineering. It had <strong>wide, straight avenues</strong> (one of the earliest planned cities described in ancient literature), <strong>900,000 royal palaces</strong> decorated with crystal, gold, and jewels, <strong>public gardens and parks</strong>, <strong>assembly halls</strong> for the Yadav council (the Sudharma Sabha — the original deliberative assembly), and <strong>temples to all the major deities</strong>.
+    </div>
+
+    <h3 class="sub-title reveal">The Sudharma Sabha — Yadav Democracy</h3>
+    <div class="body-text reveal">
+      One of the most remarkable institutions at Dwarka was the <strong>Sudharma Sabha</strong> (<span class="dev-inline">सुधर्मा सभा</span>) — the great assembly hall of the Yadavs. The Bhagavata records that this assembly hall was itself a divine gift from Indra and had the special property that anyone who entered it would never feel hunger, thirst, or exhaustion. But its true significance is political: the Sudharma Sabha was a <strong>deliberative council</strong> in which the major Yadav clans were represented and major decisions were made collectively. This is one of the earliest documented examples of representative governance in the ancient world. <strong>Yadav democracy predates Greek democracy by centuries.</strong>
+    </div>
+
+    <div class="body-text reveal">
+      The historical existence of Dwarka is supported by archaeological finds off the coast of modern Dwarka (Okha, Gujarat). Underwater excavations led by the National Institute of Oceanography and the Marine Archaeology Centre have discovered stone structures, anchors, and artefacts dated to approximately 1500 BCE or earlier — consistent with a major port city of the late Vedic period. The discovery of a 9,500-year-old city off the Gulf of Khambhat has also been connected by some researchers to the Dwarka tradition.
+    </div>
+
+    <h3 class="sub-title reveal">Dwarka's Seven Sacred Qualities</h3>
+    <div class="hbox reveal">
+      <div class="hb-title">Why Dwarka Is One of the Seven Moksha-Puris</div>
+      <ul class="hb-list">
+        <li>It is the city where Lord Krishna himself lived, governed, and was accessible to all who sought him — making every stone of Dwarka divinely sanctified</li>
+        <li>The Dwarkadhisha Temple at its centre houses the presiding deity — Krishna as the king of all four gates (dwara = gate; ka = of the divine), opening the four paths to liberation</li>
+        <li>The Gomati river confluences with the sea at Dwarka — bathing at this Gomati-Sangam is said to grant liberation equivalent to performing the Ashvamedha yajna 100 times</li>
+        <li>Dwarka is the westernmost of the four sacred dhams (Char Dham pilgrimage), making it the guardian of the western direction of the sacred geography of India</li>
+        <li>The Nageshvara Jyotirlinga is located near Dwarka — one of the 12 eternal shrines of Shiva — showing the divine synthesis of Vaishnava and Shaiva traditions at this site</li>
+        <li>The Rukmini Devi temple nearby marks the residence of the divine queen — Lakshmi on earth — and is one of the few temples where Lakshmi is worshipped independently of Vishnu</li>
+        <li>The Bet Dwarka island (Shankhodhara) is identified as the original residential island of Krishna — separate from the city — and contains one of the oldest Krishna temples in existence</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     VRISHNI CLAN — KRISHNA'S CIRCLE
+══════════════════════════════════════════ -->
+<section id="vrishni-clan" class="vrishni-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Inner Circle · वृष्णि वंश</p>
+    <h2 class="sec-title reveal">The Vrishni Yadavs — Krishna's Clan at Dwarka</h2>
+    <p class="lead reveal">The Vrishni sub-clan of the Yadavs produced the most celebrated figures of the Mahabharata age. From Vasudeva's family to Satyaki the warrior, from Akrura the devotee to Uddhava the philosopher — the Vrishnis were the inner circle around Lord Krishna.</p>
+
+    <table class="clan-table reveal">
+      <thead>
+        <tr><th>Name</th><th>Sanskrit</th><th>Relation to Krishna</th><th>Clan / Branch</th><th>Significance</th></tr>
+      </thead>
+      <tbody>
+        <tr class="krishna-row">
+          <td><strong>Lord Krishna</strong> <span class="cbadge">Bhagavan</span></td>
+          <td class="dev-cell">श्री कृष्ण</td>
+          <td>The divine himself</td>
+          <td>Vrishni · son of Vasudeva</td>
+          <td>8th Avatar of Vishnu. Supreme Yadav. Speaker of the Bhagavad Gita. Founder of Dwarka.</td>
+        </tr>
+        <tr>
+          <td><strong>Vasudeva</strong> <span class="cbadge-b">Father</span></td>
+          <td class="dev-cell">वसुदेव</td>
+          <td>Biological father</td>
+          <td>Vrishni · son of Shurasena</td>
+          <td>Carried infant Krishna across the Yamuna on the birth night. One of the most revered Yadav patriarchs. His name is used in Krishna's mantra: Om Namo Bhagavate Vasudevaya.</td>
+        </tr>
+        <tr>
+          <td><strong>Devaki</strong> <span class="cbadge-b">Mother</span></td>
+          <td class="dev-cell">देवकी</td>
+          <td>Biological mother</td>
+          <td>Vrishni · cousin of Kamsa</td>
+          <td>Endured Kamsa's imprisonment for years to give birth to Krishna. Described as so pure that even God chose to be born from her womb.</td>
+        </tr>
+        <tr>
+          <td><strong>Balarama</strong></td>
+          <td class="dev-cell">बलराम</td>
+          <td>Elder brother (by Rohini)</td>
+          <td>Vrishni · avatar of Shesha</td>
+          <td>Avatar of Ananta Shesha. Master of the plough and mace. Guru of Duryodhana in mace-fighting. His white complexion contrasts with Krishna's dark blue — the eternal pair, day and night.</td>
+        </tr>
+        <tr>
+          <td><strong>Rukmini</strong></td>
+          <td class="dev-cell">रुक्मिणी</td>
+          <td>Principal queen</td>
+          <td>Vidarbha princess · avatar of Lakshmi</td>
+          <td>Chose Krishna herself by sending a secret letter. The model of a devotee who actively pursues God. Her temple at Dwarka is one of the most important Vaishnava shrines.</td>
+        </tr>
+        <tr>
+          <td><strong>Satyabhama</strong></td>
+          <td class="dev-cell">सत्यभामा</td>
+          <td>Second principal queen</td>
+          <td>Satrajit's daughter · Vrishni</td>
+          <td>Fierce, independent, devoted. Accompanied Krishna to kill Narakasura — the only queen to participate directly in a divine military campaign. Associated with the Syamantaka jewel story.</td>
+        </tr>
+        <tr>
+          <td><strong>Pradyumna</strong></td>
+          <td class="dev-cell">प्रद्युम्न</td>
+          <td>Elder son (by Rukmini)</td>
+          <td>Vrishni · avatar of Kamadeva</td>
+          <td>Avatar of Kama (love). Abducted as infant by Sambara the demon; rescued and raised by Mayavati (Rati). Returned to Dwarka; became a great warrior and one of the four Vyuha avatars.</td>
+        </tr>
+        <tr>
+          <td><strong>Aniruddha</strong></td>
+          <td class="dev-cell">अनिरुद्ध</td>
+          <td>Grandson (Pradyumna's son)</td>
+          <td>Vrishni · avatar of Vishnu's mind</td>
+          <td>Fell in love with Usha (daughter of Bana the demon king). Was bound by Bana's nagas; Krishna and Balarama attacked Shonitapura to rescue him, fighting even Shiva in the process. One of the four Vyuha avatars.</td>
+        </tr>
+        <tr>
+          <td><strong>Samba</strong></td>
+          <td class="dev-cell">साम्ब</td>
+          <td>Son (by Jambavati)</td>
+          <td>Vrishni · avatar-descended</td>
+          <td>Handsome and proud. His jest involving Durvasa Muni's curse on the Yadavs ("you will destroy each other") set in motion the end of the Yadav age — though this was ultimately Krishna's will for the community's departure.</td>
+        </tr>
+        <tr>
+          <td><strong>Uddhava</strong></td>
+          <td class="dev-cell">उद्धव</td>
+          <td>Cousin and greatest disciple</td>
+          <td>Vrishni · son of Devabhaga</td>
+          <td>Called the "greatest devotee" by Krishna himself. Received the Uddhava Gita (Bhagavata XI) — 23 chapters of the deepest philosophy — as Krishna's farewell teaching. Worshipped at Badarikashrama.</td>
+        </tr>
+        <tr>
+          <td><strong>Satyaki (Yuyudhana)</strong></td>
+          <td class="dev-cell">सात्यकि</td>
+          <td>Disciple and ally</td>
+          <td>Vrishni · Satvata clan</td>
+          <td>Krishna's charioteer's charioteer — trained by Arjuna. Fought for the Pandavas at Kurukshetra. One of the 8 great surviving warriors of the war. His skill in archery rivalled Arjuna's.</td>
+        </tr>
+        <tr>
+          <td><strong>Akrura</strong></td>
+          <td class="dev-cell">अक्रूर</td>
+          <td>Uncle (great devotee)</td>
+          <td>Kukura clan · Vrishni ally</td>
+          <td>Described as the greatest devotee in Dwarka. When he drove Krishna and Balarama to Mathura, he had a divine vision of Vishnu in the Yamuna. The Bhagavata devotes three chapters to his devotion.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     KRISHNA'S FAMILY
+══════════════════════════════════════════ -->
+<section id="family" style="background:linear-gradient(180deg, var(--indigo) 0%, var(--deep-blue) 100%); border-top:1px solid rgba(212,160,23,0.1); padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Divine Household</p>
+    <h2 class="sec-title reveal">Krishna's Immediate Family — The Sacred Circle</h2>
+
+    <div class="family-grid">
+      <div class="family-card reveal rd1">
+        <div class="fc-rel">Grandfather</div>
+        <div class="fc-name">Shurasena</div>
+        <div class="fc-dev">शूरसेन</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">King of Mathura. Father of Vasudeva. His daughter Pritha was given in adoption to his cousin Kunti-Bhoja — she became Kunti, mother of the Pandavas. So Shurasena is simultaneously grandfather of Krishna and great-uncle of the Pandavas — binding the two most important lineages of the Mahabharata.</div>
+      </div>
+      <div class="family-card reveal rd2">
+        <div class="fc-rel">Father</div>
+        <div class="fc-name">Vasudeva</div>
+        <div class="fc-dev">वसुदेव — आनकदुन्दुभि</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">Son of Shurasena. When he was married to Devaki, celestial drums sounded (anaka-dundubhi), earning him the name Anakadundubhi. Imprisoned by Kamsa for 18+ years. He carried infant Krishna to Gokul through the flooded Yamuna. His courage and devotion in the most terrifying circumstances is one of the great unsung stories of the Bhagavata.</div>
+      </div>
+      <div class="family-card reveal rd3">
+        <div class="fc-rel">Birth Mother</div>
+        <div class="fc-name">Devaki</div>
+        <div class="fc-dev">देवकी — महाभागा</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">Daughter of Devaka (Kamsa's uncle). Avatar of Aditi. Six of her sons were killed by Kamsa before they could take their first breath. Her suffering and patience during those years is compared in the Bhagavata to the earth bearing all burdens. She saw her infant son only briefly before Vasudeva carried him away — and met him again consciously only 11 years later.</div>
+      </div>
+      <div class="family-card reveal rd1">
+        <div class="fc-rel">Foster Father</div>
+        <div class="fc-name">Nanda Maharaja</div>
+        <div class="fc-dev">नन्द महाराज</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">Chief of the Abhira-Yadav cowherds of Gokul. The most celebrated foster father in all literature. His love for Krishna was so pure that the Bhagavata describes it as the model of parental devotion (vatsalya bhakti). He led the entire Gokul community in festivals, worship, and the celebration of Krishna's many leelas. His lineage is traced to the Yadav pastoral tradition going back to Yadu himself.</div>
+      </div>
+      <div class="family-card reveal rd2">
+        <div class="fc-rel">Foster Mother</div>
+        <div class="fc-name">Yashoda</div>
+        <div class="fc-dev">यशोदा — गोपेश्वरी</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">The most beloved mother in Puranic literature. The Bhagavata devotes extraordinary attention to Yashoda's love for Krishna — her joy when he first smiled, her horror when neighbours said he was eating mud, her attempt to bind the unBindable with a rope (the Damodara episode). She represents the highest form of maternal love for God. Krishna himself has said he was most deeply moved by Yashoda's love.</div>
+      </div>
+      <div class="family-card reveal rd3">
+        <div class="fc-rel">Elder Brother</div>
+        <div class="fc-name">Balarama</div>
+        <div class="fc-dev">बलराम — शेषावतार</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">Avatar of Ananta Shesha — the cosmic serpent upon whom Vishnu rests. Transferred from Devaki's womb to Rohini's (hence called Sankarshana — "transferred"). Master of physical strength and the plough. He fought with mace and plough rather than the weapons of subtlety. He represents the complementary principle to Krishna: where Krishna is divine subtlety, Balarama is divine power. The two together are complete.</div>
+      </div>
+      <div class="family-card reveal rd1">
+        <div class="fc-rel">Principal Queen</div>
+        <div class="fc-name">Rukmini</div>
+        <div class="fc-dev">रुक्मिणी — लक्ष्मी-अवतार</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">Avatar of Lakshmi. Princess of Vidarbha. Chose Krishna herself through her famous letter — one of the most beautiful love letters in world literature. Described in the Bhagavata as the embodiment of devotion, beauty, intelligence, and grace. Her son Pradyumna is the avatar of Kama. Her relationship with Krishna is the model of divine love between the eternal masculine and feminine principles.</div>
+      </div>
+      <div class="family-card reveal rd2">
+        <div class="fc-rel">Greatest Disciple</div>
+        <div class="fc-name">Uddhava</div>
+        <div class="fc-dev">उद्धव — भक्तशिरोमणि</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">Krishna's childhood friend, cousin, and greatest philosophical disciple. Received the Uddhava Gita (Bhagavata Skandha XI) — the longest private teaching of Krishna, delivered just before his departure from the world. Uddhava then spent the rest of his life at Badarikashrama in meditation on Krishna's form. He is worshipped in some Vaishnava traditions as the supreme example of jnana-bhakti combined.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BHAGAVAD GITA
+══════════════════════════════════════════ -->
+<section id="gita" class="gita-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Supreme Yadav Teaching</p>
+    <h2 class="sec-title reveal">The Bhagavad Gita — God's Gift to Humanity</h2>
+    <p class="lead reveal">The <strong>Bhagavad Gita</strong> is the most concentrated, complete, and universally applicable spiritual text ever produced. Spoken by Krishna on the battlefield of Kurukshetra to Arjuna in approximately 30 minutes before the commencement of the Mahabharata war, its 700 verses have influenced every major philosophical tradition from India to the West.</p>
+
+    <div class="gita-grid">
+      <div class="gita-visual reveal">
+        <svg class="gita-mandala" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer circles -->
+          <circle cx="200" cy="200" r="190" stroke="rgba(212,160,23,0.3)" stroke-width="1"/>
+          <circle cx="200" cy="200" r="175" stroke="rgba(0,180,204,0.2)" stroke-width=".5"/>
+          <!-- 18 petal lotus (for 18 chapters of Gita) -->
+          <g stroke="rgba(212,160,23,0.45)" stroke-width="1" fill="rgba(212,160,23,0.04)">
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(0 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(20 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(40 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(60 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(80 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(100 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(120 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(140 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(160 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(180 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(200 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(220 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(240 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(260 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(280 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(300 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(320 200 200)"/>
+            <ellipse cx="200" cy="70" rx="14" ry="48" transform="rotate(340 200 200)"/>
+          </g>
+          <!-- Inner star -->
+          <polygon points="200,120 225,175 290,175 240,210 260,270 200,235 140,270 160,210 110,175 175,175" stroke="rgba(0,180,204,0.4)" stroke-width="1.5" fill="rgba(0,180,204,0.04)"/>
+          <!-- Inner circles -->
+          <circle cx="200" cy="200" r="65" stroke="rgba(212,160,23,0.4)" stroke-width="1.5"/>
+          <circle cx="200" cy="200" r="40" stroke="rgba(212,160,23,0.25)" stroke-width="1"/>
+          <circle cx="200" cy="200" r="15" fill="rgba(212,160,23,0.3)"/>
+          <!-- Om symbol area -->
+          <text x="200" y="208" text-anchor="middle" font-family="'Noto Serif Devanagari',serif" font-size="20" fill="rgba(212,160,23,0.9)">गीता</text>
+          <!-- 4 axis dots -->
+          <g fill="rgba(212,160,23,0.6)">
+            <circle cx="200" cy="10" r="4"/><circle cx="390" cy="200" r="4"/>
+            <circle cx="200" cy="390" r="4"/><circle cx="10" cy="200" r="4"/>
+          </g>
+          <!-- Peacock feather accent dots (18 — one per chapter) -->
+          <g fill="rgba(0,180,204,0.5)">
+            <circle cx="200" cy="26" r="3"/>
+            <circle cx="252" cy="31" r="3"/>
+            <circle cx="299" cy="47" r="3"/>
+            <circle cx="338" cy="76" r="3"/>
+            <circle cx="363" cy="116" r="3"/>
+            <circle cx="374" cy="162" r="3"/>
+            <circle cx="370" cy="210" r="3"/>
+            <circle cx="352" cy="254" r="3"/>
+            <circle cx="321" cy="292" r="3"/>
+            <circle cx="279" cy="319" r="3"/>
+            <circle cx="232" cy="334" r="3"/>
+            <circle cx="183" cy="334" r="3"/>
+            <circle cx="136" cy="319" r="3"/>
+            <circle cx="95" cy="292" r="3"/>
+            <circle cx="64" cy="254" r="3"/>
+            <circle cx="46" cy="210" r="3"/>
+            <circle cx="42" cy="162" r="3"/>
+            <circle cx="53" cy="116" r="3"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="reveal">
+        <h3 class="sub-title" style="margin-top:0;">The 18 Chapters — A Map of the Gita</h3>
+        <div class="gita-cards">
+          <div class="gita-card">
+            <div class="gc-num">Chapters 1–6 · Karma Kanda</div>
+            <div class="gc-title">The Path of Action</div>
+            <div class="gc-dev">कर्म योग</div>
+            <div class="gc-text">Action without attachment. Duty performed without ego. The warrior's path made spiritual. Arjuna's crisis, Krishna's initial teachings, the nature of the self, nishkama karma.</div>
+          </div>
+          <div class="gita-card">
+            <div class="gc-num">Chapters 7–12 · Jnana-Bhakti Kanda</div>
+            <div class="gc-title">Knowledge and Devotion</div>
+            <div class="gc-dev">ज्ञान भक्ति योग</div>
+            <div class="gc-text">The nature of God, the Vishvarupa (cosmic form), the yoga of devotion. The supreme path of bhakti. The highest secret: exclusive devotion to Krishna as the path to the ultimate good.</div>
+          </div>
+          <div class="gita-card">
+            <div class="gc-num">Chapters 13–18 · Moksha Kanda</div>
+            <div class="gc-title">Liberation and the Final Secret</div>
+            <div class="gc-dev">मोक्ष योग</div>
+            <div class="gc-text">The field and the knower of the field. The three gunas. The tree of samsara. The supreme Purusha. The three divisions of faith. The final verse: Sarva-dharman parityajya — "Abandon all varieties of dharma and simply surrender unto Me."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Gita verses -->
+    <h3 class="sub-title reveal">The Most Celebrated Gita Verses — In Krishna's Own Words</h3>
+    <div class="verse-grid reveal">
+      <div class="verse-card">
+        <div class="verse-ref">Bhagavad Gita 2.47 — The Core Teaching</div>
+        <div class="verse-dev">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br/>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि।।</div>
+        <div class="verse-trans">"You have a right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself the cause of the results of your activities, and never be attached to not doing your duty."</div>
+        <div class="verse-theme">Karma Yoga · Nishkama Karma · The Yadav Spirit</div>
+      </div>
+      <div class="verse-card">
+        <div class="verse-ref">Bhagavad Gita 9.22 — The Divine Promise</div>
+        <div class="verse-dev">अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते।<br/>तेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम्।।</div>
+        <div class="verse-trans">"But those who worship Me with devotion, meditating on My transcendental form — to them, who are constantly devoted and who always remember Me — I carry what they lack, and I preserve what they have."</div>
+        <div class="verse-theme">Bhakti Yoga · Divine Protection · The Yadav Trust in Krishna</div>
+      </div>
+      <div class="verse-card">
+        <div class="verse-ref">Bhagavad Gita 10.37 — Krishna Names the Yadavs</div>
+        <div class="verse-dev">वृष्णीनां वासुदेवोऽस्मि पाण्डवानां धनञ्जयः।<br/>मुनीनामप्यहं व्यासः कवीनामुशना कविः।।</div>
+        <div class="verse-trans">"Among the Vrishnis I am Vasudeva (Krishna); among the Pandavas I am Arjuna (Dhananjaya); among the sages I am Vyasa; and among thinkers I am Ushana."</div>
+        <div class="verse-theme"><strong>The Gita's direct reference to the Yadav-Vrishni clan — Krishna identifies himself by his Yadav identity</strong></div>
+      </div>
+      <div class="verse-card">
+        <div class="verse-ref">Bhagavad Gita 18.66 — The Final Verse</div>
+        <div class="verse-dev">सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज।<br/>अहं त्वां सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः।।</div>
+        <div class="verse-trans">"Abandon all varieties of religion and just surrender unto Me. I shall deliver you from all sinful reactions. Do not fear."</div>
+        <div class="verse-theme">Moksha Yoga · Supreme Surrender · The Pinnacle of Yadav Bhakti</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     MAHABHARATA ROLE
+══════════════════════════════════════════ -->
+<section id="mahabharata" style="background:linear-gradient(180deg, var(--deep-blue) 0%, var(--midnight) 100%); border-top:1px solid rgba(212,160,23,0.12); padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Architect of History</p>
+    <h2 class="sec-title reveal">Krishna's Role in the Mahabharata — The Supreme Strategist</h2>
+    <p class="lead reveal">Although Krishna declared he would not lift a weapon in the Mahabharata war, he was its supreme architect. Every major turning point in the 18-day war involved his guidance, his wisdom, or his direct divine intervention. The Mahabharata would have been impossible without the Yadav.</p>
+
+    <div class="hbox reveal">
+      <div class="hb-title">Krishna's Key Roles in the Mahabharata</div>
+      <ul class="hb-list">
+        <li><strong>The Peace Negotiator</strong> — Before the war, Krishna went to Hastinapura as the Pandavas' ambassador and made one final effort for peace, asking Duryodhana for just five villages for the five Pandavas. Duryodhana refused. Only then did Krishna declare war inevitable — making clear that every attempt at peace had been exhausted.</li>
+        <li><strong>The Revealer of the Bhagavad Gita</strong> — On the first morning of the war, when Arjuna collapsed in grief, Krishna spoke the 700 verses of the Bhagavad Gita — rearming Arjuna not with a bow but with wisdom. This was the war's most decisive act.</li>
+        <li><strong>The Tactician</strong> — At every critical juncture, Krishna provided tactical guidance: how to break the Chakravyuha formation, when to violate the rules of warfare to kill Drona (through the deception about Ashwatthama's death), how to neutralise Karna's boons.</li>
+        <li><strong>The Divine Protector</strong> — When Ashwatthama launched the Brahmastra against the Pandava women and the unborn child Parikshit, Krishna personally entered the womb to protect Parikshit — ensuring the continuation of the Pandava line and thus the preservation of the Yadav story in posterity.</li>
+        <li><strong>The Narayani Sena</strong> — The 18 akshauhini of Yadav warriors (the Narayani Sena) that Krishna lent to Duryodhana — while he himself went to the Pandavas — were the greatest army ever assembled. The fact that the Pandavas chose the man over the army shows the supreme value of a Yadav's personal wisdom over material force.</li>
+        <li><strong>The Post-War Counsellor</strong> — After the war, Krishna counselled Yudhishthira through his grief and guilt, visited the dying Bhishma to have him deliver the Shanti Parva and Anushasana Parva teachings, and helped establish the new age of dharmic governance.</li>
+      </ul>
+    </div>
+
+    <div class="qblock reveal">
+      <p class="qdev">यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः।<br/>तत्र श्रीर्विजयो भूतिर्ध्रुवा नीतिर्मतिर्मम।।</p>
+      <p class="qtrans">"Wherever there is Krishna, the master of all mystic power, and wherever there is Arjuna, the supreme archer, there will also certainly be opulence, victory, extraordinary power, and morality. That is my opinion."</p>
+      <p class="qsrc">— Bhagavad Gita 18.78 — Sanjaya's final words to Dhritarashtra, closing the Gita and the Mahabharata</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     END OF DWARKA — SUBMERSION
+══════════════════════════════════════════ -->
+<section id="submersion" class="submersion-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The End of an Age · युग-संधि</p>
+    <h2 class="sec-title reveal">The Submersion of Dwarka — And What It Means</h2>
+    <p class="lead reveal">Thirty-six years after the Mahabharata war, the Yadav age came to a close — not through defeat, but through divine completion. The events are recorded in the Bhagavata Purana (Skandha XI) and Mahabharata (Mausala Parva) with great detail and extraordinary philosophical depth.</p>
+
+    <div class="dual-panel reveal">
+      <div class="dp-panel era">
+        <div class="dp-label">The Final Days of the Yadavs</div>
+        <div class="dp-text">
+          <strong>The Curse:</strong> Samba (Krishna's son) and some young Yadavs played a prank on the visiting sages Vishwamitra, Kanva, and Narada — dressing Samba as a pregnant woman and asking what child he would deliver. The furious sages cursed: "He will deliver a mace, and that mace will destroy your entire clan." The mace appeared the next day; Ugrasena ordered it ground to dust and thrown into the sea.<br/><br/>
+          <strong>The Signs:</strong> In the 36th year after the war, dark omens appeared over Dwarka: whirlwinds, unseasonable lightning, black crows attacking white pigeons, mice devouring everyone's hair and shoelaces, conches, bows and chariots trembling on their own.<br/><br/>
+          <strong>The End:</strong> Krishna organised the entire population to go on pilgrimage to Prabhasa tirth. There, the Yadavs feasted and drank. The remnants of the powdered mace — washed ashore as sharp grass (eraka) — became weapons in a drunken quarrel. The Yadavs destroyed each other with that sacred grass. <strong>Krishna himself allowed it — for it was the universe completing its cycle.</strong>
+        </div>
+      </div>
+      <div class="dp-panel after">
+        <div class="dp-label">Krishna's Departure and Dwarka's Submersion</div>
+        <div class="dp-text">
+          After all the Yadavs had departed, Krishna sat in meditation at Bhalka Tirth near Somnath. A hunter named Jara (<em>jara</em> = old age) mistook his lotus-red foot for a bird behind a bush and shot an arrow. Krishna called Jara to him, forgave him completely, and sent him to the highest heaven for having touched God's feet — even accidentally. Then Krishna departed from his mortal form.<br/><br/>
+          Simultaneously, the beautiful city of Dwarka — with all its 900,000 palaces, its gardens, its streets, its Sudharma Sabha — was submerged beneath the ocean waves, exactly as Varuna had stipulated when he gave the land: <em>it would be reclaimed when God departed.</em><br/><br/>
+          <strong>The Yadav legacy dispersed</strong>: the surviving Yadavs (the women and elderly who had not gone to Prabhasa) were escorted by Arjuna northward. Some settled in Punjab, some in Indraprastha, others spread across India — carrying the Yadav traditions, the bhakti, the music, the cow-herding culture — into the fabric of Indian civilization.
+        </div>
+      </div>
+    </div>
+
+    <div class="body-text reveal" style="margin-top:2rem;">
+      The submersion of Dwarka is not a tragedy — it is a completion. The Bhagavata Purana frames it with absolute clarity: the Yadavs had accomplished their cosmic purpose. They had given birth to and sheltered the greatest avatar in human history. Their work was done. The physical city submerging simply meant that Dwarka's eternal form passed from the material to the transcendental — where it remains as <strong>Goloka Dwarka</strong>, the eternal abode of Krishna in the spiritual realm.
+    </div>
+
+    <div class="qblock reveal">
+      <p class="qdev">निर्याणं भगवतः कृष्णस्य परमात्मनः।<br/>द्वारावती समुद्रेण सम्प्लावयत पृथ्वीम्।।</p>
+      <p class="qtrans">"After the departure of Lord Krishna — the Supreme Soul — the ocean reclaimed Dwarka and covered it with its waters."</p>
+      <p class="qsrc">— Mahabharata Mausala Parva, Chapter 7, Verse 58</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     Yadav LEGACY — KRISHNA'S DESCENDANTS
+══════════════════════════════════════════ -->
+<section id="Yadav-legacy" style="background:linear-gradient(180deg, var(--midnight) 0%, var(--deep-blue) 100%); border-top:1px solid rgba(212,160,23,0.15); padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Eternal Continuation</p>
+    <h2 class="sec-title reveal">Krishna's Legacy in the Living Yadav Community</h2>
+    <p class="lead reveal">Krishna did not die with Dwarka. He lives — in the 350 million+ Yadavs who carry his lineage, his traditions, his music, his name. Every Yadav is, in the deepest Puranic sense, a descendant and continuator of Lord Krishna's world.</p>
+
+    <div class="family-grid">
+      <div class="family-card reveal rd1">
+        <div class="fc-rel">Living Tradition</div>
+        <div class="fc-name">Mathura-Vrindavan</div>
+        <div class="fc-dev">मथुरा · वृन्दावन</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">The twin cities of Krishna's birth and childhood remain the living heartbeat of Yadav spiritual identity. The Janmashtami celebration here — 5,000+ years after Krishna's birth — draws millions of Yadavs who consider this their spiritual homeland. The Yadav community organisations (samaj) maintain most of the temples in this region.</div>
+      </div>
+      <div class="family-card reveal rd2">
+        <div class="fc-rel">Living Tradition</div>
+        <div class="fc-name">Janmashtami</div>
+        <div class="fc-dev">जन्माष्टमी</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">The festival of Krishna's birth — celebrated on the 8th night of the dark fortnight of Bhadrapada — is the supreme Yadav festival. In Yadav homes across India, the entire story of Krishna's birth is re-enacted. The midnight moment when the birth is announced is a sacred event. Yadavs consider this their community's highest holy day.</div>
+      </div>
+      <div class="family-card reveal rd3">
+        <div class="fc-rel">Living Tradition</div>
+        <div class="fc-name">Go-Seva & Go-Puja</div>
+        <div class="fc-dev">गो-सेवा · गोपूजा</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">The care and reverence for cows — central to Krishna's life as Gopal — is the living daily spiritual practice of Yadav communities. Every Ahir family that tends cows is performing, consciously or unconsciously, the same sacred act that Krishna performed in Vrindavan 5,000 years ago.</div>
+      </div>
+      <div class="family-card reveal rd1">
+        <div class="fc-rel">Living Tradition</div>
+        <div class="fc-name">Govardhan Puja</div>
+        <div class="fc-dev">गोवर्धन पूजा</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">The festival that commemorates Krishna lifting the Govardhan mountain — celebrated on the day after Diwali — is particularly important to Yadav communities. It symbolises the community's protection by their divine ancestor, and is also called Annakut (mountain of food) with elaborate food offerings.</div>
+      </div>
+      <div class="family-card reveal rd2">
+        <div class="fc-rel">Living Tradition</div>
+        <div class="fc-name">Bhagavata Katha</div>
+        <div class="fc-dev">भागवत कथा</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">The recitation of the Bhagavata Purana — especially Skandha X (the Krishna story) — is a central Yadav community event. In every village and city where Yadavs live, Bhagavata Katha sessions are organised, especially for community celebrations, festivals, and memorial events. Krishna's story is kept alive through constant telling.</div>
+      </div>
+      <div class="family-card reveal rd3">
+        <div class="fc-rel">Living Tradition</div>
+        <div class="fc-name">Yadav Surnames</div>
+        <div class="fc-dev">यादव सम्प्रदाय</div>
+        <div class="fc-divider"></div>
+        <div class="fc-text">The surnames Yadav, Ahir, Gwal, Gwala, Goala, Nanda, Krishnamurti, Gopala, Goswami (among pastoral Yadavs), Rao (in the south) — all are living daily references to the Yadav heritage. Every time a Yadav signs their name, they invoke the memory of King Yadu and Lord Krishna simultaneously.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     REFERENCES
+══════════════════════════════════════════ -->
+<section id="references" class="ref-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">शास्त्र प्रमाण</p>
+    <h2 class="sec-title reveal">Complete Scriptural References — Chapter IV</h2>
+
+    <table class="ref-table reveal">
+      <thead>
+        <tr><th>Scripture</th><th>Reference</th><th>Subject</th><th>Sanskrit Key</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="rbadge">Bhagavata</span></td><td>X.1–3</td><td>Vishnu's promise to descend; Vasudeva-Devaki marriage; Kamsa's attempted killing; celestial prediction of Krishna's birth</td><td class="dev-cell">देवक्याः पुत्रो अष्टमः कंसं हनिष्यति</td></tr>
+        <tr><td><span class="rbadge">Bhagavata</span></td><td>X.3–4</td><td>Complete account of the miraculous birth: the exact night, the divine signs, the opening of prison doors, the crossing of Yamuna, the exchange with Yashoda's daughter</td><td class="dev-cell">अष्टम्यां रोहिणी-युते... जातः कृष्णः</td></tr>
+        <tr><td><span class="rbadge">Bhagavata</span></td><td>X.6–16</td><td>Childhood leelas: Putana, Trinavarta, Yashoda's vision, lifting Govardhana, Kaliya subduing, Rasa Lila preparation</td><td class="dev-cell">पूतनामोक्षः... गोवर्धनधारणम्</td></tr>
+        <tr><td><span class="rbadge">Bhagavata</span></td><td>X.29–33</td><td>The complete Rasa Lila — the most celebrated event in Vaishnava theology</td><td class="dev-cell">रासक्रीडां प्रकुर्वाणस्य...</td></tr>
+        <tr><td><span class="rbadge">Bhagavata</span></td><td>X.43–44</td><td>Killing of Kamsa; Krishna meets Vasudeva and Devaki; restoration of Ugrasena to Mathura throne</td><td class="dev-cell">कंसं जघान... मातापित्रोः चरणान्ववन्दत</td></tr>
+        <tr><td><span class="rbadge">Bhagavata</span></td><td>X.50–53</td><td>Foundation of Dwarka; Vishwakarma builds the city; Rukmini's letter; her abduction</td><td class="dev-cell">द्वारकां निर्ममे... रुक्मिणीहरणम्</td></tr>
+        <tr><td><span class="rbadge">Bhagavata</span></td><td>X.59</td><td>Killing of Narakasura; rescue of 16,100 women; Krishna marries all of them to restore their dignity</td><td class="dev-cell">नरकासुरवधः... षोडशसहस्रस्त्रियः</td></tr>
+        <tr><td><span class="rbadge">Bhagavata</span></td><td>X.74–75</td><td>Shishupala's 100 offenses and decapitation by Sudarshana Chakra; divine light merges into Krishna</td><td class="dev-cell">शिशुपालवधः... ज्योतिर्मिलितं कृष्णे</td></tr>
+        <tr><td><span class="rbadge">Bhagavata</span></td><td>XI.1–31</td><td>The Uddhava Gita; signs of Kali-yuga; Yadav destruction at Prabhasa; submersion of Dwarka; Krishna's departure</td><td class="dev-cell">उद्धवगीता... द्वारकाया समुद्रेण सम्प्लावनम्</td></tr>
+        <tr><td><span class="rbadge">Bhagavad Gita</span></td><td>1–18 (all chapters)</td><td>Complete philosophical teaching of Krishna to Arjuna. Key verses: 2.47, 4.7-8, 9.22, 10.37, 18.66, 18.78</td><td class="dev-cell">कर्मण्येवाधिकारस्ते... सर्वधर्मान्परित्यज्य</td></tr>
+        <tr><td><span class="rbadge">Mahabharata</span></td><td>Bhishma Parva (Gita sections) + Udyoga, Sabha, Mausala Parvas</td><td>Krishna's peace mission; Bhagavad Gita context; Vishvarupa; Mahabharata war role; submersion of Dwarka</td><td class="dev-cell">यत्र योगेश्वरः कृष्णो...</td></tr>
+        <tr><td><span class="rbadge">Harivamsa</span></td><td>Vishnu Parva (all chapters)</td><td>The most detailed narrative of Krishna's life — the original extended biography before the Bhagavata</td><td class="dev-cell">हरिवंशपर्व — कृष्णचरित</td></tr>
+        <tr><td><span class="rbadge">Vishnu Purana</span></td><td>Amsha V (entire)</td><td>Krishna's complete life story from birth through Dwarka — the source for the Bhagavata's more elaborate account</td><td class="dev-cell">कृष्णाष्टकम् — विष्णुपुराण V</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ NEXT CHAPTER ══ -->
+<div class="next-chapter">
+  <p class="nc-eyebrow">The Living Heritage Awaits</p>
+  <h2 class="nc-title">Chapter V — Clans, Gotras & Sub-Communities</h2>
+  <p class="nc-sub">52+ गोत्र · 24+ उपसम्प्रदाय · सम्पूर्ण यादव समाज</p>
+  <p class="nc-desc">
+    From Yadu's five sons came 24+ distinct Yadav sub-communities — Ahir, Gwala, Koeri, Shakya, and more — each with their own territory, traditions, gotras, and living culture. The complete anthropological and genealogical map of the 350 million Yadavs alive today.
+  </p>
+  <a href="clans-gotras.html" class="btn-gold">Enter Chapter V — Clans & Gotras →</a>
+  &nbsp;&nbsp;
+  <a href="yadu.html" class="btn-outline">← Chapter III — King Yadu</a>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">यादव वंश</div>
+    <div class="footer-row">
+      <a href="index.html">Home</a>
+      <a href="cosmic-origin.html">Chapter I</a>
+      <a href="lunar-dynasty.html">Chapter II</a>
+      <a href="yadu.html">Chapter III</a>
+      <a href="krishna.html">Chapter IV</a>
+      <a href="clans-gotras.html">Chapter V</a>
+      <a href="family-tree.html">Family Tree</a>
+    </div>
+    <div class="footer-copy">Yadav Vansh Digital Scripture · Chapter IV · Lord Krishna</div>
+  </div>
+</footer>
+
+<!-- ══ JS ══ -->
+<script>
+/* ── Cosmic Canvas — deep blue with gold stars ── */
+(function(){
+  const canvas = document.getElementById('cosmos');
+  const ctx = canvas.getContext('2d');
+  let W, H, stars=[], particles=[];
+  function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
+  function initStars(){
+    stars=[];
+    const n = Math.floor(W*H/1900);
+    for(let i=0;i<n;i++){
+      stars.push({
+        x:Math.random()*W, y:Math.random()*H,
+        r:Math.random()*1.8+.2,
+        alpha:Math.random()*.9+.1,
+        tw:Math.random()*.016+.003,
+        ph:Math.random()*Math.PI*2,
+        type: Math.random() < .12 ? 'gold' : Math.random() < .25 ? 'peacock' : 'white'
+      });
+    }
+  }
+
+  // Occasional divine particle burst from the centre top
+  let lastBurst = 0;
+  function maybeParticle(t){
+    if(t - lastBurst > 3000 + Math.random()*5000){
+      lastBurst = t;
+      const cx = W*.5 + (Math.random()-.5)*W*.3;
+      const cy = H*.15;
+      for(let i=0;i<8;i++){
+        const angle = Math.random()*Math.PI*2;
+        const speed = 0.5 + Math.random()*2;
+        particles.push({
+          x:cx, y:cy, vx:Math.cos(angle)*speed, vy:Math.sin(angle)*speed,
+          r:1.5+Math.random()*2, alpha:1, life:0, maxLife:80+Math.random()*60,
+          gold: Math.random()<.6
+        });
+      }
+    }
+  }
+
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+
+    // Deep midnight-blue gradient
+    const bg = ctx.createRadialGradient(W/2,H*.3,0,W/2,H*.3,Math.max(W,H));
+    bg.addColorStop(0,'rgba(8,12,28,1)');
+    bg.addColorStop(.5,'rgba(6,8,20,1)');
+    bg.addColorStop(1,'rgba(2,3,10,1)');
+    ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+
+    // Peacock-teal nebula glow near top
+    const neb = ctx.createRadialGradient(W*.5,H*.1,0,W*.5,H*.1,W*.4);
+    neb.addColorStop(0,'rgba(0,122,158,0.07)');
+    neb.addColorStop(.5,'rgba(0,77,110,0.04)');
+    neb.addColorStop(1,'transparent');
+    ctx.fillStyle=neb; ctx.fillRect(0,0,W,H);
+
+    // Gold nebula
+    const neb2 = ctx.createRadialGradient(W*.8,H*.7,0,W*.8,H*.7,W*.3);
+    neb2.addColorStop(0,'rgba(212,160,23,0.05)');
+    neb2.addColorStop(1,'transparent');
+    ctx.fillStyle=neb2; ctx.fillRect(0,0,W,H);
+
+    stars.forEach(s=>{
+      const tw=.5+.5*Math.sin(t*s.tw+s.ph);
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      if(s.type==='gold') ctx.fillStyle=`rgba(212,160,23,${s.alpha*tw})`;
+      else if(s.type==='peacock'){ const v=Math.floor(100+155*tw); ctx.fillStyle=`rgba(0,${v},${v+30},${s.alpha*tw})`; }
+      else { const v=Math.floor(180+75*tw); ctx.fillStyle=`rgba(${v},${v},${v},${s.alpha*tw})`; }
+      ctx.fill();
+    });
+
+    // Divine particles
+    maybeParticle(t);
+    particles = particles.filter(p=>{
+      p.x+=p.vx; p.y+=p.vy; p.vy+=.01; p.life++;
+      p.alpha = Math.max(0,1-p.life/p.maxLife);
+      if(p.alpha<=0) return false;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = p.gold
+        ? `rgba(212,160,23,${p.alpha})`
+        : `rgba(0,180,204,${p.alpha})`;
+      ctx.fill();
+      return true;
+    });
+
+    requestAnimationFrame(draw);
+  }
+  resize(); initStars();
+  window.addEventListener('resize',()=>{resize();initStars();});
+  requestAnimationFrame(draw);
+})();
+
+/* ── Nav scroll ── */
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+
+/* ── Reveal observer ── */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:.07, rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal, .phase').forEach(el=>obs.observe(el));
+
+/* ── Active pill on scroll ── */
+const secs = document.querySelectorAll('[id]');
+const pills = document.querySelectorAll('.pill');
+const pObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id = e.target.getAttribute('id');
+      pills.forEach(p=>p.classList.toggle('active', p.getAttribute('href')==='#'+id));
+    }
+  });
+},{threshold:.2});
+secs.forEach(s=>pObs.observe(s));
+
+/* ── Hero glyph parallax ── */
+let raf;
+window.addEventListener('mousemove', e=>{
+  cancelAnimationFrame(raf);
+  raf = requestAnimationFrame(()=>{
+    const cx = e.clientX/window.innerWidth - .5;
+    const cy = e.clientY/window.innerHeight - .5;
+    const g = document.querySelector('.hero-glyph');
+    const a = document.querySelector('.divine-aura');
+    if(g) g.style.transform = `translate(${cx*15}px, ${cy*10}px)`;
+    if(a) a.style.transform = `translateX(calc(-50% + ${cx*20}px))`;
+  });
+});
+</script>
+
+</body>
+</html>

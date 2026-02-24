@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter V — Clans, Gotras & Sub-Communities | Yadav Vansh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --forest:      #0D2016;
+      --forest2:     #142B1E;
+      --forest3:     #1C3826;
+      --moss:        #2D5A3D;
+      --moss-light:  #3D7A52;
+      --sage:        #6B9E7A;
+      --sage-light:  #9DC4AB;
+      --terra:       #B5522A;
+      --terra-light: #D4753E;
+      --terra-pale:  #F0A870;
+      --gold:        #D4A017;
+      --gold-light:  #F5C842;
+      --gold-pale:   #FDE89A;
+      --saffron:     #FF7F00;
+      --cream:       #FDF6E3;
+      --parchment:   #F5E6C8;
+      --parchment-dk:#E8D5A3;
+      --ink:         #0A1505;
+      --sg:          rgba(212,160,23,0.4);
+      --stg:         rgba(181,82,42,0.4);
+      --font-display:'Cinzel Decorative', serif;
+      --font-heading:'Cinzel', serif;
+      --font-body:   'EB Garamond', serif;
+      --font-dev:    'Noto Serif Devanagari', serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--forest);
+      color:var(--cream);
+      font-family:var(--font-body);
+      overflow-x:hidden;
+      font-size:18px;
+    }
+
+    /* ── CANVAS ── */
+    #terrain{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+    .sacred-frame{
+      position:fixed;inset:0;z-index:1;pointer-events:none;
+      border:2px solid rgba(181,82,42,0.5);
+    }
+    .sacred-frame::before{
+      content:'';position:absolute;inset:8px;
+      border:1px solid rgba(212,160,23,0.18);
+    }
+    /* Corner lotuses */
+    .lotus-corner{
+      position:fixed;font-size:1.1rem;z-index:2;pointer-events:none;
+      color:rgba(181,82,42,0.5);line-height:1;
+    }
+    .lc-tl{top:6px;left:10px}
+    .lc-tr{top:6px;right:10px}
+    .lc-bl{bottom:6px;left:10px}
+    .lc-br{bottom:6px;right:10px}
+
+    /* ══ NAV ══ */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      padding:0 2rem;
+      background:linear-gradient(to bottom,rgba(13,32,22,0.98),transparent);
+      transition:background .4s;
+    }
+    nav.scrolled{
+      background:rgba(13,32,22,0.99);
+      border-bottom:1px solid rgba(181,82,42,0.3);
+      box-shadow:0 4px 30px rgba(0,0,0,0.8);
+    }
+    .nav-inner{
+      max-width:1400px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;height:68px;
+    }
+    .nav-logo{font-family:var(--font-dev);font-size:1.4rem;color:var(--gold);text-decoration:none;text-shadow:0 0 20px var(--sg)}
+    .nav-logo span{font-family:var(--font-heading);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--parchment-dk);display:block;margin-top:-2px}
+    .nav-chapter{font-family:var(--font-heading);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra-light);padding:.3rem .8rem;border:1px solid rgba(181,82,42,0.4);border-radius:2px}
+    .nav-back{font-family:var(--font-heading);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:gap .2s}
+    .nav-back:hover{gap:.8rem}
+    @media(max-width:700px){.nav-chapter{display:none}}
+
+    /* ══ HERO ══ */
+    .hero{
+      position:relative;z-index:10;
+      min-height:100vh;
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      text-align:center;padding:7rem 2rem 5rem;
+      overflow:hidden;
+    }
+
+    /* Yantra-grid background */
+    .grid-bg{
+      position:absolute;inset:0;pointer-events:none;
+      background-image:
+        linear-gradient(rgba(181,82,42,0.06) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(181,82,42,0.06) 1px,transparent 1px);
+      background-size:60px 60px;
+      mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%);
+    }
+
+    /* Rising lotus */
+    .hero-lotus{
+      position:absolute;top:50%;left:50%;
+      transform:translate(-50%,-55%);
+      width:min(600px,90vw);height:min(600px,90vw);
+      opacity:.055;pointer-events:none;
+      animation:lotusBreath 10s ease-in-out infinite;
+    }
+    @keyframes lotusBreath{
+      0%,100%{transform:translate(-50%,-55%) scale(1);opacity:.055}
+      50%{transform:translate(-50%,-55%) scale(1.04);opacity:.08}
+    }
+
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:.8rem;
+      font-family:var(--font-heading);font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;
+      color:var(--terra-light);margin-bottom:1.5rem;
+      border:1px solid rgba(181,82,42,0.4);padding:.4rem 1.2rem;border-radius:2px;
+      opacity:0;animation:fadeUp 1s .3s forwards;
+    }
+    .hero-badge::before,.hero-badge::after{content:'🌸';font-size:.7rem}
+
+    .hero-glyph{
+      font-family:var(--font-dev);
+      font-size:clamp(3rem,10vw,8rem);
+      background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 20%,var(--gold) 45%,var(--terra-light) 70%,var(--terra) 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      line-height:1.1;margin-bottom:.5rem;
+      filter:drop-shadow(0 0 40px rgba(181,82,42,0.35));
+      opacity:0;animation:fadeDown 1.3s .5s forwards;
+    }
+    .hero-title{
+      font-family:var(--font-display);
+      font-size:clamp(1.5rem,4.5vw,3.5rem);
+      background:linear-gradient(135deg,var(--gold-pale),var(--gold),var(--terra-light));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      line-height:1.15;margin-bottom:.5rem;
+      opacity:0;animation:fadeUp 1.1s .8s forwards;
+    }
+    .hero-sub{
+      font-family:var(--font-dev);font-size:clamp(.9rem,2vw,1.25rem);
+      color:var(--terra-pale);margin-bottom:1.5rem;
+      opacity:0;animation:fadeUp .9s 1s forwards;
+    }
+    .hero-divider{
+      display:flex;align-items:center;gap:1rem;
+      margin:.5rem auto 1.5rem;width:min(460px,82vw);
+      opacity:0;animation:fadeIn 1s 1.2s forwards;
+    }
+    .hero-divider::before,.hero-divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--terra-light),transparent)}
+    .hdg{width:9px;height:9px;background:var(--terra);transform:rotate(45deg);box-shadow:0 0 8px var(--terra)}
+
+    .hero-lead{
+      font-size:clamp(.95rem,1.5vw,1.12rem);font-style:italic;
+      color:var(--parchment);max-width:720px;line-height:2;margin-bottom:2.5rem;
+      opacity:0;animation:fadeUp 1s 1.4s forwards;
+    }
+    .hero-stats{
+      display:flex;gap:2.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem;
+      opacity:0;animation:fadeUp 1s 1.6s forwards;
+    }
+    .hs-item{text-align:center}
+    .hs-num{font-family:var(--font-heading);font-size:clamp(1.3rem,2.5vw,2rem);color:var(--terra-light);font-weight:700;line-height:1;text-shadow:0 0 20px var(--stg)}
+    .hs-label{font-family:var(--font-heading);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--parchment-dk);margin-top:.2rem}
+    .hs-sep{color:rgba(181,82,42,0.3);font-size:1.2rem;align-self:center}
+
+    .chapter-pills{
+      display:flex;gap:.65rem;flex-wrap:wrap;justify-content:center;
+      opacity:0;animation:fadeUp 1s 1.8s forwards;
+    }
+    .pill{
+      font-family:var(--font-heading);font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--parchment-dk);border:1px solid rgba(181,82,42,0.25);
+      padding:.32rem .85rem;text-decoration:none;border-radius:2px;transition:all .25s;
+    }
+    .pill:hover,.pill.active{background:rgba(181,82,42,0.12);border-color:var(--terra-light);color:var(--terra-light)}
+
+    .scroll-cue{
+      position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+      display:flex;flex-direction:column;align-items:center;gap:.5rem;
+      opacity:0;animation:fadeIn 1s 2.5s forwards;
+    }
+    .scroll-cue span{font-family:var(--font-heading);font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(181,82,42,0.5)}
+    .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--terra),transparent);animation:sp 2s ease-in-out infinite}
+    @keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+
+    /* ══ SLOKA BAND ══ */
+    .sloka-band{
+      position:relative;z-index:10;
+      background:linear-gradient(135deg,rgba(45,90,61,0.7),rgba(13,32,22,0.95));
+      border-top:1px solid rgba(181,82,42,0.5);
+      border-bottom:1px solid rgba(181,82,42,0.5);
+      padding:3rem 2rem;text-align:center;overflow:hidden;
+    }
+    .sloka-band::before{
+      content:'';position:absolute;inset:0;
+      background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(181,82,42,0.025) 30px,rgba(181,82,42,0.025) 31px);
+    }
+    .sloka-dev{font-family:var(--font-dev);font-size:clamp(1rem,2vw,1.35rem);color:var(--gold-pale);line-height:2;margin-bottom:1rem;position:relative}
+    .sloka-trans{font-style:italic;font-size:clamp(.9rem,1.5vw,1.05rem);color:var(--parchment);line-height:1.85;max-width:760px;margin:0 auto .8rem;position:relative}
+    .sloka-ref{font-family:var(--font-heading);font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);position:relative}
+
+    /* ══ LAYOUT ══ */
+    main{position:relative;z-index:10}
+    section{padding:6rem 2rem}
+    .inner{max-width:1240px;margin:0 auto}
+
+    .eyebrow{font-family:var(--font-heading);font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--saffron);margin-bottom:1rem;display:flex;align-items:center;gap:1rem}
+    .eyebrow::before{content:'';width:35px;height:1px;background:var(--saffron)}
+    h2.sec-title{font-family:var(--font-display);font-size:clamp(1.7rem,3.5vw,2.8rem);color:var(--gold);line-height:1.2;margin-bottom:1.2rem}
+    h3.sub-title{font-family:var(--font-heading);font-size:clamp(1.05rem,2vw,1.4rem);color:var(--gold-light);line-height:1.3;margin-bottom:.8rem;margin-top:2.5rem}
+    .lead{font-size:1.05rem;color:var(--parchment);max-width:820px;line-height:2;margin-bottom:2rem}
+    .body-text{font-size:.97rem;color:var(--parchment);line-height:2;max-width:830px;margin-bottom:1.5rem}
+    .body-text strong{color:var(--gold-light)}
+    .body-text em{color:var(--terra-pale);font-style:italic}
+    .dev-inline{font-family:var(--font-dev);color:var(--gold);font-size:1.05em}
+
+    /* ══ GOTRA UNDERSTANDING SECTION ══ */
+    .gotra-explainer{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;margin:3rem 0}
+
+    .gotra-diagram{
+      display:flex;flex-direction:column;align-items:center;gap:0;
+      background:rgba(13,32,22,0.6);border:1px solid rgba(181,82,42,0.2);padding:2rem;
+    }
+    .gd-root{
+      background:linear-gradient(135deg,rgba(181,82,42,0.2),rgba(13,32,22,0.8));
+      border:2px solid var(--terra-light);padding:1rem 2rem;text-align:center;
+      clip-path:polygon(12px 0%,calc(100% - 12px) 0%,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0% calc(100% - 12px),0% 12px);
+    }
+    .gd-root .r-dev{font-family:var(--font-dev);font-size:1.5rem;color:var(--gold-light);display:block}
+    .gd-root .r-en{font-family:var(--font-heading);font-size:.75rem;color:var(--terra-pale);letter-spacing:.1em}
+    .gd-connector{width:2px;height:35px;background:linear-gradient(to bottom,var(--terra-light),rgba(181,82,42,.3));margin:0 auto}
+    .gd-branch-line{height:2px;background:rgba(181,82,42,.3);width:80%;margin:0 auto}
+    .gd-children{display:flex;gap:1.5rem;justify-content:center;width:100%;margin-top:0}
+    .gd-child{
+      flex:1;max-width:120px;
+      background:rgba(45,90,61,0.25);border:1px solid rgba(181,82,42,.2);
+      padding:.7rem .5rem;text-align:center;
+    }
+    .gd-child-conn{width:2px;height:25px;background:rgba(181,82,42,.3);margin:0 auto}
+    .gd-child .c-dev{font-family:var(--font-dev);font-size:.9rem;color:var(--gold);display:block}
+    .gd-child .c-en{font-family:var(--font-heading);font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;color:var(--parchment-dk)}
+
+    /* ══ SEARCH & FILTER BAR ══ */
+    .filter-section{
+      position:relative;z-index:10;
+      background:linear-gradient(180deg,rgba(13,32,22,0.98),rgba(20,43,30,0.98));
+      border-top:1px solid rgba(181,82,42,0.2);
+      border-bottom:1px solid rgba(181,82,42,0.2);
+      padding:2rem 2rem;
+      position:sticky;top:68px;z-index:80;
+    }
+    .filter-inner{max-width:1240px;margin:0 auto}
+    .filter-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+
+    .search-box{
+      flex:1;min-width:220px;
+      display:flex;align-items:center;gap:.7rem;
+      background:rgba(45,90,61,0.25);border:1px solid rgba(181,82,42,0.3);
+      padding:.6rem 1rem;
+    }
+    .search-box input{
+      background:none;border:none;outline:none;
+      font-family:var(--font-heading);font-size:.72rem;letter-spacing:.08em;
+      color:var(--cream);width:100%;
+    }
+    .search-box input::placeholder{color:rgba(212,160,23,0.35)}
+    .search-icon{color:rgba(181,82,42,0.6);font-size:.9rem;flex-shrink:0}
+
+    .filter-btns{display:flex;gap:.6rem;flex-wrap:wrap}
+    .filt-btn{
+      font-family:var(--font-heading);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;
+      color:var(--parchment-dk);background:rgba(45,90,61,0.2);
+      border:1px solid rgba(181,82,42,0.2);padding:.4rem .9rem;cursor:pointer;transition:all .2s;
+    }
+    .filt-btn:hover,.filt-btn.active{
+      background:rgba(181,82,42,0.2);border-color:var(--terra-light);color:var(--terra-light);
+    }
+    .results-count{
+      font-family:var(--font-heading);font-size:.58rem;letter-spacing:.12em;
+      color:rgba(212,160,23,0.5);white-space:nowrap;align-self:center;margin-left:auto;
+    }
+
+    /* ══ CLAN DIRECTORY ══ */
+    .directory-section{
+      background:linear-gradient(180deg,var(--forest2) 0%,var(--forest) 100%);
+      padding:4rem 2rem;
+    }
+    .clan-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+      gap:1.4rem;margin-top:2.5rem;
+    }
+    .clan-card{
+      background:linear-gradient(160deg,rgba(20,43,30,0.8),rgba(13,32,22,0.9));
+      border:1px solid rgba(181,82,42,0.18);
+      padding:1.8rem;transition:all .3s;
+      position:relative;overflow:hidden;
+      display:flex;flex-direction:column;gap:.5rem;
+    }
+    .clan-card[data-visible="false"]{display:none}
+    .clan-card::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(to right,transparent,var(--terra),transparent);
+      transform:scaleX(0);transition:transform .4s;
+    }
+    .clan-card:hover{border-color:rgba(181,82,42,0.45);transform:translateY(-3px);box-shadow:0 10px 35px rgba(0,0,0,.5)}
+    .clan-card:hover::before{transform:scaleX(1)}
+
+    .cc-header{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem}
+    .cc-names{}
+    .cc-en{font-family:var(--font-heading);font-size:1rem;color:var(--gold-light)}
+    .cc-dev{font-family:var(--font-dev);font-size:.9rem;color:var(--gold);margin-top:.1rem}
+    .cc-badges{display:flex;flex-wrap:wrap;gap:.4rem;flex-shrink:0}
+    .badge{
+      font-family:var(--font-heading);font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;
+      padding:.18rem .5rem;border-radius:2px;white-space:nowrap;display:inline-block;
+    }
+    .badge-gotra{background:rgba(212,160,23,0.15);color:var(--gold);border:1px solid rgba(212,160,23,0.25)}
+    .badge-region{background:rgba(61,122,82,0.2);color:var(--sage-light);border:1px solid rgba(61,122,82,0.3)}
+    .badge-sub{background:rgba(181,82,42,0.15);color:var(--terra-pale);border:1px solid rgba(181,82,42,0.25)}
+    .badge-major{background:rgba(181,82,42,0.3);color:var(--terra-light);border:1px solid rgba(181,82,42,0.5)}
+
+    .cc-divider{height:1px;background:linear-gradient(to right,var(--terra),transparent);margin:.4rem 0}
+    .cc-ancestor{font-family:var(--font-heading);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron)}
+    .cc-gotras{
+      display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.3rem;
+    }
+    .gotra-tag{
+      font-family:var(--font-dev);font-size:.72rem;color:var(--parchment-dk);
+      background:rgba(45,90,61,0.25);border:1px solid rgba(61,122,82,0.2);
+      padding:.1rem .45rem;border-radius:1px;
+    }
+    .cc-desc{font-size:.82rem;color:var(--parchment-dk);line-height:1.75;margin-top:.2rem}
+    .cc-territories{font-family:var(--font-heading);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);margin-top:.3rem}
+    .cc-territories span{color:var(--parchment-dk);text-transform:none;letter-spacing:0;font-family:var(--font-body);font-size:.78rem}
+    .cc-notable{font-family:var(--font-heading);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-pale);margin-top:.2rem}
+    .cc-notable span{color:var(--parchment-dk);text-transform:none;letter-spacing:0;font-family:var(--font-body);font-size:.78rem}
+
+    .no-results{
+      display:none;text-align:center;padding:4rem 2rem;
+      font-family:var(--font-heading);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(181,82,42,0.4);
+      grid-column:1/-1;
+    }
+    .no-results.show{display:block}
+
+    /* ══ GOTRA TABLE ══ */
+    .gotra-table-section{background:linear-gradient(180deg,var(--forest) 0%,var(--forest2) 100%);border-top:1px solid rgba(181,82,42,0.12)}
+
+    .gotra-table{width:100%;border-collapse:collapse;margin:2rem 0;font-size:.83rem}
+    .gotra-table th{font-family:var(--font-heading);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(181,82,42,0.3);padding:.85rem 1rem;text-align:left;background:rgba(212,160,23,0.04)}
+    .gotra-table td{padding:.8rem 1rem;color:var(--parchment);border-bottom:1px solid rgba(181,82,42,0.07);line-height:1.6;vertical-align:top}
+    .gotra-table tr:hover td{background:rgba(181,82,42,0.04)}
+    .gotra-table .dev-cell{font-family:var(--font-dev);font-size:.85rem;color:var(--gold-pale)}
+    .gbadge{display:inline-block;font-family:var(--font-heading);font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:.12rem .45rem;border-radius:2px;white-space:nowrap}
+    .gotra-table tr.highlight-row td{background:rgba(181,82,42,0.05)}
+    .gotra-table tr.highlight-row td:first-child{border-left:2px solid var(--terra)}
+
+    /* ══ QUOTE BLOCK ══ */
+    .qblock{border-left:3px solid var(--terra);padding:1.5rem 2rem;margin:2.5rem 0;background:rgba(181,82,42,0.04);position:relative}
+    .qblock::before{content:'"';font-family:var(--font-display);font-size:4rem;color:rgba(181,82,42,0.18);position:absolute;top:-.5rem;left:.8rem;line-height:1}
+    .qdev{font-family:var(--font-dev);font-size:1.05rem;color:var(--gold-pale);line-height:1.9;margin-bottom:.8rem}
+    .qtrans{font-style:italic;color:var(--parchment);font-size:.95rem;line-height:1.85;margin-bottom:.6rem}
+    .qsrc{font-family:var(--font-heading);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--saffron)}
+
+    /* ══ HIGHLIGHT BOX ══ */
+    .hbox{background:linear-gradient(135deg,rgba(45,90,61,0.12),rgba(13,32,22,0.3));border:1px solid rgba(181,82,42,0.2);padding:2rem;margin:2rem 0}
+    .hb-title{font-family:var(--font-heading);font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.8rem}
+    .hb-title::after{content:'';flex:1;height:1px;background:rgba(181,82,42,0.2)}
+    .hb-list{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+    .hb-list li{font-size:.88rem;color:var(--parchment);line-height:1.75;display:flex;gap:.8rem;align-items:flex-start}
+    .hb-list li::before{content:'◆';color:var(--terra);font-size:.5rem;margin-top:.35rem;flex-shrink:0}
+
+    /* ══ CARDS 2/3 ══ */
+    .cards-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0}
+    .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2rem 0}
+    .info-card{background:linear-gradient(160deg,rgba(20,43,30,0.7),rgba(13,32,22,0.85));border:1px solid rgba(181,82,42,0.15);padding:1.8rem;transition:all .3s;position:relative;overflow:hidden}
+    .info-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--terra),transparent);transform:scaleX(0);transition:transform .4s}
+    .info-card:hover::after{transform:scaleX(1)}
+    .info-card:hover{border-color:rgba(181,82,42,0.4);transform:translateY(-3px)}
+    .ic-icon{font-size:2rem;margin-bottom:.7rem;display:block}
+    .ic-title{font-family:var(--font-heading);font-size:.88rem;color:var(--gold-light);margin-bottom:.3rem}
+    .ic-dev{font-family:var(--font-dev);font-size:.85rem;color:var(--gold);margin-bottom:.5rem}
+    .ic-text{font-size:.8rem;color:var(--parchment-dk);line-height:1.75}
+
+    /* ══ REGIONAL MAP VISUAL ══ */
+    .region-section{background:linear-gradient(180deg,var(--forest2) 0%,var(--forest3) 100%);border-top:1px solid rgba(181,82,42,0.12)}
+
+    .region-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.4rem;margin:2.5rem 0}
+    .region-card{
+      background:linear-gradient(160deg,rgba(13,32,22,0.8),rgba(20,43,30,0.6));
+      border:1px solid rgba(61,122,82,0.2);padding:1.8rem;transition:all .3s;
+      position:relative;overflow:hidden;
+    }
+    .region-card:hover{border-color:rgba(61,122,82,0.45);transform:translateY(-3px)}
+    .rc-region{font-family:var(--font-heading);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:.5rem}
+    .rc-title{font-family:var(--font-heading);font-size:1rem;color:var(--gold-light);margin-bottom:.3rem}
+    .rc-dev{font-family:var(--font-dev);font-size:.88rem;color:var(--gold);margin-bottom:.6rem}
+    .rc-clans{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.6rem}
+    .rc-clan-tag{font-size:.72rem;color:var(--parchment-dk);background:rgba(45,90,61,0.3);border:1px solid rgba(61,122,82,0.2);padding:.1rem .45rem}
+    .rc-desc{font-size:.78rem;color:var(--parchment-dk);line-height:1.7}
+
+    /* ══ TRADITION SECTION ══ */
+    .tradition-section{background:linear-gradient(180deg,var(--forest3) 0%,var(--forest) 100%);border-top:1px solid rgba(181,82,42,0.1)}
+
+    /* ══ REF TABLE ══ */
+    .ref-section{background:linear-gradient(180deg,var(--forest) 0%,rgba(5,10,8,1) 100%);border-top:1px solid rgba(181,82,42,0.1)}
+    .ref-table{width:100%;border-collapse:collapse;margin:2rem 0}
+    .ref-table th{font-family:var(--font-heading);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(181,82,42,0.3);padding:.85rem 1rem;text-align:left;background:rgba(212,160,23,0.04)}
+    .ref-table td{padding:.8rem 1rem;color:var(--parchment);border-bottom:1px solid rgba(181,82,42,0.07);line-height:1.65;vertical-align:top;font-size:.82rem}
+    .ref-table tr:hover td{background:rgba(181,82,42,0.03)}
+    .ref-table .dev-cell{font-family:var(--font-dev);font-size:.85rem;color:var(--gold-pale)}
+    .rbadge{display:inline-block;font-family:var(--font-heading);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:.12rem .45rem;border-radius:2px;white-space:nowrap}
+
+    /* ══ NEXT / FOOTER ══ */
+    .next-chapter{
+      position:relative;z-index:10;
+      background:linear-gradient(135deg,rgba(45,90,61,0.2),rgba(13,32,22,0.95));
+      border-top:1px solid rgba(181,82,42,0.4);border-bottom:1px solid rgba(181,82,42,0.4);
+      padding:4.5rem 2rem;text-align:center;
+    }
+    .nc-eyebrow{font-family:var(--font-heading);font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--saffron);margin-bottom:1rem}
+    .nc-title{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.5rem);color:var(--gold-pale);margin-bottom:.8rem}
+    .nc-sub{font-family:var(--font-dev);font-size:1.1rem;color:var(--gold);margin-bottom:2rem}
+    .nc-desc{font-size:.95rem;font-style:italic;color:var(--parchment);max-width:600px;margin:0 auto 2.5rem;line-height:1.85}
+    .btn-gold{font-family:var(--font-heading);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--terra-light));border:none;padding:1rem 2.2rem;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;box-shadow:0 4px 20px rgba(212,160,23,0.35);clip-path:polygon(10px 0%,calc(100% - 10px) 0%,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0% calc(100% - 10px),0% 10px)}
+    .btn-gold:hover{transform:translateY(-3px);box-shadow:0 8px 35px rgba(212,160,23,0.55)}
+    .btn-outline{font-family:var(--font-heading);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--gold);padding:1rem 2.2rem;text-decoration:none;display:inline-block;transition:all .3s;clip-path:polygon(10px 0%,calc(100% - 10px) 0%,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0% calc(100% - 10px),0% 10px)}
+    .btn-outline:hover{background:rgba(212,160,23,0.1);transform:translateY(-3px)}
+
+    footer{position:relative;z-index:10;background:rgba(3,7,4,1);border-top:1px solid rgba(181,82,42,0.15);padding:2.5rem 2rem}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:var(--font-dev);font-size:1.3rem;color:var(--gold)}
+    .footer-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+    .footer-row a{font-family:var(--font-heading);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--parchment-dk);text-decoration:none;transition:color .2s}
+    .footer-row a:hover{color:var(--gold)}
+    .footer-copy{font-family:var(--font-heading);font-size:.55rem;letter-spacing:.1em;color:rgba(212,160,23,.3)}
+
+    /* ══ ANIMATIONS ══ */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .reveal{opacity:0;transform:translateY(35px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+    .reveal.visible{opacity:1;transform:none}
+    .rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
+
+    /* ══ RESPONSIVE ══ */
+    @media(max-width:1000px){.gotra-explainer{grid-template-columns:1fr}.cards-2,.cards-3{grid-template-columns:1fr}}
+    @media(max-width:700px){.hero-stats{gap:1.2rem}.hs-sep{display:none}.filter-row{flex-direction:column}}
+  </style>
+</head>
+<body>
+
+<canvas id="terrain"></canvas>
+<div class="sacred-frame"></div>
+<div class="lotus-corner lc-tl">✿</div>
+<div class="lotus-corner lc-tr">✿</div>
+<div class="lotus-corner lc-bl">✿</div>
+<div class="lotus-corner lc-br">✿</div>
+
+<!-- ══ NAV ══ -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">यादव वंश <span>Yadav Lineage</span></a>
+    <span class="nav-chapter">Chapter V — Clans, Gotras & Sub-Communities</span>
+    <a href="krishna.html" class="nav-back">← Chapter IV</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="grid-bg"></div>
+  <!-- Lotus SVG -->
+  <svg class="hero-lotus" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 16 outer petals -->
+    <g stroke="rgba(181,82,42,1)" stroke-width="1.5" fill="rgba(181,82,42,0.06)">
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(0 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(22.5 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(45 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(67.5 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(90 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(112.5 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(135 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(157.5 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(180 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(202.5 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(225 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(247.5 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(270 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(292.5 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(315 300 300)"/>
+      <ellipse cx="300" cy="100" rx="30" ry="120" transform="rotate(337.5 300 300)"/>
+    </g>
+    <!-- Inner 8 petals -->
+    <g stroke="rgba(212,160,23,1)" stroke-width="1" fill="rgba(212,160,23,0.04)">
+      <ellipse cx="300" cy="155" rx="18" ry="75" transform="rotate(0 300 300)"/>
+      <ellipse cx="300" cy="155" rx="18" ry="75" transform="rotate(45 300 300)"/>
+      <ellipse cx="300" cy="155" rx="18" ry="75" transform="rotate(90 300 300)"/>
+      <ellipse cx="300" cy="155" rx="18" ry="75" transform="rotate(135 300 300)"/>
+      <ellipse cx="300" cy="155" rx="18" ry="75" transform="rotate(180 300 300)"/>
+      <ellipse cx="300" cy="155" rx="18" ry="75" transform="rotate(225 300 300)"/>
+      <ellipse cx="300" cy="155" rx="18" ry="75" transform="rotate(270 300 300)"/>
+      <ellipse cx="300" cy="155" rx="18" ry="75" transform="rotate(315 300 300)"/>
+    </g>
+    <circle cx="300" cy="300" r="80" stroke="rgba(181,82,42,0.5)" stroke-width="1" fill="rgba(181,82,42,0.05)"/>
+    <circle cx="300" cy="300" r="45" stroke="rgba(212,160,23,0.4)" stroke-width="1"/>
+    <circle cx="300" cy="300" r="15" fill="rgba(212,160,23,0.3)"/>
+  </svg>
+
+  <p class="hero-badge">Chapter V · पञ्चम अध्याय</p>
+  <div class="hero-glyph">गोत्र एवं वंश</div>
+  <h1 class="hero-title">Clans, Gotras & Sub-Communities</h1>
+  <p class="hero-sub">यादव समाज का सम्पूर्ण मानचित्र — The Complete Map of the Yadava World</p>
+  <div class="hero-divider"><div class="hdg"></div></div>
+  <p class="hero-lead">From Yadu's five sons came five branches. From those five branches, over two thousand years of migration, settlement, occupation, and community-formation, arose 24+ distinct sub-communities and 52+ sacred gotras — spanning the length and breadth of the Indian subcontinent. This is the complete atlas of the living Yadava world.</p>
+
+  <div class="hero-stats">
+    <div class="hs-item"><div class="hs-num">24+</div><div class="hs-label">Sub-Communities</div></div>
+    <div class="hs-sep">✦</div>
+    <div class="hs-item"><div class="hs-num">52+</div><div class="hs-label">Sacred Gotras</div></div>
+    <div class="hs-sep">✦</div>
+    <div class="hs-item"><div class="hs-num">350M+</div><div class="hs-label">Living Members</div></div>
+    <div class="hs-sep">✦</div>
+    <div class="hs-item"><div class="hs-num">28</div><div class="hs-label">States of India</div></div>
+    <div class="hs-sep">✦</div>
+    <div class="hs-item"><div class="hs-num">5000</div><div class="hs-label">Years of Lineage</div></div>
+  </div>
+
+  <div class="chapter-pills">
+    <a href="#understanding" class="pill active">What is a Gotra</a>
+    <a href="#directory" class="pill">Clan Directory</a>
+    <a href="#gotras" class="pill">52+ Gotras</a>
+    <a href="#regions" class="pill">Regional Map</a>
+    <a href="#traditions" class="pill">Traditions</a>
+    <a href="#references" class="pill">Scripture</a>
+  </div>
+  <div class="scroll-cue"><span>Explore the Clans</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ══ SLOKA ══ -->
+<div class="sloka-band">
+  <p class="sloka-dev">यदोः पुत्राः सहस्रदा यादवास्तु ते स्मृताः।<br/>क्रोष्टुश्च नील-अञ्जिका-पयोदाः पञ्चमाः।।<br/>तेभ्यः जातानि गोत्राणि बहुशाखानि संस्कृतौ।।</p>
+  <p class="sloka-trans">"From Yadu's sons — Sahasrada, Kroshtu, Nila, Anjika, Payoda — came all the Yadavas. From them descended many gotras with many branches, preserved in the sacred tradition."</p>
+  <p class="sloka-ref">— Harivamsa, Adhyaya I, Chapter 32 — the founding genealogy of all Yadava sub-clans</p>
+</div>
+
+<main>
+
+<!-- ══════════════════════════════════════════
+     UNDERSTANDING GOTRA
+══════════════════════════════════════════ -->
+<section id="understanding" style="background:linear-gradient(180deg,var(--forest) 0%,var(--forest2) 100%);padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Sacred System</p>
+    <h2 class="sec-title reveal">What Is a Gotra? — The Science of Lineage</h2>
+    <p class="lead reveal">Before exploring the clans, one must understand the system. <strong>Gotra</strong> (<span class="dev-inline">गोत्र</span>) is not merely a surname or clan name — it is a precise genealogical-spiritual identifier that locates every Hindu within the cosmic web of ancestor-descent. Understanding gotra is essential to understanding why the Yadava clans are organised as they are.</p>
+
+    <div class="gotra-explainer">
+      <div class="reveal">
+        <h3 class="sub-title" style="margin-top:0;">The Meaning and Function of Gotra</h3>
+        <div class="body-text">The word <strong>Gotra</strong> derives from Sanskrit: <em>go</em> (cow) + <em>tra</em> (protector) — literally "protector of the cow-pen," referring to the ancestral family unit of the Vedic age that shared a common cow pen. Over time it evolved to mean <strong>the patrilineal descent group tracing back to a common Rishi ancestor</strong>.</div>
+        <div class="body-text">Every Hindu's gotra identifies their line of descent from one of the <strong>original Saptarishis</strong> (Seven Sages) or their principal disciples. The gotra functions as a complete identity record: it tells you your Vedic ancestor, your patrilineal line, who you may not marry (exogamy — gotra must be different for marriage), and what ritual obligations you carry from your ancestor.</div>
+        <div class="body-text">For Yadavas specifically, gotras connect back through the mortal royal lines to the Saptarishis — and ultimately through them to Brahma. When a Yadava says their gotra is "Kashyapa," they are declaring descent (through many intermediate generations) from the great Rishi Kashyapa — one of Brahma's sons. This is not metaphor; it is sacred genealogical record.</div>
+
+        <div class="qblock">
+          <p class="qdev">गोत्रं प्रवरं चैव देवर्षिपितृ-सम्भवम्।<br/>एतेन विधिना नित्यं कर्म कुर्यात् द्विजोत्तमः।।</p>
+          <p class="qtrans">"The gotra and pravara — derived from the divine sages and forefathers — by this system the twice-born should always perform their ordained duties."</p>
+          <p class="qsrc">— Manusmriti 2.170 — on the function of gotra in dharmic practice</p>
+        </div>
+
+        <h3 class="sub-title">The Pravara — The Three Sacred Ancestors</h3>
+        <div class="body-text">Every gotra comes with a <strong>Pravara</strong> — a recitation of 3, 5, or 7 ancestral sages who mark the key nodes in one's lineage. In Vedic rituals, the officiant introduces himself with his gotra and pravara: <em>"I am of the Kashyapa gotra, of the Kashyapa-Avatsara-Naidhruva pravara"</em>. This identifies not just the root ancestor but the specific sub-branch within the gotra. Yadava communities maintain these pravaras with great care in their ritual tradition.</div>
+
+        <div class="hbox">
+          <div class="hb-title">The Three Rules of Gotra</div>
+          <ul class="hb-list">
+            <li><strong>Exogamy</strong> — One may never marry within the same gotra. The gotra identifies a patrilineal descent group; marrying within it would be marrying a relative. This rule is inviolable in traditional Yadava communities.</li>
+            <li><strong>Patrilineal transmission</strong> — Gotra passes from father to children (not from mother). A woman takes her husband's gotra at marriage. This is why Hindu brides are said to "enter" a new gotra upon marriage.</li>
+            <li><strong>Ritual identity</strong> — In all Vedic rituals — yajna, shraddha (ancestor worship), marriage, upanayana — one's gotra is announced. It connects the individual ritual to the cosmic chain of ancestor-descent.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Gotra hierarchy diagram -->
+      <div class="reveal">
+        <div style="font-family:var(--font-heading);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--saffron);margin-bottom:1.5rem;">The Gotra Hierarchy — How Yadava Gotras Are Structured</div>
+        <div class="gotra-diagram">
+          <div class="gd-root">
+            <span class="r-dev">ब्रह्मा</span>
+            <div class="r-en">Brahma — The Source of All Gotras</div>
+          </div>
+          <div class="gd-connector"></div>
+          <div class="gd-root" style="clip-path:none;border-color:rgba(212,160,23,.4);background:rgba(45,90,61,0.15);padding:.8rem 1.5rem;">
+            <span class="r-dev" style="font-size:1.1rem;">सप्तर्षि</span>
+            <div class="r-en">Seven Sages — Root Gotra Ancestors</div>
+          </div>
+          <div class="gd-connector"></div>
+          <div style="font-family:var(--font-heading);font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);text-align:center;margin:.3rem 0;">Principal Rishi Gotras for Yadavas</div>
+          <div class="gd-branch-line"></div>
+          <div class="gd-children" style="gap:1rem">
+            <div>
+              <div class="gd-child-conn"></div>
+              <div class="gd-child"><span class="c-dev">कश्यप</span><div class="c-en">Kashyapa</div></div>
+            </div>
+            <div>
+              <div class="gd-child-conn"></div>
+              <div class="gd-child"><span class="c-dev">अत्रि</span><div class="c-en">Atri</div></div>
+            </div>
+            <div>
+              <div class="gd-child-conn"></div>
+              <div class="gd-child"><span class="c-dev">भारद्वाज</span><div class="c-en">Bharadvaja</div></div>
+            </div>
+            <div>
+              <div class="gd-child-conn"></div>
+              <div class="gd-child"><span class="c-dev">वशिष्ठ</span><div class="c-en">Vashishtha</div></div>
+            </div>
+            <div>
+              <div class="gd-child-conn"></div>
+              <div class="gd-child"><span class="c-dev">गौतम</span><div class="c-en">Gautama</div></div>
+            </div>
+          </div>
+          <div style="margin-top:1.2rem;text-align:center">
+            <div class="gd-connector" style="height:25px"></div>
+            <div style="font-family:var(--font-heading);font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin:.3rem 0;">Each splits into many sub-gotras through their disciples</div>
+            <div class="gd-connector" style="height:20px"></div>
+            <div class="gd-root" style="clip-path:none;border-color:rgba(181,82,42,.4);background:rgba(181,82,42,0.08);padding:.7rem 1.2rem;margin:0 auto;max-width:220px">
+              <span class="r-dev" style="font-size:1rem;">52+ यादव गोत्र</span>
+              <div class="r-en">52+ Yadava Gotras</div>
+            </div>
+            <div class="gd-connector" style="height:20px"></div>
+            <div class="gd-root" style="clip-path:none;border:1px solid rgba(61,122,82,.4);background:rgba(45,90,61,0.15);padding:.7rem 1.2rem;margin:0 auto;max-width:260px">
+              <span class="r-dev" style="font-size:1rem;">350M+ जीवित वंशज</span>
+              <div class="r-en">350M+ Living Descendants Today</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem">
+          <h3 class="sub-title" style="margin-top:0;">Why Atri-Gotra Is Central to Yadavas</h3>
+          <div class="body-text" style="max-width:100%">The most important gotra for understanding the Yadava genealogy is the <strong>Atri Gotra</strong> — because <em>the entire Chandravansha is ultimately of Atri's descent</em>. Chandra (the Moon God) was born of Atri's tapas. Budha was Chandra's son. Pururavas was Budha's son. Yadu was Pururavas's descendant. So all Yadavas, at the deepest level, trace their spiritual ancestry to <strong>Atri Maharishi</strong> — one of the Saptarishis, born from Brahma's eyes. This is why many Yadava sub-communities use the Atri gotra as their primary gotra.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STICKY FILTER BAR ══ -->
+<div class="filter-section" id="filter-bar">
+  <div class="filter-inner">
+    <div class="filter-row">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="clan-search" placeholder="Search clans, regions, gotras…" autocomplete="off"/>
+      </div>
+      <div class="filter-btns">
+        <button class="filt-btn active" data-filter="all">All Communities</button>
+        <button class="filt-btn" data-filter="north">North India</button>
+        <button class="filt-btn" data-filter="west">West India</button>
+        <button class="filt-btn" data-filter="south">South India</button>
+        <button class="filt-btn" data-filter="east">East India</button>
+        <button class="filt-btn" data-filter="central">Central India</button>
+      </div>
+      <div class="results-count" id="results-count">Showing all 28 communities</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CLAN DIRECTORY — FILTERABLE
+══════════════════════════════════════════ -->
+<section id="directory" class="directory-section">
+  <div class="inner">
+    <p class="eyebrow reveal">The Living Atlas</p>
+    <h2 class="sec-title reveal">Complete Yadava Sub-Community Directory</h2>
+    <p class="lead reveal">Every major Yadava sub-community documented with their founding ancestor, principal gotras, traditional territories, occupational traditions, and notable figures. Use the filter bar above to search or filter by region.</p>
+
+    <div class="clan-grid" id="clan-grid">
+
+      <!-- 1 AHIR / ABHIRA -->
+      <div class="clan-card" data-region="north west central" data-name="ahir abhira yadava गोपाल cowherd" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Ahir / Abhira</div><div class="cc-dev">अहीर · आभीर</div></div>
+          <div class="cc-badges"><span class="badge badge-major">Major Clan</span><span class="badge badge-region">Pan-India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Abhira (descendant of Yadu) · Connected to Nanda Maharaja's lineage</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">अत्रि Atri</span><span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">वशिष्ठ Vashishtha</span><span class="gotra-tag">गौतम Gautama</span>
+        </div>
+        <div class="cc-desc">The largest and most widely distributed Yadava sub-community. Traditionally pastoral — cattle-herders, dairymen, and farmers. The Nanda family (Krishna's foster parents) were Abhiras. Found across UP, MP, Bihar, Rajasthan, Haryana, Gujarat, Maharashtra, Andhra, Telangana, Karnataka. Known for Ahir folk music (Birha, Alha, Rasiya), wrestling, and the Ahir Regiment in the Indian Army (among the most decorated).</div>
+        <div class="cc-territories">Primary Regions: <span>UP (Mainpuri, Etawah, Agra, Mathura), Haryana, Rajasthan, Gujarat (Saurashtra), Bihar, MP, Maharashtra (Nashik, Ahmednagar)</span></div>
+        <div class="cc-notable">Notable: <span>Nanda Maharaj (Krishna's foster father), Yashoda, Bir Gujjar (folk hero), Mulayam Singh Yadav (UP CM), Lalu Prasad Yadav (Bihar CM)</span></div>
+      </div>
+
+      <!-- 2 YADAV (BROAD) -->
+      <div class="clan-card" data-region="north central" data-name="yadav yadava yadu general" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Yadav (General)</div><div class="cc-dev">यादव</div></div>
+          <div class="cc-badges"><span class="badge badge-major">Major Identity</span><span class="badge badge-region">North India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: King Yadu — direct use of ancestral name as community identity</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">अत्रि Atri</span><span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">गर्ग Garga</span><span class="gotra-tag">शाण्डिल्य Shandilya</span>
+        </div>
+        <div class="cc-desc">The broad identity term used by multiple Yadava sub-communities particularly in UP, Bihar, and Madhya Pradesh. In modern usage, "Yadav" as a surname has become the pan-India marker of Yadava identity, cutting across sub-community distinctions. The Yadav All India Conference (1919) was the first major organisation to unite all sub-communities under the single Yadava identity.</div>
+        <div class="cc-territories">Primary Regions: <span>Uttar Pradesh, Bihar, Madhya Pradesh, Jharkhand, Delhi NCR</span></div>
+        <div class="cc-notable">Notable: <span>The dominant OBC political community; associated with socialism and social justice movements in North India</span></div>
+      </div>
+
+      <!-- 3 GWALA / GOALA -->
+      <div class="clan-card" data-region="east north" data-name="gwala goala gopal dairy milk bengal bihar" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Gwala / Goala</div><div class="cc-dev">ग्वाल · गोआला</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Pastoral Sub-Clan</span><span class="badge badge-region">East India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Descendants of Payoda (5th son of Yadu) — primarily pastoral Yadavas</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">अत्रि Atri</span><span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">वशिष्ठ Vashishtha</span>
+        </div>
+        <div class="cc-desc">The traditional dairymen and cowherd communities of Bengal, Bihar, Jharkhand, and Odisha. "Gwala" derives from "go-pala" (protector of cows). Bengal Goalas (also called Gope or Sadgope in some sub-groups) maintain one of the oldest continuous dairy traditions in India. Their community dairy cooperatives predate modern cooperatives by centuries.</div>
+        <div class="cc-territories">Primary Regions: <span>West Bengal, Bihar, Jharkhand, Odisha, Assam, Tripura</span></div>
+        <div class="cc-notable">Notable: <span>Traditional dairy industry of Bengal; Gope community of Birbhum and Murshidabad; significant presence in eastern India's agricultural economy</span></div>
+      </div>
+
+      <!-- 4 GUJJAR-YADAV -->
+      <div class="clan-card" data-region="north west" data-name="gujjar yadav rajasthan haryana pastoral" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Gujjar-Yadav</div><div class="cc-dev">गुज्जर-यादव</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Regional Sub-Clan</span><span class="badge badge-region">Northwest</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Descended from Yadavas who settled in Gujarat (ancient Gurjaradesa) and Rajasthan</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">गौतम Gautama</span>
+        </div>
+        <div class="cc-desc">The Gujjar-Yadav communities of Rajasthan and Haryana trace their Yadava lineage while having adopted some pastoral traditions shared with Gujjar communities. They are distinct from the Gujjar community proper (who have different origins). Found primarily in the Mewat, Alwar, Bharatpur, and Jaipur districts of Rajasthan and in Haryana's Mewat region.</div>
+        <div class="cc-territories">Primary Regions: <span>Rajasthan (Alwar, Bharatpur, Jaipur), Haryana (Mewat, Gurugram), western UP</span></div>
+        <div class="cc-notable">Notable: <span>Strong martial tradition; many soldiers in the Indian Army from this community</span></div>
+      </div>
+
+      <!-- 5 YADAVA-KURUBA -->
+      <div class="clan-card" data-region="south" data-name="kuruba yadava karnataka shepherds south india" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Yadava-Kuruba</div><div class="cc-dev">यादव-कुरुब</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">South Indian Branch</span><span class="badge badge-region">South India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Yadava migrants who settled in Karnataka, maintaining shepherd and pastoral traditions</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">वत्स Vatsa</span>
+        </div>
+        <div class="cc-desc">The Kuruba community of Karnataka, parts of Tamil Nadu, and Telangana includes sub-groups that claim Yadava descent. Traditionally shepherds (kuruba = shepherd in Kannada), they have maintained Krishna devotion as central to their identity. The Mysore Kurubas were notably important in the Mysore Kingdom administration. Some Kuruba sub-groups use "Yadava-Kuruba" as a compound identity.</div>
+        <div class="cc-territories">Primary Regions: <span>Karnataka (Mysore, Dharwad, Bellary, Chitradurga), northern Tamil Nadu, Telangana</span></div>
+        <div class="cc-notable">Notable: <span>Significant presence in Karnataka state politics; traditional wool-weaving and shepherd traditions</span></div>
+      </div>
+
+      <!-- 6 KOERI / KUSHWAHA -->
+      <div class="clan-card" data-region="east north" data-name="koeri kushwaha vegetable farming bihar UP" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Koeri / Kushwaha</div><div class="cc-dev">कोएरी · कुशवाहा</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Agrarian Sub-Clan</span><span class="badge badge-region">East-North</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: A branch of Yadava descent associated with agricultural/horticultural traditions; some traditions trace descent from Kusha (son of Rama) — an alternate Yadava association</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">शाण्डिल्य Shandilya</span><span class="gotra-tag">भारद्वाज Bharadvaja</span>
+        </div>
+        <div class="cc-desc">The Koeri community of Bihar, UP, and Jharkhand are primarily market gardeners and vegetable cultivators. While some historical accounts place them as a distinct community from Yadavas, in the modern All India Yadav Mahasabha framework they are often included as a related agrarian Yadava branch. They are one of the three major OBC communities (Yadav-Kurmi-Koeri) that form the backbone of Bihar's political landscape.</div>
+        <div class="cc-territories">Primary Regions: <span>Bihar (especially Bhojpur, Saran, Vaishali), eastern UP, Jharkhand</span></div>
+        <div class="cc-notable">Notable: <span>Nitish Kumar (Bihar CM) traces connection to this community; major presence in vegetable and market-garden economy of Bihar</span></div>
+      </div>
+
+      <!-- 7 VRISHNI -->
+      <div class="clan-card" data-region="west north" data-name="vrishni krishna mathura dwarka ancient clan" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Vrishni</div><div class="cc-dev">वृष्णि</div></div>
+          <div class="cc-badges"><span class="badge badge-major">Ancient Royal Clan</span><span class="badge badge-gotra">Krishna's Clan</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Vrishni — son of Satvata, descendant of Kroshtu (Yadu's son)</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">अत्रि Atri</span><span class="gotra-tag">गर्ग Garga</span><span class="gotra-tag">शाण्डिल्य Shandilya</span>
+        </div>
+        <div class="cc-desc">The most celebrated ancient Yadava clan — the clan of Lord Krishna himself, as declared in Bhagavad Gita 10.37. The Vrishnis ruled Mathura and later Dwarka. After Dwarka's submersion, the surviving Vrishnis dispersed across western India. Modern communities in Mathura-Vrindavan, Saurashtra, and Rajasthan trace Vrishni ancestry. The <em>Vrishnava</em> tradition of bhakti is named for this clan.</div>
+        <div class="cc-territories">Primary Regions: <span>Mathura-Vrindavan belt, Saurashtra (Gujarat), Rajasthan, parts of Sindh (historically)</span></div>
+        <div class="cc-notable">Notable: <span>Lord Krishna, Balarama, Vasudeva, Devaki, Rukmini, Pradyumna, Aniruddha, Satyaki, Uddhava</span></div>
+      </div>
+
+      <!-- 8 ANDHAKA -->
+      <div class="clan-card" data-region="west" data-name="andhaka dwarka ugrasena kamsa gujarat" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Andhaka</div><div class="cc-dev">अन्धक</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Ancient Sub-Clan</span><span class="badge badge-region">West India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Andhaka — son of Satvata, brother of Vrishni; co-rulers of Dwarka with the Vrishnis</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">अत्रि Atri</span><span class="gotra-tag">कश्यप Kashyapa</span>
+        </div>
+        <div class="cc-desc">The Andhakas were co-rulers of the Dwarka confederation alongside the Vrishnis. King Ugrasena (father of Kamsa) was an Andhaka. After Kamsa's death, Ugrasena was restored to the Mathura/Andhaka throne by Krishna. The Bhagavata mentions Andhaka warriors among the principal Yadava heroes. Their descendants are found primarily in the Saurashtra region and parts of Rajasthan.</div>
+        <div class="cc-territories">Primary Regions: <span>Gujarat (Saurashtra), Rajasthan (historically Mathura region)</span></div>
+        <div class="cc-notable">Notable: <span>Ugrasena (restored king of Mathura), Kamsa (the tyrant), many Dwarka war-heroes</span></div>
+      </div>
+
+      <!-- 9 SATVATA -->
+      <div class="clan-card" data-region="west north" data-name="satvata bhakti pancharatra vaishnava satvata-dharma" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Satvata</div><div class="cc-dev">सात्वत</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Bhakti Clan</span><span class="badge badge-gotra">Dharmic Lineage</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Satvata — great-grandson of Kroshtu (Yadu's son) via Vrijinivat → Svahi → Vishvagarbha → Chitraratha → Shashabindu → Prithusrava → Satvata</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">अत्रि Atri</span><span class="gotra-tag">गर्ग Garga</span>
+        </div>
+        <div class="cc-desc">The most spiritually celebrated of all Yadava sub-clans. The Bhagavata Purana calls the Satvata tradition the highest form of bhakti. The <strong>Pancharatra Agama</strong> — the philosophical foundation of Vaishnava devotional theology — developed within the Satvata community. The term "Satvata-dharma" is used as a synonym for Vaishnava bhakti itself. From Satvata descended both Vrishni and Andhaka.</div>
+        <div class="cc-territories">Primary Regions: <span>Gujarat, Rajasthan, UP (Mathura belt) — spiritually pan-India through Vaishnava tradition</span></div>
+        <div class="cc-notable">Notable: <span>The Pancharatra-Vaishnava tradition; Satvata-dharma as foundational to all Krishna bhakti</span></div>
+      </div>
+
+      <!-- 10 HAIHAYA -->
+      <div class="clan-card" data-region="central" data-name="haihaya mahishmati narmada sahasrarjuna kartavirya" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Haihaya</div><div class="cc-dev">हैहय</div></div>
+          <div class="cc-badges"><span class="badge badge-major">Ancient Royal Clan</span><span class="badge badge-region">Central India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Haihaya — great-grandson of Sahasrajit (eldest son of Yadu) via Shatajit → Mahahaya → Haihaya</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">वशिष्ठ Vashishtha</span>
+        </div>
+        <div class="cc-desc">One of the most powerful ancient Yadava kingdoms — the Haihaya dynasty ruled Mahishmati (modern Maheshwar, on the Narmada in MP). Their greatest king was <strong>Kartavirya Arjuna (Sahasrarjuna)</strong> — the thousand-armed king who defeated Ravana himself and whose power rivalled the gods. He was eventually killed by Parashurama. Haihaya descendants settled across central India and the Deccan.</div>
+        <div class="cc-territories">Primary Regions: <span>Madhya Pradesh (Maheshwar, Khandwa, Nimar region), Maharashtra (historically), parts of Chhattisgarh</span></div>
+        <div class="cc-notable">Notable: <span>Kartavirya Arjuna (Sahasrarjuna) — thousand-armed king who conquered all directions</span></div>
+      </div>
+
+      <!-- 11 BHOJA -->
+      <div class="clan-card" data-region="central" data-name="bhoja kritavarma mahabharata central india" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Bhoja</div><div class="cc-dev">भोज</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Warrior Clan</span><span class="badge badge-region">Central India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Bhoja — from the Yadava royal lines of the Sahasrajit branch</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">कश्यप Kashyapa</span>
+        </div>
+        <div class="cc-desc">The Bhojas maintained a distinct Yadava kingdom centred around Bhoja-kata (modern Betul and surrounding districts of MP). In the Mahabharata, Bhojas appear as principal members of the Dwarka Yadava confederation. <strong>Kritavarma</strong> — the great Bhoja warrior — was one of the three surviving heroes of the Mahabharata war (on the Kaurava side). The Bhoja territory extended from the Narmada to the Tapti.</div>
+        <div class="cc-territories">Primary Regions: <span>Madhya Pradesh (Betul, Harda, Hoshangabad region), parts of Maharashtra</span></div>
+        <div class="cc-notable">Notable: <span>Kritavarma — Bhoja warrior who fought for Kauravas; survived the Mahabharata war (with Ashwatthama and Kripacharya)</span></div>
+      </div>
+
+      <!-- 12 KUKURA -->
+      <div class="clan-card" data-region="west" data-name="kukura akrura dwarka devotee krishna" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Kukura</div><div class="cc-dev">कुकुर</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Dwarka Clan</span><span class="badge badge-region">West India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Kukura — from Yadava royal lines within the Dwarka confederation</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">अत्रि Atri</span>
+        </div>
+        <div class="cc-desc">The Kukuras were prominent members of the Dwarka confederation. Their most celebrated member was <strong>Akrura</strong> — the greatest devotee among the Yadavas, who had the vision of Vishnu in the Yamuna when bringing Krishna to Mathura. His son Upamadgu was also a notable Yadava. The Bhagavata Purana's extended passage on Akrura's devotion makes the Kukuras a clan celebrated for bhakti above all.</div>
+        <div class="cc-territories">Primary Regions: <span>Gujarat (Saurashtra), historical Mathura region</span></div>
+        <div class="cc-notable">Notable: <span>Akrura — described as the greatest devotee in the Dwarka Yadava community</span></div>
+      </div>
+
+      <!-- 13 YADAVA of ANDHRA / TELANGANA -->
+      <div class="clan-card" data-region="south" data-name="yadava golla gollar telangana andhra krishna cowherd" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Golla / Yadava (Telugu)</div><div class="cc-dev">गोल्ला · यादव (तेलुगु)</div></div>
+          <div class="cc-badges"><span class="badge badge-major">Major Clan</span><span class="badge badge-region">South India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Yadava migrants and indigenous pastoral communities of the Deccan with shared Yadu lineage</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">वशिष्ठ Vashishtha</span><span class="gotra-tag">गौतम Gautama</span>
+        </div>
+        <div class="cc-desc">The Golla community of Telangana and Andhra Pradesh are the Telugu-speaking Yadavas. "Golla" means cowherd in Telugu. They maintain strong Krishna devotion — many Golla villages celebrate Janmashtami for 10+ days. Sub-groups include Ediga Golla, Kuruma Golla, Kamsali Golla. They maintain the tradition of Burrakatha (folk ballad art) narrating Krishna stories. Population: approximately 8-10 million in the two Telugu states.</div>
+        <div class="cc-territories">Primary Regions: <span>Telangana (especially Nalgonda, Khammam, Mahbubnagar), Andhra Pradesh (Krishna, Guntur, Prakasam districts)</span></div>
+        <div class="cc-notable">Notable: <span>Burrakatha tradition; Golla community temples to Krishna as Govinda; strong representation in Telugu film industry</span></div>
+      </div>
+
+      <!-- 14 YADAVA of TAMIL NADU -->
+      <div class="clan-card" data-region="south" data-name="yadava idaiyar konar tamil sheperd south" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Idaiyar / Konar (Tamil)</div><div class="cc-dev">इडैयर · कोनार</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">South Indian Branch</span><span class="badge badge-region">South India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Yadava pastoral communities who settled in Tamil Nadu; connected to ancient Mullai landscape traditions</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">कश्यप Kashyapa</span>
+        </div>
+        <div class="cc-desc">The Idaiyar (also called Konar, Yadavar) are the Tamil-speaking Yadavas of Tamil Nadu. "Idaiyar" means shepherd in classical Tamil. They are mentioned in ancient Sangam literature (particularly Purananuru and Akananuru) as the people of the Mullai landscape — the forest-and-pasture region associated with Krishna (Mayon in Tamil) worship. Their Krishna-worship traditions predate the Sanskrit Puranas in Tamil Nadu.</div>
+        <div class="cc-territories">Primary Regions: <span>Tamil Nadu (Salem, Erode, Namakkal, Tirupur districts particularly), parts of Kerala</span></div>
+        <div class="cc-notable">Notable: <span>Ancient Mayon (dark-complexioned god = Krishna) worship tradition in Sangam literature; strong folk music traditions</span></div>
+      </div>
+
+      <!-- 15 YADAVA of MAHARASHTRA -->
+      <div class="clan-card" data-region="west" data-name="dhangar dhangad maharashtra shepherd yadava" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Dhangar (Yadava branch)</div><div class="cc-dev">धनगर · यादव</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Regional Branch</span><span class="badge badge-region">West India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: A branch of Yadavas who settled in Maharashtra; some Dhangar sub-groups claim Yadava descent</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">वत्स Vatsa</span>
+        </div>
+        <div class="cc-desc">Among Maharashtra's pastoral communities, several Dhangar (shepherd) sub-groups — particularly the Hatkar and Khutekar Dhangars — claim descent from the Yadava royal lineage. The Yadava dynasty of Devagiri (12th-14th century CE) was the last great medieval Yadava kingdom, ruling from Daulatabad/Devagiri and claiming direct royal Yadava lineage. Their rule over much of Maharashtra established the Yadava cultural legacy in the region.</div>
+        <div class="cc-territories">Primary Regions: <span>Maharashtra (Nashik, Ahmednagar, Pune, Solapur, Aurangabad divisions)</span></div>
+        <div class="cc-notable">Notable: <span>The Yadava Dynasty of Devagiri (1187-1317 CE) — last great Yadava kingdom; Singhana, Mahadeva, Ramachandra — great Yadava kings</span></div>
+      </div>
+
+      <!-- 16 RAWAT / YADAVA of UTTARAKHAND -->
+      <div class="clan-card" data-region="north" data-name="rawat yadava uttarakhand garhwal kumaon hills" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Rawat / Hill Yadava</div><div class="cc-dev">रावत · पहाड़ी यादव</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Mountain Branch</span><span class="badge badge-region">North India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Yadava communities who migrated to the Himalayan foothills; Rawat is a Kshatriya title used by hill Yadavas</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">भारद्वाज Bharadvaja</span>
+        </div>
+        <div class="cc-desc">The Rawat communities of Garhwal and Kumaon in Uttarakhand include Yadava sub-groups who migrated to the hills over many centuries. They maintained pastoral traditions in the mountain meadows (bugyals). The term "Rawat" is a title of honour in the hill communities indicating warrior-pastoral lineage. Their folk traditions include the Jagar (spirit summoning) ceremonies which often invoke Krishna and the Yadava ancestors.</div>
+        <div class="cc-territories">Primary Regions: <span>Uttarakhand (Pauri Garhwal, Tehri, Chamoli, Almora, Nainital)</span></div>
+        <div class="cc-notable">Notable: <span>Mountain pastoral traditions; Jagar folk ritual; significant representation in Indian Army (Garhwal Rifles)</span></div>
+      </div>
+
+      <!-- 17 NANDAVANSHI -->
+      <div class="clan-card" data-region="north central" data-name="nandavanshi nanda gopal gokul krishna foster parents" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Nandavanshi</div><div class="cc-dev">नन्दवंशी</div></div>
+          <div class="cc-badges"><span class="badge badge-gotra">Sacred Lineage</span><span class="badge badge-region">North India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Nanda Maharaja — Krishna's foster father; the Nandavanshi trace descent from the Nanda family of Gokul</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">अत्रि Atri</span><span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">गर्ग Garga</span>
+        </div>
+        <div class="cc-desc">Communities who trace specific descent from Nanda Maharaja's extended family — the Abhira-Yadava cowherds of Gokul. Nandavanshi communities are found in the Braj region (Mathura, Vrindavan, Govardhan area) and consider themselves particularly blessed as the host family of God himself. Nandavanshi Ahirs often serve as hereditary priests in Braj region temples associated with Krishna's childhood.</div>
+        <div class="cc-territories">Primary Regions: <span>Braj region (Mathura, Vrindavan, Govardhan, Barsana), parts of UP and Haryana</span></div>
+        <div class="cc-notable">Notable: <span>Hereditary temple service in Braj; Nandotsava festival tradition; custodians of Nanda Bhavan in Nandgaon</span></div>
+      </div>
+
+      <!-- 18 YADAVA MARATHAS -->
+      <div class="clan-card" data-region="west" data-name="maratha yadava 96 kuli shivaji" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Yadava Marathas</div><div class="cc-dev">यादव-मराठा</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Royal Branch</span><span class="badge badge-region">West India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Descendants of the Yadava Dynasty of Devagiri who remained in Maharashtra after the dynasty's fall (1317 CE)</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">वशिष्ठ Vashishtha</span>
+        </div>
+        <div class="cc-desc">A notable section of the 96 Kuli Maratha clans claims descent from the Yadava Dynasty of Devagiri. Chhatrapati Shivaji Maharaj's family (the Bhonsale clan) traced their lineage to the Mewar Rajputs, themselves connected to Yadava royal lines. The Yadava royal blood runs through several Maratha clans including the Nimbalkar, Shirke, and several Deshmukh family traditions.</div>
+        <div class="cc-territories">Primary Regions: <span>Maharashtra (especially Marathwada, Konkan, Pune-Nashik region), Goa (historically)</span></div>
+        <div class="cc-notable">Notable: <span>Connection to the Bhonsale royal family; Devagiri Yadava kings as cultural ancestors of Maharashtra</span></div>
+      </div>
+
+      <!-- 19 YADAVAS OF PUNJAB / HARYANA -->
+      <div class="clan-card" data-region="north" data-name="jadubansi jad yadav punjab haryana delhi" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Jadubansi / Jad Yadava</div><div class="cc-dev">जादुबंसी · जट यादव</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Northwest Branch</span><span class="badge badge-region">North India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Yadava communities of the Punjab-Haryana region; "Jadu" is a folk form of "Yadu"</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">अत्रि Atri</span>
+        </div>
+        <div class="cc-desc">The "Jad" (from Yadu) or Jadubansi communities of Punjab and Haryana are Yadavas who settled in the northwest after the dispersal from Dwarka. "Jat Yadava" is a term sometimes used for these communities. They maintained warrior and pastoral traditions in the Punjab plains. Many Yadavas from this region served in the armies of various kingdoms and later in the British Indian Army.</div>
+        <div class="cc-territories">Primary Regions: <span>Haryana (Hisar, Bhiwani, Rohtak, Jhajjar), Punjab, Delhi NCR</span></div>
+        <div class="cc-notable">Notable: <span>Strong military tradition; "Jad" as a community marker in Haryana folk songs; connection to the Ahirwal (Land of Ahirs) region of Haryana</span></div>
+      </div>
+
+      <!-- 20 MADHAVANSHI -->
+      <div class="clan-card" data-region="west" data-name="madhavanshi madhava yadava gujarat saurashtra" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Madhavanshi</div><div class="cc-dev">माधवांशी</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Ancient Branch</span><span class="badge badge-region">West India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: From the Madhava sub-clan of the Dwarka confederation — connected to the Madhu/Madhavas of Yadu's line</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">अत्रि Atri</span><span class="gotra-tag">शाण्डिल्य Shandilya</span>
+        </div>
+        <div class="cc-desc">The Madhavanshi ("of Madhava's line") communities trace descent from the Madhava clan — one of the groups at Dwarka. "Madhava" is one of Krishna's names (from the Madhu/Yadava clan). These communities are found primarily in Gujarat and Saurashtra, maintaining strong Vaishnava traditions. Some Pushtimargi Vaishnava communities in Gujarat claim Madhavanshi descent.</div>
+        <div class="cc-territories">Primary Regions: <span>Gujarat (Saurashtra, Kutch, Ahmedabad), Rajasthan</span></div>
+        <div class="cc-notable">Notable: <span>Connection to the Pushtimargi (Vallabha sampradaya) Vaishnava tradition of Gujarat</span></div>
+      </div>
+
+      <!-- 21 YADAVAS OF RAJASTHAN -->
+      <div class="clan-card" data-region="west north" data-name="rajput yadava rajasthan mewar ahir" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Yadava Rajputs of Rajasthan</div><div class="cc-dev">राजपूत यादव — राजस्थान</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Warrior-Royal Branch</span><span class="badge badge-region">West-North</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Royal Yadava lines that settled in Rajasthan after the Dwarka period and established regional kingdoms</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">कश्यप Kashyapa</span><span class="gotra-tag">वशिष्ठ Vashishtha</span>
+        </div>
+        <div class="cc-desc">Several Rajput clans of Rajasthan claim Yadava origin — notably the Jadaun/Jadon Rajputs of Karauli (who claim direct descent from Krishna through Brihanta, grandson of Aniruddha). The Karauli kingdom was founded in the 10th century CE by Vijaypal, who traced his lineage to the Vrishni Yadavas. The Jaduvanshi (Yadavanshi) Rajputs of Mathura, Agra, and Jaipur regions also maintain this tradition.</div>
+        <div class="cc-territories">Primary Regions: <span>Rajasthan (Karauli, Sawai Madhopur, Jaipur, Bharatpur, Alwar), UP (Mathura, Agra, Aligarh)</span></div>
+        <div class="cc-notable">Notable: <span>Karauli royal dynasty; Jadaun Rajputs; connection between Yadava and Rajput traditions in Rajasthan</span></div>
+      </div>
+
+      <!-- 22 YADAVAS OF KARNATAKA -->
+      <div class="clan-card" data-region="south" data-name="yadava karnataka gollar shepherd vokkaliga" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Gollar / Yadava (Kannada)</div><div class="cc-dev">गोल्लर · यादव (कन्नड)</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">South Indian Branch</span><span class="badge badge-region">South India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: Yadava pastoral communities who settled in Karnataka, tracing descent through Yadava migrations south of the Narmada</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">भारद्वाज Bharadvaja</span><span class="gotra-tag">वशिष्ठ Vashishtha</span><span class="gotra-tag">कश्यप Kashyapa</span>
+        </div>
+        <div class="cc-desc">The Gollar (cowherd) communities of Karnataka identify as Yadavas. Distinct from Kurubas (shepherds), Gollars are specifically cattle-herders. Karnataka had a major Yadava presence due to the Yadava Dynasty of Devagiri's rule over much of north Karnataka from the 12th-14th centuries. The Yadava cultural imprint on Karnataka is preserved in place names, temple traditions, and community practices.</div>
+        <div class="cc-territories">Primary Regions: <span>Karnataka (Dharwad, Haveri, Gadag, Bellary, Koppal districts particularly)</span></div>
+        <div class="cc-notable">Notable: <span>Connection to Devagiri Yadava kingdom's rule over north Karnataka; Yellamma temple traditions</span></div>
+      </div>
+
+      <!-- 23 YADAVA DIASPORA -->
+      <div class="clan-card" data-region="east" data-name="diaspora mauritius fiji trinidad guyana global" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Global Yadava Diaspora</div><div class="cc-dev">प्रवासी यादव समाज</div></div>
+          <div class="cc-badges"><span class="badge badge-sub">Global Community</span><span class="badge badge-region">International</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">All Yadava sub-communities represented globally through migration</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">All Yadava gotras represented</span>
+        </div>
+        <div class="cc-desc">The Yadava diaspora spans the globe. Particularly significant communities exist in Mauritius (where Ahirs came as indentured labourers in the 19th century and now form a major community), Trinidad and Tobago, Guyana, Fiji, South Africa, the UK (Leicester, Birmingham), USA (New Jersey, Texas), Canada, and Australia. These communities maintain their Yadava identity through samaj organisations, Janmashtami celebrations, and digital genealogy projects like this website.</div>
+        <div class="cc-territories">Primary Regions: <span>Mauritius, UK (Leicester), USA (NJ, TX), Canada, Fiji, Trinidad, Guyana, South Africa, UAE</span></div>
+        <div class="cc-notable">Notable: <span>Mauritius Ahir community (major cultural presence); Indian diaspora temple networks maintaining Yadava tradition globally</span></div>
+      </div>
+
+      <!-- 24 SHAKYA / YADAVA -->
+      <div class="clan-card" data-region="north east" data-name="shakya yadava buddha nepal UP sakyamuni" data-visible="true">
+        <div class="cc-header">
+          <div class="cc-names"><div class="cc-en">Shakya / Yadava</div><div class="cc-dev">शाक्य · यादव</div></div>
+          <div class="cc-badges"><span class="badge badge-gotra">Historical Connection</span><span class="badge badge-region">North-East India</span></div>
+        </div>
+        <div class="cc-divider"></div>
+        <div class="cc-ancestor">Founding Ancestor: The Shakya clan is connected to Yadava lineage through historical accounts — Siddhartha Gautama (the Buddha) was born into the Shakya clan</div>
+        <div class="cc-gotras">
+          <span class="gotra-tag">गौतम Gautama</span><span class="gotra-tag">अत्रि Atri</span>
+        </div>
+        <div class="cc-desc">Several Puranic and historical accounts connect the Shakya clan (of which Siddhartha Gautama, the Buddha, was a member) to the Yadava lineage. The Puranic genealogy records that the Shakyas descended from Ikshvaku (solar dynasty) through Shuddhodana — but some scholars and community traditions trace a Yadava connection through intermarriage. Modern Shakya communities in UP and Bihar often participate in broader Yadava social organisations. The connection between the Buddha and the Yadava world remains a fascinating scholarly discussion.</div>
+        <div class="cc-territories">Primary Regions: <span>UP (Kapilvastu region, Siddhartha Nagar), Nepal (Lumbini area), Bihar</span></div>
+        <div class="cc-notable">Notable: <span>Siddhartha Gautama (the Buddha) — born in the Shakya clan; connection to Yadava tradition through ancient genealogical accounts</span></div>
+      </div>
+
+      <!-- No results message -->
+      <div class="no-results" id="no-results">No communities found matching your search. Try different keywords or reset filters.</div>
+
+    </div><!-- /clan-grid -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     52+ GOTRAS TABLE
+══════════════════════════════════════════ -->
+<section id="gotras" class="gotra-table-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Sacred Root Ancestors</p>
+    <h2 class="sec-title reveal">52+ Principal Yadava Gotras</h2>
+    <p class="lead reveal">The gotras listed below are the principal gotras used across Yadava sub-communities in India. Each gotra traces back to a Vedic Rishi ancestor. In ritual practice, knowing your gotra is essential for marriage compatibility, ancestral worship (shraddha), and Vedic ceremonies.</p>
+
+    <table class="gotra-table reveal">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Gotra Name</th>
+          <th>Sanskrit</th>
+          <th>Root Rishi</th>
+          <th>Pravara (Sacred Ancestors)</th>
+          <th>Common In</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><span class="gbadge">1</span></td>
+          <td><strong>Atri</strong></td>
+          <td class="dev-cell">अत्रि</td>
+          <td>Atri Maharishi — Brahma's son, born from his eyes; father of Chandra; ancestor of all Chandravansha</td>
+          <td>Atri · Atreya · Archananas</td>
+          <td>Ahir (pan-India), Nandavanshi, Vrishni communities; most widespread Yadava gotra</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">2</span></td>
+          <td><strong>Kashyapa</strong></td>
+          <td class="dev-cell">कश्यप</td>
+          <td>Kashyapa Muni — son of Marichi (Brahma's son); father of the gods, demons, and all creatures</td>
+          <td>Kashyapa · Avatsara · Naidhruva</td>
+          <td>Ahir (Gujarat, Rajasthan, UP), Gwala, Haihaya communities; second-most common</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">3</span></td>
+          <td><strong>Bharadvaja</strong></td>
+          <td class="dev-cell">भारद्वाज</td>
+          <td>Bharadvaja — great Vedic sage; associated with Rigveda Book VI; teacher of Drona</td>
+          <td>Angirasa · Barhaspatya · Bharadvaja</td>
+          <td>Haihaya, Bhoja, Golla (Andhra), Kuruba, Dhangar communities</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">4</span></td>
+          <td><strong>Vashishtha</strong></td>
+          <td class="dev-cell">वशिष्ठ</td>
+          <td>Vashishtha — one of the seven Saptarishis; Brahma's son; royal priest of the Solar dynasty</td>
+          <td>Vashishtha · Indrapramada · Abharadvasa</td>
+          <td>Ahir (North India), Gwala, Rawat, Gollar communities</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">5</span></td>
+          <td><strong>Gautama</strong></td>
+          <td class="dev-cell">गौतम</td>
+          <td>Gautama — one of the Saptarishis; associated with Nyaya philosophy and the Sama Veda</td>
+          <td>Angirasa · Ayasya · Gautama</td>
+          <td>Ahir (eastern regions), Shakya, Gwala communities; common in Bihar</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">6</span></td>
+          <td><strong>Garga</strong></td>
+          <td class="dev-cell">गर्ग</td>
+          <td>Garga Muni — the great Yadava family priest who named Krishna and predicted his future</td>
+          <td>Angirasa · Vashishtha · Gargya</td>
+          <td>Nandavanshi, Vrishni, Yadav of Braj region — especially significant as Garga was the Yadava family acharya</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">7</span></td>
+          <td><strong>Shandilya</strong></td>
+          <td class="dev-cell">शाण्डिल्य</td>
+          <td>Shandilya — Vedic sage; associated with the Shandilya Upanishad on bhakti; disciple of Kashyapa</td>
+          <td>Kashyapa · Devala · Asita</td>
+          <td>Yadav of UP, Bihar, Rajasthan; Madhavanshi; Satvata communities</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">8</span></td>
+          <td><strong>Vatsa</strong></td>
+          <td class="dev-cell">वत्स</td>
+          <td>Vatsa — descendant of Kashyapa; associated with cattle-rearing tradition</td>
+          <td>Kashyapa · Vatsara · Nidhra</td>
+          <td>Kuruba, Dhangar, some Ahir sub-groups in western India</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">9</span></td>
+          <td><strong>Angirasa</strong></td>
+          <td class="dev-cell">आङ्गिरस</td>
+          <td>Angiras — one of the Saptarishis; progenitor of the Angirasa clan; associated with Atharvaveda</td>
+          <td>Angirasa · Ambarisha · Yavanashva</td>
+          <td>Some Ahir sub-clans in Haryana and Rajasthan; Yadavas with Atharvaveda connection</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">10</span></td>
+          <td><strong>Parashara</strong></td>
+          <td class="dev-cell">पराशर</td>
+          <td>Parashara — grandson of Vashishtha; father of Vyasa (compiler of the Vedas and Puranas)</td>
+          <td>Vashishtha · Shaktri · Parashara</td>
+          <td>Some Ahir communities of UP; Yadavas with strong Puranic scholarly tradition</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">11</span></td>
+          <td><strong>Vishwamitra</strong></td>
+          <td class="dev-cell">विश्वामित्र</td>
+          <td>Vishwamitra — the royal sage who became a Brahmin through tapas; composer of Gayatri Mantra</td>
+          <td>Vishwamitra · Aghamarshana · Kaushika</td>
+          <td>Some warrior-class Yadavas; Rajput-connected Yadava communities of Rajasthan</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">12</span></td>
+          <td><strong>Kaushika</strong></td>
+          <td class="dev-cell">कौशिक</td>
+          <td>Kaushika — another name/clan of Vishwamitra; his descendants form the Kaushika gotra</td>
+          <td>Vishwamitra · Devarat · Audala</td>
+          <td>Yadavas of Rajasthan and MP; Haihaya-descended communities</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">13</span></td>
+          <td><strong>Mandavya</strong></td>
+          <td class="dev-cell">माण्डव्य</td>
+          <td>Mandavya — ancient sage; associated with Yajurveda tradition</td>
+          <td>Angirasa · Barhaspathya · Mandavya</td>
+          <td>Some Ahir sub-groups of central and north India</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">14</span></td>
+          <td><strong>Kaundinya</strong></td>
+          <td class="dev-cell">कौण्डिन्य</td>
+          <td>Kaundinya — ancient sage; particularly revered in southern India; associated with Vasishtha line</td>
+          <td>Vashishtha · Mitra · Kaundinya</td>
+          <td>Yadava communities of Andhra, Tamil Nadu; Golla sub-communities</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">15</span></td>
+          <td><strong>Mudgala</strong></td>
+          <td class="dev-cell">मुद्गल</td>
+          <td>Mudgala — Vedic sage associated with charity and selflessness; from Bharadvaja's line</td>
+          <td>Angirasa · Tamasa · Mudgala</td>
+          <td>Some Ahir communities of Bihar and eastern UP; Gwala sub-groups</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">16</span></td>
+          <td><strong>Shaunaka</strong></td>
+          <td class="dev-cell">शौनक</td>
+          <td>Shaunaka — sage who received the Atharvaveda's major commentary; associated with the Naimisha forest tradition</td>
+          <td>Angirasa · Shaunaka · Gritsamada</td>
+          <td>Yadavas of Naimisharanya region (UP); some Gwala communities</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">17</span></td>
+          <td><strong>Upamanya</strong></td>
+          <td class="dev-cell">उपमन्यु</td>
+          <td>Upamanya — devoted disciple of Dhaumya; associated with Shiva devotion and Yadava traditions</td>
+          <td>Vashishtha · Upamanya · Shiva-priya</td>
+          <td>Some Ahir communities of UP and Bihar; associated with Shaiva-Vaishnava synthesis traditions</td>
+        </tr>
+        <tr>
+          <td><span class="gbadge">18</span></td>
+          <td><strong>Kusha</strong></td>
+          <td class="dev-cell">कुश</td>
+          <td>Kusha — son of Rama; associated with Kushwaha/Koeri communities who claim descent</td>
+          <td>Vashishtha · Kusha · Ramachandra</td>
+          <td>Koeri/Kushwaha communities of Bihar and UP who affiliate with Yadava organisations</td>
+        </tr>
+        <tr>
+          <td>19–52+</td>
+          <td><em>Additional Gotras</em></td>
+          <td class="dev-cell">विविध गोत्र</td>
+          <td>Including: Pulaha · Pulastya · Kratu · Harita · Kanva · Agastya · Jabali · Vatula · Upadhyaya · Lomasha · Laugakshi · Shakapuni · Galava · Yaska · Pippalada · Madhyandina · Baudhayana · Apastamba · Hiranyakashyapa · Shatamarshana · Bhrigu · Chyavana and more</td>
+          <td>Varies by gotra</td>
+          <td>Regionally variable across all Yadava sub-communities; documented in local Yadava samaj records and genealogical manuscripts</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     REGIONAL MAP
+══════════════════════════════════════════ -->
+<section id="regions" class="region-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Living Geography</p>
+    <h2 class="sec-title reveal">Yadava Communities — Region by Region</h2>
+    <p class="lead reveal">The 350 million+ Yadavas of today are spread across every state of India and many countries of the world. Here is the regional map of the major Yadava communities — their distribution, their principal clans in each region, and the unique traditions they carry.</p>
+
+    <div class="region-grid">
+      <div class="region-card reveal rd1">
+        <div class="rc-region">🌾 Uttar Pradesh & Delhi</div>
+        <div class="rc-title">The Heartland — Yadava Core</div>
+        <div class="rc-dev">उत्तर प्रदेश — यदुवंश की मातृभूमि</div>
+        <div class="rc-clans">
+          <span class="rc-clan-tag">Ahir</span><span class="rc-clan-tag">Nandavanshi</span><span class="rc-clan-tag">Yadav</span><span class="rc-clan-tag">Rawat</span>
+        </div>
+        <div class="rc-desc">UP is the single largest concentration of Yadavas globally (~45 million). Mathura, Vrindavan, and Braj form the spiritual centre. Mainpuri, Etawah, Kanpur, Agra, and Aligarh are the political heartland. The Samajwadi Party was founded primarily as a Yadava political vehicle here. Mulayam Singh Yadav and Akhilesh Yadav have led UP from this base.</div>
+      </div>
+      <div class="region-card reveal rd2">
+        <div class="rc-region">🌾 Bihar & Jharkhand</div>
+        <div class="rc-title">Eastern Stronghold</div>
+        <div class="rc-dev">बिहार — यादव राजनीति का केंद्र</div>
+        <div class="rc-clans">
+          <span class="rc-clan-tag">Ahir</span><span class="rc-clan-tag">Gwala</span><span class="rc-clan-tag">Yadav</span><span class="rc-clan-tag">Koeri</span>
+        </div>
+        <div class="rc-desc">Bihar has ~30 million Yadavas. Lalu Prasad Yadav built the RJD political movement here. Yadavas are the single largest caste group in Bihar, central to its politics and economy. The Gwala communities of North Bihar maintain the oldest dairy traditions. Famous for Ahir folk music (Birha, Jhumar) and wrestling traditions.</div>
+      </div>
+      <div class="region-card reveal rd3">
+        <div class="rc-region">🏔️ Rajasthan & Haryana</div>
+        <div class="rc-title">The Ahirwal — Land of Ahirs</div>
+        <div class="rc-dev">अहीरवाल — राजस्थान-हरियाणा</div>
+        <div class="rc-clans">
+          <span class="rc-clan-tag">Ahir</span><span class="rc-clan-tag">Jadubansi</span><span class="rc-clan-tag">Gujjar-Yadav</span><span class="rc-clan-tag">Jadaun Rajput</span>
+        </div>
+        <div class="rc-desc">The "Ahirwal" region (Land of Ahirs) covers parts of Haryana (Rewari, Mahendragarh, Gurugram) and Rajasthan. This region has produced extraordinary numbers of Indian Army officers and soldiers — particularly through the Ahir Regiment and the Rajputana Rifles. Traditional Ahir folk music and wrestling are most vibrant here. Karauli in Rajasthan has a Jadaun Rajput kingdom tracing Yadava descent.</div>
+      </div>
+      <div class="region-card reveal rd1">
+        <div class="rc-region">🌊 Gujarat & Saurashtra</div>
+        <div class="rc-title">The Original Yadava Land</div>
+        <div class="rc-dev">गुजरात — द्वारका की भूमि</div>
+        <div class="rc-clans">
+          <span class="rc-clan-tag">Vrishni (historic)</span><span class="rc-clan-tag">Andhaka (historic)</span><span class="rc-clan-tag">Ahir</span><span class="rc-clan-tag">Madhavanshi</span>
+        </div>
+        <div class="rc-desc">Gujarat is the land of Dwarka — the greatest Yadava city. Saurashtra (Kathiawar peninsula) was the heartland of the ancient Yadava confederation. The Dwarka temple, Bet Dwarka, Nageshvara Jyotirlinga, and Rukmini temple are the living monuments of Yadava civilization. Ahir communities of Saurashtra maintain some of the oldest Yadava pastoral traditions.</div>
+      </div>
+      <div class="region-card reveal rd2">
+        <div class="rc-region">🏛️ Maharashtra</div>
+        <div class="rc-title">The Devagiri Legacy</div>
+        <div class="rc-dev">महाराष्ट्र — देवगिरि यादव</div>
+        <div class="rc-clans">
+          <span class="rc-clan-tag">Dhangar (Yadava)</span><span class="rc-clan-tag">Yadava-Maratha</span><span class="rc-clan-tag">Ahir</span>
+        </div>
+        <div class="rc-desc">The Yadava Dynasty of Devagiri (1187–1317 CE) was the last great Yadava empire, ruling from Devagiri (Daulatabad near Aurangabad). Kings like Singhana, Mahadeva, and Ramachandra patronised Marathi literature and built magnificent temples. This dynasty's cultural legacy pervades Maharashtra. Ahir communities from UP also settled here through 20th-century migration.</div>
+      </div>
+      <div class="region-card reveal rd3">
+        <div class="rc-region">🌿 Andhra & Telangana</div>
+        <div class="rc-title">Golla — The Telugu Yadavas</div>
+        <div class="rc-dev">आन्ध्र-तेलंगाना — गोल्ला यादव</div>
+        <div class="rc-clans">
+          <span class="rc-clan-tag">Golla</span><span class="rc-clan-tag">Ediga Golla</span><span class="rc-clan-tag">Kuruma Golla</span>
+        </div>
+        <div class="rc-desc">The Golla (cowherd) community is the major Yadava group in the Telugu states. The Burrakatha folk art tradition — where Yadava bards narrate Krishna's stories — is a uniquely Telugu contribution to Yadava cultural life. Gollas maintain strong temple traditions, particularly at Govinda temples across the two states. Population: 8–10 million.</div>
+      </div>
+      <div class="region-card reveal rd1">
+        <div class="rc-region">🌺 Karnataka</div>
+        <div class="rc-title">Kuruba-Gollar Heritage</div>
+        <div class="rc-dev">कर्नाटक — कुरुब-गोल्लर</div>
+        <div class="rc-clans">
+          <span class="rc-clan-tag">Kuruba-Yadava</span><span class="rc-clan-tag">Gollar</span><span class="rc-clan-tag">Dhangar</span>
+        </div>
+        <div class="rc-desc">North Karnataka fell under the Yadava Dynasty of Devagiri's rule for two centuries, leaving a deep cultural imprint. The Kuruba (shepherd) community includes Yadava-identified sub-groups. Gollar (cowherd) communities trace their own Yadava lineage. Strong bhakti traditions centred on Govinda and Vitthala worship persist across Karnataka's Yadava communities.</div>
+      </div>
+      <div class="region-card reveal rd2">
+        <div class="rc-region">☀️ Tamil Nadu & Kerala</div>
+        <div class="rc-title">Idaiyar — Ancient Mayon Worshippers</div>
+        <div class="rc-dev">तमिलनाडु — इडैयर</div>
+        <div class="rc-clans">
+          <span class="rc-clan-tag">Idaiyar</span><span class="rc-clan-tag">Konar</span><span class="rc-clan-tag">Yadavar</span>
+        </div>
+        <div class="rc-desc">The Idaiyar community of Tamil Nadu is perhaps the oldest documented Yadava community in South India — mentioned in Sangam literature (3rd century BCE to 3rd century CE) as the people of the Mullai landscape who worshipped "Mayon" (the dark-complexioned one = Krishna). This makes their tradition over 2,000 years old in documented form. Their folk traditions, songs, and pastoral practices are remarkable living antiquities.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TRADITIONS SECTION
+══════════════════════════════════════════ -->
+<section id="traditions" class="tradition-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">Living Heritage</p>
+    <h2 class="sec-title reveal">Shared Traditions Across All Yadava Communities</h2>
+    <p class="lead reveal">Despite their geographic dispersal and linguistic diversity, all Yadava sub-communities share a remarkable core of traditions that bind them across the subcontinent — expressions of the common heritage that flows from Yadu through Krishna to the present day.</p>
+
+    <div class="cards-3">
+      <div class="info-card reveal rd1">
+        <span class="ic-icon">🎵</span>
+        <div class="ic-title">Ahir Folk Music</div>
+        <div class="ic-dev">अहीर लोकसंगीत</div>
+        <div class="ic-text">Birha (North India), Rasiya (Braj region), Alha (UP-MP), Jhumar (Bihar), Burrakatha (Telangana), and the Tamil Idaiyar songs — all are regional expressions of the same Yadava musical soul. Krishna himself was a divine musician; his Yadava descendants have carried that tradition in every language.</div>
+      </div>
+      <div class="info-card reveal rd2">
+        <span class="ic-icon">🐄</span>
+        <div class="ic-title">Go-Seva (Cow Service)</div>
+        <div class="ic-dev">गो-सेवा परम्परा</div>
+        <div class="ic-text">The service, care, and reverence of cows is universal across all Yadava communities. From the Ahirs of UP's dairy cooperatives to the Gollas of Andhra's cattle markets to the Idaiyar of Tamil Nadu's pastoral traditions — the cow is central. Govardhan Puja (the mountain-lifting festival) is celebrated across all sub-communities.</div>
+      </div>
+      <div class="info-card reveal rd3">
+        <span class="ic-icon">🎊</span>
+        <div class="ic-title">Janmashtami</div>
+        <div class="ic-dev">जन्माष्टमी</div>
+        <div class="ic-text">The midnight celebration of Krishna's birth is the supreme Yadava festival. Every Yadava community — from UP to Tamil Nadu to Mauritius — marks this night with fasting, devotional singing, re-enactment of the birth, and the swinging of the baby Krishna in a cradle. The community fast breaks only at midnight when the birth is announced.</div>
+      </div>
+      <div class="info-card reveal rd1">
+        <span class="ic-icon">🤼</span>
+        <div class="ic-title">Kushti (Wrestling)</div>
+        <div class="ic-dev">कुश्ती — मल्लयुद्ध</div>
+        <div class="ic-text">Wrestling is a pan-Yadava martial tradition going back to Krishna's own championship wrestling bouts with Chanura and Mushtika in Kamsa's arena. The Ahirwal region of Haryana produces a disproportionate number of Indian wrestling champions. The Dangal (wrestling tournament) is a community event across UP, Haryana, Bihar, and Rajasthan Yadava communities.</div>
+      </div>
+      <div class="info-card reveal rd2">
+        <span class="ic-icon">🪔</span>
+        <div class="ic-title">Bhagavata Katha</div>
+        <div class="ic-dev">भागवत कथा</div>
+        <div class="ic-text">The recitation of the Srimad Bhagavata Purana — especially Skandha X (Krishna's story) — is the central community religious event. Every major Yadava community occasion (weddings, festivals, memorial events, housewarming ceremonies) features a Bhagavata Katha. Professional Yadava katha vachaks (narrators) travel across communities maintaining this oral tradition.</div>
+      </div>
+      <div class="info-card reveal rd3">
+        <span class="ic-icon">🏛️</span>
+        <div class="ic-title">Samaj Organisations</div>
+        <div class="ic-dev">यादव समाज संगठन</div>
+        <div class="ic-text">The Yadava All India Conference (1919), Yadav Mahasabha, and hundreds of regional and state-level samaj organisations maintain community cohesion. These organisations manage education, marriage matching (gotra-checking is centralised through these bodies), dispute resolution, community welfare, and political mobilisation. Digital samaj organisations are now the newest addition.</div>
+      </div>
+    </div>
+
+    <div class="qblock reveal" style="margin-top:3rem;">
+      <p class="qdev">ते वयं यदुकुलस्य गोत्रिणः सर्व एव हि।<br/>कृष्णस्य वंशजाः नित्यं धर्मं पाल्यामहे।।</p>
+      <p class="qtrans">"We all, bearing the gotras of the Yadu lineage — the descendants of Krishna — shall always uphold dharma."</p>
+      <p class="qsrc">— Traditional Yadava community invocation used in samaj assemblies</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCRIPTURE REFERENCES
+══════════════════════════════════════════ -->
+<section id="references" class="ref-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">शास्त्र प्रमाण</p>
+    <h2 class="sec-title reveal">Scriptural & Historical References — Chapter V</h2>
+    <p class="lead reveal">The Yadava sub-community structure is documented across ancient Sanskrit texts as well as medieval and modern historical records. Here is the complete reference index:</p>
+
+    <table class="ref-table reveal">
+      <thead>
+        <tr><th>Source</th><th>Reference</th><th>Subject</th><th>Sanskrit / Key Note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="rbadge">Bhagavata</span> Purana</td><td>IX.23–24</td><td>Yadu's five sons and their lineages; the branching of Yadava sub-clans from Sahasrajit, Kroshtu, Nila, Anjika, Payoda</td><td class="dev-cell">यदोः पुत्राः सहस्रदाः... तेभ्यः सर्वे यादवाः</td></tr>
+        <tr><td><span class="rbadge">Harivamsa</span></td><td>Adhyaya I, Ch. 32–45</td><td>The most detailed ancient enumeration of Yadava sub-clans — lists Vrishni, Andhaka, Bhoja, Satvata, Kukura, Madhava, Dashtaraha, and many more with their territorial associations</td><td class="dev-cell">वृष्ण्यन्धक-भोज-सात्वत-कुकुर-माधव-दाशार्ह...</td></tr>
+        <tr><td><span class="rbadge">Vishnu Purana</span></td><td>Amsha IV, Ch. 12–14</td><td>Alternate genealogy of Yadava sub-clans; the Haihaya lineage in particular detail; Vrishni-Andhaka confederation structure</td><td class="dev-cell">हैहयानां वंशः... वृष्ण्यन्धकाः समेता</td></tr>
+        <tr><td><span class="rbadge">Matsya Purana</span></td><td>Ch. 43–45</td><td>Lists of Yadava gotras and their Rishi ancestors; the gotra-pravara system for Yadava communities explained</td><td class="dev-cell">यादवानां गोत्राणि प्रवराश्च</td></tr>
+        <tr><td><span class="rbadge">Mahabharata</span></td><td>Adi Parva, Ch. 82 + Sabha Parva, Ch. 14</td><td>The five sons of Yayati and their dynastic consequences; the Yadava confederation at Dwarka</td><td class="dev-cell">यादवानां महत् कुलम्... द्वारकायाम् समाहिताः</td></tr>
+        <tr><td><span class="rbadge">Gotra Pravara</span> Manuscripts</td><td>Various regional MSS</td><td>Oral and manuscript traditions of gotra and pravara for specific Yadava sub-communities; held in family and community collections; most complete at Mathura's Vrindavan Research Institute</td><td class="dev-cell">गोत्र-प्रवर-पंजिका — यादव कुलम्</td></tr>
+        <tr><td><span class="rbadge">Periplus</span> of Erythraean Sea</td><td>~70 CE, Section 41</td><td>Greek sailor's account mentions "Abiria" (Abhira) communities on the western coast — some of the earliest non-Indian documentation of Yadava communities</td><td class="dev-cell">Abiria — western India pastoral community (Greek: Ἀβειρία)</td></tr>
+        <tr><td><span class="rbadge">Ptolemy's</span> Geography</td><td>~150 CE, Book VII</td><td>Refers to "Abiria" as a region — corresponding to modern Sindh/Gujarat — confirming the Abhira-Yadava presence in the western coastal region in the 2nd century CE</td><td class="dev-cell">Abiria (Ἀβειρία) — coastal western India</td></tr>
+        <tr><td><span class="rbadge">Devagiri</span> Inscriptions</td><td>1187–1317 CE</td><td>Copper plate and stone inscriptions of the Yadava Dynasty of Devagiri explicitly claim descent from Yadu and Krishna; document the last great Yadava royal lineage</td><td class="dev-cell">यदुकुलोद्भव राजा... श्री-कृष्ण-वंशज</td></tr>
+        <tr><td><span class="rbadge">Sangam</span> Literature</td><td>3rd BCE – 3rd CE</td><td>The Mullai landscape poems of Sangam Tamil literature document Idaiyar (Yadava) communities worshipping Mayon (the dark god = Krishna) — some of the oldest documentation of Krishna devotion outside Sanskrit</td><td class="dev-cell">மாயோன் — Mayon worship in Purananuru</td></tr>
+        <tr><td><span class="rbadge">AIYM</span> Census Records</td><td>1919–present</td><td>The All India Yadav Mahasabha (founded 1919) has maintained census records of member sub-communities; their records document 24+ major sub-communities and 52+ gotras in active use</td><td class="dev-cell">अखिल भारतीय यादव महासभा</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ NEXT CHAPTER ══ -->
+<div class="next-chapter">
+  <p class="nc-eyebrow">The Medieval Age of Yadava Power</p>
+  <h2 class="nc-title">Chapter VI — Medieval Yadava Kingdoms</h2>
+  <p class="nc-sub">देवगिरि यादव राज्य — The Last Great Yadava Empire</p>
+  <p class="nc-desc">From the fall of Dwarka through the Gupta Age, the rise of the Yadava Dynasty of Devagiri (1187–1317 CE), the Kakatiyas, and the many regional Yadava kingdoms that shaped medieval India — the political history of the Yadava race from 600 CE to 1600 CE.</p>
+  <a href="medieval-kingdoms.html" class="btn-gold">Enter Chapter VI →</a>
+  &nbsp;&nbsp;
+  <a href="krishna.html" class="btn-outline">← Chapter IV — Lord Krishna</a>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">यादव वंश</div>
+    <div class="footer-row">
+      <a href="index.html">Home</a>
+      <a href="cosmic-origin.html">Ch. I</a>
+      <a href="lunar-dynasty.html">Ch. II</a>
+      <a href="yadu.html">Ch. III</a>
+      <a href="krishna.html">Ch. IV</a>
+      <a href="clans-gotras.html">Ch. V</a>
+      <a href="medieval-kingdoms.html">Ch. VI</a>
+      <a href="family-tree.html">Family Tree</a>
+    </div>
+    <div class="footer-copy">Yadav Vansh Digital Scripture · Chapter V · Clans, Gotras & Sub-Communities</div>
+  </div>
+</footer>
+
+<!-- ══ JS ══ -->
+<script>
+/* ── Terrain / Forest Canvas ── */
+(function(){
+  const c = document.getElementById('terrain');
+  const ctx = c.getContext('2d');
+  let W, H, stars=[], fireflies=[];
+
+  function resize(){ W=c.width=window.innerWidth; H=c.height=window.innerHeight; }
+
+  function initStars(){
+    stars=[];
+    const n = Math.floor(W*H/3000);
+    for(let i=0;i<n;i++){
+      stars.push({
+        x:Math.random()*W, y:Math.random()*H*.6,
+        r:Math.random()*1.4+.2,
+        alpha:Math.random()*.7+.15,
+        tw:Math.random()*.015+.003,
+        ph:Math.random()*Math.PI*2,
+        terra:Math.random()<.15,
+        gold:Math.random()<.12
+      });
+    }
+    // Fireflies in the lower half
+    fireflies=[];
+    for(let i=0;i<35;i++){
+      fireflies.push({
+        x:Math.random()*W,
+        y:H*.4+Math.random()*H*.6,
+        r:Math.random()*2.5+1,
+        alpha:0,
+        tw:Math.random()*.025+.01,
+        ph:Math.random()*Math.PI*2,
+        vx:(Math.random()-.5)*.4,
+        vy:(Math.random()-.5)*.3
+      });
+    }
+  }
+
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+
+    // Deep forest green gradient
+    const bg = ctx.createLinearGradient(0,0,0,H);
+    bg.addColorStop(0,'rgba(5,10,8,1)');
+    bg.addColorStop(.35,'rgba(8,18,12,1)');
+    bg.addColorStop(.7,'rgba(13,32,22,1)');
+    bg.addColorStop(1,'rgba(20,43,30,1)');
+    ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+
+    // Terra-glow from the "earth"
+    const terra = ctx.createRadialGradient(W*.5,H,0,W*.5,H,H*.6);
+    terra.addColorStop(0,'rgba(181,82,42,0.08)');
+    terra.addColorStop(1,'transparent');
+    ctx.fillStyle=terra; ctx.fillRect(0,0,W,H);
+
+    // Stars (upper portion)
+    stars.forEach(s=>{
+      const tw = .5+.5*Math.sin(t*s.tw+s.ph);
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      if(s.terra) ctx.fillStyle=`rgba(181,82,42,${s.alpha*tw})`;
+      else if(s.gold) ctx.fillStyle=`rgba(212,160,23,${s.alpha*tw})`;
+      else { const v=Math.floor(160+95*tw); ctx.fillStyle=`rgba(${v-20},${v},${v-20},${s.alpha*tw})`; }
+      ctx.fill();
+    });
+
+    // Fireflies (lower)
+    fireflies.forEach(f=>{
+      f.x+=f.vx; f.y+=f.vy;
+      if(f.x<0)f.x=W; if(f.x>W)f.x=0;
+      if(f.y<H*.35)f.y=H; if(f.y>H)f.y=H*.4;
+      const pulse = .5+.5*Math.sin(t*f.tw+f.ph);
+      const a = pulse*.7;
+      ctx.beginPath(); ctx.arc(f.x,f.y,f.r*pulse,0,Math.PI*2);
+      ctx.fillStyle=`rgba(212,160,23,${a})`;
+      ctx.fill();
+      // Glow
+      ctx.beginPath(); ctx.arc(f.x,f.y,f.r*3,0,Math.PI*2);
+      ctx.fillStyle=`rgba(181,82,42,${a*.25})`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+  resize(); initStars();
+  window.addEventListener('resize',()=>{resize();initStars();});
+  requestAnimationFrame(draw);
+})();
+
+/* ── Nav scroll ── */
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+
+/* ── Reveal ── */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:.07,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ── Active pill ── */
+const secs = document.querySelectorAll('[id]');
+const pills = document.querySelectorAll('.pill');
+const pObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id = e.target.getAttribute('id');
+      pills.forEach(p=>p.classList.toggle('active',p.getAttribute('href')==='#'+id));
+    }
+  });
+},{threshold:.2});
+secs.forEach(s=>pObs.observe(s));
+
+/* ── Filter & Search Logic ── */
+const searchInput = document.getElementById('clan-search');
+const filtBtns = document.querySelectorAll('.filt-btn');
+const cards = document.querySelectorAll('.clan-card');
+const noResults = document.getElementById('no-results');
+const countEl = document.getElementById('results-count');
+
+let activeFilter = 'all';
+let searchTerm = '';
+
+function applyFilters(){
+  let visible = 0;
+  cards.forEach(card=>{
+    const region = (card.dataset.region||'').toLowerCase();
+    const name = (card.dataset.name||'').toLowerCase();
+    const regionMatch = activeFilter==='all' || region.includes(activeFilter);
+    const searchMatch = !searchTerm || name.includes(searchTerm) || region.includes(searchTerm);
+    const show = regionMatch && searchMatch;
+    card.style.display = show ? '' : 'none';
+    if(show) visible++;
+  });
+  noResults.classList.toggle('show', visible===0);
+  countEl.textContent = visible===cards.length
+    ? `Showing all ${cards.length} communities`
+    : `Showing ${visible} of ${cards.length} communities`;
+}
+
+filtBtns.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    filtBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+searchInput.addEventListener('input',()=>{
+  searchTerm = searchInput.value.toLowerCase().trim();
+  applyFilters();
+});
+</script>
+
+</body>
+</html>

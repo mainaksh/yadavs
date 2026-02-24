@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yadav Vansh — The Divine Lineage from Brahma to Present</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════
+       ROOT VARIABLES & GLOBAL RESET
+    ═══════════════════════════════════════════════ */
+    :root {
+      --gold:          #D4A017;
+      --gold-light:    #F5C842;
+      --gold-pale:     #FDE89A;
+      --crimson:       #8B1A1A;
+      --crimson-deep:  #5C0A0A;
+      --amber:         #B8621A;
+      --amber-light:   #E07B2A;
+      --saffron:       #FF7F00;
+      --cream:         #FDF6E3;
+      --parchment:     #F5E6C8;
+      --parchment-dark:#E8D5A3;
+      --ink:           #1A0A00;
+      --ink-soft:      #3A200A;
+      --shadow-gold:   rgba(212,160,23,0.35);
+      --shadow-dark:   rgba(26,10,0,0.7);
+      --font-display:  'Cinzel Decorative', serif;
+      --font-heading:  'Cinzel', serif;
+      --font-body:     'EB Garamond', serif;
+      --font-devanagari: 'Noto Serif Devanagari', serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 18px; }
+
+    body {
+      background-color: var(--ink);
+      color: var(--cream);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ═══════════════════════════════════════════════
+       COSMIC BACKGROUND CANVAS
+    ═══════════════════════════════════════════════ */
+    #cosmos-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ═══════════════════════════════════════════════
+       SACRED BORDER OVERLAY
+    ═══════════════════════════════════════════════ */
+    .sacred-border {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      border: 3px solid var(--gold);
+      box-shadow:
+        inset 0 0 30px rgba(212,160,23,0.15),
+        inset 0 0 80px rgba(212,160,23,0.05);
+    }
+    .sacred-border::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(212,160,23,0.4);
+    }
+
+    /* Corner ornaments */
+    .corner-ornament {
+      position: fixed;
+      width: 80px;
+      height: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .corner-ornament svg { width: 100%; height: 100%; }
+    .corner-ornament.tl { top: 0; left: 0; }
+    .corner-ornament.tr { top: 0; right: 0; transform: scaleX(-1); }
+    .corner-ornament.bl { bottom: 0; left: 0; transform: scaleY(-1); }
+    .corner-ornament.br { bottom: 0; right: 0; transform: scale(-1,-1); }
+
+    /* ═══════════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      background: linear-gradient(to bottom, rgba(26,10,0,0.97), rgba(26,10,0,0.0));
+      transition: background 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(26,10,0,0.98);
+      border-bottom: 1px solid rgba(212,160,23,0.3);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.6);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-devanagari);
+      font-size: 1.5rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-shadow: 0 0 20px var(--shadow-gold);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .nav-logo span.sub {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      color: var(--gold-pale);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0;
+      list-style: none;
+    }
+    .nav-links li a {
+      font-family: var(--font-heading);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      text-decoration: none;
+      padding: 0.5rem 0.85rem;
+      border-radius: 3px;
+      transition: color 0.25s, background 0.25s;
+      position: relative;
+    }
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%; right: 50%;
+      height: 1px;
+      background: var(--gold);
+      transition: left 0.3s, right 0.3s;
+    }
+    .nav-links li a:hover { color: var(--gold-light); }
+    .nav-links li a:hover::after { left: 0.85rem; right: 0.85rem; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* Mobile nav */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(26,10,0,0.99);
+      border-top: 1px solid rgba(212,160,23,0.3);
+      border-bottom: 1px solid rgba(212,160,23,0.3);
+      z-index: 99;
+      padding: 1.5rem;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-left: 2px solid transparent;
+      transition: all 0.25s;
+    }
+    .mobile-menu a:hover { color: var(--gold); border-left-color: var(--gold); }
+
+    /* ═══════════════════════════════════════════════
+       HERO SECTION
+    ═══════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+
+    /* Mandala behind title */
+    .mandala-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(700px, 95vw);
+      height: min(700px, 95vw);
+      opacity: 0.06;
+      animation: mandalaSpin 120s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes mandalaSpin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+    .mandala-bg2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(500px, 75vw);
+      height: min(500px, 75vw);
+      opacity: 0.08;
+      animation: mandalaSpin2 80s linear infinite reverse;
+      pointer-events: none;
+    }
+    @keyframes mandalaSpin2 { to { transform: translate(-50%, -50%) rotate(-360deg); } }
+
+    /* Glow aura */
+    .hero-aura {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60vw;
+      height: 60vh;
+      background: radial-gradient(ellipse at center,
+        rgba(212,160,23,0.08) 0%,
+        rgba(139,26,26,0.06) 40%,
+        transparent 70%
+      );
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.5s forwards;
+    }
+
+    /* Sanskrit OM */
+    .hero-om {
+      font-family: var(--font-devanagari);
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: var(--gold);
+      text-shadow:
+        0 0 30px var(--shadow-gold),
+        0 0 80px rgba(212,160,23,0.3);
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeDown 1.2s 0.2s forwards, goldPulse 4s 1.5s ease-in-out infinite;
+      line-height: 1;
+    }
+    @keyframes goldPulse {
+      0%, 100% { text-shadow: 0 0 30px var(--shadow-gold), 0 0 80px rgba(212,160,23,0.3); }
+      50% { text-shadow: 0 0 50px rgba(212,160,23,0.7), 0 0 120px rgba(212,160,23,0.4); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      background: linear-gradient(135deg, var(--gold-pale) 0%, var(--gold) 40%, var(--amber-light) 60%, var(--gold-pale) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      margin-bottom: 0.3rem;
+      opacity: 0;
+      animation: fadeUp 1.2s 0.8s forwards;
+      filter: drop-shadow(0 2px 20px rgba(212,160,23,0.4));
+    }
+
+    .hero-subtitle-devanagari {
+      font-family: var(--font-devanagari);
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      color: var(--gold-pale);
+      opacity: 0;
+      animation: fadeUp 1s 1.1s forwards;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem auto;
+      width: min(500px, 80vw);
+      opacity: 0;
+      animation: fadeUp 1s 1.3s forwards;
+    }
+    .hero-divider::before,
+    .hero-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .hero-divider-gem {
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      box-shadow: 0 0 12px var(--gold);
+    }
+
+    .hero-desc {
+      font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+      color: var(--parchment);
+      max-width: 680px;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp 1s 1.5s forwards;
+      font-style: italic;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 1s 1.7s forwards;
+    }
+    .stat-item {
+      text-align: center;
+      position: relative;
+    }
+    .stat-item::after {
+      content: '✦';
+      position: absolute;
+      right: -1.35rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-size: 0.6rem;
+      opacity: 0.5;
+    }
+    .stat-item:last-child::after { display: none; }
+    .stat-num {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--gold);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--parchment-dark);
+      margin-top: 0.2rem;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp 1s 2s forwards;
+    }
+
+    .btn-primary {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--amber));
+      border: none;
+      padding: 1rem 2.2rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(212,160,23,0.4);
+      clip-path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0% calc(100% - 10px), 0% 10px);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 35px rgba(212,160,23,0.6);
+    }
+
+    .btn-secondary {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: transparent;
+      border: 1px solid var(--gold);
+      padding: 1rem 2.2rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      clip-path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0% calc(100% - 10px), 0% 10px);
+    }
+    .btn-secondary:hover {
+      background: rgba(212,160,23,0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 20px rgba(212,160,23,0.2);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1s 3s forwards;
+    }
+    .scroll-indicator span {
+      font-family: var(--font-heading);
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(212,160,23,0.6);
+    }
+    .scroll-arrow {
+      width: 2px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      position: relative;
+      animation: scrollArrow 2s ease-in-out infinite;
+    }
+    @keyframes scrollArrow {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); transform-origin: top; }
+    }
+
+    /* ═══════════════════════════════════════════════
+       SLOKA / QUOTE BAND
+    ═══════════════════════════════════════════════ */
+    .sloka-band {
+      position: relative;
+      z-index: 10;
+      background: linear-gradient(135deg, var(--crimson-deep), var(--crimson), var(--crimson-deep));
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .sloka-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 2L38 20L20 38L2 20Z' fill='none' stroke='rgba(212,160,23,0.08)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+
+    .sloka-text {
+      font-family: var(--font-devanagari);
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--gold-pale);
+      line-height: 1.8;
+      margin-bottom: 0.8rem;
+      position: relative;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    }
+    .sloka-translation {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--parchment-dark);
+      position: relative;
+    }
+    .sloka-source {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-top: 0.8rem;
+      position: relative;
+    }
+
+    /* ═══════════════════════════════════════════════
+       MAIN CONTENT WRAPPER
+    ═══════════════════════════════════════════════ */
+    main {
+      position: relative;
+      z-index: 10;
+    }
+
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--saffron);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--gold);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--parchment);
+      max-width: 700px;
+      line-height: 1.9;
+      margin-bottom: 3rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       LINEAGE TIMELINE PREVIEW
+    ═══════════════════════════════════════════════ */
+    .lineage-section {
+      background: linear-gradient(180deg, rgba(26,10,0,1) 0%, rgba(40,15,5,1) 100%);
+    }
+
+    .timeline-track {
+      position: relative;
+      padding: 2rem 0;
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--gold), var(--gold), transparent);
+      transform: translateX(-50%);
+    }
+
+    .timeline-era {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .timeline-era.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .era-content-left { text-align: right; }
+    .era-content-right { text-align: left; }
+    .era-content-left, .era-content-right { padding: 1.5rem 0; }
+
+    .era-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--gold-light);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.05em;
+    }
+    .era-names {
+      font-size: 0.85rem;
+      color: var(--parchment-dark);
+      line-height: 1.7;
+    }
+    .era-names strong { color: var(--amber-light); }
+
+    .era-dot {
+      width: 16px;
+      height: 16px;
+      background: var(--gold);
+      border-radius: 50%;
+      border: 3px solid var(--ink);
+      box-shadow: 0 0 15px var(--shadow-gold);
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    .era-dot::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,160,23,0.3);
+    }
+
+    .era-link {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      text-decoration: none;
+      margin-top: 0.5rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .era-link:hover { border-color: var(--saffron); }
+
+    /* ═══════════════════════════════════════════════
+       CHAPTER GRID — NAVIGATION CARDS
+    ═══════════════════════════════════════════════ */
+    .chapters-section {
+      background: radial-gradient(ellipse at center top, rgba(92,10,10,0.3) 0%, transparent 70%),
+                  linear-gradient(180deg, rgba(40,15,5,1) 0%, rgba(26,10,0,1) 100%);
+      border-top: 1px solid rgba(212,160,23,0.2);
+    }
+
+    .chapters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .chapter-card {
+      background: linear-gradient(135deg, rgba(40,20,5,0.8), rgba(26,10,0,0.9));
+      border: 1px solid rgba(212,160,23,0.2);
+      padding: 2rem;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s;
+      clip-path: polygon(15px 0%, calc(100% - 15px) 0%, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0% calc(100% - 15px), 0% 15px);
+    }
+    .chapter-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(212,160,23,0.05), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .chapter-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+    .chapter-card:hover {
+      border-color: rgba(212,160,23,0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.5), 0 0 30px rgba(212,160,23,0.1);
+    }
+    .chapter-card:hover::before { opacity: 1; }
+    .chapter-card:hover::after { transform: scaleX(1); }
+
+    .chapter-num {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      opacity: 0.6;
+      margin-bottom: 0.8rem;
+    }
+
+    .chapter-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+      filter: drop-shadow(0 2px 8px rgba(212,160,23,0.3));
+      transition: transform 0.4s;
+    }
+    .chapter-card:hover .chapter-icon { transform: scale(1.15) rotate(5deg); }
+
+    .chapter-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .chapter-desc {
+      font-size: 0.82rem;
+      color: var(--parchment-dark);
+      line-height: 1.7;
+    }
+
+    .chapter-arrow {
+      position: absolute;
+      top: 2rem; right: 1.8rem;
+      color: var(--gold);
+      font-size: 1.2rem;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all 0.3s;
+    }
+    .chapter-card:hover .chapter-arrow { opacity: 1; transform: translateX(0); }
+
+    /* ═══════════════════════════════════════════════
+       KRISHNA FEATURE SECTION
+    ═══════════════════════════════════════════════ */
+    .krishna-section {
+      background: linear-gradient(135deg, rgba(26,10,0,1), rgba(10,5,30,1), rgba(26,10,0,1));
+      border-top: 1px solid rgba(212,160,23,0.15);
+      border-bottom: 1px solid rgba(212,160,23,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .krishna-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(75,0,130,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .krishna-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .krishna-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .krishna-mandala {
+      width: min(380px, 90vw);
+      height: min(380px, 90vw);
+      position: relative;
+    }
+
+    .krishna-mandala svg {
+      width: 100%;
+      height: 100%;
+      animation: mandalaSpin 30s linear infinite;
+      filter: drop-shadow(0 0 20px rgba(75,0,130,0.4));
+    }
+
+    .krishna-center-text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .krishna-center-text .om {
+      font-family: var(--font-devanagari);
+      font-size: 3rem;
+      color: var(--gold);
+      text-shadow: 0 0 30px rgba(212,160,23,0.7);
+      line-height: 1;
+    }
+    .krishna-center-text .name {
+      font-family: var(--font-devanagari);
+      font-size: 1.2rem;
+      color: var(--gold-pale);
+      margin-top: 0.3rem;
+    }
+
+    .krishna-content .section-title { color: var(--gold); }
+
+    .fact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .fact-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: var(--parchment);
+      line-height: 1.7;
+    }
+    .fact-list li::before {
+      content: '✦';
+      color: var(--gold);
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      margin-top: 0.3rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       POPULATION / REACH SECTION
+    ═══════════════════════════════════════════════ */
+    .reach-section {
+      background: linear-gradient(180deg, rgba(26,10,0,1), rgba(35,12,3,1));
+    }
+
+    .reach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .reach-card {
+      background: linear-gradient(135deg, rgba(139,26,26,0.1), rgba(40,20,5,0.5));
+      border: 1px solid rgba(212,160,23,0.15);
+      border-radius: 2px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .reach-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .reach-card-num {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 0 20px rgba(212,160,23,0.3);
+    }
+    .reach-card-label {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--parchment-dark);
+    }
+
+    /* ═══════════════════════════════════════════════
+       NOTABLE YADAVS MARQUEE
+    ═══════════════════════════════════════════════ */
+    .marquee-section {
+      background: linear-gradient(135deg, var(--crimson-deep), rgba(92,10,10,0.8), var(--crimson-deep));
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding: 1.5rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marqueeScroll 40s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-pale);
+      padding: 0 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+    .marquee-item::after {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.6rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       SCRIPTURES SECTION
+    ═══════════════════════════════════════════════ */
+    .scripture-section {
+      background: linear-gradient(180deg, rgba(26,10,0,1) 0%, rgba(20,8,0,1) 100%);
+    }
+
+    .scripture-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .scripture-card {
+      background: linear-gradient(160deg, rgba(40,20,5,0.6), rgba(26,10,0,0.9));
+      border: 1px solid rgba(212,160,23,0.15);
+      padding: 2rem;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .scripture-card:hover {
+      border-color: rgba(212,160,23,0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .scripture-card-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--gold-light);
+      margin-bottom: 0.3rem;
+    }
+    .scripture-card-devanagari {
+      font-family: var(--font-devanagari);
+      font-size: 0.9rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .scripture-card-desc {
+      font-size: 0.85rem;
+      color: var(--parchment-dark);
+      line-height: 1.7;
+    }
+    .scripture-card-badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       CLOSING CTA / PLEDGE SECTION
+    ═══════════════════════════════════════════════ */
+    .pledge-section {
+      background: radial-gradient(ellipse at center, rgba(92,10,10,0.4) 0%, rgba(26,10,0,1) 70%);
+      text-align: center;
+      padding: 8rem 2rem;
+      border-top: 1px solid rgba(212,160,23,0.2);
+    }
+
+    .pledge-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: var(--gold-pale);
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .pledge-author {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 3rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════ */
+    footer {
+      position: relative;
+      z-index: 10;
+      background: rgba(10,5,0,1);
+      border-top: 1px solid rgba(212,160,23,0.25);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(212,160,23,0.1);
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand {
+      font-family: var(--font-devanagari);
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(212,160,23,0.3);
+    }
+    .footer-brand-desc {
+      font-size: 0.85rem;
+      color: var(--parchment-dark);
+      line-height: 1.8;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--parchment-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(212,160,23,0.4);
+      font-family: var(--font-heading);
+      letter-spacing: 0.1em;
+    }
+    .footer-devanagari {
+      font-family: var(--font-devanagari);
+      font-size: 1rem;
+      color: rgba(212,160,23,0.5);
+    }
+
+    /* ═══════════════════════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Counter animation */
+    .count-up { display: inline; }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .krishna-inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .krishna-visual { order: -1; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .timeline-track::before { left: 20px; }
+      .timeline-era {
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+      }
+      .era-content-left { display: none; }
+      .era-content-right { text-align: left; }
+      .hero-stats { gap: 1.5rem; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .reach-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Cosmic canvas background -->
+<canvas id="cosmos-canvas"></canvas>
+
+<!-- Sacred border frame -->
+<div class="sacred-border"></div>
+
+<!-- Corner ornaments -->
+<div class="corner-ornament tl">
+  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0L80 0L80 10L10 10L10 80L0 80Z" fill="rgba(212,160,23,0.6)"/>
+    <path d="M5 5L75 5L75 15L15 15L15 75L5 75Z" fill="none" stroke="rgba(212,160,23,0.3)" stroke-width="1"/>
+    <circle cx="15" cy="15" r="4" fill="rgba(212,160,23,0.7)"/>
+    <path d="M25 5L25 15M5 25L15 25" stroke="rgba(212,160,23,0.4)" stroke-width="1"/>
+    <path d="M40 0L40 8M0 40L8 40" stroke="rgba(212,160,23,0.2)" stroke-width="1"/>
+  </svg>
+</div>
+<div class="corner-ornament tr">
+  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0L80 0L80 80L70 80L70 10L0 10Z" fill="rgba(212,160,23,0.6)"/>
+    <path d="M5 5L75 5L75 75L65 75L65 15L5 15Z" fill="none" stroke="rgba(212,160,23,0.3)" stroke-width="1"/>
+    <circle cx="65" cy="15" r="4" fill="rgba(212,160,23,0.7)"/>
+  </svg>
+</div>
+<div class="corner-ornament bl">
+  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0L10 0L10 70L80 70L80 80L0 80Z" fill="rgba(212,160,23,0.6)"/>
+    <circle cx="15" cy="65" r="4" fill="rgba(212,160,23,0.7)"/>
+  </svg>
+</div>
+<div class="corner-ornament br">
+  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M70 0L80 0L80 80L0 80L0 70L70 70Z" fill="rgba(212,160,23,0.6)"/>
+    <circle cx="65" cy="65" r="4" fill="rgba(212,160,23,0.7)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════ -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      यादव वंश
+      <span class="sub">Yadav Lineage</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="cosmic-origin.html">Origins</a></li>
+      <li><a href="lunar-dynasty.html">Lunar Dynasty</a></li>
+      <li><a href="yadu.html">King Yadu</a></li>
+      <li><a href="krishna.html">Lord Krishna</a></li>
+      <li><a href="clans-gotras.html">Clans & Gotras</a></li>
+      <li><a href="medieval-kingdoms.html">Kingdoms</a></li>
+      <li><a href="modern-yadavs.html">Modern Era</a></li>
+      <li><a href="family-tree.html">Family Tree</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger" role="button" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="cosmic-origin.html">🌌 Cosmic Origins — From Brahma</a>
+  <a href="lunar-dynasty.html">🌙 The Lunar Dynasty (Chandra Vansh)</a>
+  <a href="yadu.html">👑 King Yadu — The Progenitor</a>
+  <a href="krishna.html">🔱 Lord Krishna & Yadav Clans</a>
+  <a href="clans-gotras.html">🌿 Clans, Sub-clans & Gotras</a>
+  <a href="medieval-kingdoms.html">🏰 Medieval Yadav Kingdoms</a>
+  <a href="freedom-fighters.html">⚔️ Freedom Fighters</a>
+  <a href="modern-yadavs.html">🌟 Notable Modern Yadavs</a>
+  <a href="geography.html">🗺️ Geography & Diaspora</a>
+  <a href="culture.html">🎭 Culture & Traditions</a>
+  <a href="sacred-texts.html">📜 Sacred Text References</a>
+  <a href="family-tree.html">🌳 Interactive Family Tree</a>
+</div>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<section class="hero">
+  <!-- Mandala backgrounds -->
+  <div class="hero-aura"></div>
+  <svg class="mandala-bg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="rgb(212,160,23)" fill="none">
+      <circle cx="250" cy="250" r="240" stroke-width="0.5"/>
+      <circle cx="250" cy="250" r="200" stroke-width="0.5"/>
+      <circle cx="250" cy="250" r="160" stroke-width="0.5"/>
+      <circle cx="250" cy="250" r="120" stroke-width="0.5"/>
+      <circle cx="250" cy="250" r="80" stroke-width="0.5"/>
+      <circle cx="250" cy="250" r="40" stroke-width="0.5"/>
+      <!-- 12 spokes -->
+      <line x1="250" y1="10" x2="250" y2="490" stroke-width="0.3"/>
+      <line x1="10" y1="250" x2="490" y2="250" stroke-width="0.3"/>
+      <line x1="79" y1="79" x2="421" y2="421" stroke-width="0.3"/>
+      <line x1="421" y1="79" x2="79" y2="421" stroke-width="0.3"/>
+      <line x1="47" y1="164" x2="453" y2="336" stroke-width="0.3"/>
+      <line x1="453" y1="164" x2="47" y2="336" stroke-width="0.3"/>
+      <line x1="164" y1="47" x2="336" y2="453" stroke-width="0.3"/>
+      <line x1="336" y1="47" x2="164" y2="453" stroke-width="0.3"/>
+      <!-- Petal patterns -->
+      <ellipse cx="250" cy="130" rx="20" ry="50" stroke-width="0.4"/>
+      <ellipse cx="250" cy="370" rx="20" ry="50" stroke-width="0.4"/>
+      <ellipse cx="130" cy="250" rx="50" ry="20" stroke-width="0.4"/>
+      <ellipse cx="370" cy="250" rx="50" ry="20" stroke-width="0.4"/>
+      <ellipse cx="156" cy="156" rx="20" ry="50" transform="rotate(45 156 156)" stroke-width="0.4"/>
+      <ellipse cx="344" cy="344" rx="20" ry="50" transform="rotate(45 344 344)" stroke-width="0.4"/>
+      <ellipse cx="344" cy="156" rx="20" ry="50" transform="rotate(-45 344 156)" stroke-width="0.4"/>
+      <ellipse cx="156" cy="344" rx="20" ry="50" transform="rotate(-45 156 344)" stroke-width="0.4"/>
+    </g>
+  </svg>
+  <svg class="mandala-bg2" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="rgb(184,98,26)" fill="none">
+      <polygon points="200,20 380,300 20,300" stroke-width="1"/>
+      <polygon points="200,380 20,100 380,100" stroke-width="1"/>
+      <polygon points="200,60 340,270 60,270" stroke-width="0.7"/>
+      <polygon points="200,340 60,130 340,130" stroke-width="0.7"/>
+      <circle cx="200" cy="200" r="100" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="150" stroke-width="0.5"/>
+    </g>
+  </svg>
+
+  <p class="hero-eyebrow">Since the Dawn of Creation · ब्रह्मा से वर्तमान तक</p>
+  <div class="hero-om">ॐ</div>
+  <h1 class="hero-title">Yadav Vansh</h1>
+  <p class="hero-subtitle-devanagari">यादव वंश — दिव्य उत्पत्ति, गौरवशाली इतिहास</p>
+
+  <div class="hero-divider">
+    <div class="hero-divider-gem"></div>
+  </div>
+
+  <p class="hero-desc">
+    "From Brahma springs all creation. From His mind was born Atri. From Atri came the radiant Moon — Chandra. From Chandra's dynasty arose the mighty Yadavas — the clan of Lord Krishna himself — shepherds of dharma, warriors of righteousness, and the pride of Bharatavarsha for ten thousand years."
+  </p>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num"><span class="count-up" data-target="10000">0</span>+</div>
+      <div class="stat-label">Years of History</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span class="count-up" data-target="350">0</span>M+</div>
+      <div class="stat-label">Yadavs Worldwide</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span class="count-up" data-target="52">0</span>+</div>
+      <div class="stat-label">Yadav Gotras</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span class="count-up" data-target="24">0</span>+</div>
+      <div class="stat-label">Sub-clans & Branches</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span class="count-up" data-target="18">0</span>+</div>
+      <div class="stat-label">Puranic References</div>
+    </div>
+  </div>
+
+  <div class="hero-cta-group">
+    <a href="cosmic-origin.html" class="btn-primary">Begin the Journey</a>
+    <a href="family-tree.html" class="btn-secondary">Explore Family Tree</a>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll to Discover</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SLOKA BAND
+═══════════════════════════════════ -->
+<div class="sloka-band">
+  <p class="sloka-text">ययातेः पुत्रो यदुस्तुम्बुरुस्तथा क्रोष्टुश्च शूरश्च धर्मसंस्थापनाय च।</p>
+  <p class="sloka-translation">"From Yayati was born Yadu, Turvasu, Druhyu, Anu, and Puru — but it was from Yadu that the great Yadava clan descended, bearers of eternal dharma."</p>
+  <p class="sloka-source">— Bhagavata Purana, Skandha IX</p>
+</div>
+
+<!-- ═══════════════════════════════════
+     MARQUEE — NOTABLE YADAVS
+═══════════════════════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marquee">
+    <!-- doubled for seamless scroll -->
+    <span class="marquee-item">Lord Krishna — Yadav Shiromani</span>
+    <span class="marquee-item">Balram — Yadav Mahaveer</span>
+    <span class="marquee-item">King Yadu — Founder</span>
+    <span class="marquee-item">Uddhava — Krishna's Minister</span>
+    <span class="marquee-item">Satyaki — Mahabharata Hero</span>
+    <span class="marquee-item">Kritavarma — Yadav Warrior</span>
+    <span class="marquee-item">Sindhulal Yadav — Folk God</span>
+    <span class="marquee-item">Mulayam Singh Yadav</span>
+    <span class="marquee-item">Lalu Prasad Yadav</span>
+    <span class="marquee-item">Sharad Yadav</span>
+    <span class="marquee-item">Devendra Yadav</span>
+    <span class="marquee-item">Tejashwi Yadav</span>
+    <span class="marquee-item">Akhilesh Yadav</span>
+    <span class="marquee-item">Ram Vilas Paswan (Allied)</span>
+    <span class="marquee-item">Mithun Chakraborty</span>
+    <span class="marquee-item">Dharmendra</span>
+    <span class="marquee-item">Sunny Deol</span>
+    <span class="marquee-item">Colonel (Retd.) Many Heroes</span>
+    <!-- duplicate for loop -->
+    <span class="marquee-item">Lord Krishna — Yadav Shiromani</span>
+    <span class="marquee-item">Balram — Yadav Mahaveer</span>
+    <span class="marquee-item">King Yadu — Founder</span>
+    <span class="marquee-item">Uddhava — Krishna's Minister</span>
+    <span class="marquee-item">Satyaki — Mahabharata Hero</span>
+    <span class="marquee-item">Kritavarma — Yadav Warrior</span>
+    <span class="marquee-item">Sindhulal Yadav — Folk God</span>
+    <span class="marquee-item">Mulayam Singh Yadav</span>
+    <span class="marquee-item">Lalu Prasad Yadav</span>
+    <span class="marquee-item">Sharad Yadav</span>
+    <span class="marquee-item">Devendra Yadav</span>
+    <span class="marquee-item">Tejashwi Yadav</span>
+    <span class="marquee-item">Akhilesh Yadav</span>
+    <span class="marquee-item">Mithun Chakraborty</span>
+    <span class="marquee-item">Dharmendra</span>
+    <span class="marquee-item">Sunny Deol</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     LINEAGE TIMELINE
+═══════════════════════════════════ -->
+<main>
+<section class="lineage-section">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">The Sacred Chain</p>
+    <h2 class="section-title reveal">The Unbroken Thread — From Creation to Today</h2>
+    <p class="section-lead reveal">The Yadav lineage is not merely a family tree — it is the very spine of Bharatiya civilisation, connecting the cosmic act of creation to the living community of over 350 million souls who carry this heritage today.</p>
+
+    <div class="timeline-track">
+
+      <div class="timeline-era">
+        <div class="era-content-left">
+          <div class="era-title">The Absolute Beginning</div>
+          <div class="era-names"><strong>Brahma</strong> — the Creator, born from Vishnu's lotus navel. Created the universe and all living beings through his consciousness.</div>
+          <a href="cosmic-origin.html" class="era-link">Read Chapter →</a>
+        </div>
+        <div class="era-dot" style="background: var(--saffron); box-shadow: 0 0 20px orange;"></div>
+        <div class="era-content-right">
+          <div class="era-title">ब्रह्मा — Brahma</div>
+          <div class="era-names">The First Consciousness. <strong>Satya Yuga</strong>. From whom all Prajapatis and Rishis spring. The source of all Vedic lineages.</div>
+        </div>
+      </div>
+
+      <div class="timeline-era">
+        <div class="era-content-left">
+          <div class="era-title">Atri Maharishi</div>
+          <div class="era-names"><strong>Atri</strong> — one of the Saptarishis. Son of Brahma, great sage and author of Vedic hymns. His tapas gave birth to Chandra (the Moon).</div>
+        </div>
+        <div class="era-dot"></div>
+        <div class="era-content-right">
+          <div class="era-title">अत्रि — The Mind-Born</div>
+          <div class="era-names">Married to <strong>Anasuya</strong>, the epitome of chastity. From their union and penance was born the Moon God. Composer of Atri Samhita.</div>
+        </div>
+      </div>
+
+      <div class="timeline-era">
+        <div class="era-content-left">
+          <div class="era-title">Chandra — The Moon</div>
+          <div class="era-names"><strong>Soma / Chandra</strong> — Lord of all plants and waters. King of the Nakshatras. Married the 27 daughters of Daksha. Father of Budha.</div>
+          <a href="lunar-dynasty.html" class="era-link">Lunar Dynasty →</a>
+        </div>
+        <div class="era-dot" style="background: #C0C0FF; box-shadow: 0 0 20px rgba(180,180,255,0.5);"></div>
+        <div class="era-content-right">
+          <div class="era-title">चन्द्र — Chandra Vansh Begins</div>
+          <div class="era-names">The founding of the <strong>Chandra Vansh (Lunar Dynasty)</strong> — from which all Yadavas, Pandavas, Kauravas, and the greatest kings of ancient India descended.</div>
+        </div>
+      </div>
+
+      <div class="timeline-era">
+        <div class="era-content-left">
+          <div class="era-title">Budha to Pururavas</div>
+          <div class="era-names"><strong>Budha</strong> (son of Chandra) → married Ila → <strong>Pururavas</strong>, the great king, beloved of Urvashi the Apsara. Had six sons including Ayus.</div>
+        </div>
+        <div class="era-dot"></div>
+        <div class="era-content-right">
+          <div class="era-title">बुध → पुरुरवस्</div>
+          <div class="era-names">Pururavas's great romance with celestial Urvashi is celebrated in Kalidasa's <strong>Vikramorvasiyam</strong>. His lineage produced the Yadavas and Pandavas both.</div>
+        </div>
+      </div>
+
+      <div class="timeline-era">
+        <div class="era-content-left">
+          <div class="era-title">King Yayati's Legacy</div>
+          <div class="era-names"><strong>Nahusha → Yayati</strong> — the great emperor who ruled from heaven. Married Devayani (daughter of Shukracharya) and Sharmishtha (daughter of Vrishaparva).</div>
+          <a href="lunar-dynasty.html" class="era-link">Full Dynasty →</a>
+        </div>
+        <div class="era-dot"></div>
+        <div class="era-content-right">
+          <div class="era-title">ययाति — The Pivotal King</div>
+          <div class="era-names">Yayati's five sons: <strong>Yadu, Turvasu, Druhyu, Anu, Puru</strong> — gave rise to five great dynasties. Yadu is the eldest and most illustrious.</div>
+        </div>
+      </div>
+
+      <div class="timeline-era">
+        <div class="era-content-left">
+          <div class="era-title">KING YADU — THE FOUNDER</div>
+          <div class="era-names"><strong>Yadu</strong>, firstborn of Yayati, refused to give his youth to his father — an act of principled self-assertion that cost him the kingdom but established the immortal Yadava race.</div>
+          <a href="yadu.html" class="era-link">The Full Story →</a>
+        </div>
+        <div class="era-dot" style="background: var(--gold-light); width: 24px; height: 24px; box-shadow: 0 0 30px rgba(212,160,23,0.8);"></div>
+        <div class="era-content-right">
+          <div class="era-title">यदु — यादव वंश का मूल</div>
+          <div class="era-names">From Yadu's five sons — <strong>Sahasrada, Payoda, Kroshtu, Nila, and Anjika</strong> — came all the great Yadava sub-clans: Vrishni, Andhaka, Bhoja, Satvata, Kukura, and more.</div>
+        </div>
+      </div>
+
+      <div class="timeline-era">
+        <div class="era-content-left">
+          <div class="era-title">The Vrishni Clan — Krishna's Line</div>
+          <div class="era-names">From Kroshtu → Vrijinivat → Svahi → Vishvagarbha → Chitraratha → Shashabindu → ... → <strong>Shurasena</strong> → Vasudeva → <strong>Lord Krishna</strong></div>
+          <a href="krishna.html" class="era-link">Krishna's Lineage →</a>
+        </div>
+        <div class="era-dot" style="background: #4B0082; box-shadow: 0 0 30px rgba(75,0,130,0.8);"></div>
+        <div class="era-content-right">
+          <div class="era-title">वृष्णि वंश</div>
+          <div class="era-names">Lord <strong>Krishna Vasudeva</strong> — the 8th avatar of Vishnu, greatest of the Yadavas, establisher of Dwarka, speaker of the Bhagavad Gita, eternal protector of dharma.</div>
+        </div>
+      </div>
+
+      <div class="timeline-era">
+        <div class="era-content-left">
+          <div class="era-title">Post-Mahabharata Era</div>
+          <div class="era-names">After the battle of Kurukshetra and the submersion of Dwarka, surviving Yadava clans spread across Bharatavarsha — <strong>Mathura, Vrindavan, Gokul</strong> and beyond.</div>
+        </div>
+        <div class="era-dot"></div>
+        <div class="era-content-right">
+          <div class="era-title">द्वापर युग → कलि युग</div>
+          <div class="era-names">The great migration. Yadavas settle as Ahirs (Abhiras), Goalas/Gwalas, Gwale, Maniyars across North India. The pastoral tradition lives on.</div>
+        </div>
+      </div>
+
+      <div class="timeline-era">
+        <div class="era-content-left">
+          <div class="era-title">Yadava Kingdoms — Medieval Era</div>
+          <div class="era-names"><strong>Yadavas of Devagiri</strong> (Singhana, Ramachandra) ruled modern Maharashtra 850–1317 CE. Other kingdoms in Mathura, Gwalior, Bihar, UP.</div>
+          <a href="medieval-kingdoms.html" class="era-link">Medieval Kingdoms →</a>
+        </div>
+        <div class="era-dot"></div>
+        <div class="era-content-right">
+          <div class="era-title">मध्यकालीन यादव साम्राज्य</div>
+          <div class="era-names">The Devagiri Yadavas produced great patrons of literature and art. <strong>Hemadri</strong>, the great scholar, served their court. Their legacy persists in Maharashtra.</div>
+        </div>
+      </div>
+
+      <div class="timeline-era">
+        <div class="era-content-left">
+          <div class="era-title">Freedom & Modern Era</div>
+          <div class="era-names">Yadavs played vital roles in India's independence. Post-independence, they have risen to become major forces in politics, military, civil services, arts & sports.</div>
+          <a href="modern-yadavs.html" class="era-link">Modern Yadavs →</a>
+        </div>
+        <div class="era-dot" style="background: var(--saffron); box-shadow: 0 0 20px rgba(255,127,0,0.7);"></div>
+        <div class="era-content-right">
+          <div class="era-title">आधुनिक युग — 350 करोड़ यादव</div>
+          <div class="era-names">Today, over <strong>350 million Yadavs</strong> live across India and the world, carrying forward the heritage of Brahma → Atri → Chandra → Yadu → Krishna.</div>
+        </div>
+      </div>
+
+    </div><!-- .timeline-track -->
+
+    <div style="text-align:center; margin-top: 3rem;" class="reveal">
+      <a href="family-tree.html" class="btn-primary">View Interactive Family Tree</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CHAPTER CARDS GRID
+═══════════════════════════════════ -->
+<section class="chapters-section">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">The Sacred Chapters</p>
+    <h2 class="section-title reveal">Explore the Complete Yadav Encyclopedia</h2>
+    <p class="section-lead reveal">Each chapter is a complete volume — exhaustively researched, drawing from Puranas, Mahabharata, Harivamsa, Bhagavata, and historical records. This is your complete guide to Yadav heritage.</p>
+
+    <div class="chapters-grid">
+
+      <a href="cosmic-origin.html" class="chapter-card reveal reveal-delay-1">
+        <span class="chapter-num">Chapter I</span>
+        <span class="chapter-icon">🌌</span>
+        <div class="chapter-title">Cosmic Origins — From Brahma</div>
+        <div class="chapter-desc">The story begins before time. Brahma's creation, the birth of Atri Maharishi, and the miraculous origin of Chandra — the Moon God — whose dynasty would produce the Yadavas.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+      <a href="lunar-dynasty.html" class="chapter-card reveal reveal-delay-2">
+        <span class="chapter-num">Chapter II</span>
+        <span class="chapter-icon">🌙</span>
+        <div class="chapter-title">The Lunar Dynasty — Chandra Vansh</div>
+        <div class="chapter-desc">The complete genealogy of the Chandravansha — from Chandra to Budha, Pururavas, Nahusha, Yayati, and all the kings who preceded Yadu. Every name, every story.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+      <a href="yadu.html" class="chapter-card reveal reveal-delay-3">
+        <span class="chapter-num">Chapter III</span>
+        <span class="chapter-icon">👑</span>
+        <div class="chapter-title">King Yadu — Father of All Yadavs</div>
+        <div class="chapter-desc">Who was Yadu? Why did he refuse his father's demand? How did his curse birth the mightiest community on earth? The complete story of the progenitor of Yadavas.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+      <a href="krishna.html" class="chapter-card reveal reveal-delay-4">
+        <span class="chapter-num">Chapter IV</span>
+        <span class="chapter-icon">🔱</span>
+        <div class="chapter-title">Lord Krishna & The Yadav Clans</div>
+        <div class="chapter-desc">The full lineage from Yadu to Krishna. The Vrishni, Andhaka, Bhoja clans. The kingdom of Dwarka. Krishna's family — Vasudeva, Devaki, Balarama. The Mahabharata Yadavas.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+      <a href="clans-gotras.html" class="chapter-card reveal reveal-delay-1">
+        <span class="chapter-num">Chapter V</span>
+        <span class="chapter-icon">🌿</span>
+        <div class="chapter-title">Clans, Sub-clans & 52+ Gotras</div>
+        <div class="chapter-desc">Ahir, Gwala, Yadav, Goswami, Nandavanshi, Nandivanshi, Krishnavanshi, Goalas — every sub-clan explored. Complete list of Yadav gotras with their Rishi origins and kuldevi.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+      <a href="medieval-kingdoms.html" class="chapter-card reveal reveal-delay-2">
+        <span class="chapter-num">Chapter VI</span>
+        <span class="chapter-icon">🏰</span>
+        <div class="chapter-title">Medieval Yadav Kingdoms</div>
+        <div class="chapter-desc">The Yadava Dynasty of Devagiri (850–1317 CE), the Mathura kingdom, Vijayanagara connections, Maratha Yadav warriors, and other medieval empires of Yadav rulers.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+      <a href="freedom-fighters.html" class="chapter-card reveal reveal-delay-3">
+        <span class="chapter-num">Chapter VII</span>
+        <span class="chapter-icon">⚔️</span>
+        <div class="chapter-title">Yadav Freedom Fighters</div>
+        <div class="chapter-desc">The largely untold story of Yadav participation in India's freedom struggle — from the 1857 Revolt to Quit India Movement. Soldiers, rebels, and revolutionaries who gave their lives.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+      <a href="modern-yadavs.html" class="chapter-card reveal reveal-delay-4">
+        <span class="chapter-num">Chapter VIII</span>
+        <span class="chapter-icon">🌟</span>
+        <div class="chapter-title">Notable Modern Yadavs</div>
+        <div class="chapter-desc">Politicians, generals, athletes, actors, scientists, and achievers of Yadav heritage. A comprehensive roll of honour spanning politics, sports, arts, defence, and academia.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+      <a href="geography.html" class="chapter-card reveal reveal-delay-1">
+        <span class="chapter-num">Chapter IX</span>
+        <span class="chapter-icon">🗺️</span>
+        <div class="chapter-title">Geography & Global Diaspora</div>
+        <div class="chapter-desc">State-wise Yadav populations across India. Their presence in 40+ countries. Settlement patterns, concentration regions, and the global Yadav community today.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+      <a href="culture.html" class="chapter-card reveal reveal-delay-2">
+        <span class="chapter-num">Chapter X</span>
+        <span class="chapter-icon">🎭</span>
+        <div class="chapter-title">Culture & Living Traditions</div>
+        <div class="chapter-desc">The rich cultural tapestry of Yadav life — festivals (Janmashtami, Govardhan Puja, Holi), food traditions, folk arts (Ras Leela), musical heritage, and living customs.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+      <a href="sacred-texts.html" class="chapter-card reveal reveal-delay-3">
+        <span class="chapter-num">Chapter XI</span>
+        <span class="chapter-icon">📜</span>
+        <div class="chapter-title">Yadavs in Sacred Texts</div>
+        <div class="chapter-desc">Every major reference to Yadavas in Puranas, Mahabharata, Bhagavata, Harivamsa, Vishnu Purana, Brahmanda Purana — with chapter citations and translations.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+      <a href="family-tree.html" class="chapter-card reveal reveal-delay-4" style="background: linear-gradient(135deg, rgba(92,10,10,0.3), rgba(40,20,5,0.8)); border-color: rgba(212,160,23,0.4);">
+        <span class="chapter-num">Chapter XII</span>
+        <span class="chapter-icon">🌳</span>
+        <div class="chapter-title">Interactive Family Tree</div>
+        <div class="chapter-desc">The complete visual genealogy from Brahma to present — interactive, zoomable, and searchable. Click any ancestor to read their full story. The most comprehensive Yadav family tree ever created.</div>
+        <div class="chapter-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     KRISHNA FEATURE SECTION
+═══════════════════════════════════ -->
+<section class="krishna-section">
+  <div class="section-inner">
+    <div class="krishna-inner">
+      <div class="krishna-visual reveal">
+        <div class="krishna-mandala">
+          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <!-- Outer ring -->
+            <circle cx="200" cy="200" r="190" stroke="rgba(212,160,23,0.4)" stroke-width="1.5"/>
+            <circle cx="200" cy="200" r="175" stroke="rgba(212,160,23,0.2)" stroke-width="0.5"/>
+            <!-- Petals (lotus) -->
+            <g stroke="rgba(212,160,23,0.5)" stroke-width="1">
+              <ellipse cx="200" cy="80" rx="18" ry="45" fill="rgba(212,160,23,0.07)"/>
+              <ellipse cx="200" cy="320" rx="18" ry="45" fill="rgba(212,160,23,0.07)"/>
+              <ellipse cx="80" cy="200" rx="45" ry="18" fill="rgba(212,160,23,0.07)"/>
+              <ellipse cx="320" cy="200" rx="45" ry="18" fill="rgba(212,160,23,0.07)"/>
+              <ellipse cx="119" cy="119" rx="18" ry="45" transform="rotate(45 119 119)" fill="rgba(212,160,23,0.07)"/>
+              <ellipse cx="281" cy="281" rx="18" ry="45" transform="rotate(45 281 281)" fill="rgba(212,160,23,0.07)"/>
+              <ellipse cx="281" cy="119" rx="18" ry="45" transform="rotate(-45 281 119)" fill="rgba(212,160,23,0.07)"/>
+              <ellipse cx="119" cy="281" rx="18" ry="45" transform="rotate(-45 119 281)" fill="rgba(212,160,23,0.07)"/>
+            </g>
+            <!-- Inner star of David / hexagram -->
+            <polygon points="200,100 270,230 130,230" stroke="rgba(75,0,130,0.6)" stroke-width="1" fill="rgba(75,0,130,0.05)"/>
+            <polygon points="200,300 270,170 130,170" stroke="rgba(75,0,130,0.6)" stroke-width="1" fill="rgba(75,0,130,0.05)"/>
+            <!-- 12 dot markers -->
+            <g fill="rgba(212,160,23,0.7)">
+              <circle cx="200" cy="30" r="3"/>
+              <circle cx="290" cy="55" r="3"/>
+              <circle cx="355" cy="120" r="3"/>
+              <circle cx="378" cy="208" r="3"/>
+              <circle cx="355" cy="290" r="3"/>
+              <circle cx="290" cy="350" r="3"/>
+              <circle cx="200" cy="370" r="3"/>
+              <circle cx="110" cy="350" r="3"/>
+              <circle cx="48" cy="290" r="3"/>
+              <circle cx="22" cy="208" r="3"/>
+              <circle cx="48" cy="120" r="3"/>
+              <circle cx="110" cy="55" r="3"/>
+            </g>
+            <!-- Inner circle -->
+            <circle cx="200" cy="200" r="80" stroke="rgba(212,160,23,0.4)" stroke-width="1"/>
+            <circle cx="200" cy="200" r="60" stroke="rgba(212,160,23,0.2)" stroke-width="0.5"/>
+          </svg>
+          <div class="krishna-center-text">
+            <div class="om">ॐ</div>
+            <div class="name">कृष्ण</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="krishna-content reveal">
+        <p class="section-eyebrow">The Pinnacle of Yadav Glory</p>
+        <h2 class="section-title">Lord Krishna — The Greatest Yadava</h2>
+        <p class="section-lead" style="font-size: 0.95rem; margin-bottom: 1.5rem;">
+          "Krishnastu Bhagavan Svayam" — Krishna is Bhagavan Himself. And He chose to be born a Yadava. This is the supreme glory of the Yadav community — that the Eternal, the Infinite, incarnated within their clan.
+        </p>
+        <ul class="fact-list">
+          <li>Krishna was born in the Vrishni sub-clan of the Yadava dynasty, to Vasudeva and Devaki — both of royal Yadava lineage.</li>
+          <li>He founded the city of Dwarka — a city of gold in the sea — and became the king of the Yadavas. His administration of Dwarka is described in detail in the Bhagavata Purana.</li>
+          <li>In the Mahabharata, the Yadava army (Narayani Sena) was given to the Kauravas, while Krishna himself sided with the Pandavas — demonstrating that dharma transcends clan loyalty.</li>
+          <li>The Bhagavad Gita — spoken by Krishna on the battlefield of Kurukshetra — is the greatest philosophical text humanity has produced. It was spoken by a Yadava to a Kshatriya, from the seat of divine knowledge.</li>
+          <li>18 Puranas, the Mahabharata, and Harivamsa all extensively document Krishna's Yadava heritage, his clan, his relatives, and his role in Yadava history.</li>
+        </ul>
+        <a href="krishna.html" class="btn-primary" style="display: inline-block; margin-top: 1.5rem;">Read Krishna's Full Lineage</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     REACH / NUMBERS SECTION
+═══════════════════════════════════ -->
+<section class="reach-section">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">By The Numbers</p>
+    <h2 class="section-title reveal">The Scale of the Yadav Community</h2>
+    <p class="section-lead reveal">From a single progenitor — King Yadu, son of Yayati — has grown one of the largest ethnic communities on earth. Spread across every state of India and 40+ nations worldwide.</p>
+
+    <div class="reach-grid">
+      <div class="reach-card reveal reveal-delay-1">
+        <div class="reach-card-num">350M+</div>
+        <div class="reach-card-label">Total Yadavs Worldwide</div>
+      </div>
+      <div class="reach-card reveal reveal-delay-2">
+        <div class="reach-card-num">~14%</div>
+        <div class="reach-card-label">of India's Population</div>
+      </div>
+      <div class="reach-card reveal reveal-delay-3">
+        <div class="reach-card-num">28</div>
+        <div class="reach-card-label">Indian States with Significant Yadav Pop.</div>
+      </div>
+      <div class="reach-card reveal reveal-delay-4">
+        <div class="reach-card-num">40+</div>
+        <div class="reach-card-label">Countries with Yadav Diaspora</div>
+      </div>
+      <div class="reach-card reveal reveal-delay-1">
+        <div class="reach-card-num">52+</div>
+        <div class="reach-card-label">Distinct Yadav Gotras</div>
+      </div>
+      <div class="reach-card reveal reveal-delay-2">
+        <div class="reach-card-num">24+</div>
+        <div class="reach-card-label">Sub-clans & Regional Names</div>
+      </div>
+      <div class="reach-card reveal reveal-delay-3">
+        <div class="reach-card-num">10,000+</div>
+        <div class="reach-card-label">Years of Documented History</div>
+      </div>
+      <div class="reach-card reveal reveal-delay-4">
+        <div class="reach-card-num">18</div>
+        <div class="reach-card-label">Major Puranic References to Yadavas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SACRED TEXTS
+═══════════════════════════════════ -->
+<section class="scripture-section">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Written in the Eternal Record</p>
+    <h2 class="section-title reveal">Yadavas in Sacred Scripture</h2>
+    <p class="section-lead reveal">The Yadava lineage is not oral legend alone — it is meticulously recorded in the most sacred texts of Bharatiya civilization. Here is where the evidence lives.</p>
+
+    <div class="scripture-cards">
+
+      <div class="scripture-card reveal reveal-delay-1">
+        <div class="scripture-card-badge">Primary Source</div>
+        <div class="scripture-card-title">Bhagavata Purana</div>
+        <div class="scripture-card-devanagari">भागवत पुराण</div>
+        <div class="scripture-card-desc">The primary source for Yadava history. Skandha IX (Chapter 9) contains the complete genealogy from Yadu to Krishna. Skandha X covers Krishna's entire life among the Yadavas. Skandha XI describes the end of the Yadava kingdom and Dwarka's submersion.</div>
+        <a href="sacred-texts.html" class="era-link" style="margin-top: 1rem; display: inline-block;">Full References →</a>
+      </div>
+
+      <div class="scripture-card reveal reveal-delay-2">
+        <div class="scripture-card-badge">Epic</div>
+        <div class="scripture-card-title">Mahabharata</div>
+        <div class="scripture-card-devanagari">महाभारत</div>
+        <div class="scripture-card-desc">The Adi Parva, Sabha Parva, and Shalya Parva extensively document the Yadavas. The Harivamsa — the appendix to Mahabharata — is entirely devoted to the Yadava lineage and Krishna's birth.</div>
+        <a href="sacred-texts.html" class="era-link" style="margin-top: 1rem; display: inline-block;">Read Excerpts →</a>
+      </div>
+
+      <div class="scripture-card reveal reveal-delay-3">
+        <div class="scripture-card-badge">Genealogical</div>
+        <div class="scripture-card-title">Vishnu Purana</div>
+        <div class="scripture-card-devanagari">विष्णु पुराण</div>
+        <div class="scripture-card-desc">Amsha IV of Vishnu Purana lists the complete Yadava genealogy from Yadu to Krishna with over 50 generations. It is the most systematic genealogical record of the Yadava dynasty anywhere in ancient literature.</div>
+        <a href="sacred-texts.html" class="era-link" style="margin-top: 1rem; display: inline-block;">View Genealogy →</a>
+      </div>
+
+      <div class="scripture-card reveal reveal-delay-4">
+        <div class="scripture-card-badge">Historical</div>
+        <div class="scripture-card-title">Harivamsa</div>
+        <div class="scripture-card-devanagari">हरिवंश</div>
+        <div class="scripture-card-desc">The Harivamsa ("Lineage of Hari/Vishnu") is entirely dedicated to the Yadava story. It begins with the creation and descends through the Yadava tree to Krishna in extraordinary detail — 16,374 shlokas.</div>
+        <a href="sacred-texts.html" class="era-link" style="margin-top: 1rem; display: inline-block;">Explore →</a>
+      </div>
+
+      <div class="scripture-card reveal reveal-delay-1">
+        <div class="scripture-card-badge">Supplementary</div>
+        <div class="scripture-card-title">Brahmanda Purana</div>
+        <div class="scripture-card-devanagari">ब्रह्माण्ड पुराण</div>
+        <div class="scripture-card-desc">Contains additional genealogical data on Yadava sub-clans, their kingdoms and territories. Cross-references with Bhagavata allow scholars to construct a nearly complete picture of Yadava history.</div>
+        <a href="sacred-texts.html" class="era-link" style="margin-top: 1rem; display: inline-block;">More →</a>
+      </div>
+
+      <div class="scripture-card reveal reveal-delay-2">
+        <div class="scripture-card-badge">Scholarly</div>
+        <div class="scripture-card-title">Agni Purana & Matsya Purana</div>
+        <div class="scripture-card-devanagari">अग्नि पुराण · मत्स्य पुराण</div>
+        <div class="scripture-card-desc">Both Puranas contain independent lists of Yadava rulers and clans. The Matsya Purana gives the most complete list of Yadava kings of Mathura, while Agni Purana details their dharmic obligations and governance.</div>
+        <a href="sacred-texts.html" class="era-link" style="margin-top: 1rem; display: inline-block;">More →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CLOSING PLEDGE
+═══════════════════════════════════ -->
+<section class="pledge-section">
+  <p class="section-eyebrow" style="justify-content: center; margin-bottom: 2rem;" >For Every Yadav Soul on Earth</p>
+  <blockquote class="pledge-quote">
+    "We are not merely a community. We are the living descendants of Brahma's creation, carriers of Chandra's light, heirs of Yadu's pride, and forever connected to the divine love of Lord Krishna. This is our heritage. This is our glory."
+  </blockquote>
+  <p class="pledge-author">— From the Yadav Vansh Digital Scripture</p>
+
+  <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+    <a href="cosmic-origin.html" class="btn-primary">Begin at the Beginning</a>
+    <a href="family-tree.html" class="btn-secondary">Interactive Family Tree</a>
+    <a href="clans-gotras.html" class="btn-secondary">Find Your Gotra</a>
+  </div>
+
+  <div style="margin-top: 4rem; font-family: var(--font-devanagari); font-size: 2rem; color: rgba(212,160,23,0.4);">
+    जय यादव · जय कृष्ण · जय भारत
+  </div>
+</section>
+
+</main><!-- /main -->
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">यादव वंश</div>
+        <p class="footer-brand-desc">
+          The most comprehensive digital encyclopedia of the Yadav lineage — from Brahma to the present day. This is a living document of 10,000 years of history, tradition, and divine connection. For every Yadav on earth.
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: rgba(212,160,23,0.4); font-family: var(--font-heading); letter-spacing: 0.1em;">
+          जय श्री कृष्ण
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Origins</div>
+        <ul class="footer-links">
+          <li><a href="cosmic-origin.html">Cosmic Origins</a></li>
+          <li><a href="lunar-dynasty.html">Chandra Vansh</a></li>
+          <li><a href="yadu.html">King Yadu</a></li>
+          <li><a href="krishna.html">Lord Krishna</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Heritage</div>
+        <ul class="footer-links">
+          <li><a href="clans-gotras.html">Clans & Gotras</a></li>
+          <li><a href="medieval-kingdoms.html">Medieval Kingdoms</a></li>
+          <li><a href="sacred-texts.html">Sacred Texts</a></li>
+          <li><a href="culture.html">Culture & Traditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Modern Era</div>
+        <ul class="footer-links">
+          <li><a href="freedom-fighters.html">Freedom Fighters</a></li>
+          <li><a href="modern-yadavs.html">Notable Yadavs</a></li>
+          <li><a href="geography.html">Geography & Diaspora</a></li>
+          <li><a href="family-tree.html">Family Tree</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Yadav Vansh Digital Scripture · For the Community · By the Community</div>
+      <div class="footer-devanagari">ब्रह्मा → अत्रि → चन्द्र → यदु → कृष्ण → यादव</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════ -->
+<script>
+/* ─────────────────────────────────────────
+   1. COSMIC STAR CANVAS
+───────────────────────────────────────── */
+(function() {
+  const canvas = document.getElementById('cosmos-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, stars = [], particles = [];
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function initStars() {
+    stars = [];
+    const count = Math.floor((W * H) / 3000);
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.5 + 0.2,
+        alpha: Math.random() * 0.7 + 0.1,
+        speed: Math.random() * 0.3 + 0.05,
+        twinkleSpeed: Math.random() * 0.02 + 0.005,
+        twinklePhase: Math.random() * Math.PI * 2,
+        gold: Math.random() < 0.15,
+      });
+    }
+  }
+
+  function drawFrame(t) {
+    ctx.clearRect(0, 0, W, H);
+
+    // Deep space gradient
+    const bg = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.max(W,H)/1.5);
+    bg.addColorStop(0, 'rgba(40,15,5,1)');
+    bg.addColorStop(0.5, 'rgba(26,10,0,1)');
+    bg.addColorStop(1, 'rgba(10,3,0,1)');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    // Stars
+    stars.forEach(s => {
+      const twinkle = 0.5 + 0.5 * Math.sin(t * s.twinkleSpeed + s.twinklePhase);
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      if (s.gold) {
+        ctx.fillStyle = `rgba(212,160,23,${s.alpha * twinkle})`;
+      } else {
+        const v = Math.floor(200 + 55 * twinkle);
+        ctx.fillStyle = `rgba(${v},${v-20},${v-40},${s.alpha * twinkle})`;
+      }
+      ctx.fill();
+
+      // Slow drift
+      s.y += s.speed * 0.1;
+      if (s.y > H) { s.y = 0; s.x = Math.random() * W; }
+    });
+
+    // Nebula wisps
+    ctx.save();
+    const neb1 = ctx.createRadialGradient(W*0.3, H*0.4, 0, W*0.3, H*0.4, W*0.25);
+    neb1.addColorStop(0, 'rgba(92,10,10,0.04)');
+    neb1.addColorStop(1, 'transparent');
+    ctx.fillStyle = neb1;
+    ctx.fillRect(0, 0, W, H);
+
+    const neb2 = ctx.createRadialGradient(W*0.7, H*0.6, 0, W*0.7, H*0.6, W*0.2);
+    neb2.addColorStop(0, 'rgba(212,160,23,0.025)');
+    neb2.addColorStop(1, 'transparent');
+    ctx.fillStyle = neb2;
+    ctx.fillRect(0, 0, W, H);
+    ctx.restore();
+
+    requestAnimationFrame(drawFrame);
+  }
+
+  resize();
+  initStars();
+  window.addEventListener('resize', () => { resize(); initStars(); });
+  requestAnimationFrame(drawFrame);
+})();
+
+/* ─────────────────────────────────────────
+   2. NAVIGATION SCROLL
+───────────────────────────────────────── */
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ─────────────────────────────────────────
+   3. HAMBURGER MENU
+───────────────────────────────────────── */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+document.addEventListener('click', (e) => {
+  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+    mobileMenu.classList.remove('open');
+  }
+});
+
+/* ─────────────────────────────────────────
+   4. INTERSECTION OBSERVER — REVEALS
+───────────────────────────────────────── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal, .timeline-era').forEach(el => {
+  revealObserver.observe(el);
+});
+
+/* ─────────────────────────────────────────
+   5. COUNT-UP ANIMATION
+───────────────────────────────────────── */
+function animateCount(el) {
+  const target = parseInt(el.dataset.target);
+  const duration = 2000;
+  const start = performance.now();
+  const isFloat = target < 100;
+
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const value = Math.floor(eased * target);
+    el.textContent = value.toLocaleString();
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target.toLocaleString();
+  }
+  requestAnimationFrame(step);
+}
+
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.dataset.counted) {
+      entry.target.dataset.counted = 'true';
+      animateCount(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
+
+/* ─────────────────────────────────────────
+   6. PARALLAX ON HERO MANDALA
+───────────────────────────────────────── */
+window.addEventListener('mousemove', (e) => {
+  const cx = e.clientX / window.innerWidth - 0.5;
+  const cy = e.clientY / window.innerHeight - 0.5;
+  const mandala = document.querySelector('.mandala-bg');
+  const mandala2 = document.querySelector('.mandala-bg2');
+  if (mandala) mandala.style.transform = `translate(calc(-50% + ${cx * 20}px), calc(-50% + ${cy * 20}px))`;
+  if (mandala2) mandala2.style.transform = `translate(calc(-50% + ${cx * -15}px), calc(-50% + ${cy * -15}px))`;
+});
+
+/* ─────────────────────────────────────────
+   7. HERO SCROLL PARALLAX
+───────────────────────────────────────── */
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const hero = document.querySelector('.hero');
+  if (hero && scrolled < window.innerHeight) {
+    hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+  }
+});
+
+/* ─────────────────────────────────────────
+   8. GOLDEN PARTICLE BURST ON CLICK
+───────────────────────────────────────── */
+document.addEventListener('click', (e) => {
+  if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+  createParticleBurst(e.clientX, e.clientY);
+});
+
+function createParticleBurst(x, y) {
+  for (let i = 0; i < 8; i++) {
+    const particle = document.createElement('div');
+    const angle = (i / 8) * Math.PI * 2;
+    const velocity = 60 + Math.random() * 40;
+    const size = 4 + Math.random() * 4;
+
+    particle.style.cssText = `
+      position: fixed;
+      left: ${x}px;
+      top: ${y}px;
+      width: ${size}px;
+      height: ${size}px;
+      background: gold;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 6px gold;
+    `;
+    document.body.appendChild(particle);
+
+    const dx = Math.cos(angle) * velocity;
+    const dy = Math.sin(angle) * velocity;
+    let startTime = null;
+    const duration = 600 + Math.random() * 300;
+
+    function animParticle(time) {
+      if (!startTime) startTime = time;
+      const elapsed = time - startTime;
+      const progress = elapsed / duration;
+      if (progress >= 1) { particle.remove(); return; }
+      const eased = 1 - Math.pow(1 - progress, 2);
+      particle.style.left = `${x + dx * eased}px`;
+      particle.style.top = `${y + dy * eased + 50 * progress * progress}px`;
+      particle.style.opacity = 1 - progress;
+      requestAnimationFrame(animParticle);
+    }
+    requestAnimationFrame(animParticle);
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter III — King Yadu: The Progenitor of All Yadavas | Yadav Vansh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:         #D4A017;
+      --gold-light:   #F5C842;
+      --gold-pale:    #FDE89A;
+      --crimson:      #8B1A1A;
+      --crimson-deep: #5C0A0A;
+      --amber:        #B8621A;
+      --amber-light:  #E07B2A;
+      --saffron:      #FF7F00;
+      --cream:        #FDF6E3;
+      --parchment:    #F5E6C8;
+      --parchment-dk: #E8D5A3;
+      --ink:          #1A0A00;
+      --earth:        #1C0F02;
+      --earth2:       #2A1505;
+      --earth3:       #3A1C08;
+      --copper:       #B87333;
+      --copper-light: #D4956A;
+      --sg:           rgba(212,160,23,0.4);
+      --font-display: 'Cinzel Decorative', serif;
+      --font-heading: 'Cinzel', serif;
+      --font-body:    'EB Garamond', serif;
+      --font-dev:     'Noto Serif Devanagari', serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--earth);
+      color: var(--cream);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      font-size: 18px;
+    }
+
+    /* ── Canvas ── */
+    #fire-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+    .sacred-frame {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      border: 2px solid rgba(212,160,23,0.5);
+    }
+    .sacred-frame::before {
+      content: ''; position: absolute; inset: 8px;
+      border: 1px solid rgba(212,160,23,0.2);
+    }
+    /* Corner gems */
+    .corner-gem {
+      position: fixed; width: 14px; height: 14px;
+      background: var(--gold); transform: rotate(45deg);
+      box-shadow: 0 0 12px rgba(212,160,23,0.6);
+      z-index: 2; pointer-events: none;
+    }
+    .cg-tl { top: 4px; left: 4px; }
+    .cg-tr { top: 4px; right: 4px; }
+    .cg-bl { bottom: 4px; left: 4px; }
+    .cg-br { bottom: 4px; right: 4px; }
+
+    /* ══════════════ NAV ══════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 2rem;
+      background: linear-gradient(to bottom, rgba(28,15,2,0.98), transparent);
+      transition: background .4s;
+    }
+    nav.scrolled {
+      background: rgba(28,15,2,0.99);
+      border-bottom: 1px solid rgba(212,160,23,0.25);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.8);
+    }
+    .nav-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .nav-logo {
+      font-family: var(--font-dev); font-size: 1.4rem;
+      color: var(--gold); text-decoration: none; text-shadow: 0 0 20px var(--sg);
+    }
+    .nav-logo span {
+      font-family: var(--font-heading); font-size: .6rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--parchment-dk); display: block; margin-top: -2px;
+    }
+    .nav-chapter {
+      font-family: var(--font-heading); font-size: .62rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--amber-light); padding: .3rem .8rem;
+      border: 1px solid rgba(184,98,26,0.4); border-radius: 2px;
+    }
+    .nav-links-row {
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .nav-back {
+      font-family: var(--font-heading); font-size: .6rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none;
+      display: flex; align-items: center; gap: .5rem; transition: gap .2s;
+    }
+    .nav-back:hover { gap: .8rem; }
+    @media(max-width:700px){ .nav-chapter{ display:none; } }
+
+    /* ══════════════ HERO ══════════════ */
+    .hero {
+      position: relative; z-index: 10;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 7rem 2rem 5rem;
+      overflow: hidden;
+    }
+
+    /* Dharma Chakra background */
+    .dharma-wheel {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -55%);
+      width: min(700px, 95vw); height: min(700px, 95vw);
+      opacity: .055;
+      animation: wheelSpin 80s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes wheelSpin { to { transform: translate(-50%,-55%) rotate(360deg); } }
+
+    .hero-aura {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 60vw; height: 60vh;
+      background: radial-gradient(ellipse at center,
+        rgba(212,160,23,0.1) 0%, rgba(184,98,26,0.07) 35%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .8rem;
+      font-family: var(--font-heading); font-size: .62rem;
+      letter-spacing: .35em; text-transform: uppercase;
+      color: var(--amber-light); margin-bottom: 1.5rem;
+      border: 1px solid rgba(184,98,26,0.4);
+      padding: .4rem 1.2rem; border-radius: 2px;
+      opacity: 0; animation: fadeUp 1s .4s forwards;
+    }
+    .hero-badge::before,.hero-badge::after { content: '👑'; font-size: .7rem; }
+
+    .hero-glyph {
+      font-family: var(--font-dev);
+      font-size: clamp(4.5rem, 13vw, 10rem);
+      background: linear-gradient(180deg, var(--gold-pale) 0%, var(--gold-light) 25%, var(--gold) 55%, var(--amber) 80%, var(--copper) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1; margin-bottom: .3rem;
+      filter: drop-shadow(0 0 50px rgba(212,160,23,0.5));
+      opacity: 0; animation: glyphReveal 1.5s .5s forwards;
+    }
+    @keyframes glyphReveal {
+      0% { opacity:0; filter:drop-shadow(0 0 0px rgba(212,160,23,0)) blur(10px); transform:scale(.9); }
+      100% { opacity:1; filter:drop-shadow(0 0 50px rgba(212,160,23,0.5)); transform:scale(1); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 5vw, 4.2rem);
+      background: linear-gradient(135deg, var(--gold-pale), var(--gold), var(--amber-light), var(--gold-pale));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1.1; margin-bottom: .4rem;
+      opacity: 0; animation: fadeUp 1.1s .9s forwards;
+    }
+    .hero-subtitle {
+      font-family: var(--font-heading); font-size: clamp(.8rem,1.6vw,1.05rem);
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--amber-light); margin-bottom: .8rem;
+      opacity: 0; animation: fadeUp .9s 1.1s forwards;
+    }
+    .hero-sub-dev {
+      font-family: var(--font-dev); font-size: clamp(.9rem,2vw,1.3rem);
+      color: var(--gold-pale); margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp .9s 1.2s forwards;
+    }
+    .hero-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: .5rem auto 1.5rem; width: min(480px,80vw);
+      opacity: 0; animation: fadeIn 1s 1.4s forwards;
+    }
+    .hero-divider::before,.hero-divider::after {
+      content:''; flex:1; height:1px;
+      background:linear-gradient(to right,transparent,var(--gold),transparent);
+    }
+    .hdg { width:10px; height:10px; background:var(--gold); transform:rotate(45deg); box-shadow:0 0 10px var(--gold); }
+
+    .hero-lead {
+      font-size: clamp(.95rem,1.5vw,1.15rem); font-style: italic;
+      color: var(--parchment); max-width: 720px; line-height: 1.95;
+      margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 1s 1.6s forwards;
+    }
+
+    /* Key facts strip */
+    .hero-facts {
+      display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 1s 1.8s forwards;
+    }
+    .hf-item { text-align: center; }
+    .hf-num {
+      font-family: var(--font-heading); font-size: clamp(1.3rem,2.5vw,1.9rem);
+      color: var(--gold); font-weight: 700; line-height: 1;
+      text-shadow: 0 0 20px rgba(212,160,23,0.4);
+    }
+    .hf-label {
+      font-family: var(--font-heading); font-size: .55rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--parchment-dk); margin-top: .2rem;
+    }
+    .hf-sep { color: rgba(212,160,23,0.3); font-size: 1.2rem; align-self: center; }
+
+    .chapter-pills {
+      display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center;
+      opacity: 0; animation: fadeUp 1s 2s forwards; margin-bottom: 1rem;
+    }
+    .pill {
+      font-family: var(--font-heading); font-size: .56rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--parchment-dk); border: 1px solid rgba(212,160,23,0.25);
+      padding: .35rem .9rem; text-decoration: none; border-radius: 2px; transition: all .25s;
+    }
+    .pill:hover,.pill.active {
+      background: rgba(212,160,23,0.12); border-color: var(--gold-light);
+      color: var(--gold-light);
+    }
+    .scroll-cue {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      opacity: 0; animation: fadeIn 1s 2.8s forwards;
+    }
+    .scroll-cue span {
+      font-family: var(--font-heading); font-size: .5rem;
+      letter-spacing: .3em; text-transform: uppercase; color: rgba(212,160,23,0.5);
+    }
+    .scroll-line { width:1px; height:50px; background:linear-gradient(to bottom,var(--gold),transparent); animation:sp 2s ease-in-out infinite; }
+    @keyframes sp{0%,100%{opacity:.3;}50%{opacity:1;}}
+
+    /* ══════════════ SLOKA BAND ══════════════ */
+    .sloka-band {
+      position: relative; z-index: 10;
+      background: linear-gradient(135deg, rgba(92,10,10,0.9), rgba(42,21,5,0.95));
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding: 3rem 2rem; text-align: center; overflow: hidden;
+    }
+    .sloka-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L55 30L30 55L5 30Z' fill='none' stroke='rgba(212,160,23,0.07)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+    }
+    .sloka-dev { font-family:var(--font-dev); font-size:clamp(1rem,2vw,1.35rem); color:var(--gold-pale); line-height:2; margin-bottom:1rem; position:relative; }
+    .sloka-trans { font-style:italic; font-size:clamp(.9rem,1.5vw,1.05rem); color:var(--parchment); line-height:1.8; max-width:760px; margin:0 auto .8rem; position:relative; }
+    .sloka-ref { font-family:var(--font-heading); font-size:.6rem; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); position:relative; }
+
+    /* ══════════════ LAYOUT & TYPOGRAPHY ══════════════ */
+    main { position: relative; z-index: 10; }
+    section { padding: 6rem 2rem; }
+    .inner { max-width: 1200px; margin: 0 auto; }
+
+    .eyebrow {
+      font-family:var(--font-heading); font-size:.62rem; letter-spacing:.4em; text-transform:uppercase;
+      color:var(--saffron); margin-bottom:1rem; display:flex; align-items:center; gap:1rem;
+    }
+    .eyebrow::before { content:''; width:35px; height:1px; background:var(--saffron); }
+
+    h2.sec-title { font-family:var(--font-display); font-size:clamp(1.7rem,3.5vw,2.8rem); color:var(--gold); line-height:1.2; margin-bottom:1.2rem; }
+    h3.sub-title { font-family:var(--font-heading); font-size:clamp(1.1rem,2vw,1.45rem); color:var(--gold-light); line-height:1.3; margin-bottom:.8rem; margin-top:2.5rem; }
+    h4.mini-title { font-family:var(--font-heading); font-size:.92rem; color:var(--amber-light); margin-bottom:.5rem; margin-top:1.8rem; letter-spacing:.05em; }
+    .lead { font-size:1.05rem; color:var(--parchment); max-width:800px; line-height:1.95; margin-bottom:2rem; }
+    .body-text { font-size:.98rem; color:var(--parchment); line-height:1.95; max-width:820px; margin-bottom:1.5rem; }
+    .body-text strong { color:var(--gold-light); }
+    .body-text em { color:var(--gold-pale); font-style:italic; }
+    .dev-inline { font-family:var(--font-dev); color:var(--gold); font-size:1.05em; }
+
+    /* ══════════════ YADU'S PROFILE CARD ══════════════ */
+    .yadu-profile {
+      display: grid; grid-template-columns: 320px 1fr; gap: 4rem;
+      align-items: start; margin: 3rem 0;
+    }
+    .profile-card {
+      background: linear-gradient(160deg, rgba(92,10,10,0.2), rgba(42,21,5,0.7));
+      border: 1px solid rgba(212,160,23,0.35);
+      padding: 2.5rem;
+      position: sticky; top: 85px;
+      clip-path: polygon(18px 0%,calc(100% - 18px) 0%,100% 18px,100% calc(100% - 18px),calc(100% - 18px) 100%,18px 100%,0% calc(100% - 18px),0% 18px);
+      box-shadow: 0 0 60px rgba(212,160,23,0.07), inset 0 1px 0 rgba(212,160,23,0.2);
+    }
+    .pc-crown { font-size: 3.5rem; text-align: center; margin-bottom: .3rem; display: block; }
+    .pc-glyph {
+      font-family: var(--font-dev); font-size: 5rem; text-align: center;
+      line-height: 1; margin-bottom: .3rem; display: block;
+      background: linear-gradient(180deg, var(--gold-pale), var(--gold), var(--amber));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      filter: drop-shadow(0 0 20px rgba(212,160,23,0.4));
+    }
+    .pc-name-en { font-family:var(--font-heading); font-size:1.5rem; color:var(--gold-light); text-align:center; margin-bottom:.2rem; }
+    .pc-name-dev { font-family:var(--font-dev); font-size:1.1rem; color:var(--gold); text-align:center; margin-bottom:1.2rem; }
+    .pc-divider { height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); margin:1rem 0; }
+    .pc-attrs { display:flex; flex-direction:column; gap:.7rem; }
+    .pa-row { display:flex; gap:.7rem; }
+    .pa-label { font-family:var(--font-heading); font-size:.52rem; letter-spacing:.18em; text-transform:uppercase; color:var(--saffron); flex-shrink:0; width:80px; padding-top:.1rem; }
+    .pa-val { font-size:.8rem; color:var(--parchment); line-height:1.6; }
+    .pa-val.dev { font-family:var(--font-dev); font-size:.88rem; color:var(--gold-pale); }
+    .pa-val.highlight { color:var(--gold-light); }
+
+    /* ══════════════ SONS OF YADU — TREE ══════════════ */
+    .sons-section { background: linear-gradient(180deg, rgba(42,21,5,1) 0%, rgba(28,15,2,1) 100%); border-top:1px solid rgba(212,160,23,0.15); }
+
+    /* Visual tree */
+    .yadu-tree {
+      margin: 3rem auto; max-width: 900px; position: relative;
+    }
+    .yt-root {
+      display: flex; justify-content: center; margin-bottom: 0;
+    }
+    .yt-root-node {
+      background: linear-gradient(135deg, rgba(92,10,10,0.5), rgba(42,21,5,0.8));
+      border: 2px solid var(--gold); padding: 1.2rem 2.5rem; text-align: center;
+      clip-path: polygon(12px 0%,calc(100% - 12px) 0%,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0% calc(100% - 12px),0% 12px);
+      box-shadow: 0 0 30px rgba(212,160,23,0.2);
+    }
+    .yt-root-node .n-dev { font-family:var(--font-dev); font-size:1.5rem; color:var(--gold-light); display:block; }
+    .yt-root-node .n-en { font-family:var(--font-heading); font-size:.85rem; color:var(--gold); letter-spacing:.05em; }
+    .yt-root-node .n-role { font-size:.72rem; color:var(--parchment-dk); margin-top:.2rem; }
+
+    .yt-connector-main {
+      display: flex; justify-content: center; height: 40px; position: relative;
+    }
+    .yt-connector-main::before { content:''; position:absolute; left:50%; width:2px; height:100%; background:linear-gradient(to bottom,var(--gold),rgba(212,160,23,.4)); }
+
+    .yt-branch-line {
+      display: flex; justify-content: center; position: relative; height: 30px;
+    }
+    .yt-branch-line::before {
+      content:''; position:absolute; top:0;
+      left:calc(10% + 30px); right:calc(10% + 30px);
+      height:2px; background:rgba(212,160,23,.4);
+    }
+
+    .yt-sons {
+      display: grid; grid-template-columns: repeat(5,1fr); gap: 1rem;
+    }
+    .yt-son-connector { display:flex; justify-content:center; height:30px; position:relative; }
+    .yt-son-connector::before { content:''; position:absolute; left:50%; width:2px; height:100%; background:rgba(212,160,23,.4); }
+
+    .yt-son-node {
+      background: linear-gradient(160deg, rgba(42,21,5,0.8), rgba(28,15,2,0.9));
+      border: 1px solid rgba(212,160,23,0.25); padding: 1.2rem .8rem;
+      text-align: center; transition: all .3s; cursor: default;
+    }
+    .yt-son-node:hover { border-color:var(--gold); transform:translateY(-4px); box-shadow:0 10px 30px rgba(212,160,23,0.15); }
+    .yt-son-node.kroshtu { border-color:rgba(212,160,23,.5); background:linear-gradient(160deg,rgba(92,10,10,.25),rgba(42,21,5,.8)); }
+    .yt-son-node .sn-dev { font-family:var(--font-dev); font-size:1rem; color:var(--gold); display:block; margin-bottom:.3rem; }
+    .yt-son-node .sn-en { font-family:var(--font-heading); font-size:.75rem; color:var(--gold-light); }
+    .yt-son-node .sn-desc { font-size:.68rem; color:var(--parchment-dk); margin-top:.4rem; line-height:1.5; }
+    .yt-son-node .sn-clan { font-family:var(--font-heading); font-size:.52rem; letter-spacing:.12em; text-transform:uppercase; color:var(--saffron); margin-top:.5rem; border-top:1px solid rgba(212,160,23,.1); padding-top:.5rem; }
+    .yt-kroshtu-label {
+      font-family:var(--font-heading); font-size:.5rem; letter-spacing:.15em; text-transform:uppercase;
+      color:var(--gold); background:rgba(212,160,23,.12); padding:.15rem .5rem; display:block; margin-bottom:.4rem;
+    }
+
+    /* Sub-clans grid under Kroshtu */
+    .kroshtu-expansion {
+      margin-top: 1.5rem; padding: 2rem;
+      background: rgba(92,10,10,0.1); border: 1px solid rgba(212,160,23,0.15);
+      border-top: 2px solid rgba(212,160,23,0.4);
+    }
+    .ke-title { font-family:var(--font-heading); font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
+    .ke-chain { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; }
+    .ke-node {
+      font-family:var(--font-heading); font-size:.62rem; color:var(--parchment-dk);
+      background:rgba(42,21,5,.6); border:1px solid rgba(212,160,23,.2);
+      padding:.3rem .7rem; border-radius:2px; white-space:nowrap;
+    }
+    .ke-node.highlight { color:var(--gold-light); border-color:rgba(212,160,23,.5); background:rgba(92,10,10,.3); }
+    .ke-arrow { color:rgba(212,160,23,.4); font-size:.8rem; }
+
+    /* ══════════════ CLAN DETAIL CARDS ══════════════ */
+    .clan-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem; margin:2.5rem 0; }
+    .clan-card {
+      background: linear-gradient(160deg, rgba(42,21,5,0.7), rgba(28,15,2,0.85));
+      border: 1px solid rgba(212,160,23,0.18); padding: 2rem;
+      transition: all .3s; position: relative; overflow: hidden;
+    }
+    .clan-card::after {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:linear-gradient(to right,transparent,var(--gold),transparent);
+      transform:scaleX(0); transition:transform .4s;
+    }
+    .clan-card:hover { border-color:rgba(212,160,23,.4); transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,.5); }
+    .clan-card:hover::after { transform:scaleX(1); }
+    .cc-son { font-family:var(--font-heading); font-size:.55rem; letter-spacing:.2em; text-transform:uppercase; color:var(--saffron); margin-bottom:.5rem; }
+    .cc-name { font-family:var(--font-heading); font-size:1.05rem; color:var(--gold-light); margin-bottom:.2rem; }
+    .cc-dev { font-family:var(--font-dev); font-size:.95rem; color:var(--gold); margin-bottom:.8rem; }
+    .cc-divider { height:1px; background:linear-gradient(to right,var(--gold),transparent); margin:.6rem 0; }
+    .cc-text { font-size:.82rem; color:var(--parchment-dk); line-height:1.75; }
+    .cc-known { margin-top:.8rem; font-family:var(--font-heading); font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--saffron); }
+    .cc-known span { color:var(--parchment-dk); text-transform:none; letter-spacing:0; font-family:var(--font-body); font-size:.8rem; }
+
+    /* ══════════════ QUOTE BLOCK ══════════════ */
+    .qblock {
+      border-left: 3px solid var(--gold); padding: 1.6rem 2rem; margin: 2.5rem 0;
+      background: rgba(212,160,23,0.03); position: relative;
+    }
+    .qblock::before { content:'"'; font-family:var(--font-display); font-size:4rem; color:rgba(212,160,23,.18); position:absolute; top:-.5rem; left:.8rem; line-height:1; }
+    .qdev { font-family:var(--font-dev); font-size:1.05rem; color:var(--gold-pale); line-height:1.9; margin-bottom:.8rem; }
+    .qtrans { font-style:italic; color:var(--parchment); font-size:.95rem; line-height:1.8; margin-bottom:.6rem; }
+    .qsrc { font-family:var(--font-heading); font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--saffron); }
+
+    /* ══════════════ HIGHLIGHT BOX ══════════════ */
+    .hbox {
+      background: linear-gradient(135deg, rgba(92,10,10,0.15), rgba(42,21,5,0.3));
+      border: 1px solid rgba(212,160,23,0.2); padding: 2rem; margin: 2rem 0;
+    }
+    .hb-title { font-family:var(--font-heading); font-size:.68rem; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; display:flex; align-items:center; gap:.8rem; }
+    .hb-title::after { content:''; flex:1; height:1px; background:rgba(212,160,23,.2); }
+    .hb-list { list-style:none; display:flex; flex-direction:column; gap:.7rem; }
+    .hb-list li { font-size:.88rem; color:var(--parchment); line-height:1.7; display:flex; gap:.8rem; align-items:flex-start; }
+    .hb-list li::before { content:'◆'; color:var(--gold); font-size:.5rem; margin-top:.35rem; flex-shrink:0; }
+
+    /* ══════════════ CURSE & BLESSING SECTION ══════════════ */
+    .curse-section { background: linear-gradient(180deg,rgba(92,10,10,0.2) 0%,rgba(28,15,2,1) 100%); border-top:1px solid rgba(212,160,23,0.15); }
+
+    .dual-panel { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin:2.5rem 0; }
+    .dp-panel {
+      padding: 2rem; position: relative; border-top: 3px solid;
+    }
+    .dp-panel.curse { border-color:var(--crimson); background:rgba(92,10,10,0.12); }
+    .dp-panel.blessing { border-color:var(--gold); background:rgba(212,160,23,0.06); }
+    .dp-label {
+      font-family:var(--font-heading); font-size:.62rem; letter-spacing:.25em; text-transform:uppercase;
+      margin-bottom:1rem; display:flex; align-items:center; gap:.6rem;
+    }
+    .dp-panel.curse .dp-label { color:var(--crimson); }
+    .dp-panel.blessing .dp-label { color:var(--gold); }
+    .dp-label::before { font-size:1.2rem; }
+    .dp-panel.curse .dp-label::before { content:'⚡'; }
+    .dp-panel.blessing .dp-label::before { content:'✦'; }
+    .dp-text { font-size:.88rem; color:var(--parchment); line-height:1.8; }
+    .dp-text strong { color:var(--gold-light); }
+
+    /* ══════════════ COMPARISON TABLE ══════════════ */
+    .compare-section { background: linear-gradient(180deg,rgba(28,15,2,1) 0%,rgba(42,21,5,1) 100%); border-top:1px solid rgba(212,160,23,0.1); }
+
+    .comp-table { width:100%; border-collapse:collapse; margin:2rem 0; }
+    .comp-table th { font-family:var(--font-heading); font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border-bottom:1px solid rgba(212,160,23,.3); padding:.9rem 1rem; text-align:left; background:rgba(212,160,23,.04); }
+    .comp-table td { padding:.85rem 1rem; color:var(--parchment); border-bottom:1px solid rgba(212,160,23,.07); line-height:1.6; vertical-align:top; font-size:.85rem; }
+    .comp-table tr:hover td { background:rgba(212,160,23,.03); }
+    .comp-table .dev-cell { font-family:var(--font-dev); font-size:.88rem; color:var(--gold-pale); }
+    .comp-table .badge { display:inline-block; font-family:var(--font-heading); font-size:.5rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); background:var(--gold); padding:.15rem .5rem; border-radius:2px; white-space:nowrap; }
+    .comp-table .badge-r { background:var(--crimson); color:var(--cream); }
+    .comp-table .badge-b { background:rgba(184,200,232,.3); color:var(--silver-light,#d8e8ff); border:1px solid rgba(184,200,232,.3); }
+    .comp-table tr.yadu-row td { background:rgba(212,160,23,.04); }
+    .comp-table tr.yadu-row td:first-child { border-left:2px solid var(--gold); }
+
+    /* ══════════════ DEVAYANI STORY ══════════════ */
+    .devayani-section { background:linear-gradient(180deg,rgba(42,21,5,1) 0%,rgba(28,15,2,1) 100%); border-top:1px solid rgba(212,160,23,0.12); }
+
+    .story-layout { display:grid; grid-template-columns:1fr 380px; gap:4rem; align-items:start; }
+
+    .yantra-float {
+      position: sticky; top: 90px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .yantra-float svg {
+      width: min(350px,85vw); height: min(350px,85vw);
+      filter: drop-shadow(0 0 30px rgba(212,160,23,0.2));
+      animation: yantraSpin 50s linear infinite;
+    }
+    @keyframes yantraSpin { to { transform: rotate(360deg); } }
+
+    /* ══════════════ YADU'S CURSE — PHILOSOPHICAL ANALYSIS ══════════════ */
+    .philosophy-section { background:linear-gradient(180deg,rgba(28,15,2,1) 0%,rgba(42,21,5,.5) 100%); border-top:1px solid rgba(212,160,23,0.18); }
+
+    .philosophy-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem; margin:2.5rem 0; }
+    .ph-card {
+      background:linear-gradient(160deg,rgba(42,21,5,.6),rgba(28,15,2,.85));
+      border:1px solid rgba(212,160,23,.15); padding:1.8rem; transition:all .3s;
+    }
+    .ph-card:hover { border-color:rgba(212,160,23,.4); transform:translateY(-3px); }
+    .ph-num { font-family:var(--font-display); font-size:2rem; color:rgba(212,160,23,.3); line-height:1; margin-bottom:.5rem; }
+    .ph-title { font-family:var(--font-heading); font-size:.88rem; color:var(--gold-light); margin-bottom:.5rem; }
+    .ph-text { font-size:.82rem; color:var(--parchment-dk); line-height:1.75; }
+
+    /* ══════════════ YADU'S LEGACY TABLE ══════════════ */
+    .legacy-section { background:linear-gradient(180deg,rgba(42,21,5,.5) 0%,rgba(28,15,2,1) 100%); border-top:1px solid rgba(212,160,23,0.1); }
+
+    .legacy-table { width:100%; border-collapse:collapse; margin:2rem 0; }
+    .legacy-table th { font-family:var(--font-heading); font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border-bottom:1px solid rgba(212,160,23,.3); padding:.9rem 1rem; text-align:left; background:rgba(212,160,23,.04); }
+    .legacy-table td { padding:.85rem 1rem; color:var(--parchment); border-bottom:1px solid rgba(212,160,23,.07); line-height:1.6; vertical-align:top; font-size:.84rem; }
+    .legacy-table tr:hover td { background:rgba(212,160,23,.03); }
+    .legacy-table .dev-cell { font-family:var(--font-dev); font-size:.88rem; color:var(--gold-pale); }
+    .legacy-table .lbadge { display:inline-block; font-family:var(--font-heading); font-size:.5rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); background:var(--gold); padding:.15rem .5rem; border-radius:2px; }
+
+    /* ══════════════ REFERENCE SECTION ══════════════ */
+    .ref-section { background:linear-gradient(180deg,rgba(28,15,2,1) 0%,rgba(10,5,0,1) 100%); border-top:1px solid rgba(212,160,23,0.12); }
+    .ref-table { width:100%; border-collapse:collapse; margin:2rem 0; }
+    .ref-table th { font-family:var(--font-heading); font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border-bottom:1px solid rgba(212,160,23,.3); padding:.9rem 1rem; text-align:left; background:rgba(212,160,23,.04); }
+    .ref-table td { padding:.85rem 1rem; color:var(--parchment); border-bottom:1px solid rgba(212,160,23,.07); line-height:1.6; vertical-align:top; font-size:.84rem; }
+    .ref-table tr:hover td { background:rgba(212,160,23,.03); }
+    .ref-table .dev-cell { font-family:var(--font-dev); font-size:.88rem; color:var(--gold-pale); }
+    .rbadge { display:inline-block; font-family:var(--font-heading); font-size:.5rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); background:var(--gold); padding:.15rem .5rem; border-radius:2px; white-space:nowrap; }
+
+    /* ══════════════ NEXT CHAPTER / FOOTER ══════════════ */
+    .next-chapter {
+      position:relative; z-index:10;
+      background:linear-gradient(135deg,rgba(92,10,10,0.3),rgba(42,21,5,0.9));
+      border-top:1px solid rgba(212,160,23,.4); border-bottom:1px solid rgba(212,160,23,.4);
+      padding:4.5rem 2rem; text-align:center;
+    }
+    .nc-eyebrow { font-family:var(--font-heading); font-size:.6rem; letter-spacing:.35em; text-transform:uppercase; color:var(--saffron); margin-bottom:1rem; }
+    .nc-title { font-family:var(--font-display); font-size:clamp(1.5rem,3vw,2.5rem); color:var(--gold-pale); margin-bottom:.8rem; }
+    .nc-sub { font-family:var(--font-dev); font-size:1.1rem; color:var(--gold); margin-bottom:2rem; }
+    .nc-desc { font-size:.95rem; font-style:italic; color:var(--parchment); max-width:600px; margin:0 auto 2.5rem; line-height:1.8; }
+
+    .btn-gold { font-family:var(--font-heading); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink); background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--amber)); border:none; padding:1rem 2.2rem; cursor:pointer; text-decoration:none; display:inline-block; transition:all .3s; box-shadow:0 4px 20px rgba(212,160,23,.4); clip-path:polygon(10px 0%,calc(100% - 10px) 0%,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0% calc(100% - 10px),0% 10px); }
+    .btn-gold:hover { transform:translateY(-3px); box-shadow:0 8px 35px rgba(212,160,23,.6); }
+    .btn-outline { font-family:var(--font-heading); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); background:transparent; border:1px solid var(--gold); padding:1rem 2.2rem; text-decoration:none; display:inline-block; transition:all .3s; clip-path:polygon(10px 0%,calc(100% - 10px) 0%,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0% calc(100% - 10px),0% 10px); }
+    .btn-outline:hover { background:rgba(212,160,23,.1); transform:translateY(-3px); }
+
+    footer { position:relative; z-index:10; background:rgba(5,2,0,1); border-top:1px solid rgba(212,160,23,.15); padding:2.5rem 2rem; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-brand { font-family:var(--font-dev); font-size:1.3rem; color:var(--gold); }
+    .footer-row { display:flex; gap:1.5rem; flex-wrap:wrap; }
+    .footer-row a { font-family:var(--font-heading); font-size:.58rem; letter-spacing:.15em; text-transform:uppercase; color:var(--parchment-dk); text-decoration:none; transition:color .2s; }
+    .footer-row a:hover { color:var(--gold); }
+    .footer-copy { font-family:var(--font-heading); font-size:.55rem; letter-spacing:.1em; color:rgba(212,160,23,.3); }
+
+    /* ══════════════ ANIMATIONS ══════════════ */
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(25px)} to{opacity:1;transform:none} }
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:none} }
+    @keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+
+    .reveal { opacity:0; transform:translateY(35px); transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity:1; transform:none; }
+    .rd1{transition-delay:.1s} .rd2{transition-delay:.2s} .rd3{transition-delay:.3s} .rd4{transition-delay:.4s} .rd5{transition-delay:.5s}
+
+    /* ══════════════ RESPONSIVE ══════════════ */
+    @media(max-width:1100px) {
+      .yadu-profile { grid-template-columns:1fr; }
+      .profile-card { position:static; }
+      .story-layout { grid-template-columns:1fr; }
+      .yantra-float { position:static; order:-1; }
+      .dual-panel { grid-template-columns:1fr; }
+    }
+    @media(max-width:900px) {
+      .yt-sons { grid-template-columns:repeat(3,1fr); }
+    }
+    @media(max-width:600px) {
+      .yt-sons { grid-template-columns:repeat(2,1fr); }
+      .hero-facts { gap:1.2rem; }
+      .hf-sep { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="fire-canvas"></canvas>
+<div class="sacred-frame"></div>
+<div class="corner-gem cg-tl"></div>
+<div class="corner-gem cg-tr"></div>
+<div class="corner-gem cg-bl"></div>
+<div class="corner-gem cg-br"></div>
+
+<!-- ══ NAV ══ -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">यादव वंश <span>Yadav Lineage</span></a>
+    <span class="nav-chapter">Chapter III — King Yadu</span>
+    <div class="nav-links-row">
+      <a href="lunar-dynasty.html" class="nav-back">← Chapter II</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <!-- Dharma wheel SVG -->
+  <svg class="dharma-wheel" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="250" cy="250" r="240" stroke="rgba(212,160,23,1)" stroke-width="3"/>
+    <circle cx="250" cy="250" r="210" stroke="rgba(212,160,23,1)" stroke-width="1"/>
+    <circle cx="250" cy="250" r="60" stroke="rgba(212,160,23,1)" stroke-width="2"/>
+    <circle cx="250" cy="250" r="30" stroke="rgba(212,160,23,1)" stroke-width="1"/>
+    <!-- 24 spokes -->
+    <g stroke="rgba(212,160,23,1)" stroke-width="1.5">
+      <line x1="250" y1="10" x2="250" y2="490"/>
+      <line x1="10" y1="250" x2="490" y2="250"/>
+      <line x1="84" y1="84" x2="416" y2="416"/>
+      <line x1="416" y1="84" x2="84" y2="416"/>
+      <line x1="47" y1="164" x2="453" y2="336"/>
+      <line x1="453" y1="164" x2="47" y2="336"/>
+      <line x1="164" y1="47" x2="336" y2="453"/>
+      <line x1="336" y1="47" x2="164" y2="453"/>
+      <line x1="28" y1="120" x2="472" y2="380"/>
+      <line x1="472" y1="120" x2="28" y2="380"/>
+      <line x1="120" y1="28" x2="380" y2="472"/>
+      <line x1="380" y1="28" x2="120" y2="472"/>
+    </g>
+    <!-- Decorative hub -->
+    <circle cx="250" cy="250" r="20" fill="rgba(212,160,23,0.3)"/>
+    <!-- Outer decorative marks -->
+    <g fill="rgba(212,160,23,0.8)">
+      <rect x="246" y="6" width="8" height="16" rx="1"/>
+      <rect x="246" y="478" width="8" height="16" rx="1"/>
+      <rect x="6" y="246" width="16" height="8" rx="1"/>
+      <rect x="478" y="246" width="16" height="8" rx="1"/>
+    </g>
+  </svg>
+
+  <div class="hero-aura"></div>
+
+  <p class="hero-badge">Chapter III · तृतीय अध्याय</p>
+  <div class="hero-glyph">यदु</div>
+  <h1 class="hero-title">King Yadu</h1>
+  <p class="hero-subtitle">Progenitor of All Yadavas · Father of the Eternal Race</p>
+  <p class="hero-sub-dev">यादव वंश का आदि पुरुष — पुत्र ययाति, पिता एक महान वंश का</p>
+  <div class="hero-divider"><div class="hdg"></div></div>
+  <p class="hero-lead">He was the firstborn of the great emperor Yayati, yet fate denied him a kingdom. He refused his father's command — not from cowardice but from a deep, unspoken wisdom. The "curse" he received became the greatest blessing in the history of Bharatavarsha. For from Yadu — this single, remarkable man — would descend the mightiest community India has ever known, culminating in the birth of Lord Krishna himself.</p>
+
+  <div class="hero-facts">
+    <div class="hf-item">
+      <div class="hf-num">7th</div>
+      <div class="hf-label">Generation from Brahma</div>
+    </div>
+    <div class="hf-sep">✦</div>
+    <div class="hf-item">
+      <div class="hf-num">5</div>
+      <div class="hf-label">Sons of Yadu</div>
+    </div>
+    <div class="hf-sep">✦</div>
+    <div class="hf-item">
+      <div class="hf-num">24+</div>
+      <div class="hf-label">Sub-clans Founded</div>
+    </div>
+    <div class="hf-sep">✦</div>
+    <div class="hf-item">
+      <div class="hf-num">350M+</div>
+      <div class="hf-label">Living Descendants</div>
+    </div>
+    <div class="hf-sep">✦</div>
+    <div class="hf-item">
+      <div class="hf-num">Krishna</div>
+      <div class="hf-label">Greatest Descendant</div>
+    </div>
+  </div>
+
+  <div class="chapter-pills">
+    <a href="#profile" class="pill active">Who Was Yadu</a>
+    <a href="#devayani" class="pill">Mother Devayani</a>
+    <a href="#refusal" class="pill">The Refusal</a>
+    <a href="#curse-blessing" class="pill">Curse & Blessing</a>
+    <a href="#five-sons" class="pill">Five Sons</a>
+    <a href="#clans" class="pill">The Clans</a>
+    <a href="#vrishni" class="pill">Vrishni → Krishna</a>
+    <a href="#philosophy" class="pill">Philosophy</a>
+    <a href="#legacy" class="pill">Legacy</a>
+    <a href="#references" class="pill">Scripture</a>
+  </div>
+  <div class="scroll-cue"><span>Discover Yadu</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ══ SLOKA BAND ══ -->
+<div class="sloka-band">
+  <p class="sloka-dev">यदोः सहस्रजित् प्रथमो क्रोष्टुश्च नल एव च।<br/>अञ्जिकश्च इति पञ्चैते यदोः पुत्राः प्रकीर्तिताः।।<br/>तेभ्यः प्रजाः समभवन् यादवाः सर्व एव हि।।</p>
+  <p class="sloka-trans">"From Yadu were born five sons: Sahasrajit, Kroshtu, Nila, Anjika, and the renowned others — from these five came all the Yadava clans, every one of them."</p>
+  <p class="sloka-ref">— Bhagavata Purana, Skandha IX, Chapter 23, Verses 1–3</p>
+</div>
+
+<main>
+
+<!-- ══════════════════════════════════════════
+     WHO WAS YADU — FULL PROFILE
+══════════════════════════════════════════ -->
+<section id="profile" style="background:linear-gradient(180deg,var(--earth) 0%,var(--earth2) 100%); padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Man · The King · The Progenitor</p>
+    <h2 class="sec-title reveal">Yadu — A Complete Portrait</h2>
+
+    <div class="yadu-profile">
+      <!-- Profile Card -->
+      <div class="reveal">
+        <div class="profile-card">
+          <span class="pc-crown">👑</span>
+          <span class="pc-glyph">यदु</span>
+          <div class="pc-name-en">King Yadu</div>
+          <div class="pc-name-dev">महाराज यदु — यदुकुलाधिपति</div>
+          <div class="pc-divider"></div>
+          <div class="pc-attrs">
+            <div class="pa-row"><span class="pa-label">Generation</span><span class="pa-val">7th from Brahma · Brahma → Atri → Chandra → Budha → Pururavas → Ayus → Nahusha → Yayati → <strong>Yadu</strong></span></div>
+            <div class="pa-row"><span class="pa-label">Father</span><span class="pa-val">Maharaj Yayati — the Chakravarti Samrat, who ruled all three worlds</span></div>
+            <div class="pa-row"><span class="pa-label">Mother</span><span class="pa-val">Devayani — daughter of Shukracharya, Acharya of the Asuras; a woman of fierce intellect and determined will</span></div>
+            <div class="pa-row"><span class="pa-label">Position</span><span class="pa-val">Eldest son of Yayati; would have been crown prince by right of birth</span></div>
+            <div class="pa-row"><span class="pa-label">Wife / Wives</span><span class="pa-val">Multiple queens (specific names vary across Puranas); Sharmishtha's daughter Madhavi also connected to Yadava lineage through Galava's story</span></div>
+            <div class="pa-row"><span class="pa-label">Sons</span><span class="pa-val highlight">Sahasrajit (Sahasrada), Kroshtu (Kroshta), Nila, Anjika, and Payoda — the Five Founders of the Yadava clans</span></div>
+            <div class="pa-row"><span class="pa-label">Kingdom</span><span class="pa-val">Western regions of Bharatavarsha; Mathura and surrounding territories; later Saurashtra (Gujarat)</span></div>
+            <div class="pa-row"><span class="pa-label">Curse</span><span class="pa-val">His descendants shall never be kings (Yayati's curse for refusing to give youth) — yet this "curse" freed Yadavas from ego of kingship, making them a community of warriors, herdsmen, traders, and bhaktas</span></div>
+            <div class="pa-row"><span class="pa-label">Greatest Legacy</span><span class="pa-val highlight">Lord Krishna — born ~17 generations later in the Vrishni sub-clan of Kroshtu's line</span></div>
+            <div class="pa-row"><span class="pa-label">Purana Ref.</span><span class="pa-val">Bhag. IX.23, Vishnu Purana IV.11-12, Harivamsa I.32-38, Mahabharata Adi Parva 75-85</span></div>
+            <div class="pc-divider"></div>
+            <div class="pa-row"><span class="pa-label">Meaning</span><span class="pa-val dev">यदु = "the one who fights / goes forward" — from Sanskrit root √यद् (yad) — to fight, to strive forward</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="reveal">
+        <h3 class="sub-title" style="margin-top:0;">Yadu — Beyond the Usual Narrative</h3>
+        <div class="body-text">
+          The standard narrative presents Yadu as a son who refused his father's request and was consequently cursed. But this reading is superficial. A closer reading of the Bhagavata Purana, Vishnu Purana, and Mahabharata reveals a far more complex and philosophically rich figure. <strong>Yadu was not a selfish son</strong> — he was a man who understood something profound that his brothers did not: that the greatest dharma is not always the most obedient one.
+        </div>
+        <div class="body-text">
+          Consider: Yayati asked his sons to accept his <em>jara</em> (old age and its infirmities — loss of strength, beauty, memory, vitality). Puru accepted this out of filial love. But Yadu's refusal has a different quality to it. His words, as preserved in the Bhagavata, speak of the <em>nature of the body and time</em> — not merely personal preference. He sees that to artificially exchange the natural state of one's body is to act against the cosmic order (ritu). In refusing, he preserved his natural state — the state in which he was fit to be the progenitor of a great community of strong, vital, energetic people.
+        </div>
+
+        <div class="qblock">
+          <p class="qdev">न जरा रूपं नाशयति वीर्यं च क्षेमं च नापि।<br/>असम्मतं मे पितः कर्म यत् त्वं मां याचसे।।</p>
+          <p class="qtrans">"Old age destroys one's appearance, heroism, and wellbeing alike. O Father, what you ask of me is not something I can agree to — for it goes against the natural order of things."</p>
+          <p class="qsrc">— Yadu's words to Yayati, Bhagavata Purana IX.18.35</p>
+        </div>
+
+        <div class="body-text">
+          This refusal, while it cost Yadu his claim to his father's throne, <strong>preserved his physical and spiritual strength</strong>. The Yadava community that descended from him is consistently described in the Puranas as physically powerful (<em>maha-bahu</em> — great-armed), courageous, and full of vital energy. This is Yadu's gift to his descendants — not a palace or a throne, but the fullness of human vitality, untouched by premature old age.
+        </div>
+
+        <h3 class="sub-title">Yadu as a King — His Actual Reign</h3>
+        <div class="body-text">
+          Despite the "curse," Yadu was not left kingless. The Puranas make clear that <strong>Yayati gave Yadu the southern and western territories of his vast empire</strong>. These included the fertile Mathura region, the lands west of the Yamuna, and eventually the Saurashtra-Anarta region (modern Gujarat). Yadu established his capital at <strong>Mathura</strong> — the same sacred city where, thousands of years later, his most celebrated descendant Lord Krishna would be born.
+        </div>
+        <div class="body-text">
+          As a king, Yadu was known for his <strong>justice (nyaya)</strong>, his <strong>protection of cows and brahmins</strong> (go-raksha and brahmin-raksha — both central to Yadava tradition), and his <strong>generous patronage of yajnas</strong>. Multiple Puranic passages describe him as performing great sacrificial rituals, donating lavishly to scholars and the poor, and governing his people with a combination of strength and compassion that became the model for all Yadava kings who came after him.
+        </div>
+
+        <div class="hbox">
+          <div class="hb-title">Yadu's Defining Characteristics — As Described in the Puranas</div>
+          <ul class="hb-list">
+            <li><strong>Physically magnificent</strong> — described as tall, broad-shouldered, radiant as the sun, with the bearing of a lion. The Harivamsa compares his form to that of Indra himself.</li>
+            <li><strong>Protector of dharma</strong> — never deviated from the path of righteousness even when it cost him comfort or kingship. This characteristic became the hallmark of Yadava identity.</li>
+            <li><strong>Lover of music and arts</strong> — Yadu was an accomplished musician, and this tradition of music and arts ran through all Yadava communities (notably the Ahir folk music traditions of North India).</li>
+            <li><strong>Go-sevak</strong> (server of cows) — the Yadava association with cow protection begins with Yadu himself, who considered cows sacred and made their protection a royal duty. This tradition reaches its apex in Krishna's life as Gopal.</li>
+            <li><strong>Deeply non-attached</strong> — despite being the eldest son of the world's greatest emperor, he bore his "demotion" without bitterness. This equanimity is a spiritual quality the Puranas particularly praise.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     DEVAYANI — YADU'S MOTHER
+══════════════════════════════════════════ -->
+<section id="devayani" class="devayani-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Mother Who Shaped a Dynasty</p>
+    <h2 class="sec-title reveal">Devayani — Yadu's Remarkable Mother</h2>
+    <p class="lead reveal">To understand Yadu fully, one must understand <strong>Devayani</strong> — his mother, and one of the most memorable women in all of Puranic literature. She was not a passive queen but a fierce, intelligent, determined woman whose choices shaped the Yadava story from its very beginning.</p>
+
+    <div class="story-layout">
+      <div class="reveal">
+        <h3 class="sub-title" style="margin-top:0;">Who Was Devayani?</h3>
+        <div class="body-text">
+          <strong>Devayani</strong> (<span class="dev-inline">देवयानी</span>) was the daughter of <strong>Shukracharya</strong> — the most powerful Brahmin sage of the age, teacher and guru of all the Asuras, master of the <em>Mritasanjivani Vidya</em> (the knowledge of reviving the dead). Shukracharya was so feared and respected that even the gods were wary of him. Devayani thus grew up in an atmosphere of supreme learning, divine power, and social prestige.
+        </div>
+        <div class="body-text">
+          She was celebrated for her beauty, intelligence, and fierce self-respect. Her conflict with Sharmishtha — daughter of the Asura king Vrishaparva — began when Sharmishtha accidentally pushed Devayani into a well during a quarrel over who was superior. When King Yayati rescued her from the well, Devayani immediately and boldly asked him to marry her. Her directness, her refusal to be diminished, and her insistence on her own dignity are all qualities she passed to her son Yadu.
+        </div>
+
+        <div class="qblock">
+          <p class="qdev">देवयान्युवाच — गृहीतो मे पाणिस्त्वया क्षत्रिय।<br/>भव मे भर्ता — मां नय गृहम् आत्मनः।।</p>
+          <p class="qtrans">Devayani said: "O Kshatriya, you have taken my hand — become my husband, take me to your own home."</p>
+          <p class="qsrc">— Mahabharata, Adi Parva Ch.76 — Devayani proposes to Yayati directly</p>
+        </div>
+
+        <h3 class="sub-title">How Devayani Shaped Yadu</h3>
+        <div class="body-text">
+          Devayani brought several powerful qualities into the Yadava bloodline through Yadu. First, the <strong>intellectual heritage of Shukracharya</strong> — the Yadavas are consistently portrayed in the Puranas as a community of extraordinary intelligence and worldly wisdom, alongside their physical prowess. Shukracharya was the author of the <em>Shukra Niti</em> — one of the great texts of statecraft and ethics. This intellectual tradition flows into Yadu through Devayani.
+        </div>
+        <div class="body-text">
+          Second, Devayani's fierce <strong>self-respect and independence</strong> — her willingness to fight for her dignity, to demand what she deserved, and to never accept humiliation passively — these became defining Yadava traits. Yadavas throughout history have been known as a proud, self-respecting community that does not bow easily to injustice. The Bhakti movement among Yadavas, with its emphasis on direct personal devotion unmediated by hierarchy, reflects this quality.
+        </div>
+        <div class="body-text">
+          Third, through Shukracharya, Devayani carried a connection to the <strong>Asura tradition</strong> — not in the negative sense, but in the sense of the Asuras' practical intelligence, their knowledge of arts and sciences, and their emphasis on material excellence. Yadavas are repeatedly described as excellent craftsmen, builders, musicians, and warriors — practical excellence combined with spiritual devotion.
+        </div>
+
+        <h3 class="sub-title">Devayani and the Conflict with Sharmishtha</h3>
+        <div class="body-text">
+          The conflict between Devayani and Sharmishtha — which forms the backdrop of Yayati's story — has a direct impact on Yadu's position. Because Yadu was born of Devayani (the Brahmin's daughter), he had a special relationship with the Brahmin tradition. Yet because Yayati also had sons with Sharmishtha (the royal Asura princess), the Yadava lineage carries a unique synthesis: <strong>Brahminical wisdom (through Devayani/Shukracharya) + Kshatriya power (through Yayati) + Asura practical energy (through Sharmishtha's influence in the household)</strong>. This triple synthesis is one reason the Yadavas became such a complete, multifaceted community.
+        </div>
+      </div>
+
+      <!-- Yantra art for Devayani -->
+      <div class="yantra-float reveal">
+        <svg viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Triple triangle yantra -->
+          <circle cx="180" cy="180" r="170" stroke="rgba(212,160,23,0.25)" stroke-width="1"/>
+          <circle cx="180" cy="180" r="150" stroke="rgba(212,160,23,0.15)" stroke-width=".5"/>
+          <!-- Upward triangle (Brahmin/Devayani) -->
+          <polygon points="180,40 310,260 50,260" stroke="rgba(212,160,23,0.55)" stroke-width="1.5" fill="rgba(212,160,23,0.05)"/>
+          <!-- Downward triangle (Kshatriya/Yayati) -->
+          <polygon points="180,320 310,100 50,100" stroke="rgba(184,98,26,0.55)" stroke-width="1.5" fill="rgba(184,98,26,0.04)"/>
+          <!-- Third triangle (Asura/Sharmishtha influence) -->
+          <polygon points="180,70 285,240 75,240" stroke="rgba(139,26,26,0.35)" stroke-width="1" fill="rgba(139,26,26,0.03)"/>
+          <!-- Inner hexagon -->
+          <polygon points="180,110 230,145 230,215 180,250 130,215 130,145" stroke="rgba(212,160,23,0.4)" stroke-width="1" fill="rgba(212,160,23,0.04)"/>
+          <!-- Lotus inner -->
+          <g stroke="rgba(212,160,23,0.35)" stroke-width=".8" fill="rgba(212,160,23,0.04)">
+            <ellipse cx="180" cy="118" rx="10" ry="28"/>
+            <ellipse cx="180" cy="118" rx="10" ry="28" transform="rotate(60 180 180)"/>
+            <ellipse cx="180" cy="118" rx="10" ry="28" transform="rotate(120 180 180)"/>
+            <ellipse cx="180" cy="118" rx="10" ry="28" transform="rotate(180 180 180)"/>
+            <ellipse cx="180" cy="118" rx="10" ry="28" transform="rotate(240 180 180)"/>
+            <ellipse cx="180" cy="118" rx="10" ry="28" transform="rotate(300 180 180)"/>
+          </g>
+          <circle cx="180" cy="180" r="45" stroke="rgba(212,160,23,0.35)" stroke-width="1"/>
+          <circle cx="180" cy="180" r="22" stroke="rgba(212,160,23,0.25)" stroke-width=".5"/>
+          <circle cx="180" cy="180" r="7" fill="rgba(212,160,23,0.5)"/>
+          <text x="180" y="187" text-anchor="middle" font-family="'Noto Serif Devanagari',serif" font-size="14" fill="rgba(212,160,23,0.9)">देवयानी</text>
+          <!-- Cardinal dots -->
+          <g fill="rgba(212,160,23,0.5)">
+            <circle cx="180" cy="10" r="3"/><circle cx="350" cy="180" r="3"/>
+            <circle cx="180" cy="350" r="3"/><circle cx="10" cy="180" r="3"/>
+          </g>
+          <!-- Diagonal dots -->
+          <g fill="rgba(184,98,26,0.4)">
+            <circle cx="300" cy="60" r="2.5"/><circle cx="300" cy="300" r="2.5"/>
+            <circle cx="60" cy="300" r="2.5"/><circle cx="60" cy="60" r="2.5"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     THE REFUSAL — DETAILED ANALYSIS
+══════════════════════════════════════════ -->
+<section id="refusal" style="background:linear-gradient(180deg,var(--earth2) 0%,var(--earth3) 100%); border-top:1px solid rgba(212,160,23,0.12); padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Pivotal Moment · The Great Refusal</p>
+    <h2 class="sec-title reveal">Why Yadu Refused — The Full Story</h2>
+    <p class="lead reveal">The moment Yadu refused his father Yayati's request to exchange youth is the single most consequential act in the entire Yadava story. Without this refusal, there would be no Yadava community. Let us examine it in full depth — as the Puranas record it.</p>
+
+    <h3 class="sub-title reveal">The Context — Yayati's Desperate Situation</h3>
+    <div class="body-text reveal">
+      After Shukracharya's curse transformed Yayati into a bent, white-haired, decrepit old man while he was still in the prime of his kingly power, Yayati approached each of his five sons in turn. The Bhagavata Purana (IX.18) records each conversation in detail. The sons are approached in order of age — Yadu first, then Turvasu, Druhyu, Anu, and finally Puru.
+    </div>
+
+    <div class="body-text reveal">
+      When Yayati came to Yadu — his eldest, his first-born — his request was clear: <em>"My son, I was afflicted by Shukracharya's curse before I could fully enjoy the pleasures of my youth. Please accept my old age and give me your youth. After I have enjoyed life fully, I will return your youth to you and make you king."</em>
+    </div>
+
+    <div class="qblock reveal">
+      <p class="qdev">ययाति उवाच — पुत्र मे जरां गृहाण दास्ये ते यौवनं शुभम्।<br/>प्रीतिं में कुरु भद्रं ते भुक्त्वा भोगान् ददामि ते।।</p>
+      <p class="qtrans">Yayati said: "Son, accept my old age and I will give you my blessed youth. Do me this favour — after I have enjoyed the pleasures of life, I shall return everything to you."</p>
+      <p class="qsrc">— Bhagavata Purana IX.18.33</p>
+    </div>
+
+    <h3 class="sub-title reveal">Yadu's Response — Word by Word</h3>
+    <div class="body-text reveal">
+      Yadu's answer is recorded in two verses in the Bhagavata and more extensively in the Mahabharata (Adi Parva Ch. 85). He does not refuse out of laziness, selfishness, or disrespect. His words are measured, philosophical, and — when read carefully — carry a wisdom that his brothers and even his father do not fully possess at that moment.
+    </div>
+
+    <div class="qblock reveal">
+      <p class="qdev">न जरया रूपं हीयते भ्रश्यते वीर्यम् अप्यथ।<br/>असम्मतं मे तत् कर्म यत् त्वं याचसे पितः।।<br/>जरायाम् बहवो दोषाः क्षुत् तृष्णा स्त्रीषु चापटुः।<br/>ताम् नाहं प्रतिगृह्णीयां अशक्तः परिपालने।।</p>
+      <p class="qtrans">"Father, old age destroys one's appearance and diminishes one's heroism. What you ask is not agreeable to me. Old age brings many afflictions — inability to eat well, insatiable thirst, incapacity with women. I cannot accept it, for I would be unable to maintain my duties as a son, a king, and a warrior."</p>
+      <p class="qsrc">— Yadu's words, Mahabharata Adi Parva, Chapter 85, Verses 5–7</p>
+    </div>
+
+    <div class="body-text reveal">
+      Notice what Yadu does not say: he does not say he values his youth above his father's happiness. He frames his refusal in terms of <em>duty and capacity</em>. He says he would be <strong>unable to perform his dharmic obligations</strong> if weakened by old age. A weakened king cannot protect his people. A weakened warrior cannot defend the realm. A weakened son cannot serve his parents in their time of need. Yadu is, in a sense, refusing for dharmic reasons — not selfish ones.
+    </div>
+
+    <div class="body-text reveal">
+      The Mahabharata version goes further: Yadu's words touch on the <em>nature of the body as cosmic gift</em> — that the body one is born with is part of one's cosmic design, and to artificially alter it through exchange violates the natural order. This is a sophisticated philosophical position that is very much in keeping with the wisdom tradition that would later be codified in the Bhagavad Gita — spoken by Yadu's most celebrated descendant.
+    </div>
+
+    <!-- Comparison of five sons -->
+    <h3 class="sub-title reveal">The Five Sons — A Comparison</h3>
+    <div class="body-text reveal">See how each son's response shaped their destiny and community:</div>
+
+    <table class="comp-table reveal">
+      <thead>
+        <tr>
+          <th>Son</th>
+          <th>Mother</th>
+          <th>Response</th>
+          <th>Reason Given</th>
+          <th>Consequence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="yadu-row">
+          <td><strong>Yadu</strong> <span class="badge">Eldest</span></td>
+          <td>Devayani</td>
+          <td class="dev-cell">अस्वीकार — Refused</td>
+          <td>Old age impairs dharmic capacity; body is cosmic gift not to be exchanged</td>
+          <td>Cursed — descendants cannot be kings. But preserved vitality → founded greatest dynasty. <strong>Lord Krishna born here.</strong></td>
+        </tr>
+        <tr>
+          <td>Turvasu <span class="badge-r badge">2nd</span></td>
+          <td>Devayani</td>
+          <td class="dev-cell">अस्वीकार — Refused</td>
+          <td>Does not wish to bear old age and disability</td>
+          <td>Cursed — descendants become mlecchas and lose Kshatriya status. Dynasty moves south and west.</td>
+        </tr>
+        <tr>
+          <td>Druhyu <span class="badge-r badge">3rd</span></td>
+          <td>Sharmishtha</td>
+          <td class="dev-cell">अस्वीकार — Refused</td>
+          <td>Self-serving reasons; unwilling to sacrifice</td>
+          <td>Cursed — descendants lose maritime connections, become tribal peoples of the northwest.</td>
+        </tr>
+        <tr>
+          <td>Anu <span class="badge-r badge">4th</span></td>
+          <td>Sharmishtha</td>
+          <td class="dev-cell">अस्वीकार — Refused</td>
+          <td>Fears loss of pleasure and vitality</td>
+          <td>Cursed — descendants lose ritual fire rights; become eastern peoples with diminished dharmic standing.</td>
+        </tr>
+        <tr>
+          <td>Puru <span class="badge-b badge">5th</span></td>
+          <td>Sharmishtha</td>
+          <td class="dev-cell">स्वीकार — Accepted</td>
+          <td>"Father, ask anything of me. I exist to serve you."</td>
+          <td>Rewarded with crown. Becomes king of Hastinapura. Pandavas and Kauravas are Paurava (Puru's descendants).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     THE CURSE — AND WHY IT WAS A BLESSING
+══════════════════════════════════════════ -->
+<section id="curse-blessing" class="curse-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Divine Paradox</p>
+    <h2 class="sec-title reveal">The Curse That Became the Greatest Blessing</h2>
+    <p class="lead reveal">Yayati cursed Yadu: <em>"Since you have refused to help your father, you and your descendants shall never enjoy the fruits of kingship."</em> On the surface, a devastating curse. In cosmic reality — the most transformative blessing ever bestowed upon a community.</p>
+
+    <div class="dual-panel reveal">
+      <div class="dp-panel curse">
+        <div class="dp-label">The Curse — What Yayati Said</div>
+        <div class="dp-text">
+          <strong>Yayati's exact words</strong> (Bhagavata IX.18.40): <em>"Since you, my eldest, have not fulfilled your father's wish and have spoken in a way that is not pleasing, your posterity shall never occupy a royal throne or inherit a kingdom."</em><br/><br/>
+          The surface meaning: no Yadava shall be a crowned king. No Yadava dynasty shall sit on the imperial throne. The community founded by Yadu was to be, by the decree of its ancestor's father, a community <em>without a crown</em>.<br/><br/>
+          This is why the Yadavas — for all their power — are consistently described in the Puranas as a proud, independently-governed community rather than an imperial dynasty. Even Lord Krishna himself refused the throne, chose to be a charioteer and adviser, and let others rule.
+        </div>
+      </div>
+      <div class="dp-panel blessing">
+        <div class="dp-label">The Cosmic Blessing Hidden Within</div>
+        <div class="dp-text">
+          <strong>What the curse actually created</strong>: a community free from the ego of kingship. Yadavas did not spend their energy defending thrones, suppressing rivals, or engaging in palace intrigue. Instead they:<br/><br/>
+          — Became the greatest cattle-herders (go-palakas) and custodians of agricultural life in India<br/>
+          — Developed the most vibrant community traditions — music, dance, festivals, folk arts<br/>
+          — Produced the most devotional bhakti tradition in India — direct, unmediated love of the divine<br/>
+          — Were free to follow dharma without the compromises that kingship demands<br/>
+          — And from this community of free, vital, uncrowned warriors and herdsmen — arose <strong>Lord Krishna</strong>, who showed the entire world that true sovereignty is not of a throne but of the spirit.
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-title reveal">The Deeper Meaning — Vedantic Perspective</h3>
+    <div class="body-text reveal">
+      The Bhagavatam commentators (notably Sridhara Swami and Vishwanatha Chakravarti Thakura) note that <strong>Yayati's curse was in reality Vishnu's plan</strong>. For Lord Krishna to come into the world in a form accessible to ordinary humans — as a cowherd, a charioteer, a friend — he needed to be born into a community that was not isolated by royal ceremony and palace walls. By "freeing" the Yadavas from kingship, the universe ensured that when Vishnu incarnated among them, he would be approachable, intimate, human-scaled in his divine love.
+    </div>
+
+    <div class="body-text reveal">
+      The Gita itself confirms this reading. Krishna tells Arjuna: <em>"I have no duty in all three worlds, nor anything unattained that I need to attain — yet I engage in action"</em> (BG 3.22). Krishna's freedom from compulsion — his action without ego-stake — is the highest expression of the Yadava spirit that Yadu first embodied when he refused to compromise his natural state for the sake of a crown.
+    </div>
+
+    <div class="qblock reveal">
+      <p class="qdev">न मे पार्थास्ति कर्तव्यं त्रिषु लोकेषु किञ्चन।<br/>नानवाप्तमवाप्तव्यं वर्त एव च कर्मणि।।</p>
+      <p class="qtrans">"O Partha (Arjuna), there is nothing that I must do in all three worlds, nor anything unattained that I need to attain — yet I engage in action nonetheless."</p>
+      <p class="qsrc">— Bhagavad Gita 3.22 — Krishna, greatest descendant of Yadu, expressing the Yadava spirit</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FIVE SONS OF YADU
+══════════════════════════════════════════ -->
+<section id="five-sons" class="sons-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Five Founders · पञ्च पुत्र यदोः</p>
+    <h2 class="sec-title reveal">The Five Sons of Yadu — Founders of the Yadava Sub-Clans</h2>
+    <p class="lead reveal">From Yadu's five sons descended all the major Yadava sub-clans. Each son founded a distinct lineage with its own character, territories, and traditions. Together, these five branches constitute the complete Yadava community — united by descent from Yadu but diverse in their expressions of the Yadava spirit.</p>
+
+    <!-- Visual Tree -->
+    <div class="yadu-tree reveal">
+      <div class="yt-root">
+        <div class="yt-root-node">
+          <span class="n-dev">यदु</span>
+          <div class="n-en">King Yadu — Son of Yayati</div>
+          <div class="n-role">7th generation from Brahma · Progenitor of all Yadavas</div>
+        </div>
+      </div>
+      <div class="yt-connector-main"></div>
+      <div class="yt-branch-line"></div>
+      <div class="yt-sons">
+        <div>
+          <div class="yt-son-connector"></div>
+          <div class="yt-son-node">
+            <span class="sn-dev">सहस्रजित्</span>
+            <div class="sn-en">Sahasrajit</div>
+            <div class="sn-desc">Eldest son. His son was Shatajit, whose sons were Mahahaya, Venuhat, and Haihaya — progenitors of the great Haihaya clan.</div>
+            <div class="sn-clan">→ Haihaya Clan</div>
+          </div>
+        </div>
+        <div>
+          <div class="yt-son-connector"></div>
+          <div class="yt-son-node kroshtu">
+            <span class="yt-kroshtu-label">★ Krishna's Line</span>
+            <span class="sn-dev">क्रोष्टु</span>
+            <div class="sn-en">Kroshtu / Kroshta</div>
+            <div class="sn-desc">Third son; from his line came the Vrishni clan — the most celebrated of all Yadava sub-clans, from which Lord Krishna descended.</div>
+            <div class="sn-clan">→ Vrishni → Krishna</div>
+          </div>
+        </div>
+        <div>
+          <div class="yt-son-connector"></div>
+          <div class="yt-son-node">
+            <span class="sn-dev">नील</span>
+            <div class="sn-en">Nila</div>
+            <div class="sn-desc">Son whose descendants became the Nila branch of Yadavas — associated with regions of Vidarbha and central India. Some texts name him as Anjika's brother.</div>
+            <div class="sn-clan">→ Nila Branch</div>
+          </div>
+        </div>
+        <div>
+          <div class="yt-son-connector"></div>
+          <div class="yt-son-node">
+            <span class="sn-dev">अञ्जिक</span>
+            <div class="sn-en">Anjika</div>
+            <div class="sn-desc">Son who founded the Anjika branch. The Bhagavata lists him among Yadu's sons. His descendants spread across western India.</div>
+            <div class="sn-clan">→ Anjika Branch</div>
+          </div>
+        </div>
+        <div>
+          <div class="yt-son-connector"></div>
+          <div class="yt-son-node">
+            <span class="sn-dev">पयोद</span>
+            <div class="sn-en">Payoda</div>
+            <div class="sn-desc">Son associated with cattle and water abundance (payoda = rain cloud / water giver). His descendants maintained the pastoral traditions most strongly.</div>
+            <div class="sn-clan">→ Pastoral Yadavas</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kroshtu expansion -->
+      <div class="kroshtu-expansion">
+        <div class="ke-title">Kroshtu's Line → The Path to Lord Krishna</div>
+        <div class="ke-chain">
+          <span class="ke-node highlight">Kroshtu</span>
+          <span class="ke-arrow">→</span>
+          <span class="ke-node">Vrijinivat</span>
+          <span class="ke-arrow">→</span>
+          <span class="ke-node">Svahi</span>
+          <span class="ke-arrow">→</span>
+          <span class="ke-node">Vishvagarbha</span>
+          <span class="ke-arrow">→</span>
+          <span class="ke-node">Chitraratha</span>
+          <span class="ke-arrow">→</span>
+          <span class="ke-node">Shashabindu</span>
+          <span class="ke-arrow">→</span>
+          <span class="ke-node">… ~12 gens …</span>
+          <span class="ke-arrow">→</span>
+          <span class="ke-node">Satvata</span>
+          <span class="ke-arrow">→</span>
+          <span class="ke-node">Andhaka & Vrishni</span>
+          <span class="ke-arrow">→</span>
+          <span class="ke-node">… Shurasena</span>
+          <span class="ke-arrow">→</span>
+          <span class="ke-node">Vasudeva</span>
+          <span class="ke-arrow">→</span>
+          <span class="ke-node highlight">Lord Krishna</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     THE YADAVA CLANS — DETAILED
+══════════════════════════════════════════ -->
+<section id="clans" style="background:linear-gradient(180deg,var(--earth2) 0%,var(--earth) 100%); border-top:1px solid rgba(212,160,23,0.15); padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Great Clans · महान गोत्र</p>
+    <h2 class="sec-title reveal">The Major Yadava Sub-Clans — From Yadu's Sons</h2>
+    <p class="lead reveal">The Puranas — especially the Bhagavata (IX.23-24) and Harivamsa (I.32-45) — enumerate numerous sub-clans that descend from Yadu's five sons. Here are the most significant, with their founding ancestor, territorial associations, and notable members.</p>
+
+    <div class="clan-cards">
+
+      <div class="clan-card reveal rd1">
+        <div class="cc-son">From Sahasrajit's Line</div>
+        <div class="cc-name">Haihaya Clan</div>
+        <div class="cc-dev">हैहय वंश</div>
+        <div class="cc-divider"></div>
+        <div class="cc-text">Founded by Haihaya, great-grandson of Sahasrajit. This is one of the most powerful and celebrated Yadava clans. The Haihayas ruled the Mahishmati kingdom (modern Maheshwar on the Narmada river in MP). Their most famous king was <strong>Kartavirya Arjuna (Sahasrarjuna)</strong> — the thousand-armed king whose power even exceeded Ravana's. The Haihaya story — including their eventual destruction at the hands of Parashurama — is one of the great epics of post-Vedic India.</div>
+        <div class="cc-known">Notable: <span>Kartavirya Arjuna (Sahasrarjuna) — thousand-armed king</span></div>
+      </div>
+
+      <div class="clan-card reveal rd2" style="border-color:rgba(212,160,23,0.45); background:linear-gradient(160deg,rgba(92,10,10,.2),rgba(42,21,5,.8));">
+        <div class="cc-son" style="color:var(--gold);">★ From Kroshtu's Line — Krishna's Clan</div>
+        <div class="cc-name">Vrishni Clan</div>
+        <div class="cc-dev">वृष्णि वंश</div>
+        <div class="cc-divider"></div>
+        <div class="cc-text">The most celebrated of all Yadava clans. Descended from <strong>Vrishni</strong>, a great-grandson of Satvata (who descended from Kroshtu). The Vrishni clan produced Lord Krishna, Balarama, Pradyumna, Aniruddha, and Samba. The Bhagavata Purana dedicates much of Skandha IX-XI to this clan. Their capital was first Mathura, later Dwarka (founded by Krishna). <strong>All of Krishna's immediate family — the Vrishnis — were the Yadavas par excellence.</strong></div>
+        <div class="cc-known">Notable: <span>Lord Krishna, Balarama, Vasudeva, Devaki, Pradyumna, Aniruddha, Satyaki, Akrura, Uddhava</span></div>
+      </div>
+
+      <div class="clan-card reveal rd3">
+        <div class="cc-son">From Kroshtu's Line</div>
+        <div class="cc-name">Andhaka Clan</div>
+        <div class="cc-dev">अन्धक वंश</div>
+        <div class="cc-divider"></div>
+        <div class="cc-text">Descended from <strong>Andhaka</strong>, brother of Vrishni. The Andhakas were among the principal Yadava clans at Dwarka. Their king <strong>Ugrasena</strong> was the father of Kamsa (the tyrant) and was restored to his throne by Krishna after Kamsa's death. The Andhakas and Vrishnis are often mentioned together as the twin pillars of the Dwarka Yadava confederation.</div>
+        <div class="cc-known">Notable: <span>Ugrasena (king), Kamsa (tyrant killed by Krishna), many Dwarka warriors</span></div>
+      </div>
+
+      <div class="clan-card reveal rd1">
+        <div class="cc-son">From Kroshtu's Line</div>
+        <div class="cc-name">Satvata Clan</div>
+        <div class="cc-dev">सात्वत वंश</div>
+        <div class="cc-divider"></div>
+        <div class="cc-text">Descended from <strong>Satvata</strong> — one of the most revered names in Yadava history. The Bhagavata Purana calls the Satvatas the most dharmic of all Yadava clans. The <em>Satvata Dharma</em> — a tradition of selfless service and bhakti — is praised as the highest religious tradition. The Pancharatra Vaishnava tradition, which became foundational to Vaishnavism, developed within the Satvata community. Many Yadava religious texts are designated as "Satvata Agama."</div>
+        <div class="cc-known">Notable: <span>Satvata himself; the Bhakti/Pancharatra tradition springs from this clan</span></div>
+      </div>
+
+      <div class="clan-card reveal rd2">
+        <div class="cc-son">From Sahasrajit's Line</div>
+        <div class="cc-name">Bhoja Clan</div>
+        <div class="cc-dev">भोज वंश</div>
+        <div class="cc-divider"></div>
+        <div class="cc-text">The Bhojas were a powerful Yadava clan with territories in central India and possibly the Vidarbha region. In the Mahabharata, the Bhojas are listed among the principal Yadava groups at Dwarka. <strong>Kritavarma</strong> — the great Yadava warrior of the Mahabharata — was a Bhoja. He alone, among the Yadavas, sided with the Kauravas during the war. The Bhoja territory centred around Bhoja-kata (modern Betul district, MP).</div>
+        <div class="cc-known">Notable: <span>Kritavarma — Bhoja warrior who fought for Kauravas; King of Martikavata</span></div>
+      </div>
+
+      <div class="clan-card reveal rd3">
+        <div class="cc-son">From Yadu's Line (branch uncertain)</div>
+        <div class="cc-name">Kukura Clan</div>
+        <div class="cc-dev">कुकुर वंश</div>
+        <div class="cc-divider"></div>
+        <div class="cc-text">The Kukuras were a prominent Yadava clan in the Dwarka Yadava confederation. Their most celebrated member was <strong>Akrura</strong> — the beloved devotee of Krishna who was sent to bring Krishna from Gokul to Mathura, and who also possessed the Syamantaka jewel for a time. Akrura's deep devotion to Krishna despite being a member of the powerful Yadava aristocracy makes the Kukuras an important clan in Bhakti tradition.</div>
+        <div class="cc-known">Notable: <span>Akrura — Krishna's beloved, who conveyed him from Gokul; gentle but powerful devotee</span></div>
+      </div>
+
+      <div class="clan-card reveal rd1">
+        <div class="cc-son">From Yadu's Line</div>
+        <div class="cc-name">Ahira / Abhira Clan</div>
+        <div class="cc-dev">अहीर / आभीर वंश</div>
+        <div class="cc-divider"></div>
+        <div class="cc-text">The Abhiras (Ahirs) are the pastoral Yadava communities — the herdsmen and cowherds who maintained the Go-seva (cow service) tradition most faithfully. They are mentioned in ancient texts including the Mahabharata, Periplus of the Erythraean Sea, and Ptolemy's Geography. The Ahir communities of UP, MP, Haryana, Rajasthan, Bihar, and Gujarat are the living descendants of this tradition. <strong>The Nanda family of Gokul — foster parents of Krishna — were Abhiras.</strong></div>
+        <div class="cc-known">Notable: <span>Nanda Maharaj (Krishna's foster father), Yashoda (foster mother) — quintessential Abhira Yadavas</span></div>
+      </div>
+
+      <div class="clan-card reveal rd2">
+        <div class="cc-son">From Multiple Lines</div>
+        <div class="cc-name">Yadava Confederation at Dwarka</div>
+        <div class="cc-dev">द्वारका यादव संघ</div>
+        <div class="cc-divider"></div>
+        <div class="cc-text">Under Krishna's leadership, the major Yadava clans — Vrishni, Andhaka, Bhoja, Satvata, Kukura, Madhava, Dashtaraha — formed a unified confederation at Dwarka. The Bhagavata describes this as the greatest Yadava political achievement. 18 akshauhini of Yadava warriors lived at Dwarka. The city had 900,000 royal palaces. At the height of Yadava power, no army on earth could match the Narayani Sena (Yadava army).</div>
+        <div class="cc-known">Notable: <span>The entire Yadava military — 18 akshauhini warriors — the mightiest army ever assembled in India before the Mahabharata war</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     VRISHNI → KRISHNA PATH
+══════════════════════════════════════════ -->
+<section id="vrishni" style="background:linear-gradient(180deg,var(--earth) 0%,var(--earth2) 100%); border-top:1px solid rgba(212,160,23,0.15); padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Path to Divinity</p>
+    <h2 class="sec-title reveal">From Kroshtu to Krishna — The Vrishni Lineage</h2>
+    <p class="lead reveal">The most celebrated path within the Yadava genealogy is the line from Yadu's son <strong>Kroshtu</strong> through the <strong>Vrishni clan</strong> all the way to <strong>Lord Krishna</strong>. The Bhagavata Purana (IX.24) and Vishnu Purana (IV.12-13) give this genealogy in extraordinary detail.</p>
+
+    <table class="legacy-table reveal">
+      <thead>
+        <tr>
+          <th>Generation</th>
+          <th>Name</th>
+          <th>Sanskrit</th>
+          <th>Key Fact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="lbadge">1 — Yadu</span></td><td><strong>Yadu</strong></td><td class="dev-cell">यदु</td><td>Son of Yayati. Progenitor of all Yadavas. Kingdom in western Bharatavarsha.</td></tr>
+        <tr><td><span class="lbadge">2</span></td><td>Kroshtu (Kroshta)</td><td class="dev-cell">क्रोष्टु</td><td>Third son of Yadu. His line becomes the most celebrated. Father of Vrijinivat.</td></tr>
+        <tr><td><span class="lbadge">3</span></td><td>Vrijinivat</td><td class="dev-cell">वृजिनीवत्</td><td>Son of Kroshtu. Continued the western Yadava kingdom. Known for military strength.</td></tr>
+        <tr><td><span class="lbadge">4</span></td><td>Svahi / Svahita</td><td class="dev-cell">स्वाहि</td><td>Son of Vrijinivat. Details sparse; lineage continued.</td></tr>
+        <tr><td><span class="lbadge">5</span></td><td>Vishvagarbha</td><td class="dev-cell">विश्वगर्भ</td><td>Son of Svahi. Name suggests cosmic importance — "womb of the universe."</td></tr>
+        <tr><td><span class="lbadge">6</span></td><td>Chitraratha</td><td class="dev-cell">चित्ररथ</td><td>Great king celebrated in the Puranas. Extended Yadava territories significantly.</td></tr>
+        <tr><td><span class="lbadge">7</span></td><td>Shashabindu</td><td class="dev-cell">शशबिन्दु</td><td>One of the 14 Chakravartin kings mentioned in the Bhagavata. Had 10 million wives, 100 million sons. Universal emperor.</td></tr>
+        <tr><td><span class="lbadge">8</span></td><td>Prithusrava</td><td class="dev-cell">पृथुश्रवस्</td><td>Son of Shashabindu; maintained vast empire.</td></tr>
+        <tr><td><span class="lbadge">9</span></td><td>Dharma / Antara</td><td class="dev-cell">धर्म</td><td>Continuation of the lineage in the Bhagavata list.</td></tr>
+        <tr><td><span class="lbadge">10</span></td><td>Ushana</td><td class="dev-cell">उशना</td><td>King who performed great yajnas; known in Vedic literature.</td></tr>
+        <tr><td><span class="lbadge">11</span></td><td>Ruchaka (Shimashravas)</td><td class="dev-cell">रुचक</td><td>Son of Ushana; continued westward expansion.</td></tr>
+        <tr><td><span class="lbadge">12</span></td><td>Satvata</td><td class="dev-cell">सात्वत</td><td><strong>Pivotal ancestor.</strong> Founded the Satvata sub-clan. His sons Bhajamana, Bhaji, Divya, Andhaka, and Vrishni gave names to the major clans.</td></tr>
+        <tr><td><span class="lbadge">13</span></td><td>Vrishni (son of Satvata)</td><td class="dev-cell">वृष्णि</td><td><strong>Founder of the Vrishni clan.</strong> The term "Vrishni" becomes synonymous with the greatest Yadavas — including Krishna (called Varshneva).</td></tr>
+        <tr><td><span class="lbadge">~16</span></td><td>Shura (Shurasena)</td><td class="dev-cell">शूरसेन</td><td><strong>Krishna's grandfather.</strong> King of Mathura. Had 10 sons and 5 daughters. His daughter Pritha was given to cousin Kunti-Bhoja — she became the mother of the Pandavas as Kunti. His son Vasudeva married Devaki.</td></tr>
+        <tr><td><span class="lbadge">~17</span></td><td>Vasudeva</td><td class="dev-cell">वसुदेव</td><td><strong>Krishna's father.</strong> Son of Shurasena. Married Devaki (daughter of Devaka, cousin of Kamsa). Their union was the vehicle for Vishnu's 8th avatar. On the day of their wedding, a divine voice predicted Devaki's 8th child would kill Kamsa.</td></tr>
+        <tr style="background:rgba(212,160,23,0.06);"><td><span class="lbadge">~18</span></td><td><strong>Lord Krishna</strong></td><td class="dev-cell"><strong>श्रीकृष्ण वसुदेवः</strong></td><td><strong>8th Avatar of Vishnu. Born in the Vrishni clan of Yadavas. Son of Vasudeva and Devaki. Raised by Nanda and Yashoda in Gokul. Founded Dwarka. Spoke the Bhagavad Gita. Greatest Yadava of all time.</strong> Direct lineage: Brahma → Atri → Chandra → Budha → Pururavas → Ayus → Nahusha → Yayati → Yadu → Kroshtu → … → Vasudeva → Krishna.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="hbox reveal" style="margin-top:2.5rem;">
+      <div class="hb-title">The Most Sacred Genealogical Chain in Human History</div>
+      <ul class="hb-list">
+        <li><strong>Brahma</strong> (Creator) → <strong>Atri</strong> (Brahma's son, from his eyes) → <strong>Chandra</strong> (born of Atri's tapas) → <strong>Budha</strong> (Mercury, son of Chandra) → <strong>Pururavas</strong> (son of Budha &amp; Ila) → <strong>Ayus</strong> (son of Pururavas) → <strong>Nahusha</strong> (son of Ayus, became Indra) → <strong>Yayati</strong> (son of Nahusha, greatest emperor) → <strong>Yadu</strong> (son of Yayati, the Progenitor) → <strong>Kroshtu</strong> (Yadu's son) → … → <strong>Vasudeva</strong> → <strong>Lord Krishna</strong> — Bhagavan Himself</li>
+        <li>This chain is recorded across Bhagavata Purana IX.14–24, Vishnu Purana IV.1–15, Harivamsa I.25–50, and corroborated by the Mahabharata. <strong>It is one of the most thoroughly documented genealogies in any ancient civilization.</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PHILOSOPHICAL DIMENSIONS
+══════════════════════════════════════════ -->
+<section id="philosophy" class="philosophy-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Deeper Teaching</p>
+    <h2 class="sec-title reveal">Seven Philosophical Dimensions of Yadu's Story</h2>
+    <p class="lead reveal">Yadu's story is not merely genealogy — it is philosophy. The Puranic tradition encodes deep spiritual teachings within the narrative of Yadu's refusal, his "curse," and his community's destiny. Here are the seven key teachings:</p>
+
+    <div class="philosophy-cards">
+      <div class="ph-card reveal rd1">
+        <div class="ph-num">I</div>
+        <div class="ph-title">Dharma Over Tradition</div>
+        <div class="ph-text">Yadu chose his understanding of cosmic dharma (preserving the natural body) over the social dharma of obedience to his father. The Puranas honour both — but note that Yadu's descendants produced Lord Krishna, who in the Gita teaches that highest dharma sometimes transcends conventional duty.</div>
+      </div>
+      <div class="ph-card reveal rd2">
+        <div class="ph-num">II</div>
+        <div class="ph-title">The Curse as Cosmic Design</div>
+        <div class="ph-text">Yayati's curse was actually Vishnu's subtle plan to create a community free from the ego of kingship — the ideal community from which an accessible, human-scaled avatar (Krishna) could emerge. What appears as punishment is revealed as divine preparation.</div>
+      </div>
+      <div class="ph-card reveal rd3">
+        <div class="ph-num">III</div>
+        <div class="ph-title">Body as Sacred Instrument</div>
+        <div class="ph-text">Yadu's refusal affirms that the body one is born with — in its natural state — is a sacred instrument given by cosmic design. To artificially manipulate it for convenience violates the ritu (cosmic order). This philosophy permeates Yadava healing and yogic traditions.</div>
+      </div>
+      <div class="ph-card reveal rd1">
+        <div class="ph-num">IV</div>
+        <div class="ph-title">Freedom from Throne</div>
+        <div class="ph-text">The "loss" of kingship freed the Yadavas to develop the most intimate, personal, community-centred religious tradition in India — the Bhakti tradition. Without the constraints of empire, they were free to love God directly as friend, parent, beloved.</div>
+      </div>
+      <div class="ph-card reveal rd2">
+        <div class="ph-num">V</div>
+        <div class="ph-title">Non-Attachment in Action</div>
+        <div class="ph-text">Yadu's equanimity after the curse — he bore no bitterness toward Puru, no resentment toward his father — exemplifies the Gita's teaching of action without ego-attachment. He accepted the consequence of his principled stand with grace.</div>
+      </div>
+      <div class="ph-card reveal rd3">
+        <div class="ph-num">VI</div>
+        <div class="ph-title">Community Over Dynasty</div>
+        <div class="ph-text">The Yadavas became a community (samaj) rather than a dynasty (rajvansha). This distinction is crucial: a community's strength comes from collective identity, shared traditions, and mutual support — far more resilient than imperial power, which rises and falls with individual rulers.</div>
+      </div>
+      <div class="ph-card reveal rd1">
+        <div class="ph-num">VII</div>
+        <div class="ph-title">The Ancestor as Foundation</div>
+        <div class="ph-text">Yadu's character — his strength, his principled refusal, his equanimity, his protection of dharma — became the foundational character of the entire Yadava community. Who we are as a people reflects, across millennia, who Yadu was as a man. Heritage is not merely genetic; it is characterological.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     YADU'S LIVING LEGACY
+══════════════════════════════════════════ -->
+<section id="legacy" class="legacy-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">Then, Now & Always</p>
+    <h2 class="sec-title reveal">Yadu's Living Legacy — From His Day to Ours</h2>
+    <p class="lead reveal">Over 3,500 years after Yadu walked the earth, his legacy lives in over 350 million people who carry the Yadava identity. Here is how Yadu's specific choices and characteristics manifest in the living Yadava community today.</p>
+
+    <table class="legacy-table reveal">
+      <thead>
+        <tr>
+          <th>Yadu's Choice / Quality</th>
+          <th>How It Manifests in Yadava Heritage</th>
+          <th>Living Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Refused to compromise natural vitality</strong></td>
+          <td>Yadavas are historically associated with physical strength, martial prowess, and robust health. Ahir communities produced some of India's greatest wrestlers and soldiers.</td>
+          <td>Ahir Regiment in Indian Army · Traditional Yadava wrestling (kushti) tradition · Gujjar-Ahir martial arts</td>
+        </tr>
+        <tr>
+          <td><strong>Cow protection (Go-seva)</strong></td>
+          <td>Yadavas are India's foremost cattle-herding community. Go-seva is central to Yadava identity — seen as literal continuation of Krishna's Gopala tradition.</td>
+          <td>Ahir communities as primary dairy farmers · "Gwal" (cowherd) as common Yadava term · Govardhan Puja as central festival</td>
+        </tr>
+        <tr>
+          <td><strong>Principled non-submission to injustice</strong></td>
+          <td>Yadavas have a strong tradition of resistance to oppression and insistence on dignity — from ancient times through the modern Yadav political movements.</td>
+          <td>Yadava participation in 1857 revolt · OBC political assertion from 1970s onward · Mulayam Singh, Lalu Prasad's OBC movements</td>
+        </tr>
+        <tr>
+          <td><strong>Music, arts, community culture</strong></td>
+          <td>Yadav folk music (Ahir folk songs, Birha, Alha) is among the richest in North India. Yadava community traditions of collective celebration are unparalleled.</td>
+          <td>Ahir folk music of Haryana &amp; UP · Bhojpuri music tradition · Nautanki theatrical tradition · Holi and Janmashtami celebrations</td>
+        </tr>
+        <tr>
+          <td><strong>Devotion to Krishna / Bhakti</strong></td>
+          <td>The most intimate form of Krishna devotion — seeing him as Gopal, as friend, as beloved — is most alive among Yadava communities who trace direct lineage to him.</td>
+          <td>Mathura-Vrindavan as spiritual home · Ras Leela tradition · Satvata bhakti · Community Krishna temples across North India</td>
+        </tr>
+        <tr>
+          <td><strong>Freedom from ego of kingship</strong></td>
+          <td>The Yadava community's strength has always come from its collective, democratic, self-governing traditions rather than dependence on a single royal dynasty.</td>
+          <td>Yadava panchayats (councils) · Samaj organisations · Democratic representation across political parties rather than single-dynasty rule</td>
+        </tr>
+        <tr>
+          <td><strong>Yadu's name in the community name</strong></td>
+          <td>The word "Yadava" (यादव) literally means "of Yadu / descended from Yadu." Every person who uses this surname or identity is literally naming themselves after this one great man.</td>
+          <td>350M+ people using Yadav / Yadava surname across India and diaspora · Yadav community organisations worldwide · This website itself</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="qblock reveal" style="margin-top:3rem;">
+      <p class="qdev">यदोः प्रियस्य तस्यैव पौत्रस्य पितुर् अर्जुन।<br/>श्रीमद्भागवते प्रोक्तं यादवानां महत् कुलम्।।</p>
+      <p class="qtrans">"The great dynasty of the Yadavas — descended from the beloved Yadu — is proclaimed in the Srimad Bhagavata to be the most illustrious of all royal lines."</p>
+      <p class="qsrc">— Traditional verse on the Yadava community from Bhagavata commentary tradition</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCRIPTURE REFERENCES
+══════════════════════════════════════════ -->
+<section id="references" class="ref-section" style="padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">शास्त्र प्रमाण</p>
+    <h2 class="sec-title reveal">Complete Scriptural References for Chapter III</h2>
+
+    <table class="ref-table reveal">
+      <thead>
+        <tr><th>Scripture</th><th>Reference</th><th>Subject</th><th>Sanskrit Key Phrase</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="rbadge">Bhagavata Purana</span></td><td>IX.18.33–40</td><td>Yayati's request to Yadu; Yadu's refusal; the exact curse; Yayati's philosophical conclusion</td><td class="dev-cell">न जरया रूपं हीयते... ययाति उवाच न जातु कामः</td></tr>
+        <tr><td><span class="rbadge">Bhagavata Purana</span></td><td>IX.23.1–30</td><td>Yadu's five sons: Sahasrajit, Kroshtu, Nila, Anjika, Payoda. Beginning of Yadava genealogy proper.</td><td class="dev-cell">यदोः सहस्रजित् प्रथमः क्रोष्टुश्च...</td></tr>
+        <tr><td><span class="rbadge">Bhagavata Purana</span></td><td>IX.24.1–65</td><td>Complete Vrishni-Andhaka genealogy from Yadu through Satvata, Vrishni, Shurasena to Vasudeva and Krishna</td><td class="dev-cell">वृष्ण्यन्धकाः... वसुदेव उवाच</td></tr>
+        <tr><td><span class="rbadge">Vishnu Purana</span></td><td>IV.11–15</td><td>Alternate genealogy from Yadu through Kroshtu to Shashabindu, Satvata, Vrishni, and Krishna</td><td class="dev-cell">यदोः पुत्रः क्रोष्टा... वासुदेवः</td></tr>
+        <tr><td><span class="rbadge">Harivamsa</span></td><td>Adhyaya I, Ch. 32–45</td><td>The most detailed Yadava genealogy — lists all five sons, their sub-clans, intermediate kings, and eventually Krishna's birth context</td><td class="dev-cell">यदोः सहस्रजित् प्रोक्तः... कृष्णजन्म</td></tr>
+        <tr><td><span class="rbadge">Mahabharata</span></td><td>Adi Parva, Ch. 82–88</td><td>Yayati's conversations with all five sons; Yadu's refusal quoted in full; Puru's acceptance; the curse; genealogy continued</td><td class="dev-cell">यदुरुवाच — न जरया... ययातिः पुरुम् अभ्यषिञ्चत्</td></tr>
+        <tr><td><span class="rbadge">Mahabharata</span></td><td>Adi Parva, Ch. 218</td><td>The story of Madhavi — Yadu's granddaughter (from different branch) whose story interconnects with Galava Muni's quest</td><td class="dev-cell">माधवी — गालवस्य</td></tr>
+        <tr><td><span class="rbadge">Matsya Purana</span></td><td>Ch. 43–44</td><td>Lists of Yadava kings from Yadu through multiple generations; variant name spellings resolved here</td><td class="dev-cell">यदोर्वंशानुकीर्तनम्</td></tr>
+        <tr><td><span class="rbadge">Brahma Purana</span></td><td>Ch. 212–215</td><td>Kurukshetra war genealogical context — how Yadu's descendants the Vrishnis relate to the Pandava-Kaurava conflict</td><td class="dev-cell">वृष्णि-अन्धक-भोज...</td></tr>
+        <tr><td><span class="rbadge">Bhagavad Gita</span></td><td>3.22–25; 10.37</td><td>Krishna's self-description as free from dharmic compulsion (3.22) and his specific self-identification as Vasudeva among the Vrishnis (10.37)</td><td class="dev-cell">वृष्णीनां वासुदेवोऽस्मि</td></tr>
+        <tr><td><span class="rbadge">Devi Bhagavata</span></td><td>Skandha II, Ch. 6</td><td>Devayani's story retold with additional detail on her character and her influence on the Yadava lineage</td><td class="dev-cell">देवयान्याः कथा विस्तरेण</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ NEXT CHAPTER ══ -->
+<div class="next-chapter">
+  <p class="nc-eyebrow">The Greatest Chapter Awaits</p>
+  <h2 class="nc-title">Chapter IV — Lord Krishna</h2>
+  <p class="nc-sub">श्रीकृष्ण — यादव शिरोमणि — सर्वोच्च यदुवंशी</p>
+  <p class="nc-desc">
+    From Yadu's son Kroshtu, through 17 generations of celebrated kings, comes the ultimate fruit of the Yadava tree — Lord Krishna. His complete birth story, his role as the pinnacle of Yadava glory, the full story of Dwarka, the Narayani Sena, the Bhagavad Gita, and the complete Vrishni clan at the height of its power.
+  </p>
+  <a href="krishna.html" class="btn-gold">Enter Chapter IV — Lord Krishna →</a>
+  &nbsp;&nbsp;
+  <a href="lunar-dynasty.html" class="btn-outline">← Chapter II — Lunar Dynasty</a>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">यादव वंश</div>
+    <div class="footer-row">
+      <a href="index.html">Home</a>
+      <a href="cosmic-origin.html">Chapter I</a>
+      <a href="lunar-dynasty.html">Chapter II</a>
+      <a href="yadu.html">Chapter III</a>
+      <a href="krishna.html">Chapter IV</a>
+      <a href="clans-gotras.html">Clans &amp; Gotras</a>
+      <a href="family-tree.html">Family Tree</a>
+    </div>
+    <div class="footer-copy">Yadav Vansh Digital Scripture · Chapter III · King Yadu</div>
+  </div>
+</footer>
+
+<!-- ══ JS ══ -->
+<script>
+/* ── Ember / Fire Canvas ── */
+(function(){
+  const canvas = document.getElementById('fire-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles=[], stars=[];
+
+  function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
+
+  function initStars(){
+    stars=[];
+    const n=Math.floor(W*H/3500);
+    for(let i=0;i<n;i++){
+      stars.push({
+        x:Math.random()*W, y:Math.random()*H,
+        r:Math.random()*1.4+.2,
+        alpha:Math.random()*.6+.1,
+        tw:Math.random()*.015+.003,
+        ph:Math.random()*Math.PI*2,
+        gold:Math.random()<.2
+      });
+    }
+  }
+
+  function spawnEmber(){
+    if(particles.length > 120) return;
+    particles.push({
+      x: W*(.2 + Math.random()*.6),
+      y: H + 10,
+      vx: (Math.random()-.5)*1.2,
+      vy: -(1.5 + Math.random()*3),
+      r: Math.random()*3+1,
+      alpha: .8+Math.random()*.2,
+      life: 0,
+      maxLife: 60+Math.random()*80,
+      hue: 15+Math.random()*35  // orange-red range
+    });
+  }
+
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+
+    // Deep earth-tone background
+    const bg = ctx.createLinearGradient(0,0,0,H);
+    bg.addColorStop(0,'rgba(10,3,0,1)');
+    bg.addColorStop(.4,'rgba(18,8,1,1)');
+    bg.addColorStop(1,'rgba(28,12,2,1)');
+    ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+
+    // Warm glow from bottom
+    const glow = ctx.createRadialGradient(W/2,H,0,W/2,H,H*.7);
+    glow.addColorStop(0,'rgba(184,98,26,0.07)');
+    glow.addColorStop(1,'transparent');
+    ctx.fillStyle=glow; ctx.fillRect(0,0,W,H);
+
+    // Stars
+    stars.forEach(s=>{
+      const tw=.5+.5*Math.sin(t*s.tw+s.ph);
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle = s.gold ? `rgba(212,160,23,${s.alpha*tw})` : `rgba(220,200,170,${s.alpha*tw*.6})`;
+      ctx.fill();
+    });
+
+    // Spawn embers occasionally
+    if(Math.random()<.15) spawnEmber();
+
+    // Draw embers
+    particles = particles.filter(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      p.vx*=.99; p.vy*=.995;
+      p.life++;
+      const progress = p.life/p.maxLife;
+      p.alpha = (1-progress)*.7;
+      if(p.alpha<=0||p.y<-20) return false;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r*(1-progress*.5),0,Math.PI*2);
+      ctx.fillStyle=`hsla(${p.hue},100%,60%,${p.alpha})`;
+      ctx.fill();
+      // Glow
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r*2,0,Math.PI*2);
+      ctx.fillStyle=`hsla(${p.hue},100%,50%,${p.alpha*.3})`;
+      ctx.fill();
+      return true;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize(); initStars();
+  window.addEventListener('resize',()=>{resize();initStars();particles=[];});
+  requestAnimationFrame(draw);
+})();
+
+/* ── Nav scroll ── */
+const nav=document.getElementById('main-nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+
+/* ── Reveal on scroll ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:.07,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ── Active pill on scroll ── */
+const sections=document.querySelectorAll('[id]');
+const pills=document.querySelectorAll('.pill');
+const pObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.getAttribute('id');
+      pills.forEach(p=>p.classList.toggle('active',p.getAttribute('href')==='#'+id));
+    }
+  });
+},{threshold:.2});
+sections.forEach(s=>pObs.observe(s));
+
+/* ── Parallax hero glyph ── */
+window.addEventListener('mousemove',e=>{
+  const cx=e.clientX/W-.5, cy=e.clientY/H-.5;
+  const g=document.querySelector('.hero-glyph');
+  if(g) g.style.transform=`translate(${cx*12}px,${cy*8}px)`;
+});
+</script>
+
+</body>
+</html>

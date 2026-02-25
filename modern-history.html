@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter VIII — Modern History & Political Rise | Yadav Vansh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --abyss:         #060810;
+      --abyss2:        #0A0F1C;
+      --abyss3:        #101828;
+      --steel:         #1E3A5F;
+      --steel-light:   #2E5488;
+      --steel-pale:    #4A7EB5;
+      --crimson:       #9B1C2E;
+      --crimson-light: #C42840;
+      --crimson-pale:  #E85068;
+      --saffron:       #E8820A;
+      --saffron-light: #F5A030;
+      --saffron-pale:  #FDC878;
+      --gold:          #C8960E;
+      --gold-light:    #E8B830;
+      --gold-pale:     #F8D878;
+      --cream:         #F5F0E8;
+      --parchment:     #EDE4D0;
+      --parchment-dk:  #D8C8A8;
+      --ink:           #060408;
+      --cs:            rgba(232,130,10,0.4);
+      --cc:            rgba(155,28,46,0.4);
+      --font-display:  'Cinzel Decorative', serif;
+      --font-heading:  'Cinzel', serif;
+      --font-body:     'EB Garamond', serif;
+      --font-dev:      'Noto Serif Devanagari', serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--abyss);color:var(--cream);font-family:var(--font-body);overflow-x:hidden;font-size:18px}
+
+    #struggle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+    /* Hard geometric frame — political, not decorative */
+    .geo-frame{position:fixed;inset:0;z-index:1;pointer-events:none}
+    .geo-frame::before{content:'';position:absolute;inset:0;
+      border-top:3px solid var(--crimson);border-bottom:3px solid var(--crimson);
+      box-shadow:inset 0 0 80px rgba(155,28,46,0.08)}
+    .geo-frame::after{content:'';position:absolute;inset:0;
+      border-left:3px solid var(--steel);border-right:3px solid var(--steel)}
+    .corner-star{position:fixed;font-size:.75rem;z-index:2;pointer-events:none;
+      color:var(--saffron);opacity:.7;letter-spacing:0;line-height:1}
+    .cs-tl{top:8px;left:10px}
+    .cs-tr{top:8px;right:10px}
+    .cs-bl{bottom:8px;left:10px}
+    .cs-br{bottom:8px;right:10px}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;
+      background:linear-gradient(to bottom,rgba(6,8,16,0.99),transparent);transition:background .4s}
+    nav.scrolled{background:rgba(6,8,16,0.99);
+      border-bottom:1px solid rgba(155,28,46,0.35);
+      box-shadow:0 4px 40px rgba(0,0,0,.95)}
+    .nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;
+      justify-content:space-between;height:68px}
+    .nav-logo{font-family:var(--font-dev);font-size:1.4rem;color:var(--gold);
+      text-decoration:none;text-shadow:0 0 20px var(--cs)}
+    .nav-logo span{font-family:var(--font-heading);font-size:.6rem;letter-spacing:.2em;
+      text-transform:uppercase;color:var(--parchment-dk);display:block;margin-top:-2px}
+    .nav-chapter{font-family:var(--font-heading);font-size:.62rem;letter-spacing:.2em;
+      text-transform:uppercase;color:var(--crimson-pale);padding:.3rem .8rem;
+      border:1px solid rgba(155,28,46,0.4);border-radius:2px}
+    .nav-back{font-family:var(--font-heading);font-size:.6rem;letter-spacing:.2em;
+      text-transform:uppercase;color:var(--gold);text-decoration:none;
+      display:flex;align-items:center;gap:.5rem;transition:gap .2s}
+    .nav-back:hover{gap:.8rem}
+    @media(max-width:700px){.nav-chapter{display:none}}
+
+    /* HERO */
+    .hero{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;text-align:center;
+      padding:7rem 2rem 5rem;overflow:hidden}
+
+    /* Grid of faint lines — like a planning map or colonial administrative grid */
+    .hero-grid{position:absolute;inset:0;pointer-events:none;
+      background-image:linear-gradient(rgba(30,58,95,0.12) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(30,58,95,0.12) 1px,transparent 1px);
+      background-size:60px 60px}
+    /* Diagonal red slash — like a flag or protest banner */
+    .hero-slash{position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(135deg,transparent 40%,rgba(155,28,46,0.06) 50%,transparent 60%)}
+
+    .hero-flag{position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);
+      width:min(520px,88vw);height:min(520px,88vw);opacity:.06;pointer-events:none}
+
+    .hero-badge{display:inline-flex;align-items:center;gap:.8rem;
+      font-family:var(--font-heading);font-size:.62rem;letter-spacing:.35em;
+      text-transform:uppercase;color:var(--crimson-pale);margin-bottom:1.5rem;
+      border:1px solid rgba(155,28,46,0.4);padding:.4rem 1.2rem;border-radius:2px;
+      opacity:0;animation:fadeUp 1s .3s forwards}
+    .hero-badge::before,.hero-badge::after{content:'★';font-size:.7rem;color:var(--saffron)}
+
+    .hero-era{font-family:var(--font-heading);font-size:clamp(.6rem,1.2vw,.82rem);
+      letter-spacing:.4em;text-transform:uppercase;color:rgba(232,130,10,0.55);
+      margin-bottom:.7rem;opacity:0;animation:fadeUp .9s .5s forwards}
+
+    .hero-glyph{font-family:var(--font-dev);font-size:clamp(1.8rem,5.5vw,5.5rem);
+      background:linear-gradient(180deg,var(--gold-pale) 0%,var(--saffron-pale) 25%,
+        var(--saffron-light) 50%,var(--crimson-pale) 75%,var(--crimson-light) 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      line-height:1.15;margin-bottom:.5rem;
+      filter:drop-shadow(0 0 40px rgba(232,130,10,0.4)) drop-shadow(0 0 80px rgba(155,28,46,0.2));
+      opacity:0;animation:riseReveal 1.8s .6s forwards}
+    @keyframes riseReveal{
+      0%{opacity:0;filter:blur(16px);transform:translateY(15px) scale(.9)}
+      65%{filter:drop-shadow(0 0 60px rgba(232,130,10,0.55)) drop-shadow(0 0 100px rgba(155,28,46,0.35)) blur(0)}
+      100%{opacity:1;filter:drop-shadow(0 0 40px rgba(232,130,10,0.4)) drop-shadow(0 0 80px rgba(155,28,46,0.2));
+        transform:none}}
+
+    .hero-title{font-family:var(--font-display);font-size:clamp(1.2rem,3.2vw,2.8rem);
+      background:linear-gradient(135deg,var(--gold-pale),var(--saffron-light),
+        var(--crimson-pale),var(--steel-pale));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      line-height:1.15;margin-bottom:.5rem;opacity:0;animation:fadeUp 1.1s .9s forwards}
+    .hero-sub{font-family:var(--font-dev);font-size:clamp(.88rem,1.7vw,1.18rem);
+      color:var(--saffron-pale);margin-bottom:1.5rem;opacity:0;animation:fadeUp .9s 1.1s forwards}
+
+    .hero-divider{display:flex;align-items:center;gap:1rem;margin:.5rem auto 1.5rem;
+      width:min(420px,78vw);opacity:0;animation:fadeIn 1s 1.3s forwards}
+    .hero-divider::before,.hero-divider::after{content:'';flex:1;height:1px;
+      background:linear-gradient(to right,transparent,var(--crimson-light),transparent)}
+    .hdg{width:8px;height:8px;background:var(--crimson-light);transform:rotate(45deg);
+      box-shadow:0 0 10px var(--crimson-light)}
+
+    .hero-lead{font-size:clamp(.92rem,1.4vw,1.08rem);font-style:italic;color:var(--parchment);
+      max-width:700px;line-height:2.1;margin-bottom:2rem;opacity:0;animation:fadeUp 1s 1.5s forwards}
+
+    /* Era badges */
+    .era-badges{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;
+      margin-bottom:2rem;opacity:0;animation:fadeUp .9s 1.7s forwards}
+    .ebadge{font-family:var(--font-heading);font-size:.52rem;letter-spacing:.15em;
+      text-transform:uppercase;padding:.3rem .8rem;border-radius:2px}
+    .eb-red{background:rgba(155,28,46,0.2);color:var(--crimson-pale);
+      border:1px solid rgba(155,28,46,0.35)}
+    .eb-steel{background:rgba(30,58,95,0.25);color:var(--steel-pale);
+      border:1px solid rgba(46,84,136,0.4)}
+    .eb-saffron{background:rgba(232,130,10,0.15);color:var(--saffron-light);
+      border:1px solid rgba(232,130,10,0.3)}
+    .eb-gold{background:rgba(200,150,14,0.15);color:var(--gold-light);
+      border:1px solid rgba(200,150,14,0.28)}
+
+    .chapter-pills{display:flex;gap:.65rem;flex-wrap:wrap;justify-content:center;
+      opacity:0;animation:fadeUp 1s 1.9s forwards}
+    .pill{font-family:var(--font-heading);font-size:.55rem;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--parchment-dk);
+      border:1px solid rgba(155,28,46,0.22);padding:.32rem .85rem;
+      text-decoration:none;border-radius:2px;transition:all .25s}
+    .pill:hover,.pill.active{background:rgba(155,28,46,0.12);
+      border-color:var(--crimson-pale);color:var(--crimson-pale)}
+
+    .scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+      display:flex;flex-direction:column;align-items:center;gap:.5rem;
+      opacity:0;animation:fadeIn 1s 2.6s forwards}
+    .scroll-cue span{font-family:var(--font-heading);font-size:.5rem;letter-spacing:.3em;
+      text-transform:uppercase;color:rgba(155,28,46,0.5)}
+    .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--crimson-light),transparent);
+      animation:sp 2s ease-in-out infinite}
+    @keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+
+    /* SLOKA BAND */
+    .sloka-band{position:relative;z-index:10;
+      background:linear-gradient(135deg,rgba(16,24,40,0.95),rgba(6,8,16,0.98));
+      border-top:1px solid rgba(155,28,46,0.5);border-bottom:1px solid rgba(30,58,95,0.4);
+      padding:3rem 2rem;text-align:center;overflow:hidden}
+    .sloka-band::before{content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 55% 70% at 50% 50%,rgba(155,28,46,0.05),transparent)}
+    .sloka-dev{font-family:var(--font-dev);font-size:clamp(1rem,2vw,1.38rem);
+      color:var(--gold-pale);line-height:2.1;margin-bottom:1rem;position:relative}
+    .sloka-trans{font-style:italic;font-size:clamp(.9rem,1.5vw,1.05rem);color:var(--parchment);
+      line-height:1.9;max-width:760px;margin:0 auto .8rem;position:relative}
+    .sloka-ref{font-family:var(--font-heading);font-size:.6rem;letter-spacing:.25em;
+      text-transform:uppercase;color:var(--saffron-light);position:relative}
+
+    /* LAYOUT */
+    main{position:relative;z-index:10}
+    section{padding:6rem 2rem}
+    .inner{max-width:1240px;margin:0 auto}
+    .eyebrow{font-family:var(--font-heading);font-size:.62rem;letter-spacing:.4em;
+      text-transform:uppercase;color:var(--crimson-light);margin-bottom:1rem;
+      display:flex;align-items:center;gap:1rem}
+    .eyebrow::before{content:'';width:35px;height:1px;background:var(--crimson-light)}
+    h2.sec-title{font-family:var(--font-display);font-size:clamp(1.7rem,3.5vw,2.8rem);
+      color:var(--gold);line-height:1.2;margin-bottom:1.2rem}
+    h3.sub-title{font-family:var(--font-heading);font-size:clamp(1rem,2vw,1.32rem);
+      color:var(--gold-light);line-height:1.3;margin-bottom:.8rem;margin-top:2.4rem}
+    .lead{font-size:1.05rem;color:var(--parchment);max-width:820px;line-height:2.1;margin-bottom:2rem}
+    .body-text{font-size:.96rem;color:var(--parchment);line-height:2.05;
+      max-width:830px;margin-bottom:1.5rem}
+    .body-text strong{color:var(--gold-light)}
+    .body-text em{color:var(--saffron-pale);font-style:italic}
+    .dev-inline{font-family:var(--font-dev);color:var(--gold);font-size:1.05em}
+
+    /* STAT CARDS — big numbers, bold political impact */
+    .stat-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+      gap:1.2rem;margin:2.5rem 0}
+    .stat-card{background:linear-gradient(160deg,rgba(16,24,40,0.8),rgba(6,8,16,0.9));
+      border:1px solid rgba(155,28,46,0.25);padding:1.6rem;text-align:center;transition:all .3s}
+    .stat-card:hover{border-color:rgba(155,28,46,0.55);transform:translateY(-3px)}
+    .stat-num{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);
+      background:linear-gradient(135deg,var(--saffron-light),var(--gold-light));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      line-height:1.1;margin-bottom:.3rem}
+    .stat-label{font-family:var(--font-heading);font-size:.52rem;letter-spacing:.18em;
+      text-transform:uppercase;color:var(--parchment-dk);line-height:1.5}
+    .stat-note{font-size:.72rem;color:rgba(237,228,208,0.55);margin-top:.3rem;font-style:italic}
+
+    /* TIMELINE — vertical, political era style */
+    .timeline{display:flex;flex-direction:column;gap:0;margin:3rem 0;position:relative}
+    .timeline::before{content:'';position:absolute;left:44px;top:0;bottom:0;width:2px;
+      background:linear-gradient(to bottom,var(--crimson-light),var(--steel-pale),
+        rgba(30,58,95,0.2))}
+    .tl-item{display:grid;grid-template-columns:90px 1fr;gap:2rem;
+      margin-bottom:2.8rem;opacity:0;transform:translateX(-18px);
+      transition:all .75s cubic-bezier(.16,1,.3,1)}
+    .tl-item.visible{opacity:1;transform:none}
+    .tl-left{display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
+    .tl-node{width:88px;height:88px;border-radius:50%;display:flex;align-items:center;
+      justify-content:center;border:2px solid rgba(155,28,46,0.4);
+      background:linear-gradient(135deg,var(--abyss2),var(--abyss3));
+      box-shadow:0 0 20px rgba(155,28,46,0.12);font-size:1.4rem;flex-shrink:0}
+    .tl-node.major{border-color:var(--crimson-light);
+      background:linear-gradient(135deg,rgba(16,24,40,0.6),var(--abyss2));
+      box-shadow:0 0 30px rgba(155,28,46,0.28),0 0 12px rgba(232,130,10,0.15)}
+    .tl-node.steel{border-color:var(--steel-pale);
+      background:linear-gradient(135deg,rgba(10,15,28,0.6),var(--abyss3));
+      box-shadow:0 0 20px rgba(30,58,95,0.3)}
+    .tl-year{font-family:var(--font-heading);font-size:.55rem;letter-spacing:.1em;
+      color:var(--saffron-pale);text-align:center;margin-top:.4rem;line-height:1.4}
+    .tl-content{padding:.4rem 0 2.5rem;border-bottom:1px solid rgba(155,28,46,0.07)}
+    .tl-era{font-family:var(--font-heading);font-size:.5rem;letter-spacing:.18em;
+      text-transform:uppercase;color:var(--crimson-pale);margin-bottom:.25rem}
+    .tl-title{font-family:var(--font-heading);font-size:1.05rem;color:var(--gold-light);
+      margin-bottom:.3rem;line-height:1.3}
+    .tl-dev{font-family:var(--font-dev);font-size:.88rem;color:var(--gold);margin-bottom:.6rem}
+    .tl-text{font-size:.87rem;color:var(--parchment);line-height:1.88}
+    .tl-text strong{color:var(--gold-pale)}
+    .tl-source{display:inline-block;margin-top:.7rem;font-family:var(--font-heading);
+      font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel-pale);
+      background:rgba(30,58,95,0.15);border:1px solid rgba(30,58,95,0.25);
+      padding:.25rem .7rem;border-left:3px solid var(--steel-pale)}
+
+    /* QUOTE BLOCK */
+    .qblock{border-left:3px solid var(--crimson-light);padding:1.5rem 2rem;margin:2.5rem 0;
+      background:rgba(155,28,46,0.04);position:relative}
+    .qblock::before{content:'"';font-family:var(--font-display);font-size:4rem;
+      color:rgba(155,28,46,0.2);position:absolute;top:-.5rem;left:.8rem;line-height:1}
+    .qdev{font-family:var(--font-dev);font-size:1rem;color:var(--gold-pale);
+      line-height:2;margin-bottom:.8rem}
+    .qtrans{font-style:italic;color:var(--parchment);font-size:.92rem;
+      line-height:1.9;margin-bottom:.6rem}
+    .qsrc{font-family:var(--font-heading);font-size:.58rem;letter-spacing:.2em;
+      text-transform:uppercase;color:var(--crimson-pale)}
+
+    /* INFO BOX */
+    .hbox{background:linear-gradient(135deg,rgba(16,24,40,0.4),rgba(6,8,16,0.6));
+      border:1px solid rgba(155,28,46,0.2);padding:2rem;margin:2rem 0}
+    .hb-title{font-family:var(--font-heading);font-size:.68rem;letter-spacing:.25em;
+      text-transform:uppercase;color:var(--gold);margin-bottom:1rem;
+      display:flex;align-items:center;gap:.8rem}
+    .hb-title::after{content:'';flex:1;height:1px;background:rgba(155,28,46,0.2)}
+    .hb-list{list-style:none;display:flex;flex-direction:column;gap:.75rem}
+    .hb-list li{font-size:.87rem;color:var(--parchment);line-height:1.85;
+      display:flex;gap:.8rem;align-items:flex-start}
+    .hb-list li::before{content:'★';color:var(--saffron);font-size:.55rem;
+      margin-top:.35rem;flex-shrink:0}
+
+    /* DUAL PANEL */
+    .dual-panel{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2.5rem 0}
+    .dp-panel{padding:2rem;border-top:3px solid}
+    .dp-panel.red{border-color:var(--crimson-light);background:rgba(155,28,46,0.04)}
+    .dp-panel.blue{border-color:var(--steel-pale);background:rgba(30,58,95,0.07)}
+    .dp-label{font-family:var(--font-heading);font-size:.62rem;letter-spacing:.25em;
+      text-transform:uppercase;margin-bottom:1rem}
+    .dp-panel.red .dp-label{color:var(--crimson-pale)}
+    .dp-panel.blue .dp-label{color:var(--steel-pale)}
+    .dp-text{font-size:.87rem;color:var(--parchment);line-height:1.88}
+    .dp-text strong{color:var(--gold-light)}
+
+    /* ANIMATIONS */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .reveal{opacity:0;transform:translateY(35px);
+      transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
+    .reveal.visible{opacity:1;transform:none}
+    .rd1{transition-delay:.1s}.rd2{transition-delay:.22s}
+    .rd3{transition-delay:.34s}.rd4{transition-delay:.46s}
+
+    @media(max-width:900px){.dual-panel{grid-template-columns:1fr}}
+    @media(max-width:700px){.stat-row{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.tl-item{grid-template-columns:70px 1fr;gap:1.2rem}}
+  </style>
+</head>
+<body>
+
+<canvas id="struggle-canvas"></canvas>
+<div class="geo-frame"></div>
+<div class="corner-star cs-tl">★</div>
+<div class="corner-star cs-tr">★</div>
+<div class="corner-star cs-bl">★</div>
+<div class="corner-star cs-br">★</div>
+
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">यादव वंश <span>Yadav Lineage</span></a>
+    <span class="nav-chapter">Chapter VIII — Modern History & Political Rise</span>
+    <a href="bhakti-saints.html" class="nav-back">← Chapter VII</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-slash"></div>
+
+  <!-- Tricolour-inspired geometric SVG -->
+  <svg class="hero-flag" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer ring -->
+    <circle cx="250" cy="250" r="230" stroke="rgba(155,28,46,0.7)" stroke-width="2" fill="none"/>
+    <circle cx="250" cy="250" r="210" stroke="rgba(30,58,95,0.5)" stroke-width="1" fill="none"/>
+    <!-- 24-spoke Ashoka-style wheel -->
+    <g stroke="rgba(232,130,10,0.7)" stroke-width="1.2">
+      <line x1="250" y1="50" x2="250" y2="450"/>
+      <line x1="50" y1="250" x2="450" y2="250"/>
+      <line x1="109" y1="109" x2="391" y2="391"/>
+      <line x1="391" y1="109" x2="109" y2="391"/>
+      <line x1="78" y1="180" x2="422" y2="320"/>
+      <line x1="180" y1="78" x2="320" y2="422"/>
+      <line x1="422" y1="180" x2="78" y2="320"/>
+      <line x1="320" y1="78" x2="180" y2="422"/>
+      <line x1="66" y1="210" x2="434" y2="290"/>
+      <line x1="210" y1="66" x2="290" y2="434"/>
+      <line x1="434" y1="210" x2="66" y2="290"/>
+      <line x1="290" y1="66" x2="210" y2="434"/>
+    </g>
+    <!-- Inner circles -->
+    <circle cx="250" cy="250" r="120" stroke="rgba(232,130,10,0.45)" stroke-width="1.5" fill="rgba(232,130,10,0.03)"/>
+    <circle cx="250" cy="250" r="70" stroke="rgba(155,28,46,0.4)" stroke-width="1" fill="rgba(155,28,46,0.03)"/>
+    <circle cx="250" cy="250" r="28" stroke="rgba(30,58,95,0.5)" stroke-width="1.5" fill="rgba(30,58,95,0.08)"/>
+    <circle cx="250" cy="250" r="8" fill="rgba(232,130,10,0.5)"/>
+    <!-- Dot ring like Ashoka Chakra -->
+    <g fill="rgba(232,130,10,0.55)">
+      <circle cx="250" cy="135" r="4"/><circle cx="340" cy="160" r="4"/>
+      <circle cx="365" cy="250" r="4"/><circle cx="340" cy="340" r="4"/>
+      <circle cx="250" cy="365" r="4"/><circle cx="160" cy="340" r="4"/>
+      <circle cx="135" cy="250" r="4"/><circle cx="160" cy="160" r="4"/>
+    </g>
+    <!-- Devanagari text arc suggestion -->
+    <text x="250" y="262" text-anchor="middle" font-family="'Noto Serif Devanagari',serif"
+      font-size="16" fill="rgba(232,130,10,0.6)">यादव शक्ति</text>
+    <text x="250" y="282" text-anchor="middle" font-family="'Noto Serif Devanagari',serif"
+      font-size="10" fill="rgba(200,150,14,0.45)">१८५७ — आज तक</text>
+  </svg>
+
+  <p class="hero-badge">Chapter VIII · अष्टम अध्याय</p>
+  <div class="hero-era">1857 CE — Present Day · The Age of Struggle and Power</div>
+  <div class="hero-glyph">आधुनिक यादव इतिहास</div>
+  <h1 class="hero-title">Modern History & Political Rise</h1>
+  <p class="hero-sub">संघर्ष से सत्ता तक — From Struggle to Power</p>
+  <div class="hero-divider"><div class="hdg"></div></div>
+  <p class="hero-lead">The story of the Yadava community in the modern era is one of the most dramatic reversals in Indian history — from colonial subjugation and deliberate marginalisation, through a century of organised resistance and identity assertion, to becoming the decisive electoral force in the world's largest democracy. This chapter documents that transformation.</p>
+
+  <div class="era-badges">
+    <span class="ebadge eb-red">1857 — The Uprising</span>
+    <span class="ebadge eb-steel">1880–1947 — Identity Movement</span>
+    <span class="ebadge eb-saffron">1947–1990 — Independence Era</span>
+    <span class="ebadge eb-gold">1990–Present — Political Power</span>
+  </div>
+
+  <div class="chapter-pills">
+    <a href="#colonial" class="pill active">Colonial Period</a>
+    <a href="#uprising" class="pill">1857 Uprising</a>
+    <a href="#identity" class="pill">Identity Movement</a>
+    <a href="#leaders" class="pill">Key Leaders</a>
+    <a href="#independence" class="pill">Independence Era</a>
+    <a href="#lohia" class="pill">Lohia & Socialism</a>
+    <a href="#rise" class="pill">Political Rise</a>
+    <a href="#today" class="pill">Today</a>
+    <a href="#references" class="pill">Sources</a>
+  </div>
+  <div class="scroll-cue"><span>Enter the Age of Struggle</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- SLOKA -->
+<div class="sloka-band">
+  <p class="sloka-dev">उत्तिष्ठत जाग्रत प्राप्य वरान्निबोधत।<br/>क्षुरस्य धारा निशिता दुरत्यया, दुर्गं पथस्तत्कवयो वदन्ति।।</p>
+  <p class="sloka-trans">"Arise, awaken, and having reached the great ones, understand. The path is sharp as a razor's edge, difficult to traverse — so say the wise."</p>
+  <p class="sloka-ref">— Katha Upanishad I.3.14 · the verse that became the watchword of India's liberation movements, adopted by Swami Vivekananda and the nationalist generation · उठो, जागो, और तब तक मत रुको जब तक लक्ष्य की प्राप्ति न हो</p>
+</div>
+
+<main>
+
+<!-- ═══ COLONIAL PERIOD ═══ -->
+<section id="colonial" style="background:linear-gradient(180deg,var(--abyss) 0%,var(--abyss2) 100%);padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">Under the British Raj</p>
+    <h2 class="sec-title reveal">The Yadava Community Under Colonial Rule — 1757 to 1857</h2>
+    <p class="lead reveal">The consolidation of British East India Company rule across India from the mid-18th century had specific and severe consequences for the Yadava community. The colonial administrative system deliberately dismantled the structures through which Yadava pastoral and agricultural communities had maintained their economic independence and social standing.</p>
+
+    <div class="body-text reveal">The British introduced the <strong>Permanent Settlement of 1793</strong> in Bengal and similar land revenue systems across India, which transferred effective ownership of agricultural land from cultivating communities — including Yadava farmers — to a new class of revenue intermediaries (zamindars). Yadava pastoral communities who had maintained common grazing lands under earlier Mughal and regional Indian administrations suddenly found those lands enclosed, taxed, or transferred to absentee landlords.</div>
+
+    <div class="body-text reveal">Simultaneously, the British colonial administration classified communities into rigid racial-administrative categories, and the <strong>Criminal Tribes Act of 1871</strong> — one of colonial India's most destructive legislative acts — classified several pastoral and nomadic communities, including groups within the broader Yadava community, as "habitual criminals" by birth. This criminalisation of entire communities for their pastoral way of life directly targeted the economic basis of Yadava pastoral identity.</div>
+
+    <div class="dual-panel reveal">
+      <div class="dp-panel red">
+        <div class="dp-label">★ Economic Disruption</div>
+        <div class="dp-text">The colonial economy systematically devalued the pastoral and agricultural activities that formed the economic basis of Yadava communities. <strong>Cattle breeding, dairy production, and pastoral land management</strong> — the ancient Yadava economic specialisations — were undercut by colonial trade policies that favoured cash crop agriculture and created incentives for replacing cattle-driven farming with colonial export crops. Communities that had sustained themselves through dairy and cattle trade found their economic position structurally undermined.</div>
+      </div>
+      <div class="dp-panel blue">
+        <div class="dp-label">⚖ Administrative Marginalisation</div>
+        <div class="dp-text">British colonial census operations — particularly the censuses of 1881, 1891, 1901, and 1911 — <strong>disaggregated the Yadava community</strong> into dozens of sub-caste labels (Ahir, Yadav, Ghosi, Goalas, Rawats, Gavli) rather than recognising a unified Yadava identity. This administrative fragmentation was deliberate: a unified Yadava identity would represent a politically significant community. Divided into sub-castes, they were more manageable and more easily set against each other in the colonial divide-and-rule framework.</div>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card reveal rd1">
+        <div class="stat-num">~350M</div>
+        <div class="stat-label">Yadava population today</div>
+        <div class="stat-note">~13–15% of India's total population</div>
+      </div>
+      <div class="stat-card reveal rd2">
+        <div class="stat-num">1871</div>
+        <div class="stat-label">Criminal Tribes Act</div>
+        <div class="stat-note">Targeted pastoral Yadava communities</div>
+      </div>
+      <div class="stat-card reveal rd3">
+        <div class="stat-num">1881</div>
+        <div class="stat-label">First colonial census</div>
+        <div class="stat-note">Fragmented Yadava identity into sub-castes</div>
+      </div>
+      <div class="stat-card reveal rd4">
+        <div class="stat-num">1920s</div>
+        <div class="stat-label">Yadava identity coalescence</div>
+        <div class="stat-note">All-India Yadava Mahasabha founded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 1857 UPRISING ═══ -->
+<section id="uprising" style="background:linear-gradient(180deg,var(--abyss2) 0%,var(--abyss3) 100%);border-top:1px solid rgba(155,28,46,0.15);padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The First War of Independence</p>
+    <h2 class="sec-title reveal">1857 — The Uprising and the Yadava Role</h2>
+    <p class="lead reveal">The uprising of 1857 — called the Sepoy Mutiny by the British and the First War of Independence by Indian nationalists — had a significant Yadava dimension that has been systematically underrepresented in mainstream historical accounts. Yadava soldiers and communities were among the most active participants in the rebellion across its epicentres in UP, Bihar, and Rajasthan.</p>
+
+    <div class="body-text reveal">The Bengal Army — the largest component of the East India Company's armed forces — had a substantial Ahir (Yadava) presence, particularly in the infantry regiments recruited from the Gangetic plains of modern Uttar Pradesh and Bihar. The Ahir community had long traditions of martial service and community self-defence, and many Ahir soldiers had served in the Bengal Army for decades when the crisis of 1857 broke.</div>
+
+    <div class="body-text reveal">The <strong>greased cartridge controversy</strong> — the immediate trigger of the 1857 uprising — was experienced with particular intensity by high-caste Hindu sepoys including Yadava soldiers, for whom biting a cartridge greased with cow fat was not merely politically offensive but a direct assault on their religious identity as cow-venerating communities. <strong>For the Yadava soldier, the cow is not merely a religious symbol — it is the living embodiment of the community's ancestral way of life and its sacred connection to Lord Krishna.</strong> The cartridge controversy could not have landed more precisely on the most sensitive point of Yadava religious identity.</div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-node major">🔥</div>
+          <div class="tl-year">May 10<br/>1857 CE</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">The Spark</div>
+          <div class="tl-title">Meerut Cantonment — The Uprising Begins</div>
+          <div class="tl-dev">मेरठ विद्रोह — १८५७</div>
+          <div class="tl-text">Indian soldiers of the Bengal Army at Meerut cantonment refused to use the new Enfield rifle cartridges, revolted, killed British officers, released imprisoned comrades, and marched to Delhi to restore Mughal Emperor Bahadur Shah Zafar. Among the soldiers involved were <strong>Ahir (Yadava) sepoys</strong> from the infantry regiments of the Bengal Army. The Meerut cantonments served the same Gangetic plains communities from which Yadava soldiers had been recruited for decades.</div>
+          <div class="tl-source">Historical records: Bengal Army muster rolls, 1856–1857 · Parliamentary Papers on the Indian Mutiny, 1858</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-node major">⚔️</div>
+          <div class="tl-year">June–Nov<br/>1857 CE</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">Lucknow Resistance</div>
+          <div class="tl-title">Awadh — Yadava Civilian and Military Resistance</div>
+          <div class="tl-dev">अवध विद्रोह — यादव सहभाग</div>
+          <div class="tl-text">The uprising in Awadh (modern Uttar Pradesh) was the most sustained and widespread of the 1857 rebellions. The Awadh region had the highest concentration of Yadava farming and pastoral communities in India. The annexation of Awadh by the British in 1856 had dispossessed not only the nawabi aristocracy but also the Yadava cultivating communities whose land rights had been protected under the Awadh state. <strong>Both the military and civilian dimensions of the Awadh uprising drew heavily on Yadava participation.</strong> The Begum Hazrat Mahal-led resistance based at Lucknow received support from surrounding Yadava agricultural communities who had their own grievances against British annexation and revenue policy.</div>
+          <div class="tl-source">S.B. Chaudhuri, Civil Rebellion in the Indian Mutinies · Eric Stokes, The Peasant Armed</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-node">🏹</div>
+          <div class="tl-year">1857 CE<br/>Bihar</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">Bihar Uprising</div>
+          <div class="tl-title">The Ahir Battalions of Bihar</div>
+          <div class="tl-dev">बिहार — आभीर सैनिक</div>
+          <div class="tl-text">Bihar saw significant Yadava (Ahir) participation in the 1857 uprising, particularly in the districts of Patna, Shahabad (modern Bhojpur), and Gaya. The Ahir communities of Bihar had maintained martial traditions and owned significant agricultural land which was under threat from British revenue systems. Local Ahir chieftains in several Bihar districts provided leadership and resources to the uprising. <strong>Veer Kunwar Singh</strong> — the 80-year-old Rajput zamindar of Jagdishpur who became one of the most celebrated military leaders of 1857 — commanded forces that included substantial Yadava contingents from the Bhojpur region.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-node steel">📋</div>
+          <div class="tl-year">1858–1900<br/>Aftermath</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">Post-Uprising</div>
+          <div class="tl-title">British Retaliation and the "Martial Races" Policy</div>
+          <div class="tl-dev">ब्रिटिश प्रतिशोध — सैन्य नीति</div>
+          <div class="tl-text">After suppressing the 1857 uprising, the British restructured the Indian Army on the basis of the <strong>"Martial Races" theory</strong> — a pseudo-scientific doctrine promoted by General Frederick Roberts and others, which classified certain communities as "naturally martial" (Sikhs, Gurkhas, Pathans, Rajputs) and others as "non-martial." This classification deliberately excluded communities that had shown strong anti-British sentiment in 1857. <strong>Ahir/Yadava communities — who had participated actively in the uprising — were largely excluded from the reorganised post-1857 Army</strong>, a policy of deliberate disempowerment that compounded the community's economic marginalisation under colonial rule.</div>
+          <div class="tl-source">Heather Streets, Martial Races: The Military, Race and Masculinity in British Imperial Culture · Philip Mason, A Matter of Honour</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qblock reveal">
+      <p class="qdev">हम यादव हैं, हम कृष्ण के वंशज हैं।<br/>हमारी धरती, हमारी गाय, हमारा धर्म — इन्हें कोई नहीं छीन सकता।</p>
+      <p class="qtrans">"We are Yadavas, we are descendants of Krishna. Our land, our cows, our dharma — no one can take these from us."</p>
+      <p class="qsrc">— Spirit of 1857 — the assertion of Yadava identity and rights documented in the oral traditions of the Bhojpur and Awadh uprising communities</p>
+    </div>
+  </div>
+</section>
+<!-- END PART 1 — continue with PART 2 -->
+<!-- ═══ IDENTITY MOVEMENT ═══ -->
+<section id="identity" style="background:linear-gradient(180deg,var(--abyss3) 0%,var(--abyss2) 100%);border-top:1px solid rgba(155,28,46,0.12);padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Awakening</p>
+    <h2 class="sec-title reveal">The Yadava Identity Movement — 1880s to 1947</h2>
+    <p class="lead reveal">The late 19th and early 20th centuries saw the emergence of one of the most significant community self-assertion movements in Indian history — the coalescence of dozens of regionally fragmented Yadava sub-castes into a unified, politically conscious Yadava identity. This transformation was driven by educated reformers, religious legitimacy, and the urgent need to resist colonial-era caste discrimination.</p>
+
+    <h3 class="sub-title reveal">The Problem: Colonial Fragmentation</h3>
+    <div class="body-text reveal">The British colonial census had, over four successive counts (1881–1911), disaggregated the Yadava community into dozens of separate sub-caste labels — <strong>Ahir, Yadav, Ghosi, Goalas, Gavli, Rawat, Dhangar, Dhangar-Gavli, Nandavanshi, Goalkar</strong> — treating these as entirely separate communities with no shared identity. The result was that a community numbering in the tens of millions across North and Central India appeared, in colonial administrative records, as a collection of small, unrelated groups with no combined political weight. This was administratively convenient for colonial rule and socially devastating for the community.</div>
+
+    <div class="body-text reveal">The sub-caste fragmentation also meant that Yadava communities in different regions had developed distinct dialects, local customs, and occupational patterns — dairy farmers in Maharashtra, cattle-herders in Rajasthan, cultivators in Bihar and UP, pastoralists in Haryana — that made pan-community solidarity difficult to organise. <strong>The genius of the Yadava identity movement was its appeal to a shared origin — Lord Krishna and the Yadu lineage — that transcended all regional variation and provided a single, unimpeachable source of unity.</strong></div>
+
+    <h3 class="sub-title reveal">The Solution: A Unified Yadava Identity</h3>
+    <div class="body-text reveal">From the 1880s onward, educated Yadava reformers and community leaders — many inspired by the broader Hindu reform movements of the 19th century, including the Arya Samaj — began organising across sub-caste boundaries. Their argument was straightforward and powerful: <strong>All Ahirs, Goalas, Gavlis, Dhangar-Gavlis, Ghosis, and related communities are descendants of the same Yadava lineage, traced through the Bhagavata Purana and Mahabharata</strong>, and should organise together under the single umbrella identity of "Yadava."</div>
+
+    <div class="body-text reveal">This was not merely a political tactic — it was a historically grounded argument. The Puranic genealogies that the community's own sacred texts preserved traced all these sub-communities to the same Yadu lineage. The Devagiri Yadava kings had used the same genealogical claim in their copper plate inscriptions eight centuries earlier. The 20th-century identity movement was, in this sense, a recovery of a suppressed historical memory.</div>
+
+    <div class="hbox reveal">
+      <div class="hb-title">Pillars of the Yadava Identity Movement</div>
+      <ul class="hb-list">
+        <li><strong>Religious Legitimacy</strong> — Grounding unified Yadava identity in the Bhagavata Purana, the Mahabharata, and the Devagiri copper plate inscriptions — texts that had always claimed a single Yadava lineage for all these communities. The appeal to Lord Krishna as the community's divine ancestor gave the identity claim an authority no British administrator could easily dismiss.</li>
+        <li><strong>Social Reform</strong> — Attacking internal caste discrimination, the ban on widow remarriage, child marriage, and other social practices that kept Yadava communities internally divided and weakened. Reformers argued that a community claiming descent from Krishna should exemplify the dignity that descent implies.</li>
+        <li><strong>Education</strong> — Establishing community schools, scholarships, and hostels to bring education to Yadava youth — particularly in UP and Bihar — as the foundation of political participation. An illiterate community cannot exercise political power; literacy was the prerequisite for everything else.</li>
+        <li><strong>Census Mobilisation</strong> — Organising community members to register themselves as "Yadav" (rather than their specific sub-caste label) in colonial censuses, particularly the 1931 census — the first in which a significant number of community members self-identified under the unified "Yadav" label, making the community's actual numerical strength visible for the first time.</li>
+        <li><strong>All-India Organisation</strong> — The formation of the <strong>Yadav Mahasabha</strong> as a pan-India community organisation with branches across states, providing the institutional infrastructure for coordinated political action at the national level — two decades before Independence gave that political action its full scope.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title reveal">The Arya Samaj Connection</h3>
+    <div class="body-text reveal">The <strong>Arya Samaj</strong>, founded by Swami Dayananda Saraswati in 1875, played a significant role in the Yadava identity movement. The Arya Samaj's attack on untouchability, its emphasis on Vedic identity over jati hierarchy, and its promotion of education for all communities provided both intellectual tools and organisational models for Yadava reformers. Several prominent Yadava community leaders of the early 20th century were active in Arya Samaj-affiliated organisations, and the Samaj's Gurukula school system opened educational access for Yadava youth in regions where British colonial schools were inaccessible or unaffordable.</div>
+
+    <div class="body-text reveal">The Arya Samaj's doctrine that all Hindus are equal before the Vedas — that jati (birth-group) is irrelevant to spiritual or civic standing — was exactly the philosophical ammunition that Yadava reformers needed to challenge the Brahminical social hierarchy that relegated pastoral and agricultural communities to subordinate status despite their numerical and economic significance. <strong>The reformers took the Arya Samaj's universalism and combined it with the Bhagavata Purana's specific genealogical claims to create a uniquely powerful identity argument: not merely "we are equal as Hindus" but "we are equal as descendants of the most illustrious lineage in all of Hindu tradition."</strong></div>
+  </div>
+</section>
+
+<!-- ═══ KEY LEADERS ═══ -->
+<section id="leaders" style="background:linear-gradient(180deg,var(--abyss2) 0%,var(--abyss3) 100%);border-top:1px solid rgba(30,58,95,0.2);padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Architects of Change</p>
+    <h2 class="sec-title reveal">Key Leaders of the Yadava Identity & Reform Movement</h2>
+    <p class="lead reveal">The transformation of a fragmented set of regional sub-castes into a unified, politically conscious community was not spontaneous — it was the work of specific individuals whose intellectual labour, organisational energy, and personal courage made the modern Yadava political identity possible.</p>
+
+    <!-- Leaders grid -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.6rem;margin:2.5rem 0">
+
+      <!-- Yadunandan Prasad Mehta -->
+      <div class="reveal rd1" style="background:linear-gradient(160deg,rgba(16,24,40,0.75),rgba(6,8,16,0.88));border:1px solid rgba(155,28,46,0.2);padding:2rem;position:relative;transition:border-color .3s" onmouseenter="this.style.borderColor='rgba(155,28,46,0.48)'" onmouseleave="this.style.borderColor='rgba(155,28,46,0.2)'">
+        <div style="position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--crimson-light),var(--steel-pale))"></div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--crimson-pale);margin-bottom:.4rem">Bihar · Early 20th century · Reformer</div>
+        <div style="font-family:var(--font-heading);font-size:1.15rem;color:var(--gold-light);margin-bottom:.15rem">Yadunandan Prasad Mehta</div>
+        <div style="font-family:var(--font-dev);font-size:.95rem;color:var(--gold);margin-bottom:.6rem">यदुनन्दन प्रसाद मेहता</div>
+        <div style="height:1px;background:linear-gradient(to right,var(--crimson-light),transparent);margin:.4rem 0 .8rem"></div>
+        <div style="font-size:.82rem;color:var(--parchment);line-height:1.88">One of the most important early organisers of the Yadava identity movement in Bihar. Mehta was instrumental in building community networks across the Yadava sub-castes of Bihar — Ahirs, Goalas, and Ghoshis — and arguing for their unified organisation under the Yadava banner. He worked extensively through the Yadav Mahasabha structure, building the Bihar chapter into one of the movement's most active regional bodies. His writings in the early Hindi press articulated the historical and scriptural basis of Yadava unity with scholarly rigour, giving the movement an intellectual foundation rather than merely an organisational one.</div>
+      </div>
+
+      <!-- Baldev Prasad Gupta "Yadav Yogi" -->
+      <div class="reveal rd2" style="background:linear-gradient(160deg,rgba(16,24,40,0.75),rgba(6,8,16,0.88));border:1px solid rgba(30,58,95,0.25);padding:2rem;position:relative;transition:border-color .3s" onmouseenter="this.style.borderColor='rgba(30,58,95,0.55)'" onmouseleave="this.style.borderColor='rgba(30,58,95,0.25)'">
+        <div style="position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--steel-pale),var(--saffron-light))"></div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--steel-pale);margin-bottom:.4rem">UP · 1890s–1940s · Scholar & Organiser</div>
+        <div style="font-family:var(--font-heading);font-size:1.15rem;color:var(--gold-light);margin-bottom:.15rem">The Yadav Mahasabha Founders</div>
+        <div style="font-family:var(--font-dev);font-size:.95rem;color:var(--gold);margin-bottom:.6rem">यादव महासभा — संस्थापक</div>
+        <div style="height:1px;background:linear-gradient(to right,var(--steel-pale),transparent);margin:.4rem 0 .8rem"></div>
+        <div style="font-size:.82rem;color:var(--parchment);line-height:1.88">The <strong style="color:var(--gold-pale)">All-India Yadav Mahasabha</strong> — established in the 1920s — was the organisational achievement of multiple founding figures across UP, Bihar, Maharashtra, and Rajasthan who recognised that only a pan-India organisation could give the community political visibility proportional to its actual numerical strength. The Mahasabha's founding represented the first time that Ahirs from UP, Goalas from Bihar, Gavlis from Maharashtra, and Rawats from Rajasthan sat together in a common forum and formally acknowledged their shared Yadava heritage. The Mahasabha established the framework for all subsequent Yadava political organisation.</div>
+      </div>
+
+      <!-- Swami Sahajanand Saraswati -->
+      <div class="reveal rd3" style="background:linear-gradient(160deg,rgba(16,24,40,0.75),rgba(6,8,16,0.88));border:1px solid rgba(232,130,10,0.22);padding:2rem;position:relative;transition:border-color .3s" onmouseenter="this.style.borderColor='rgba(232,130,10,0.5)'" onmouseleave="this.style.borderColor='rgba(232,130,10,0.22)'">
+        <div style="position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--saffron-light),var(--crimson-light))"></div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--saffron-light);margin-bottom:.4rem">Bihar · 1889–1950 · Kisan Movement Leader</div>
+        <div style="font-family:var(--font-heading);font-size:1.15rem;color:var(--gold-light);margin-bottom:.15rem">Swami Sahajanand Saraswati</div>
+        <div style="font-family:var(--font-dev);font-size:.95rem;color:var(--gold);margin-bottom:.6rem">स्वामी सहजानन्द सरस्वती</div>
+        <div style="height:1px;background:linear-gradient(to right,var(--saffron-light),transparent);margin:.4rem 0 .8rem"></div>
+        <div style="font-size:.82rem;color:var(--parchment);line-height:1.88">Born into a Bhumihar family, Swami Sahajanand Saraswati became the most powerful voice for peasant rights in colonial India. He founded the <strong style="color:var(--gold-pale)">Bihar Provincial Kisan Sabha (1929)</strong> and the <strong style="color:var(--gold-pale)">All-India Kisan Sabha (1936)</strong>, which mobilised millions of peasants — a large proportion of them Yadava farmers — against zamindari exploitation and British revenue policy. Though not himself Yadava, his movement was substantially powered by Yadava agricultural communities across Bihar and eastern UP who provided the numerical base for peasant agitation. His collaboration with socialist leaders would create the intellectual framework for the post-independence Yadava political rise.</div>
+      </div>
+
+      <!-- Baba Ramchandra -->
+      <div class="reveal rd4" style="background:linear-gradient(160deg,rgba(16,24,40,0.75),rgba(6,8,16,0.88));border:1px solid rgba(155,28,46,0.2);padding:2rem;position:relative;transition:border-color .3s" onmouseenter="this.style.borderColor='rgba(155,28,46,0.48)'" onmouseleave="this.style.borderColor='rgba(155,28,46,0.2)'">
+        <div style="position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--gold-light),var(--steel-pale))"></div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.4rem">UP · 1875–1950 · Agrarian Leader</div>
+        <div style="font-family:var(--font-heading);font-size:1.15rem;color:var(--gold-light);margin-bottom:.15rem">Baba Ramchandra</div>
+        <div style="font-family:var(--font-dev);font-size:.95rem;color:var(--gold);margin-bottom:.6rem">बाबा रामचन्द्र — किसान नेता</div>
+        <div style="height:1px;background:linear-gradient(to right,var(--gold-light),transparent);margin:.4rem 0 .8rem"></div>
+        <div style="font-size:.82rem;color:var(--parchment);line-height:1.88">Baba Ramchandra was the primary organiser of the <strong style="color:var(--gold-pale)">Awadh Kisan Sabha</strong> and the agrarian rebellion in Awadh (1920–22) — one of the most significant peasant movements in North India, which influenced Mahatma Gandhi's own thinking on non-cooperation. Ramchandra organised Yadava and other peasant communities in Awadh against the oppressive exactions of the British-backed taluqdari (zamindari) system. His movement demonstrated the potential of Yadava rural communities as an organised political force — a lesson that would be drawn on by every subsequent generation of Yadava political leaders.</div>
+      </div>
+
+      <!-- Chaudhary Charan Singh (pre-politics context) -->
+      <div class="reveal rd1" style="background:linear-gradient(160deg,rgba(16,24,40,0.75),rgba(6,8,16,0.88));border:1px solid rgba(30,58,95,0.25);padding:2rem;position:relative;transition:border-color .3s" onmouseenter="this.style.borderColor='rgba(30,58,95,0.55)'" onmouseleave="this.style.borderColor='rgba(30,58,95,0.25)'">
+        <div style="position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--steel-light),var(--saffron))"></div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--steel-pale);margin-bottom:.4rem">UP · 1902–1987 · Peasant Politics Pioneer</div>
+        <div style="font-family:var(--font-heading);font-size:1.15rem;color:var(--gold-light);margin-bottom:.15rem">Chaudhary Charan Singh</div>
+        <div style="font-family:var(--font-dev);font-size:.95rem;color:var(--gold);margin-bottom:.6rem">चौधरी चरण सिंह</div>
+        <div style="height:1px;background:linear-gradient(to right,var(--steel-pale),transparent);margin:.4rem 0 .8rem"></div>
+        <div style="font-size:.82rem;color:var(--parchment);line-height:1.88">Although from the Jat community rather than Yadava, Chaudhary Charan Singh's political trajectory — from Congress legislator in UP to peasant-rights politician to eventual Prime Minister (1979–80) — created the model and the political space for the broader OBC (Other Backward Classes) political assertion of which the Yadava rise was the most significant component. His <strong style="color:var(--gold-pale)">Zamindari Abolition Act of 1951</strong> as UP Revenue Minister directly benefited Yadava farming communities by transferring land ownership to cultivating communities. He demonstrated that peasant-based politics could reach the highest offices of Indian democracy.</div>
+      </div>
+
+      <!-- Jagjivan Ram -->
+      <div class="reveal rd2" style="background:linear-gradient(160deg,rgba(16,24,40,0.75),rgba(6,8,16,0.88));border:1px solid rgba(200,150,14,0.2);padding:2rem;position:relative;transition:border-color .3s" onmouseenter="this.style.borderColor='rgba(200,150,14,0.45)'" onmouseleave="this.style.borderColor='rgba(200,150,14,0.2)'">
+        <div style="position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--gold-light),var(--crimson-light))"></div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.4rem">Bihar · 1908–1986 · Dalit-Peasant Alliance Builder</div>
+        <div style="font-family:var(--font-heading);font-size:1.15rem;color:var(--gold-light);margin-bottom:.15rem">Jagjivan Ram (Babuji)</div>
+        <div style="font-family:var(--font-dev);font-size:.95rem;color:var(--gold);margin-bottom:.6rem">जगजीवन राम — बाबूजी</div>
+        <div style="height:1px;background:linear-gradient(to right,var(--gold-light),transparent);margin:.4rem 0 .8rem"></div>
+        <div style="font-size:.82rem;color:var(--parchment);line-height:1.88">Jagjivan Ram — the longest-serving Cabinet minister in Indian history — represented the Dalit community's entry into national-level governance. His long political career in Bihar, spanning Independence to the 1980s, intersected constantly with Yadava political organisation in the state. His model of Dalit-Yadava coalition politics in Bihar — two communities with overlapping socioeconomic interests and combined numerical strength — became the template for the <strong style="color:var(--gold-pale)">mandal coalition</strong> that Lalu Prasad Yadav would perfect into an electoral machine in the 1990s. Jagjivan Ram's career demonstrated that backward-caste political assertion could operate at the national level with full governmental authority.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INDEPENDENCE ERA ═══ -->
+<section id="independence" style="background:linear-gradient(180deg,var(--abyss3) 0%,var(--abyss2) 100%);border-top:1px solid rgba(155,28,46,0.12);padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">1947 — A New Beginning</p>
+    <h2 class="sec-title reveal">Independence and the Yadava Community — 1947 to 1967</h2>
+    <p class="lead reveal">Indian independence in 1947 transformed the political landscape for the Yadava community. Universal adult suffrage — one person, one vote — meant that the community's enormous numerical strength in North and Central India was, for the first time, a direct political asset. But translating demographic weight into political power required organisation, ideology, and leadership that took two more decades to fully crystallise.</p>
+
+    <h3 class="sub-title reveal">The Congress Era and Yadava Subordination</h3>
+    <div class="body-text reveal">The early years of independent India were dominated by the Indian National Congress, which maintained its Independence-era coalition of upper-caste leadership, minority communities, and Scheduled Caste voters. The Congress party's approach to the Yadava community — as with other OBC communities — was essentially one of <strong>controlled inclusion</strong>: provide enough representation at lower levels of the party to maintain loyalty, while keeping the upper echelons of power firmly in the hands of Brahmin, Rajput, and Kayastha leadership in the Hindi belt states.</div>
+
+    <div class="body-text reveal">In Uttar Pradesh — the largest state and India's most politically important — the Congress dominated through what became known as the <strong>"AJGAR" coalition</strong> (Ahir-Jat-Gujjar-Rajput), but the A (Ahir/Yadava) in that formulation remained firmly subordinate to the R (Rajput) leadership. Yadava communities voted Congress in large numbers through the 1950s and early 1960s, receiving in return some legislative seats and local government positions — but never the chief ministership, never the state's administrative command, never genuine power over policy.</div>
+
+    <div class="body-text reveal">In Bihar, a similar pattern prevailed. The Congress state leadership was dominated by upper-caste politicians while Yadava communities — the state's largest single caste group — received token representation. The land reforms that had been promised to cultivating communities at Independence were implemented slowly, partially, and often in ways that preserved the economic advantages of upper-caste landlords. <strong>The structural exclusion of the Yadava community from power, despite their numbers, created the conditions for the explosion that the Mandal moment would eventually trigger.</strong></div>
+
+    <h3 class="sub-title reveal">Constitution and OBC Provisions</h3>
+    <div class="body-text reveal">The Indian Constitution of 1950, drafted under the leadership of Dr. B.R. Ambedkar, provided crucial legal foundations for the eventual Yadava political rise. Article 340 empowered the President to appoint a Commission to investigate the conditions of "socially and educationally backward classes" — leading eventually to the <strong>First Backward Classes Commission (Kaka Kalelkar Commission, 1953–55)</strong> and the transformative <strong>Second Backward Classes Commission (Mandal Commission, 1978–80)</strong>. The Mandal Commission's report — which identified the Yadava community as one of the principal socially and educationally backward communities and recommended 27% reservation in central government employment and educational institutions for OBC communities — became the document that would reshape Indian politics forever.</div>
+
+    <div class="dual-panel reveal">
+      <div class="dp-panel red">
+        <div class="dp-label">★ What Independence Brought</div>
+        <div class="dp-text"><strong>Universal adult suffrage</strong> — for the first time, the numerical majority of Yadava communities translated directly into electoral weight.<br/><br/><strong>Land reforms</strong> — partial but real: zamindari abolition in UP (1951) and Bihar (1950) gave Yadava farming families legal ownership of land they had cultivated for generations.<br/><br/><strong>Constitutional reservations</strong> — while the initial SC/ST reservations did not cover OBC communities, the constitutional framework laid the groundwork for the later Mandal-era OBC reservations.<br/><br/><strong>Education access</strong> — expanding state education systems opened school and university access to Yadava youth who had been excluded from private, missionary, or elite institutions under colonial rule.</div>
+      </div>
+      <div class="dp-panel blue">
+        <div class="dp-label">⚖ What Independence Did Not Bring</div>
+        <div class="dp-text"><strong>Political power</strong> — the upper-caste dominance of Congress state governments in UP and Bihar continued with only cosmetic changes through the 1950s and 1960s.<br/><br/><strong>Administrative representation</strong> — the IAS, IPS, and state-level bureaucracies remained dominated by upper-caste officers who had entered under the colonial system; Yadava communities were virtually absent from the state machinery that made real policy.<br/><br/><strong>Economic parity</strong> — land reforms left large landholdings intact through various legal workarounds; the Green Revolution of the 1960s benefited larger landowners disproportionately.<br/><br/><strong>Social dignity</strong> — caste discrimination in social life, including restrictions on access to temples, wells, and public spaces, continued in many rural areas despite constitutional prohibitions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LOHIA & SOCIALISM ═══ -->
+<section id="lohia" style="background:linear-gradient(180deg,var(--abyss2) 0%,var(--abyss3) 100%);border-top:1px solid rgba(30,58,95,0.18);padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Philosophical Engine</p>
+    <h2 class="sec-title reveal">Ram Manohar Lohia — The Man Who Made Yadava Politics Possible</h2>
+    <p class="lead reveal">If one figure must be identified as the intellectual and political architect of the Yadava political rise, it is <strong>Dr. Ram Manohar Lohia</strong> (1910–1967) — the socialist thinker and politician whose life's work was the demolition of upper-caste dominance in Indian public life and the empowerment of backward-caste communities as the true majority of Indian democracy.</p>
+
+    <div style="display:grid;grid-template-columns:300px 1fr;gap:2.5rem;margin:2.5rem 0;background:linear-gradient(160deg,rgba(16,24,40,0.7),rgba(6,8,16,0.88));border:1px solid rgba(30,58,95,0.3);padding:2.5rem;position:relative" class="reveal">
+      <div style="position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--steel-pale),var(--saffron-light),var(--crimson-light))"></div>
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <div style="width:100%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(16,24,40,0.9),rgba(6,8,16,0.95));border:2px solid rgba(30,58,95,0.45);display:flex;align-items:center;justify-content:center;font-size:3.5rem;max-width:180px">🎙️</div>
+        <div style="font-family:var(--font-heading);font-size:1.2rem;color:var(--gold-light)">Dr. Ram Manohar Lohia</div>
+        <div style="font-family:var(--font-dev);font-size:1rem;color:var(--gold)">डॉ. राम मनोहर लोहिया</div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--steel-pale)">1910 – 1967 · Faizabad, UP</div>
+        <div style="display:flex;flex-direction:column;gap:.38rem;margin-top:.3rem">
+          <div style="display:flex;gap:.6rem">
+            <span style="font-family:var(--font-heading);font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);width:62px;flex-shrink:0;padding-top:.1rem">Education</span>
+            <span style="font-size:.76rem;color:var(--parchment-dk);line-height:1.55">PhD in Economics, Humboldt University, Berlin (1933)</span>
+          </div>
+          <div style="display:flex;gap:.6rem">
+            <span style="font-family:var(--font-heading);font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);width:62px;flex-shrink:0;padding-top:.1rem">Party</span>
+            <span style="font-size:.76rem;color:var(--parchment-dk);line-height:1.55">Founded Socialist Party (1948); Praja Socialist Party; Samyukta Socialist Party</span>
+          </div>
+          <div style="display:flex;gap:.6rem">
+            <span style="font-family:var(--font-heading);font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);width:62px;flex-shrink:0;padding-top:.1rem">Doctrine</span>
+            <span style="font-size:.76rem;color:var(--parchment-dk);line-height:1.55">"Char Ped, Chowpat" — four trees and a square: decentralised socialism from the village up</span>
+          </div>
+          <div style="display:flex;gap:.6rem">
+            <span style="font-family:var(--font-heading);font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);width:62px;flex-shrink:0;padding-top:.1rem">Legacy</span>
+            <span style="font-size:.76rem;color:var(--parchment-dk);line-height:1.55">Mulayam Singh Yadav, Lalu Prasad Yadav, Nitish Kumar, George Fernandes — all formed politically in the Lohiaite tradition</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div style="font-family:var(--font-display);font-size:clamp(.88rem,1.4vw,1.15rem);color:var(--saffron-pale);font-style:italic;line-height:1.4">"The most dangerous people in this country are those who have managed to give caste a veneer of respectability — and the most necessary work is to tear that veneer away."</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">Lohia was born into a Vaishya (trader) family in Faizabad, UP — the heartland of Yadava and backward-caste political consciousness. His PhD thesis on salt taxation in India was a direct study of how British colonial economic policy exploited Indian peasant communities. Returning to India, he joined the Congress Socialist Party and became one of the most important figures in the underground resistance to British rule, organising strikes and civil disobedience.</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">After Independence, he broke with Nehru's Congress over what he saw as the continuation of upper-caste dominance under a nominally democratic system. His central political slogan — <strong style="color:var(--gold-light)">"Pichde Paayen Sau Mein Saath"</strong> (Backward communities should get sixty out of every hundred positions) — was the bluntest articulation yet of the argument that proportional representation of backward communities in all institutions of power was the only genuine democratic solution to caste inequality. This became the philosophical foundation for the Mandal Commission's recommendations.</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">Lohia died in 1967 — twenty-three years before the Mandal Commission's implementation — but his political students carried his ideas to their most consequential realisation. <strong style="color:var(--gold-light)">Mulayam Singh Yadav, Lalu Prasad Yadav, Karpoori Thakur, Nitish Kumar, and George Fernandes</strong> all began their political careers in Lohiaite socialist organisations. When they came to power in the 1990s, they were implementing a programme that Lohia had formulated in the 1950s.</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title reveal">Lohia's Core Doctrines — Their Relevance to Yadava Politics</h3>
+
+    <div class="hbox reveal">
+      <div class="hb-title">Six Lohiaite Principles That Shaped Yadava Political Consciousness</div>
+      <ul class="hb-list">
+        <li><strong>"Pichde Paayen Sau Mein Saath"</strong> — Backward communities deserve 60 of every 100 positions in all institutions — the arithmetic demand for proportional power that became the Mandal Commission's philosophical basis. For Yadava communities representing 13–15% of India's population, this translated to a specific numerical claim on legislative seats, government jobs, and educational opportunities.</li>
+        <li><strong>Anti-Congress Ideology</strong> — Lohia's defining political act was building a viable opposition to Congress — which he called the party of the "upper-caste elite masquerading as the party of all Indians." His work created the political infrastructure (non-Congress socialist parties, SSP, PSP) that eventually produced the Janata Party coalition of 1977, and then the Mandal-era political formations of the 1990s.</li>
+        <li><strong>Caste as the Central Indian Question</strong> — Against Marxists who argued that class alone mattered, and against upper-caste liberals who denied caste's continued salience, Lohia insisted that caste was the primary structure of Indian inequality — and that no politics that failed to address caste directly could genuinely serve Indian democracy. This analysis was proved right by every subsequent decade of Indian political history.</li>
+        <li><strong>Hindi-Belt Focus</strong> — Lohia concentrated his political work on the Hindi-speaking states — UP, Bihar, Rajasthan, MP, Haryana — where Yadava communities were most numerous and where the gap between democratic promises and caste reality was most glaring. He understood these states as the decisive arena of Indian democracy — whoever controlled the Hindi belt controlled the central government.</li>
+        <li><strong>Village-Level Organisation</strong> — Lohia's socialism was explicitly decentralist — built from the village upward rather than from the central state downward. This approach naturally engaged Yadava farming communities, who were organised at the village and district level in ways that urban socialist parties had failed to reach. His grassroots organisation model was adopted directly by Mulayam and Lalu in their respective states.</li>
+        <li><strong>Hindu-Muslim Unity</strong> — Lohia's insistence on Hindu-Muslim solidarity as a political prerequisite — rather than an optional ideal — anticipated the electoral arithmetic of the 1990s Mandal coalitions, in which Yadava political parties allied with Muslim minority communities to create governing majorities in UP and Bihar. The <strong>M-Y coalition</strong> (Muslim-Yadava) that became the electoral backbone of the Samajwadi Party and the RJD was Lohia's political mathematics made electoral reality.</li>
+      </ul>
+    </div>
+
+    <div class="qblock reveal">
+      <p class="qtrans">"India's problem is not poverty alone — it is caste. Poverty can be addressed by economics. Caste requires a revolution of dignity. Until the son of a cowherd can become Prime Minister of India — not by exceptional individual merit but by the structural inclusion of his entire community — Indian democracy is incomplete."</p>
+      <p class="qsrc">— Ram Manohar Lohia, paraphrased from various speeches · 1950s–1960s · the essential argument that drove a generation of Yadava political leaders</p>
+    </div>
+  </div>
+</section>
+<!-- END PART 2 — continue with PART 3 -->
+<!-- ═══ POLITICAL RISE ═══ -->
+<section id="rise" style="background:linear-gradient(180deg,var(--abyss3) 0%,var(--abyss2) 100%);border-top:1px solid rgba(155,28,46,0.15);padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Mandal Earthquake</p>
+    <h2 class="sec-title reveal">The Mandal Commission & the Political Explosion — 1978 to 1993</h2>
+    <p class="lead reveal">The implementation of the Mandal Commission's recommendations by Prime Minister V.P. Singh on August 7, 1990 was the single most consequential act in post-independence Indian domestic politics. It triggered street protests, self-immolations, and the collapse of a government — and permanently transformed the social arithmetic of Indian democracy. For the Yadava community, it was the moment everything changed.</p>
+
+    <h3 class="sub-title reveal">The Mandal Commission — What It Found and What It Recommended</h3>
+    <div class="body-text reveal">The <strong>Second Backward Classes Commission</strong> — chaired by Bihar politician B.P. Mandal and appointed by Prime Minister Morarji Desai's Janata government in 1978 — submitted its report in December 1980. It surveyed caste conditions across India using eleven social, educational, and economic indicators and identified <strong>3,743 castes and communities</strong> as "Other Backward Classes" (OBCs) — communities that were socially and educationally disadvantaged but did not qualify for the existing SC/ST reservations. The OBC population, the Commission found, constituted approximately <strong>52% of India's total population</strong>.</div>
+
+    <div class="body-text reveal">The Commission's central recommendation was that <strong>27% of seats in Union government services and public sector undertakings, and 27% of seats in central government educational institutions</strong>, should be reserved for OBC candidates — in addition to the existing 22.5% reserved for SC/ST communities. The Yadava community was specifically identified as one of the most numerically significant and educationally disadvantaged OBC communities, with particular concentration in UP, Bihar, Rajasthan, Haryana, and MP.</div>
+
+    <div class="body-text reveal">The Mandal Commission report sat unimplemented through the entire decade of the 1980s — through Indira Gandhi's return to power, her assassination, and Rajiv Gandhi's massive majority government. <strong>Every Congress government of the 1980s chose not to implement it</strong>, calculating that its implementation would disrupt the upper-caste vote bank on which Congress depended in the Hindi belt. It was V.P. Singh — leading a fragile minority government propped up by the BJP from outside — who finally issued the implementation order in August 1990, as a political act designed to consolidate backward-caste support for his government.</div>
+
+    <div class="timeline" style="margin:3rem 0">
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-node major">📜</div>
+          <div class="tl-year">Dec 1980<br/>Report Filed</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">Mandal Commission</div>
+          <div class="tl-title">Report Submitted — Ten Years of Silence Begin</div>
+          <div class="tl-dev">मंडल आयोग रिपोर्ट — १९८०</div>
+          <div class="tl-text">The Mandal Commission submits its 405-page report to President Neelam Sanjiva Reddy. It identifies 3,743 OBC communities, estimates their total population at 52% of India, and recommends 27% reservation in Union government services. The Yadava community figures prominently as one of the largest OBC communities nationally. The report is received — and shelved. For ten years, no government implements it, calculating the upper-caste political cost as too high.</div>
+          <div class="tl-source">Mandal Commission Report, Government of India, 1980 · Vol. I–II · available at B.P. Mandal archives</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-node major">🔥</div>
+          <div class="tl-year">Aug 7<br/>1990 CE</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">The Explosion</div>
+          <div class="tl-title">V.P. Singh Announces Mandal Implementation</div>
+          <div class="tl-dev">मंडल लागू — वी.पी. सिंह — १९९०</div>
+          <div class="tl-text">Prime Minister Vishwanath Pratap Singh announces in Parliament that the government will implement the Mandal Commission's recommendations — 27% reservation for OBCs in central government jobs and educational institutions. The announcement triggers <strong>violent street protests</strong> across North India, led by upper-caste students. Several students self-immolate in protest. The country is convulsed. <strong>For backward-caste communities across India — including the Yadava community — the announcement is received as the most significant political event since Independence itself.</strong> Within months, V.P. Singh's government falls — but the Mandal moment cannot be reversed.</div>
+          <div class="tl-source">Parliamentary Debates, Lok Sabha, August 7, 1990 · Yogendra Yadav, "The Mandal Moment" · EPW 1995</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-node steel">⚖️</div>
+          <div class="tl-year">Nov 1992<br/>Supreme Court</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">Constitutional Validation</div>
+          <div class="tl-title">Indra Sawhney v. Union of India — Supreme Court Upholds OBC Reservations</div>
+          <div class="tl-dev">इन्दिरा साहनी बनाम भारत सरकार</div>
+          <div class="tl-text">A nine-judge Constitutional Bench of the Supreme Court upholds the Mandal Commission's OBC reservations in a landmark 6–3 majority judgment — one of the most consequential constitutional decisions in Indian history. The court validates 27% OBC reservation, but also rules that reservations cannot exceed 50% of total seats (upholding the earlier Balaji judgment), and excludes the "creamy layer" (OBCs above a certain income threshold) from reservation benefits. The Yadava community, as one of the largest and most politically organised OBC communities, benefits disproportionately from the ruling — particularly in UP and Bihar, where Yadava politicians are already in the process of consolidating their hold on state governments.</div>
+          <div class="tl-source">Indra Sawhney v. Union of India, AIR 1993 SC 477 · 9-judge Constitutional Bench</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-node major">🗳️</div>
+          <div class="tl-year">1993–1995<br/>State Elections</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">Electoral Revolution</div>
+          <div class="tl-title">Yadava Parties Win UP and Bihar — The Hindi Belt Transforms</div>
+          <div class="tl-dev">समाजवादी पार्टी — राजद — सत्ता में</div>
+          <div class="tl-text">The 1993 UP assembly elections deliver a stunning result: <strong>Mulayam Singh Yadav's Samajwadi Party</strong>, in alliance with the Bahujan Samaj Party (BSP), forms the government in India's largest state — the first time a genuinely backward-caste-led government has ruled UP. In Bihar, <strong>Lalu Prasad Yadav's RJD</strong> (Rashtriya Janata Dal) consolidates its hold on power, governing Bihar from 1990 to 2005 with an unprecedented Yadava-Muslim social coalition. The Congress, which had dominated UP and Bihar since Independence, is in electoral freefall. <strong>The social power structure of North India is being permanently reorganised.</strong></div>
+          <div class="tl-source">Election Commission of India, State Assembly Results 1993–1995 · Christophe Jaffrelot, India's Silent Revolution</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BIG POLITICAL STATS -->
+    <div class="stat-row reveal">
+      <div class="stat-card">
+        <div class="stat-num">52%</div>
+        <div class="stat-label">OBC share of India's population</div>
+        <div class="stat-note">Mandal Commission finding, 1980</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">27%</div>
+        <div class="stat-label">Reservation for OBCs</div>
+        <div class="stat-note">Central govt. jobs &amp; education</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">~80</div>
+        <div class="stat-label">Lok Sabha seats</div>
+        <div class="stat-note">Won by Yadava-dominated OBC parties in 2004</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Yadava Chief Ministers</div>
+        <div class="stat-note">Across UP, Bihar, Haryana, Rajasthan historically</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1990</div>
+        <div class="stat-label">The Mandal moment</div>
+        <div class="stat-note">The year everything changed in Indian politics</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">~350M</div>
+        <div class="stat-label">Yadava population today</div>
+        <div class="stat-note">~13–15% of India — decisive in every Hindi belt election</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAJOR LEADERS PROFILES ═══ -->
+<section style="background:linear-gradient(180deg,var(--abyss2) 0%,var(--abyss3) 100%);border-top:1px solid rgba(30,58,95,0.15);padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Power Architects</p>
+    <h2 class="sec-title reveal">The Major Yadava Political Leaders — Complete Profiles</h2>
+    <p class="lead reveal">The transformation of Yadava political potential into actual state power was the work of specific individuals — each operating in a distinct state, each building a distinct political coalition, yet all drawing from the same Lohiaite intellectual tradition and the same Mandal-era social energy.</p>
+
+    <!-- MULAYAM SINGH YADAV -->
+    <div class="reveal" style="display:grid;grid-template-columns:260px 1fr;gap:2.5rem;border:1px solid rgba(155,28,46,0.2);margin-bottom:3rem;padding:2.5rem;background:linear-gradient(160deg,rgba(16,24,40,0.72),rgba(6,8,16,0.88));position:relative;overflow:hidden;transition:border-color .3s" onmouseenter="this.style.borderColor='rgba(155,28,46,0.45)'" onmouseleave="this.style.borderColor='rgba(155,28,46,0.2)'">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--crimson-light),var(--saffron-light))"></div>
+      <div style="position:absolute;top:50%;left:260px;transform:translate(-50%,-50%);width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(155,28,46,0.07),transparent 70%);pointer-events:none"></div>
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <div style="width:100%;max-width:190px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(16,24,40,0.85),rgba(6,8,16,0.95));border:2px solid rgba(155,28,46,0.38);display:flex;align-items:center;justify-content:center;font-size:3rem">✊</div>
+        <div style="font-family:var(--font-heading);font-size:1.25rem;color:var(--gold-light)">Mulayam Singh Yadav</div>
+        <div style="font-family:var(--font-dev);font-size:1.05rem;color:var(--gold)">मुलायम सिंह यादव</div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--crimson-pale)">1939 – 2022 · Saifai, UP</div>
+        <span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--crimson-light);padding:.18rem .55rem;border-radius:2px;width:fit-content">Samajwadi Party · Uttar Pradesh</span>
+        <div style="display:flex;flex-direction:column;gap:.38rem;margin-top:.2rem">
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">CM Terms</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">UP Chief Minister 1989–91, 1993–95, 2003–07 (three terms)</span></div>
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">Central</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">Defence Minister of India, 1996–98 under United Front government</span></div>
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">Party</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">Founded Samajwadi Party 1992; remains India's principal OBC political force in UP</span></div>
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">Nickname</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">"Netaji" — a title of deep respect across the Yadava community of UP and India</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.9rem">
+        <div style="font-family:var(--font-display);font-size:clamp(.85rem,1.3vw,1.1rem);color:var(--saffron-pale);font-style:italic;line-height:1.4">"The wrestler from Saifai who became the most powerful Yadava politician in the history of independent India."</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">Mulayam Singh Yadav was born into a farming family in Saifai village, Etawah district, UP — the son of a <em>pehelwan</em> (wrestler), he became one himself before entering politics. His physical power was a metaphor for his political career: combative, resilient, capable of absorbing enormous punishment and returning to the centre of the ring. He was educated at Agra College and K.K. College Etawah, entering state-level politics in the Lohiaite tradition in the 1960s. He was first elected to the UP Assembly in 1967, beginning a parliamentary career that would last over half a century.</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">Mulayam's political achievement was the construction of the <strong style="color:var(--gold-light)">Samajwadi Party's M-Y coalition</strong> — the Muslim-Yadava alliance that gave him governing majorities in UP. His logic was mathematical and Lohiaite: Muslims constituted approximately 18–20% of UP's electorate, Yadavas approximately 10–12%. Combined with smaller OBC communities, this produced a reliable 35–40% first-preference vote bloc — enough for a plurality in the fragmented multi-party elections of the 1990s. The M-Y coalition governed UP for three terms under Mulayam and continues to be the Samajwadi Party's electoral foundation under his son Akhilesh.</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">His most controversial moment came on October 30, 1990 — as UP Chief Minister, he ordered police firing on <em>kar sevaks</em> (Hindu nationalist volunteers) attempting to demolish the Babri Masjid in Ayodhya, earning him the permanent nickname <strong style="color:var(--gold-light)">"Mullah Mulayam"</strong> from his political opponents and cementing his status as the defender of Muslim interests in UP — a label he wore as a political badge, not a stigma. Whatever the controversy, the political effect was the consolidation of Muslim votes behind the SP for a generation. He was appointed Defence Minister in 1996 and used the position to demonstrate that a Yadava politician could command the national stage.</div>
+        <div style="background:rgba(155,28,46,0.05);border-left:3px solid var(--crimson-light);padding:1rem 1.2rem;margin-top:.3rem">
+          <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--crimson-pale);margin-bottom:.35rem">Legacy Statement</div>
+          <div style="font-size:.8rem;color:var(--parchment-dk);line-height:1.82">Mulayam Singh Yadav proved that a Yadava farmer's son from a village in eastern UP could become Chief Minister of the most populous state in the world's largest democracy — three times. He built a party organisation that survives him, a political dynasty (son Akhilesh Yadav, CM 2012–17), and a political identity — the Samajwadi — that constitutes the primary organisational vehicle for Yadava political aspirations in UP to this day. He died on October 10, 2022. His funeral was attended by leaders from across the political spectrum, including Prime Minister Narendra Modi.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LALU PRASAD YADAV -->
+    <div class="reveal" style="display:grid;grid-template-columns:260px 1fr;gap:2.5rem;border:1px solid rgba(30,58,95,0.22);margin-bottom:3rem;padding:2.5rem;background:linear-gradient(160deg,rgba(16,24,40,0.72),rgba(6,8,16,0.88));position:relative;overflow:hidden;transition:border-color .3s" onmouseenter="this.style.borderColor='rgba(30,58,95,0.5)'" onmouseleave="this.style.borderColor='rgba(30,58,95,0.22)'">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--steel-pale),var(--saffron-light))"></div>
+      <div style="position:absolute;top:50%;left:260px;transform:translate(-50%,-50%);width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(30,58,95,0.07),transparent 70%);pointer-events:none"></div>
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <div style="width:100%;max-width:190px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(16,24,40,0.85),rgba(6,8,16,0.95));border:2px solid rgba(30,58,95,0.42);display:flex;align-items:center;justify-content:center;font-size:3rem">🎤</div>
+        <div style="font-family:var(--font-heading);font-size:1.25rem;color:var(--gold-light)">Lalu Prasad Yadav</div>
+        <div style="font-family:var(--font-dev);font-size:1.05rem;color:var(--gold)">लालू प्रसाद यादव</div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--steel-pale)">Born 1948 · Phulwaria, Bihar</div>
+        <span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:var(--steel);padding:.18rem .55rem;border-radius:2px;width:fit-content">Rashtriya Janata Dal · Bihar</span>
+        <div style="display:flex;flex-direction:column;gap:.38rem;margin-top:.2rem">
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">CM Term</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">Bihar Chief Minister 1990–97; wife Rabri Devi CM 1997–2005</span></div>
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">Central</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">Railway Minister 2004–09, UPA-I government; one of the most successful tenures</span></div>
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">Dynasty</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">Son Tejashwi Yadav — Deputy CM of Bihar 2015–17, 2022–present</span></div>
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">IIM</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">Railway turnaround studied as case study at IIM Ahmedabad and Harvard Business School</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.9rem">
+        <div style="font-family:var(--font-display);font-size:clamp(.85rem,1.3vw,1.1rem);color:var(--saffron-pale);font-style:italic;line-height:1.4">"The most charismatic OBC politician India has produced — whose social revolution in Bihar remains one of the most significant democratic achievements of the 20th century."</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">Lalu Prasad Yadav was born into a poor Yadava family in Phulwaria village, Gopalganj district, Bihar. His father was a small farmer. He was educated at Patna University, where he became active in student politics, eventually becoming president of the Patna University student union. He entered state politics through the Janata movement, was first elected to the Bihar assembly in 1977, and became a national figure in 1990 when he ordered the arrest of L.K. Advani's <em>rath yatra</em> in Bihar — a decision that made him simultaneously the hero of secular and backward-caste politics and the permanent enemy of the Hindutva movement.</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">His period as Bihar Chief Minister (1990–97) represented, as political scientist Christophe Jaffrelot has written, <strong style="color:var(--gold-light)">India's most complete social revolution within a democratic framework</strong>. For the first time in Bihar's history, the administrative machinery of the state — police, district administration, revenue department — was commanded by politicians who came from and were accountable to the Yadava and Muslim communities rather than the upper-caste elite. The symbolic and practical effects were profound: upper-caste dominance of Bihar's public life, which had persisted through independence, was broken. The cost — deteriorating law and order, economic stagnation, the fodder scam that eventually imprisoned Lalu — was real and has been endlessly debated. But the social achievement was also real and enduring.</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">As Railway Minister (2004–09), Lalu Prasad achieved what management scholars call one of the most remarkable turnarounds in the history of any public sector organisation. He took an institution that had been declared financially unviable — heading toward privatisation — and made it profitable without raising passenger fares, by innovative freight pricing, loading optimisation, and cost control. Indian Railways' profits increased from Rs. 2,000 crore to over Rs. 25,000 crore under his tenure. <strong style="color:var(--gold-light)">Harvard Business School and IIM Ahmedabad both included his Railway turnaround as a case study</strong> — the only instance of an Indian politician's administrative work receiving this distinction.</div>
+        <div style="background:rgba(30,58,95,0.08);border-left:3px solid var(--steel-pale);padding:1rem 1.2rem;margin-top:.3rem">
+          <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-pale);margin-bottom:.35rem">Legacy Statement</div>
+          <div style="font-size:.8rem;color:var(--parchment-dk);line-height:1.82">Lalu Prasad Yadav's M-Y (Muslim-Yadava) coalition in Bihar was the most durable social alliance in post-Mandal Indian politics. His son Tejashwi Yadav serves as Deputy Chief Minister of Bihar under the Grand Alliance government and is regarded as the most capable young OBC political leader in the Hindi belt. The RJD remains Bihar's largest single party by vote share. Whatever the controversies of governance, Lalu's social revolution — the actual displacement of upper-caste administrative dominance from Bihar — is irreversible.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHARAD YADAV -->
+    <div class="reveal" style="display:grid;grid-template-columns:260px 1fr;gap:2.5rem;border:1px solid rgba(232,130,10,0.2);margin-bottom:3rem;padding:2.5rem;background:linear-gradient(160deg,rgba(16,24,40,0.72),rgba(6,8,16,0.88));position:relative;overflow:hidden;transition:border-color .3s" onmouseenter="this.style.borderColor='rgba(232,130,10,0.48)'" onmouseleave="this.style.borderColor='rgba(232,130,10,0.2)'">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--saffron-light),var(--gold-light))"></div>
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <div style="width:100%;max-width:190px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(16,24,40,0.85),rgba(6,8,16,0.95));border:2px solid rgba(232,130,10,0.38);display:flex;align-items:center;justify-content:center;font-size:3rem">⚖️</div>
+        <div style="font-family:var(--font-heading);font-size:1.25rem;color:var(--gold-light)">Sharad Yadav</div>
+        <div style="font-family:var(--font-dev);font-size:1.05rem;color:var(--gold)">शरद यादव</div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--saffron-pale)">1947 – 2023 · MP &amp; Bihar</div>
+        <span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--saffron-light);padding:.18rem .55rem;border-radius:2px;width:fit-content">JD(U) · National OBC Voice</span>
+        <div style="display:flex;flex-direction:column;gap:.38rem;margin-top:.2rem">
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">Role</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">President of Janata Dal; Union Cabinet Minister (Labour, Civil Aviation, Food); Rajya Sabha MP</span></div>
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">Mandal</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">One of the most powerful advocates for Mandal implementation in Parliament; instrumental in the 1990 announcement</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.9rem">
+        <div style="font-family:var(--font-display);font-size:clamp(.85rem,1.3vw,1.1rem);color:var(--saffron-pale);font-style:italic;line-height:1.4">"The parliamentary voice of OBC India — whose five-decade career in national politics gave the Mandal moment its legislative articulation."</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">Sharad Yadav was the most important Yadava politician at the <em>national level</em> during the critical Mandal era. While Mulayam and Lalu operated primarily as state-level leaders — their power rooted in the specific social arithmetic of UP and Bihar — Sharad Yadav was the national parliamentary voice who articulated the OBC political agenda with intellectual coherence and political force at the centre. He was elected to the Lok Sabha from Jabalpur in 1974 at the age of 27 — one of the youngest MPs in Indian history — and went on to win from multiple states across five decades of parliamentary service.</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">As President of the Janata Dal and later JD(U), and as a Union Cabinet Minister in multiple governments, Sharad Yadav gave the OBC political movement a credibility and reach beyond its regional strongholds. His most celebrated parliamentary speech was in August 1990 during the Mandal debate — a defence of OBC reservations that is still cited as one of the finest advocacy speeches in Lok Sabha history. He argued with data, historical evidence, and moral force that the Mandal reservations were not a caste-based favour but a constitutional obligation and a democratic necessity. <strong style="color:var(--gold-light)">He was the person who most clearly connected Lohia's philosophy to the specific legislative act of Mandal implementation.</strong></div>
+      </div>
+    </div>
+
+    <!-- AKHILESH YADAV — next generation -->
+    <div class="reveal" style="display:grid;grid-template-columns:260px 1fr;gap:2.5rem;border:1px solid rgba(155,28,46,0.18);margin-bottom:3rem;padding:2.5rem;background:linear-gradient(160deg,rgba(16,24,40,0.72),rgba(6,8,16,0.88));position:relative;overflow:hidden;transition:border-color .3s" onmouseenter="this.style.borderColor='rgba(155,28,46,0.42)'" onmouseleave="this.style.borderColor='rgba(155,28,46,0.18)'">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--gold-light),var(--crimson-light))"></div>
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <div style="width:100%;max-width:190px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(16,24,40,0.85),rgba(6,8,16,0.95));border:2px solid rgba(155,28,46,0.35);display:flex;align-items:center;justify-content:center;font-size:3rem">🚀</div>
+        <div style="font-family:var(--font-heading);font-size:1.25rem;color:var(--gold-light)">Akhilesh Yadav</div>
+        <div style="font-family:var(--font-dev);font-size:1.05rem;color:var(--gold)">अखिलेश यादव</div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--crimson-pale)">Born 1973 · Saifai, UP</div>
+        <span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--crimson-light);padding:.18rem .55rem;border-radius:2px;width:fit-content">SP President · UP CM 2012–17</span>
+        <div style="display:flex;flex-direction:column;gap:.38rem;margin-top:.2rem">
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">Education</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">Environmental Engineering, University of Sydney, Australia</span></div>
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">CM</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">Youngest Chief Minister of UP (age 38) 2012–17; infrastructure, expressways, metro rail</span></div>
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">2024</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">SP wins 37 Lok Sabha seats in UP — stunning comeback; Akhilesh re-enters national politics as major force</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.9rem">
+        <div style="font-family:var(--font-display);font-size:clamp(.85rem,1.3vw,1.1rem);color:var(--saffron-pale);font-style:italic;line-height:1.4">"The next generation of Yadava politics — blending the Lohiaite social justice inheritance with a 21st-century development agenda."</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">Akhilesh Yadav represents the generational transition in Yadava politics — from the first generation of Mandal-era leaders who stormed upper-caste political dominance from below, to a second generation that takes OBC power as the starting point and must now demonstrate competent, development-oriented governance. Educated in environmental engineering at the University of Sydney, he became UP's youngest-ever Chief Minister in 2012 at age 38 — winning the state election on a development platform that promised expressways, laptops for students, and metro rail for Lucknow and Agra.</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">His government (2012–17) was the most infrastructure-focused in UP's history — delivering the <strong style="color:var(--gold-light)">Agra-Lucknow Expressway</strong> (302 km, India's longest at the time), the <strong style="color:var(--gold-light)">Lucknow Metro</strong>, a network of new universities and medical colleges in backward districts, and a free laptop distribution scheme that gave over one million students their first personal computers. His most significant political act was the <strong style="color:var(--gold-light)">SP-Congress alliance</strong> of 2017 — which failed electorally but established the model of broad secular coalition-building that he refined in 2024.</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">The 2024 Lok Sabha elections were Akhilesh's most significant political achievement as sole SP leader. Running on an <strong style="color:var(--gold-light)">I.N.D.I.A. alliance platform</strong> with Congress, his party won 37 seats in UP — the SP's best performance in a decade and a result that shocked the BJP and contributed directly to the ruling party's failure to win an outright majority. He is now widely regarded as the central figure of opposition politics in India's most politically consequential state.</div>
+      </div>
+    </div>
+
+    <!-- TEJASHWI YADAV — future generation -->
+    <div class="reveal" style="display:grid;grid-template-columns:260px 1fr;gap:2.5rem;border:1px solid rgba(30,58,95,0.2);margin-bottom:2rem;padding:2.5rem;background:linear-gradient(160deg,rgba(16,24,40,0.72),rgba(6,8,16,0.88));position:relative;overflow:hidden;transition:border-color .3s" onmouseenter="this.style.borderColor='rgba(30,58,95,0.48)'" onmouseleave="this.style.borderColor='rgba(30,58,95,0.2)'">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--steel-pale),var(--gold-light))"></div>
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <div style="width:100%;max-width:190px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(16,24,40,0.85),rgba(6,8,16,0.95));border:2px solid rgba(30,58,95,0.38);display:flex;align-items:center;justify-content:center;font-size:3rem">🌟</div>
+        <div style="font-family:var(--font-heading);font-size:1.25rem;color:var(--gold-light)">Tejashwi Prasad Yadav</div>
+        <div style="font-family:var(--font-dev);font-size:1.05rem;color:var(--gold)">तेजस्वी प्रसाद यादव</div>
+        <div style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--steel-pale)">Born 1989 · Patna, Bihar</div>
+        <span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:var(--steel);padding:.18rem .55rem;border-radius:2px;width:fit-content">RJD · Bihar Deputy CM</span>
+        <div style="display:flex;flex-direction:column;gap:.38rem;margin-top:.2rem">
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">Role</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">Leader of Opposition Bihar 2017–22; Deputy CM Bihar 2015–17, 2022–present</span></div>
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">Background</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">Former Ranji Trophy cricketer — represented Jharkhand; elected to Bihar assembly 2015</span></div>
+          <div style="display:flex;gap:.55rem"><span style="font-family:var(--font-heading);font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);flex-shrink:0;width:64px">2025</span><span style="font-size:.75rem;color:var(--parchment-dk);line-height:1.55">Emerging as the most prominent young Yadava leader nationally; Bihar 2025 elections will be defining moment</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.9rem">
+        <div style="font-family:var(--font-display);font-size:clamp(.85rem,1.3vw,1.1rem);color:var(--saffron-pale);font-style:italic;line-height:1.4">"The youngest major Yadava political leader in India — inheriting the Bihar social revolution and repackaging it for the next generation."</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">Tejashwi Prasad Yadav — son of Lalu Prasad Yadav and Rabri Devi — entered politics in 2015 when he was elected to the Bihar Assembly from the Raghopur constituency. He served as Deputy Chief Minister in the Grand Alliance government (2015–17), taking charge of the Roads and Construction department at age 26. When the Grand Alliance government collapsed in 2017 and Nitish Kumar joined the BJP, Tejashwi took over as Leader of Opposition in the Bihar Assembly and led the RJD through the most difficult period of its political history — with his father imprisoned in the fodder scam cases.</div>
+        <div style="font-size:.87rem;color:var(--parchment);line-height:1.95">His political identity is a studied departure from his father's theatrical populism — Tejashwi presents as calm, data-oriented, and focused on employment and development issues. His 2020 Bihar assembly election campaign — built around the promise of <strong style="color:var(--gold-light)">10 lakh government jobs</strong> — came extraordinarily close to winning power, with the Grand Alliance winning more votes than the NDA but losing on seats by a narrow margin. The campaign established Tejashwi as a national political figure capable of running a modern, issue-based campaign while maintaining the RJD's Yadava-Muslim social coalition base. <strong style="color:var(--gold-light)">He is the clearest example of the second-generation Yadava political leader — post-Mandal, post-struggle, governing in an era when OBC power is established rather than aspirational.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TODAY ═══ -->
+<section id="today" style="background:linear-gradient(180deg,var(--abyss3) 0%,var(--abyss2) 100%);border-top:1px solid rgba(155,28,46,0.12);padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">The Present Moment</p>
+    <h2 class="sec-title reveal">The Yadava Community in Contemporary Indian Politics — 2000 to Today</h2>
+    <p class="lead reveal">The first quarter of the 21st century has seen the Yadava political presence consolidate across multiple states and political formations — while also facing the most organised upper-caste political counter-mobilisation in Indian democratic history under the BJP's Hindutva coalition.</p>
+
+    <h3 class="sub-title reveal">The State-by-State Yadava Political Presence</h3>
+
+    <div style="width:100%;overflow-x:auto;margin:2rem 0" class="reveal">
+      <table style="width:100%;border-collapse:collapse;min-width:700px">
+        <thead>
+          <tr style="background:rgba(155,28,46,0.08)">
+            <th style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(155,28,46,0.3);padding:.85rem 1rem;text-align:left">State</th>
+            <th style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(155,28,46,0.3);padding:.85rem 1rem;text-align:left">Yadava Pop. %</th>
+            <th style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(155,28,46,0.3);padding:.85rem 1rem;text-align:left">Primary Party</th>
+            <th style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(155,28,46,0.3);padding:.85rem 1rem;text-align:left">Key Leaders</th>
+            <th style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(155,28,46,0.3);padding:.85rem 1rem;text-align:left">Current Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(155,28,46,0.08);background:rgba(155,28,46,0.04)">
+            <td style="padding:.8rem 1rem;font-family:var(--font-heading);font-size:.78rem;color:var(--gold-light)">Uttar Pradesh</td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">~10–12%</td>
+            <td style="padding:.8rem 1rem"><span style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--crimson-light);padding:.15rem .45rem;border-radius:2px">Samajwadi Party</span></td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Akhilesh Yadav (SP President), Dimple Yadav (MP)</td>
+            <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk);line-height:1.6">37 Lok Sabha seats 2024; SP largest opposition party in UP Assembly; strong challenge to BJP in 2027 state elections</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(155,28,46,0.08)">
+            <td style="padding:.8rem 1rem;font-family:var(--font-heading);font-size:.78rem;color:var(--gold-light)">Bihar</td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">~14–16%</td>
+            <td style="padding:.8rem 1rem"><span style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:var(--steel);padding:.15rem .45rem;border-radius:2px">RJD</span></td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Tejashwi Yadav (Dy. CM), Lalu Prasad (party chief)</td>
+            <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk);line-height:1.6">Grand Alliance in government; Tejashwi as Deputy CM; RJD remains Bihar's largest single party by vote share; Bihar 2025 elections decisive</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(155,28,46,0.08);background:rgba(155,28,46,0.04)">
+            <td style="padding:.8rem 1rem;font-family:var(--font-heading);font-size:.78rem;color:var(--gold-light)">Haryana</td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">~10%</td>
+            <td style="padding:.8rem 1rem"><span style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--saffron-light);padding:.15rem .45rem;border-radius:2px">INLD / Congress</span></td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Bhajan Lal Bishnoi (historical), current leaders in Congress</td>
+            <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk);line-height:1.6">Ahir community (Yadava) historically strong in Rewari, Mahendragarh, Bhiwani; BJP made inroads post-2014; Ahir Regiment demand ongoing</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(155,28,46,0.08)">
+            <td style="padding:.8rem 1rem;font-family:var(--font-heading);font-size:.78rem;color:var(--gold-light)">Rajasthan</td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">~8–10%</td>
+            <td style="padding:.8rem 1rem"><span style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--saffron-light);padding:.15rem .45rem;border-radius:2px">Congress / SP</span></td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Kalyan Singh (historical BJP), Rawat community leaders</td>
+            <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk);line-height:1.6">Yadava (Rawat/Ahir) communities in Bharatpur, Dholpur, Karauli belts; swing community between Congress and BJP; significant in eastern Rajasthan</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(155,28,46,0.08);background:rgba(155,28,46,0.04)">
+            <td style="padding:.8rem 1rem;font-family:var(--font-heading);font-size:.78rem;color:var(--gold-light)">Madhya Pradesh</td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">~8%</td>
+            <td style="padding:.8rem 1rem"><span style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--gold-light);padding:.15rem .45rem;border-radius:2px">Congress / SP</span></td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Kamal Nath era Congress; Yadava MLAs in Bundelkhand and Chambal belts</td>
+            <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk);line-height:1.6">Yadava communities in Chambal, Bundelkhand, Vindhya regions; BJP's OBC outreach has split the traditional Congress-Yadava vote; contested terrain</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(155,28,46,0.08)">
+            <td style="padding:.8rem 1rem;font-family:var(--font-heading);font-size:.78rem;color:var(--gold-light)">Maharashtra</td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">~5% (Gavli/Dhangar)</td>
+            <td style="padding:.8rem 1rem"><span style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--gold-light);padding:.15rem .45rem;border-radius:2px">NCP / Congress</span></td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Gavli community leaders; Vidarbha and Marathwada Yadava MLAs</td>
+            <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk);line-height:1.6">Dhangar-Gavli communities (Yadava sub-group) primarily in Vidarbha and Konkan; separate from the dominant Maratha community politically; active in OBC reservation movements</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(155,28,46,0.08);background:rgba(155,28,46,0.04)">
+            <td style="padding:.8rem 1rem;font-family:var(--font-heading);font-size:.78rem;color:var(--gold-light)">Gujarat</td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">~6% (Ahir)</td>
+            <td style="padding:.8rem 1rem"><span style="font-family:var(--font-heading);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:var(--steel);padding:.15rem .45rem;border-radius:2px">Congress / AAP</span></td>
+            <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Ahir community leaders in Saurashtra (Amreli, Bhavnagar, Rajkot districts)</td>
+            <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk);line-height:1.6">Saurashtra region Ahir belt historically Congress-leaning; BJP's OBC consolidation has reduced the gap; Ahir community among the most economically active in Gujarat dairy sector (Amul cooperative foundation)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title reveal">The BJP Challenge — Yadava Political Power Under Pressure</h3>
+    <div class="body-text reveal">The rise of the Bharatiya Janata Party under Narendra Modi from 2014 onward represented the most serious political challenge to Yadava political power since the Mandal moment. The BJP's strategy — developed systematically from 2010 onward under Amit Shah's organisational leadership — was to <strong>disaggregate the OBC vote</strong>: instead of allowing the Mandal-era Yadava-led parties to represent all OBC communities, the BJP directly cultivated the Non-Yadava OBC communities (Kurmis, Lodhs, Kushwahas, Nishads, Mallahs, Koeris) and the Extremely Backward Classes (EBCs), arguing that the Samajwadi Party and RJD were "Yadava parties" that concentrated power and benefits within the Yadava community at the expense of other OBCs.</div>
+
+    <div class="body-text reveal">This "non-Yadava OBC" strategy was the BJP's most sophisticated political operation of the Modi era — and it worked. In the 2017 and 2022 UP assembly elections, and in Bihar's 2020 assembly elections, the BJP assembled coalitions of Non-Yadava OBCs, upper castes, and a portion of SC communities that defeated the traditional M-Y (Muslim-Yadava) coalitions of the SP and RJD. <strong>The political lesson for Yadava parties has been clear: the Mandal coalition cannot survive on M-Y alone in a fragmented OBC landscape</strong> — it must either broaden its OBC coalition or find new partners.</div>
+
+    <div class="body-text reveal">The 2024 Lok Sabha elections suggested the Yadava political parties may be learning this lesson. The SP's 37 seats in UP came partly from a revived M-Y coalition but also from upper-caste defections, anti-incumbency, and the INDIA alliance's combined organisational strength. The political contest between the BJP's "non-Yadava OBC" strategy and the SP-RJD's "Mandal coalition" model will be the defining dynamic of Hindi-belt politics through 2030.</div>
+
+    <div class="hbox reveal">
+      <div class="hb-title">The Ahir Regiment Demand — Military Identity and Political Power</div>
+      <ul class="hb-list">
+        <li><strong>The Historical Context</strong> — Following the post-1857 exclusion of Ahir/Yadava soldiers from the reorganised Indian Army under the "Martial Races" policy, the community has maintained a consistent demand since Independence for the creation of a dedicated <strong>Ahir Regiment</strong> in the Indian Army — parallel to the Sikh Regiment, Rajput Regiment, Jat Regiment, and other caste-based regiments.</li>
+        <li><strong>The Political Demand</strong> — The Ahir Regiment demand has been a consistent political issue for Haryana Yadava communities — particularly in the Rewari, Mahendragarh, and Bhiwani districts — since the 1960s. It represents not merely a military posting preference but a demand for the institutional recognition of Yadava martial traditions and the restoration of the community's military honour that was stripped by colonial policy after 1857.</li>
+        <li><strong>Rewari Mahapanchayat</strong> — In September 2023, a massive community gathering (<em>mahapanchayat</em>) at Rewari, Haryana demanded the immediate establishment of an Ahir Regiment. The gathering drew hundreds of thousands of participants from the Yadava communities of Haryana, Rajasthan, UP, and Delhi — demonstrating the continued emotional and political salience of the demand across the community.</li>
+        <li><strong>Current Status</strong> — The Indian government has not yet agreed to the Ahir Regiment demand, citing its policy against the creation of new caste-based regiments. The community continues to press the demand through political channels, including through sympathetic MPs from the Haryana Yadava belt. The demand intersects with broader debates about the role of caste in military recruitment and institutional representation in India's armed forces.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REFERENCES ═══ -->
+<section id="references" style="background:linear-gradient(180deg,var(--abyss2) 0%,rgba(4,5,10,1) 100%);border-top:1px solid rgba(155,28,46,0.1);padding:6rem 2rem;">
+  <div class="inner">
+    <p class="eyebrow reveal">इतिहास के स्रोत</p>
+    <h2 class="sec-title reveal">Sources & References — Chapter VIII</h2>
+
+    <table style="width:100%;border-collapse:collapse;margin:2rem 0" class="reveal">
+      <thead>
+        <tr>
+          <th style="font-family:var(--font-heading);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(155,28,46,0.28);padding:.85rem 1rem;text-align:left;background:rgba(155,28,46,0.05)">Source / Author</th>
+          <th style="font-family:var(--font-heading);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(155,28,46,0.28);padding:.85rem 1rem;text-align:left;background:rgba(155,28,46,0.05)">Text / Reference</th>
+          <th style="font-family:var(--font-heading);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(155,28,46,0.28);padding:.85rem 1rem;text-align:left;background:rgba(155,28,46,0.05)">Subject</th>
+          <th style="font-family:var(--font-heading);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(155,28,46,0.28);padding:.85rem 1rem;text-align:left;background:rgba(155,28,46,0.05)">Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(155,28,46,0.07)">
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--saffron);padding:.1rem .4rem;border-radius:2px">Mandal Commission</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Report of the Backward Classes Commission, Vols. I–II, Government of India, 1980</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">The foundational document of post-independence OBC politics — identifies 3,743 OBC communities, estimates 52% OBC population share, recommends 27% reservation; Yadava community specifically enumerated as one of the largest OBC communities nationally</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk);font-family:var(--font-dev)">सरकारी दस्तावेज़ — हिंदी/English</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(155,28,46,0.07);background:rgba(155,28,46,0.03)">
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:var(--steel);padding:.1rem .4rem;border-radius:2px">Christophe Jaffrelot</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">India's Silent Revolution: The Rise of the Lower Castes in North India, Columbia University Press, 2003</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">The definitive scholarly analysis of the OBC political rise in North India — covers the Yadava identity movement, Mandal Commission politics, the SP and RJD's social revolution in UP and Bihar, and the BJP's counter-mobilisation strategy</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk)">Academic · Essential reading</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(155,28,46,0.07)">
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--saffron);padding:.1rem .4rem;border-radius:2px">Yogendra Yadav</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">"The Mandal Moment," Economic and Political Weekly, 1995; "Electoral Politics in the Time of Change," EPW 1999</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Psephological analysis of the Mandal moment's electoral consequences; Yadava voting patterns in UP and Bihar; the emergence of the second democratic upsurge in post-independence India</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk)">Academic journal · EPW archives</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(155,28,46,0.07);background:rgba(155,28,46,0.03)">
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:var(--steel);padding:.1rem .4rem;border-radius:2px">Eric Stokes</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">The Peasant Armed: The Indian Revolt of 1857, Clarendon Press, Oxford, 1986</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">The definitive social history of the 1857 uprising — analyses the role of peasant communities including Ahir/Yadava groups in Awadh and UP; documents the agrarian and community grievances underlying the rebellion beyond the "greased cartridge" trigger</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk)">Academic · Oxford · Standard reference</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(155,28,46,0.07)">
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--saffron);padding:.1rem .4rem;border-radius:2px">Heather Streets</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Martial Races: The Military, Race and Masculinity in British Imperial Culture, 1857–1914, Manchester University Press, 2004</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Analysis of the British "Martial Races" policy — how it excluded Ahir/Yadava communities from the post-1857 reorganised Army; the political uses of racial military classification in colonial India; the historical basis for the modern Ahir Regiment demand</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk)">Academic · Manchester UP</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(155,28,46,0.07);background:rgba(155,28,46,0.03)">
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:var(--steel);padding:.1rem .4rem;border-radius:2px">Ram Manohar Lohia</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Caste System, Navahind Publications, 1964; The Guilty Men of India's Partition, 1960; collected speeches and writings</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Lohia's primary texts — the philosophical foundation for OBC political assertion; "Pichde Paayen Sau Mein Saath" doctrine; critique of Congress upper-caste dominance; Hindu-Muslim unity argument; the four-fold oppression theory (caste, class, gender, colonial)</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk);font-family:var(--font-dev)">लोहिया रचनावली — हिंदी मूल</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(155,28,46,0.07)">
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--saffron);padding:.1rem .4rem;border-radius:2px">Indra Sawhney</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Indra Sawhney v. Union of India, AIR 1993 SC 477 — 9-judge Constitutional Bench judgment</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">The constitutional validation of OBC reservations — upholds 27% Mandal reservation; establishes the 50% total reservation ceiling; creates the "creamy layer" exclusion; the legal document that made post-Mandal Yadava political gains constitutionally permanent</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk)">Supreme Court · Constitutional law</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(155,28,46,0.07);background:rgba(155,28,46,0.03)">
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:var(--steel);padding:.1rem .4rem;border-radius:2px">S.B. Chaudhuri</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Civil Rebellion in the Indian Mutinies, 1857–1859, World Press, Calcutta, 1957</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Documents the civilian — as opposed to military — dimension of the 1857 uprising across North India; analyses the role of Ahir/Yadava peasant communities in Awadh and Bihar; essential for understanding the community's participation in the first independence struggle</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk)">Academic · Historical</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(155,28,46,0.07)">
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--saffron);padding:.1rem .4rem;border-radius:2px">Election Commission</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Election Commission of India — State and Lok Sabha election results, 1952–2024, eci.gov.in</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Primary source for all electoral data — SP and RJD seat counts, vote shares, constituency-level results; Yadava community electoral performance quantified through constituency-level caste surveys; the authoritative record of the post-Mandal electoral transformation</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk)">Primary · Government of India</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(155,28,46,0.07);background:rgba(155,28,46,0.03)">
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:var(--steel);padding:.1rem .4rem;border-radius:2px">Ghanshyam Shah</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Caste and Democratic Politics in India, Permanent Black, Delhi, 2002</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Comprehensive analysis of how caste functions in Indian democratic politics — covers the Yadava identity movement, the All-India Yadav Mahasabha's formation and role, OBC political consolidation across Hindi-belt states</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk)">Academic · Permanent Black</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(155,28,46,0.07)">
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--saffron);padding:.1rem .4rem;border-radius:2px">IIM Ahmedabad</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Indian Railways Turnaround 2004–2009 — case study, IIM Ahmedabad Case Studies, 2010</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">Documents Lalu Prasad Yadav's achievement as Railway Minister — Indian Railways' transformation from loss-making entity to Rs. 25,000 crore surplus; the only Indian politician's administrative achievement to be formally studied at IIM Ahmedabad and Harvard Business School</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk)">Management case study · IIM-A</td>
+        </tr>
+        <tr>
+          <td style="padding:.8rem 1rem;font-size:.82rem;color:var(--parchment)"><span style="display:inline-block;font-family:var(--font-heading);font-size:.47rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:rgba(155,28,46,0.7);padding:.1rem .4rem;border-radius:2px">Lokniti-CSDS</span></td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">National Election Studies (NES) 1996–2024 — Centre for the Study of Developing Societies, Delhi</td>
+          <td style="padding:.8rem 1rem;font-size:.8rem;color:var(--parchment)">The most rigorous academic electoral survey series in India — tracks Yadava community voting patterns, party affiliations, and political attitudes across every Lok Sabha election since 1996; primary data source for understanding the Yadava community's political evolution over three decades of post-Mandal democracy</td>
+          <td style="padding:.8rem 1rem;font-size:.78rem;color:var(--parchment-dk)">Survey data · CSDS Delhi</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<!-- NEXT CHAPTER -->
+<div style="position:relative;z-index:10;background:linear-gradient(135deg,rgba(16,24,40,0.4),rgba(6,8,16,0.97));border-top:1px solid rgba(155,28,46,0.42);border-bottom:1px solid rgba(30,58,95,0.3);padding:4.5rem 2rem;text-align:center">
+  <p style="font-family:var(--font-heading);font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--saffron);margin-bottom:1rem">The Yadavas Who Shaped Modern India</p>
+  <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.5rem);color:var(--gold-pale);margin-bottom:.8rem">Chapter IX — Notable Figures</h2>
+  <p style="font-family:var(--font-dev);font-size:1.1rem;color:var(--gold);margin-bottom:2rem">विज्ञान · खेल · सेना · कला · साहित्य</p>
+  <p style="font-size:.95rem;font-style:italic;color:var(--parchment);max-width:600px;margin:0 auto 2.5rem;line-height:1.9">Scientists, soldiers, cricketers, Olympians, poets, filmmakers, and administrators — the Yadava individuals who have shaped modern India across every field of human endeavour.</p>
+  <a href="notable-figures.html" style="font-family:var(--font-heading);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--saffron-light));border:none;padding:1rem 2.2rem;text-decoration:none;display:inline-block;transition:all .3s;box-shadow:0 4px 20px rgba(155,28,46,0.35);clip-path:polygon(10px 0%,calc(100% - 10px) 0%,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0% calc(100% - 10px),0% 10px)">Enter Chapter IX →</a>
+  &nbsp;&nbsp;
+  <a href="bhakti-saints.html" style="font-family:var(--font-heading);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--gold);padding:1rem 2.2rem;text-decoration:none;display:inline-block;transition:all .3s;clip-path:polygon(10px 0%,calc(100% - 10px) 0%,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0% calc(100% - 10px),0% 10px)">← Chapter VII — Bhakti Saints</a>
+</div>
+
+<footer style="position:relative;z-index:10;background:rgba(3,4,8,1);border-top:1px solid rgba(155,28,46,0.12);padding:2.5rem 2rem">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+    <div style="font-family:var(--font-dev);font-size:1.3rem;color:var(--gold)">यादव वंश</div>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+      <a href="index.html" style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--parchment-dk);text-decoration:none">Home</a>
+      <a href="cosmic-origin.html" style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--parchment-dk);text-decoration:none">Ch. I</a>
+      <a href="lunar-dynasty.html" style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--parchment-dk);text-decoration:none">Ch. II</a>
+      <a href="yadu.html" style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--parchment-dk);text-decoration:none">Ch. III</a>
+      <a href="krishna.html" style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--parchment-dk);text-decoration:none">Ch. IV</a>
+      <a href="clans-gotras.html" style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--parchment-dk);text-decoration:none">Ch. V</a>
+      <a href="medieval-kingdoms.html" style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--parchment-dk);text-decoration:none">Ch. VI</a>
+      <a href="bhakti-saints.html" style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--parchment-dk);text-decoration:none">Ch. VII</a>
+      <a href="modern-history.html" style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);text-decoration:none">Ch. VIII</a>
+      <a href="notable-figures.html" style="font-family:var(--font-heading);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--parchment-dk);text-decoration:none">Ch. IX</a>
+    </div>
+    <div style="font-family:var(--font-heading);font-size:.55rem;letter-spacing:.1em;color:rgba(200,150,14,.3)">Yadav Vansh Digital Scripture · Chapter VIII · Modern History & Political Rise</div>
+  </div>
+</footer>
+
+<script>
+/* ── Struggle Canvas — steel night sky, rising crimson sparks of resistance ── */
+(function(){
+  const c   = document.getElementById('struggle-canvas');
+  const ctx = c.getContext('2d');
+  let W, H, particles = [], _stars = null;
+
+  function resize(){
+    W = c.width  = innerWidth;
+    H = c.height = innerHeight;
+    _stars = null;
+  }
+
+  function initStars(){
+    _stars = [];
+    const n = Math.floor(W * H / 3200);
+    for(let i = 0; i < n; i++){
+      const r = Math.random();
+      _stars.push({
+        x:     Math.random() * W,
+        y:     Math.random() * H * .65,
+        r:     Math.random() * 1.2 + .2,
+        alpha: Math.random() * .45 + .06,
+        tw:    Math.random() * .014 + .003,
+        ph:    Math.random() * Math.PI * 2,
+        type:  r < .22 ? 'c' : r < .42 ? 's' : r < .52 ? 'g' : 'w'
+      });
+    }
+  }
+
+  function spawnParticle(){
+    if(particles.length > 55) return;
+    const hues = [350, 15, 220, 38];
+    particles.push({
+      x:       Math.random() * W,
+      y:       H + 12,
+      vx:      (Math.random() - .5) * .6,
+      vy:      -(0.4 + Math.random() * 1.0),
+      r:       .6 + Math.random() * 2.0,
+      life:    0,
+      maxLife: 140 + Math.random() * 180,
+      hue:     hues[Math.floor(Math.random() * hues.length)],
+      sat:     75 + Math.random() * 20,
+      lit:     50 + Math.random() * 30
+    });
+  }
+
+  function drawAtmosphere(t){
+    const pulse = .5 + .5 * Math.sin(t * .0015);
+    /* Crimson left — steel right — like a flag */
+    const gl = ctx.createRadialGradient(W * .25, H * .5, 0, W * .25, H * .5, H * .55);
+    gl.addColorStop(0, `rgba(155,28,46,${.04 + pulse * .022})`);
+    gl.addColorStop(1, 'transparent');
+    ctx.fillStyle = gl;
+    ctx.fillRect(0, 0, W, H);
+
+    const gr = ctx.createRadialGradient(W * .75, H * .5, 0, W * .75, H * .5, H * .5);
+    gr.addColorStop(0, `rgba(30,58,95,${.04 + pulse * .018})`);
+    gr.addColorStop(1, 'transparent');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  function draw(t){
+    ctx.clearRect(0, 0, W, H);
+
+    /* Deep abyss background */
+    const bg = ctx.createLinearGradient(0, 0, 0, H);
+    bg.addColorStop(0,   'rgba(4,5,10,1)');
+    bg.addColorStop(.3,  'rgba(7,9,18,1)');
+    bg.addColorStop(.7,  'rgba(10,13,24,1)');
+    bg.addColorStop(1,   'rgba(14,18,30,1)');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    drawAtmosphere(t);
+
+    if(!_stars) initStars();
+    _stars.forEach(s => {
+      const tw = .5 + .5 * Math.sin(t * s.tw + s.ph);
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      if     (s.type === 'c') ctx.fillStyle = `rgba(155,28,46,${s.alpha * tw})`;
+      else if(s.type === 's') ctx.fillStyle = `rgba(30,58,95,${s.alpha * tw * 1.4})`;
+      else if(s.type === 'g') ctx.fillStyle = `rgba(200,150,14,${s.alpha * tw})`;
+      else {
+        const v = 120 + Math.floor(80 * tw);
+        ctx.fillStyle = `rgba(${v},${v},${v+10},${s.alpha * tw * .7})`;
+      }
+      ctx.fill();
+    });
+
+    /* Rising resistance sparks */
+    if(Math.random() < .038) spawnParticle();
+
+    particles = particles.filter(p => {
+      p.x  += p.vx;
+      p.y  += p.vy;
+      p.vy *= .999;
+      p.life++;
+      const prog  = p.life / p.maxLife;
+      const env   = prog < .15 ? prog / .15 : prog > .7 ? (1 - prog) / .3 : 1;
+      const alpha = env * .58;
+      if(alpha <= 0.004) return false;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${p.hue},${p.sat}%,${p.lit}%,${alpha})`;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${p.hue},${p.sat}%,${p.lit}%,${alpha * .14})`;
+      ctx.fill();
+
+      return true;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(draw);
+})();
+
+/* ── Nav scroll ── */
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', scrollY > 50);
+});
+
+/* ── Intersection reveal ── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: .06, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ── Timeline items (slide from left) ── */
+const tlObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: .08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.tl-item').forEach(el => tlObs.observe(el));
+
+/* ── Active pill highlighting ── */
+const sections = document.querySelectorAll('section[id]');
+const pills    = document.querySelectorAll('.pill');
+const pillObs  = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const id = e.target.getAttribute('id');
+      pills.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { threshold: .18 });
+sections.forEach(s => pillObs.observe(s));
+</script>
+</body>
+</html>

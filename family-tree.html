@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter XI — The Family Tree | Yadav Vansh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500&family=Noto+Serif+Devanagari:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --vellum:   #1A1208;
+      --vellum2:  #221809;
+      --vellum3:  #2C1F0C;
+      --ink:      #0D0802;
+      --gold:     #C8922A;
+      --gold-l:   #E8B84A;
+      --gold-p:   #F7D870;
+      --gold-dim: #7A5018;
+      --amber:    #8B5A1A;
+      --rust:     #7A2E0E;
+      --rust-l:   #B84020;
+      --crimson:  #5C1020;
+      --crimson-l:#941830;
+      --sage:     #1C3020;
+      --sage-l:   #2E5030;
+      --sage-p:   #4A8048;
+      --teal:     #0E3830;
+      --teal-l:   #1A6050;
+      --teal-p:   #30A080;
+      --linen:    #EEE4CC;
+      --linen2:   #D8C8A8;
+      --linen3:   #B0986C;
+      --branch:   rgba(200,146,42,0.7);
+      --sap:      #F7D870;
+      --ff:    'Fraunces', serif;
+      --fc:    'Cinzel', serif;
+      --fb:    'Outfit', sans-serif;
+      --fd:    'Noto Serif Devanagari', serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--vellum);
+      color: var(--linen);
+      font-family: var(--fb);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── VELLUM TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      opacity: .55;
+      mix-blend-mode: overlay;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 0 2rem; transition: all .4s;
+    }
+    nav.scrolled {
+      background: rgba(13,8,2,.97);
+      border-bottom: 1px solid rgba(200,146,42,.22);
+      box-shadow: 0 4px 40px rgba(0,0,0,.95);
+    }
+    .nav-inner {
+      max-width: 1440px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .nav-logo { font-family: var(--fd); font-size: 1.38rem; color: var(--gold-p); text-decoration: none; }
+    .nav-logo span { font-family: var(--fb); font-size: .48rem; letter-spacing: .22em; text-transform: uppercase; color: var(--linen3); display: block; margin-top: -2px; }
+    .nav-ch { font-family: var(--fc); font-size: .52rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); padding: .26rem .7rem; border: 1px solid rgba(200,146,42,.3); }
+    .nav-back { font-family: var(--fb); font-size: .52rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-l); text-decoration: none; transition: gap .22s; display: flex; align-items: center; gap: .5rem; }
+    .nav-back:hover { gap: .9rem; }
+
+    /* ══════════ HERO ══════════ */
+    .hero {
+      position: relative; z-index: 10; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; text-align: center; padding: 8rem 2rem 5rem;
+      overflow: hidden;
+    }
+    /* Radial vignette */
+    .hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 60% 55% at 50% 48%,
+        rgba(200,146,42,.05) 0%, rgba(13,8,2,0) 65%);
+    }
+    /* Corner ornaments */
+    .hero::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        radial-gradient(circle 1px at 12% 14%, rgba(200,146,42,.5) 0%, transparent 100%),
+        radial-gradient(circle 1px at 88% 14%, rgba(200,146,42,.5) 0%, transparent 100%),
+        radial-gradient(circle 1px at 12% 86%, rgba(200,146,42,.5) 0%, transparent 100%),
+        radial-gradient(circle 1px at 88% 86%, rgba(200,146,42,.5) 0%, transparent 100%);
+    }
+    .hero-ornament {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; opacity: .07;
+    }
+    .hero-ornament svg { width: 100%; height: 100%; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes goldBloom {
+      0%   { opacity: 0; filter: blur(28px) brightness(.15); transform: scale(.85); }
+      45%  { filter: blur(2px) brightness(1.8) drop-shadow(0 0 70px rgba(247,216,112,.65)); }
+      100% { opacity: 1; filter: drop-shadow(0 0 50px rgba(200,146,42,.35)); transform: none; }
+    }
+
+    .hero-eyebrow {
+      font-family: var(--fc); font-size: .52rem; letter-spacing: .45em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(200,146,42,.32); padding: .32rem 1rem;
+      margin-bottom: 1.2rem; display: inline-flex; align-items: center; gap: .9rem;
+      opacity: 0; animation: fadeUp .9s .3s forwards;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after { content: '❧'; font-size: .6rem; color: var(--gold-p); }
+    .hero-era {
+      font-family: var(--fb); font-size: clamp(.46rem,.88vw,.6rem); letter-spacing: .44em;
+      text-transform: uppercase; color: rgba(200,146,42,.42); margin-bottom: .5rem;
+      opacity: 0; animation: fadeUp .9s .5s forwards;
+    }
+    .hero-glyph {
+      font-family: var(--fd); font-size: clamp(2rem,6.5vw,7.2rem);
+      line-height: 1.08; margin-bottom: .38rem;
+      background: linear-gradient(155deg,
+        var(--gold-p) 0%, var(--gold-l) 25%,
+        #FFF5D0 48%, var(--gold-l) 68%,
+        var(--gold) 85%, var(--amber) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      filter: drop-shadow(0 0 55px rgba(200,146,42,.38));
+      opacity: 0; animation: goldBloom 2.8s .65s forwards;
+    }
+    .hero-title {
+      font-family: var(--fc); font-size: clamp(1rem,2.8vw,2.4rem); font-weight: 600;
+      color: var(--linen); letter-spacing: .08em; line-height: 1.15; margin-bottom: .45rem;
+      opacity: 0; animation: fadeUp 1.1s 1s forwards;
+    }
+    .hero-sub {
+      font-family: var(--ff); font-style: italic; font-size: clamp(.86rem,1.55vw,1.08rem);
+      color: var(--gold-l); margin-bottom: 1.3rem;
+      opacity: 0; animation: fadeUp .9s 1.2s forwards;
+    }
+    .hero-rule {
+      display: flex; align-items: center; gap: 1rem;
+      width: min(440px, 74vw); margin: .2rem auto 1.3rem;
+      opacity: 0; animation: fadeIn .9s 1.4s forwards;
+    }
+    .hero-rule::before, .hero-rule::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+    }
+    .hr-gem { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
+    .hero-lead {
+      font-size: clamp(.86rem,1.28vw,1rem); color: var(--linen2); max-width: 700px;
+      line-height: 2.05; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 1s 1.6s forwards;
+    }
+    .hero-cta {
+      display: flex; gap: .9rem; flex-wrap: wrap; justify-content: center;
+      opacity: 0; animation: fadeUp .9s 1.9s forwards;
+    }
+    .cta-btn {
+      font-family: var(--fc); font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
+      padding: .9rem 2rem; text-decoration: none; transition: all .3s;
+      clip-path: polygon(8px 0%,calc(100% - 8px) 0%,100% 8px,100% calc(100% - 8px),
+        calc(100% - 8px) 100%,8px 100%,0% calc(100% - 8px),0% 8px);
+    }
+    .cta-primary {
+      background: linear-gradient(135deg, var(--gold-l), var(--gold));
+      color: var(--ink);
+    }
+    .cta-secondary {
+      border: 1px solid rgba(200,146,42,.44); color: var(--gold-l); background: transparent;
+    }
+    .scroll-cue {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      opacity: 0; animation: fadeIn 1s 2.6s forwards;
+    }
+    .scroll-cue span {
+      font-family: var(--fb); font-size: .44rem; letter-spacing: .32em;
+      text-transform: uppercase; color: rgba(200,146,42,.36);
+    }
+    .scroll-line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, var(--gold-dim), transparent);
+      animation: pulse 2.3s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:.2} 50%{opacity:.82} }
+
+    /* ══════════ SUTRA ══════════ */
+    .sutra {
+      position: relative; z-index: 10;
+      background: linear-gradient(135deg, rgba(22,15,5,.98), rgba(13,8,2,.99));
+      border-top: 2px solid rgba(200,146,42,.42); border-bottom: 1px solid rgba(44,31,12,.8);
+      padding: 3rem 2rem; text-align: center;
+    }
+    .sutra::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 50% 70% at 50% 50%, rgba(200,146,42,.04), transparent);
+    }
+    .sutra-dev  { font-family: var(--fd); font-size: clamp(.9rem,1.8vw,1.25rem); color: var(--gold-p); line-height: 2.1; margin-bottom: .8rem; position: relative; }
+    .sutra-tr   { font-family: var(--ff); font-style: italic; font-size: clamp(.82rem,1.3vw,.96rem); color: var(--linen2); line-height: 1.9; max-width: 780px; margin: 0 auto .6rem; position: relative; }
+    .sutra-src  { font-family: var(--fb); font-size: .5rem; letter-spacing: .22em; text-transform: uppercase; color: var(--sage-p); position: relative; }
+
+    /* ══════════ TREE SECTION ══════════ */
+    #tree-section {
+      position: relative; z-index: 10;
+      background: linear-gradient(180deg, var(--vellum) 0%, var(--vellum3) 50%, var(--vellum2) 100%);
+      padding: 5rem 0 0;
+    }
+    .tree-header { text-align: center; padding: 0 2rem 3rem; }
+    .tree-eyebrow {
+      font-family: var(--fc); font-size: .54rem; letter-spacing: .42em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .85rem; display: flex; align-items: center;
+      gap: 1rem; justify-content: center;
+    }
+    .tree-eyebrow::before, .tree-eyebrow::after { content: ''; width: 32px; height: 1px; background: var(--gold-dim); }
+    h2.tree-title {
+      font-family: var(--ff); font-size: clamp(1.5rem,3.2vw,2.55rem); color: var(--gold-p);
+      font-weight: 600; line-height: 1.18; margin-bottom: .75rem;
+    }
+    .tree-lead { font-size: .95rem; color: var(--linen2); max-width: 760px; margin: 0 auto; line-height: 2.05; }
+
+    /* ── TREE CANVAS WRAPPER ── */
+    .tree-wrap {
+      position: relative; width: 100%; overflow-x: auto; overflow-y: visible;
+      padding: 2rem 0 5rem;
+      scrollbar-width: thin; scrollbar-color: rgba(200,146,42,.3) rgba(22,15,5,.5);
+    }
+    .tree-wrap::-webkit-scrollbar { height: 6px; }
+    .tree-wrap::-webkit-scrollbar-track { background: rgba(22,15,5,.5); }
+    .tree-wrap::-webkit-scrollbar-thumb { background: rgba(200,146,42,.3); border-radius: 3px; }
+
+    #tree-svg {
+      display: block; margin: 0 auto;
+      max-width: 100%;
+    }
+
+    /* ── SVG TREE STYLING ── */
+    .branch { fill: none; stroke: var(--branch); stroke-linecap: round; }
+    .root-branch { stroke: rgba(200,146,42,.5); stroke-width: 3; }
+    .main-branch  { stroke: rgba(200,146,42,.62); stroke-width: 2.2; }
+    .sub-branch   { stroke: rgba(200,146,42,.44); stroke-width: 1.4; }
+    .leaf-branch  { stroke: rgba(200,146,42,.3);  stroke-width: 0.9; }
+
+    /* Sap flow animation */
+    @keyframes sapFlow {
+      0%   { stroke-dashoffset: 800; opacity: 0; }
+      8%   { opacity: 1; }
+      92%  { opacity: 1; }
+      100% { stroke-dashoffset: 0; opacity: 0; }
+    }
+    .sap {
+      fill: none; stroke: var(--sap); stroke-linecap: round;
+      stroke-dasharray: 6 18;
+      animation: sapFlow 5.5s linear infinite;
+      pointer-events: none;
+    }
+    .sap-d1 { animation-delay: 0s;    stroke-width: 1.4; }
+    .sap-d2 { animation-delay: 1.1s;  stroke-width: 1.2; }
+    .sap-d3 { animation-delay: 2.2s;  stroke-width: 1.0; }
+    .sap-d4 { animation-delay: 3.3s;  stroke-width: 0.9; }
+    .sap-d5 { animation-delay: 4.4s;  stroke-width: 0.8; }
+
+    /* Node circles */
+    .node-ring-outer { fill: none; stroke-width: 1.5; opacity: .45; }
+    .node-ring-inner { fill: none; stroke-width: 1;   opacity: .6;  }
+    .node-dot        { }
+    .node-pulse {
+      animation: nodePulse 3.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+    @keyframes nodePulse {
+      0%,100% { r: 0; opacity: .55; }
+      50%      { r: 14; opacity: 0; }
+    }
+
+    /* Node text */
+    .ndev  { font-family: 'Noto Serif Devanagari', serif; }
+    .nname { font-family: 'Cinzel', serif; letter-spacing: .05em; }
+    .nera  { font-family: 'Outfit', sans-serif; letter-spacing: .1em; }
+    text   { user-select: none; }
+
+    /* Interactive hover zone */
+    .node-hit {
+      fill: transparent; cursor: pointer;
+      transition: all .25s;
+    }
+    .node-hit:hover ~ .node-glow { opacity: 1; }
+
+    /* Glow halos on hover */
+    .node-glow {
+      opacity: 0; transition: opacity .3s; pointer-events: none;
+    }
+
+    /* Branch highlight on hover */
+    .branch-group { cursor: pointer; }
+    .branch-group:hover .main-branch,
+    .branch-group:hover .sub-branch  { stroke: var(--gold-p); opacity: .9; }
+
+    /* Era bands */
+    .era-band { opacity: .022; }
+    .era-label-text {
+      font-family: 'Outfit', sans-serif; font-size: 9px; letter-spacing: .14em;
+      text-transform: uppercase; fill: rgba(200,146,42,.35);
+    }
+
+    /* Legend frame (ink border) */
+    .legend-frame { stroke: rgba(200,146,42,.28); fill: rgba(13,8,2,.65); stroke-width: 1; }
+    .legend-title  { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; fill: var(--gold); }
+    .legend-item   { font-family: 'Outfit', sans-serif; font-size: 8.5px; fill: var(--linen2); }
+
+    /* ══════════ DETAIL PANEL ══════════ */
+    #detail-panel {
+      position: fixed; right: 0; top: 0; bottom: 0; width: 360px; z-index: 500;
+      background: linear-gradient(155deg, rgba(22,15,5,.98), rgba(13,8,2,.99));
+      border-left: 1px solid rgba(200,146,42,.28); padding: 2rem 1.75rem;
+      transform: translateX(100%); transition: transform .44s cubic-bezier(.16,1,.3,1);
+      overflow-y: auto;
+    }
+    #detail-panel.open { transform: translateX(0); }
+    .dp-close {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      font-family: var(--fb); font-size: .78rem; color: var(--gold-dim);
+      background: none; border: none; cursor: pointer; padding: .3rem .5rem;
+      transition: color .2s;
+    }
+    .dp-close:hover { color: var(--gold-p); }
+    .dp-glyph {
+      font-family: var(--fd); font-size: 2.4rem; color: var(--gold-p); margin-bottom: .55rem;
+      line-height: 1;
+    }
+    .dp-name {
+      font-family: var(--fc); font-size: 1.08rem; color: var(--linen); letter-spacing: .06em;
+      margin-bottom: .18rem;
+    }
+    .dp-era  { font-family: var(--fb); font-size: .5rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .dp-rule { height: 1px; background: linear-gradient(to right, transparent, rgba(200,146,42,.38), transparent); margin: .9rem 0; }
+    .dp-section-title { font-family: var(--fc); font-size: .54rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+    .dp-text  { font-size: .82rem; color: var(--linen2); line-height: 1.88; margin-bottom: .9rem; }
+    .dp-text strong { color: var(--gold-l); }
+    .dp-list  { list-style: none; margin-bottom: .9rem; }
+    .dp-list li { font-size: .78rem; color: var(--linen3); line-height: 1.72; display: flex; gap: .5rem; align-items: flex-start; }
+    .dp-list li::before { content: '◆'; font-size: .32rem; color: var(--gold-dim); margin-top: .32rem; flex-shrink: 0; }
+    .dp-tags { display: flex; flex-wrap: wrap; gap: .28rem; margin-bottom: .9rem; }
+    .dp-tag  { font-family: var(--fb); font-size: .38rem; letter-spacing: .1em; text-transform: uppercase; padding: .1rem .38rem; border-radius: 2px; background: rgba(200,146,42,.14); color: var(--gold-l); border: 1px solid rgba(200,146,42,.26); }
+    .dp-descendants { background: rgba(200,146,42,.04); border: 1px solid rgba(200,146,42,.14); padding: .8rem 1rem; margin-top: .6rem; }
+    .dp-desc-title { font-family: var(--fc); font-size: .48rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: .42rem; }
+    .dp-desc-item  { font-size: .74rem; color: var(--linen3); line-height: 1.65; }
+    @media(max-width:680px){ #detail-panel { width: 100%; } }
+
+    /* ══════════ GOTRA SECTION ══════════ */
+    #gotra-section {
+      position: relative; z-index: 10;
+      background: linear-gradient(180deg, var(--vellum3), var(--vellum2));
+      border-top: 1px solid rgba(200,146,42,.1); padding: 5.5rem 2rem;
+    }
+    .inner { max-width: 1280px; margin: 0 auto; }
+    .sec-eyebrow {
+      font-family: var(--fc); font-size: .54rem; letter-spacing: .4em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .85rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .sec-eyebrow::before { content: ''; width: 26px; height: 1px; background: var(--gold-dim); }
+    h2.sec-title { font-family: var(--ff); font-size: clamp(1.5rem,3vw,2.45rem); color: var(--gold-p); font-weight: 600; line-height: 1.18; margin-bottom: 1rem; }
+    .sec-lead { font-size: .95rem; color: var(--linen2); max-width: 840px; line-height: 2.1; margin-bottom: 2rem; }
+
+    .gotra-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem; margin: 2rem 0;
+    }
+    .gotra-card {
+      background: linear-gradient(155deg, rgba(30,20,8,.85), rgba(13,8,2,.95));
+      border: 1px solid rgba(200,146,42,.14); padding: 1.2rem 1.1rem;
+      transition: all .3s; position: relative; overflow: hidden;
+    }
+    .gotra-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,146,42,.04), transparent);
+    }
+    .gotra-card:hover { border-color: rgba(200,146,42,.44); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,.7); }
+    .g-num   { font-family: var(--ff); font-size: 1.8rem; font-weight: 700; color: rgba(200,146,42,.16); line-height: 1; position: absolute; top: .6rem; right: .8rem; }
+    .g-name  { font-family: var(--fc); font-size: .82rem; color: var(--gold-p); margin-bottom: .18rem; letter-spacing: .04em; position: relative; }
+    .g-dev   { font-family: var(--fd); font-size: .72rem; color: var(--gold); margin-bottom: .35rem; position: relative; }
+    .g-rishi { font-family: var(--fb); font-size: .68rem; color: var(--linen3); line-height: 1.6; position: relative; }
+    .g-region{ font-family: var(--fb); font-size: .44rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(200,146,42,.42); margin-top: .28rem; position: relative; }
+
+    /* ══════════ TIMELINE SECTION ══════════ */
+    #timeline-section {
+      position: relative; z-index: 10;
+      background: linear-gradient(180deg, var(--vellum2), var(--vellum));
+      border-top: 1px solid rgba(200,146,42,.08); padding: 5.5rem 2rem;
+    }
+    .tl-line {
+      position: relative; padding-left: 2.4rem; display: flex; flex-direction: column; gap: 0;
+    }
+    .tl-line::before {
+      content: ''; position: absolute; left: .6rem; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom,
+        transparent, rgba(200,146,42,.38) 8%, rgba(200,146,42,.38) 92%, transparent);
+    }
+    .tl-item { position: relative; padding-bottom: 2.2rem; }
+    .tl-item::before {
+      content: ''; position: absolute; left: -1.94rem; top: .32rem;
+      width: 10px; height: 10px; border-radius: 50%; background: var(--gold);
+      border: 2px solid var(--vellum); box-shadow: 0 0 8px rgba(200,146,42,.5);
+    }
+    .tl-era   { font-family: var(--fc); font-size: .48rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: .16rem; }
+    .tl-title { font-family: var(--ff); font-style: italic; font-size: .96rem; color: var(--gold-l); margin-bottom: .3rem; }
+    .tl-body  { font-size: .8rem; color: var(--linen3); line-height: 1.82; max-width: 660px; }
+
+    /* ══════════ NEXT CHAPTER + FOOTER ══════════ */
+    .next-band {
+      position: relative; z-index: 10;
+      background: linear-gradient(135deg, rgba(35,24,8,.5), rgba(13,8,2,.98));
+      border-top: 1px solid rgba(200,146,42,.36); padding: 4.5rem 2rem; text-align: center;
+    }
+    .next-label { font-family: var(--fc); font-size: .54rem; letter-spacing: .35em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: .9rem; }
+    .next-title { font-family: var(--ff); font-size: clamp(1.35rem,2.7vw,2.3rem); color: var(--gold-p); font-weight: 600; margin-bottom: .7rem; }
+    .next-sub   { font-family: var(--fd); font-size: 1rem; color: var(--gold-l); margin-bottom: 1.5rem; }
+    .next-lead  { font-size: .9rem; font-style: italic; color: var(--linen2); max-width: 540px; margin: 0 auto 2.3rem; line-height: 1.9; }
+    .next-btns  { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
+    .nbtn {
+      font-family: var(--fc); font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
+      padding: .9rem 2rem; text-decoration: none; transition: all .3s;
+      clip-path: polygon(8px 0%,calc(100% - 8px) 0%,100% 8px,100% calc(100% - 8px),
+        calc(100% - 8px) 100%,8px 100%,0% calc(100% - 8px),0% 8px);
+    }
+    .nbtn-primary  { background: linear-gradient(135deg,var(--gold-l),var(--gold)); color: var(--ink); }
+    .nbtn-secondary{ border: 1px solid rgba(200,146,42,.42); color: var(--gold-l); background: transparent; }
+
+    footer {
+      position: relative; z-index: 10; background: rgba(5,3,1,1);
+      border-top: 1px solid rgba(200,146,42,.07); padding: 2.2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-family: var(--fd); font-size: 1.28rem; color: var(--gold-p); }
+    .footer-nav  { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .footer-nav a {
+      font-family: var(--fb); font-size: .5rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--linen3); text-decoration: none; transition: color .2s;
+    }
+    .footer-nav a:hover  { color: var(--gold-p); }
+    .footer-nav a.active { color: var(--gold-p); border-bottom: 1px solid var(--gold-p); }
+    .footer-copy { font-family: var(--fb); font-size: .46rem; letter-spacing: .1em; color: rgba(200,146,42,.2); }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .rd1{transition-delay:.08s} .rd2{transition-delay:.16s}
+    .rd3{transition-delay:.24s} .rd4{transition-delay:.32s}
+    .rd5{transition-delay:.4s}  .rd6{transition-delay:.48s}
+    .rd7{transition-delay:.56s} .rd8{transition-delay:.64s}
+
+    @media(max-width:680px){
+      .gotra-grid { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">यादव वंश <span>Yadav Lineage</span></a>
+    <span class="nav-ch">Chapter XI — The Family Tree</span>
+    <a href="community-today.html" class="nav-back">← Chapter X</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ornament">
+    <svg viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer decorative frame lines -->
+      <rect x="40" y="30" width="1320" height="840" fill="none" stroke="rgba(200,146,42,0.55)" stroke-width=".8"/>
+      <rect x="52" y="42" width="1296" height="816" fill="none" stroke="rgba(200,146,42,0.28)" stroke-width=".5"/>
+      <!-- Corner rosettes -->
+      <g stroke="rgba(200,146,42,0.65)" stroke-width=".7" fill="none">
+        <circle cx="40"  cy="30"  r="12"/><circle cx="40"  cy="30"  r="6"/>
+        <circle cx="1360" cy="30"  r="12"/><circle cx="1360" cy="30"  r="6"/>
+        <circle cx="40"  cy="870" r="12"/><circle cx="40"  cy="870" r="6"/>
+        <circle cx="1360" cy="870" r="12"/><circle cx="1360" cy="870" r="6"/>
+      </g>
+      <!-- Central mandala rings -->
+      <circle cx="700" cy="450" r="320" stroke="rgba(200,146,42,0.08)" stroke-width="1" fill="none"/>
+      <circle cx="700" cy="450" r="220" stroke="rgba(200,146,42,0.06)" stroke-width="1" fill="none"/>
+      <circle cx="700" cy="450" r="120" stroke="rgba(200,146,42,0.05)" stroke-width=".8" fill="none"/>
+      <!-- Diagonal cross-hatching (very faint) -->
+      <g stroke="rgba(200,146,42,0.04)" stroke-width=".5">
+        <line x1="0" y1="0"    x2="1400" y2="900"/>
+        <line x1="1400" y1="0" x2="0" y2="900"/>
+      </g>
+    </svg>
+  </div>
+
+  <p class="hero-eyebrow">Chapter XI · एकादश अध्याय</p>
+  <div class="hero-era">Brahma · Chandra · Yadu · Vrishni · Krishna · Gotra · Subclan · Diaspora</div>
+  <div class="hero-glyph">वंशावली</div>
+  <h1 class="hero-title">The Yadava Family Tree</h1>
+  <p class="hero-sub">From Brahma's first breath to the child born today</p>
+  <div class="hero-rule"><div class="hr-gem"></div></div>
+  <p class="hero-lead">The complete genealogical record of the Yadava dynasty — from the cosmic origin in Brahma through the Lunar dynasty, through Yadu and his five sons, through the Vrishni line that produced Krishna, through the medieval kingdoms and Bhakti saints, to the 1,200+ sub-communities distributed across the Indian subcontinent and beyond today. Each node holds a story; each branch holds a civilisation.</p>
+  <div class="hero-cta">
+    <a href="#tree-section"    class="cta-btn cta-primary">Explore the Tree ↓</a>
+    <a href="#gotra-section"   class="cta-btn cta-secondary">View Gotras</a>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll to trace the lineage</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- SUTRA -->
+<div class="sutra">
+  <p class="sutra-dev">अनादिरादिर्गोविन्दः सर्वकारणकारणम्।</p>
+  <p class="sutra-tr">"Govinda, who is without beginning, is the origin of all origins — the cause of all causes."</p>
+  <p class="sutra-src">— Brahma Samhita 5.1 · The verse that anchors the Yadava genealogy: all lineages flow from the divine, and the divine took form within this lineage. The family tree is not merely genealogy — it is theology made flesh.</p>
+</div>
+
+<!-- TREE SECTION -->
+<section id="tree-section">
+  <div class="tree-header reveal">
+    <p class="tree-eyebrow">वंश-वृक्ष</p>
+    <h2 class="tree-title">The Great Yadava Lineage — Visual Tree</h2>
+    <p class="tree-lead">Hover over any node to illuminate its branch. Click a node to open the detail panel with lineage information, historical context, and notable descendants. The golden sap flows upward — from cosmic root to living leaf.</p>
+  </div>
+
+  <div class="tree-wrap">
+    <!-- SVG FAMILY TREE: 1600 × 1300 -->
+    <svg id="tree-svg" viewBox="0 0 1600 1280" width="1600" height="1280"
+         xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="Yadava Dynastic Family Tree from Brahma to present">
+
+      <defs>
+        <!-- Gold gradient for nodes -->
+        <radialGradient id="node-gold" cx="35%" cy="35%" r="65%">
+          <stop offset="0%"   stop-color="#F7D870"/>
+          <stop offset="60%"  stop-color="#C8922A"/>
+          <stop offset="100%" stop-color="#7A5018"/>
+        </radialGradient>
+        <!-- Cosmic node (Brahma) -->
+        <radialGradient id="node-cosmic" cx="35%" cy="35%" r="65%">
+          <stop offset="0%"   stop-color="#FFFFFF"/>
+          <stop offset="40%"  stop-color="#F7D870"/>
+          <stop offset="100%" stop-color="#4A3010"/>
+        </radialGradient>
+        <!-- Divine node (Krishna) -->
+        <radialGradient id="node-divine" cx="35%" cy="35%" r="65%">
+          <stop offset="0%"   stop-color="#80C8F0"/>
+          <stop offset="50%"  stop-color="#2050A0"/>
+          <stop offset="100%" stop-color="#0A1830"/>
+        </radialGradient>
+        <!-- Sage/green node -->
+        <radialGradient id="node-sage" cx="35%" cy="35%" r="65%">
+          <stop offset="0%"   stop-color="#88D888"/>
+          <stop offset="55%"  stop-color="#2A6830"/>
+          <stop offset="100%" stop-color="#0A2010"/>
+        </radialGradient>
+        <!-- Glow filter -->
+        <filter id="glow-gold" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="glow-soft">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
+        </filter>
+        <!-- Clip path for era bands -->
+        <clipPath id="tree-clip"><rect x="0" y="0" width="1600" height="1280"/></clipPath>
+      </defs>
+
+      <!-- ERA BANDS (horizontal stripes, very faint) -->
+      <g class="era-bands" clip-path="url(#tree-clip)">
+        <rect class="era-band" x="0" y="0"    width="1600" height="160" fill="rgba(200,146,42,1)"/>
+        <rect class="era-band" x="0" y="160"  width="1600" height="180" fill="rgba(139,90,26,1)"/>
+        <rect class="era-band" x="0" y="340"  width="1600" height="200" fill="rgba(200,146,42,1)"/>
+        <rect class="era-band" x="0" y="540"  width="1600" height="200" fill="rgba(92,16,32,1)"/>
+        <rect class="era-band" x="0" y="740"  width="1600" height="200" fill="rgba(28,48,32,1)"/>
+        <rect class="era-band" x="0" y="940"  width="1600" height="160" fill="rgba(14,56,48,1)"/>
+        <rect class="era-band" x="0" y="1100" width="1600" height="180" fill="rgba(122,46,14,1)"/>
+      </g>
+      <!-- Era labels (right edge) -->
+      <text class="era-label-text" x="1560" y="85"   text-anchor="end">Cosmic / Vedic Origins</text>
+      <text class="era-label-text" x="1560" y="260"  text-anchor="end">Lunar Dynasty (Chandravamsha)</text>
+      <text class="era-label-text" x="1560" y="450"  text-anchor="end">Yadava / Vrishni Dynasty</text>
+      <text class="era-label-text" x="1560" y="650"  text-anchor="end">Mahabharata Era · 3100 BCE trad.</text>
+      <text class="era-label-text" x="1560" y="850"  text-anchor="end">Medieval Kingdoms · 600–1300 CE</text>
+      <text class="era-label-text" x="1560" y="1040" text-anchor="end">Bhakti Movement · 1300–1700 CE</text>
+      <text class="era-label-text" x="1560" y="1200" text-anchor="end">Modern Era · 1700 CE – Present</text>
+
+      <!-- ╔══════════════════════════════════════╗
+           TRUNK — Root to Crown
+           Y-coords (top=bottom for SVG↓)
+           80  = Brahma (cosmic root)
+           230 = Atri / Chandra
+           420 = Yadu
+           610 = Vrishni branch split
+           810 = Mahabharata-era split
+           1000= Medieval kingdoms
+           1190= Modern communities
+           ╚══════════════════════════════════════╝ -->
+
+      <!-- ══════ MAIN TRUNK ══════ -->
+      <!-- Brahma → Chandra -->
+      <line class="branch root-branch" x1="800" y1="100" x2="800" y2="230"/>
+      <line class="sap sap-d1" x1="800" y1="230" x2="800" y2="100"
+            stroke-dasharray="8 20" stroke-dashoffset="800"/>
+
+      <!-- Chandra → Pururavas → Yayati → Yadu (trunk) -->
+      <path class="branch root-branch" d="M800,250 L800,400"/>
+      <line class="sap sap-d2" x1="800" y1="400" x2="800" y2="250"
+            stroke-dasharray="8 20" stroke-dashoffset="600"/>
+
+      <!-- Yadu → split to 5 sons -->
+      <path class="branch main-branch" d="M800,420 L800,570"/>
+
+      <!-- ══════ 5 SONS OF YADU — 5 branches ══════ -->
+      <!-- Spread: 160 | 380 | 800 | 1220 | 1440 -->
+      <!-- Son 1: Sahasrajit → left-far -->
+      <path class="branch main-branch" d="M800,570 Q500,590 320,640"/>
+      <path class="branch main-branch" d="M320,640 L320,750"/>
+      <!-- Son 2: Kroshtu → left -->
+      <path class="branch main-branch" d="M800,570 Q680,590 580,640"/>
+      <path class="branch main-branch" d="M580,640 L580,750"/>
+      <!-- Son 3: Nala → centre-left (Vrishni line — MAIN) -->
+      <path class="branch main-branch" d="M800,570 L800,640"/>
+      <path class="branch main-branch" d="M800,640 L800,750" stroke="rgba(200,146,42,.8)" stroke-width="2.8"/>
+      <!-- Son 4: Shantajit → right -->
+      <path class="branch main-branch" d="M800,570 Q920,590 1020,640"/>
+      <path class="branch main-branch" d="M1020,640 L1020,750"/>
+      <!-- Son 5: Dhrishtajit → right-far -->
+      <path class="branch main-branch" d="M800,570 Q1100,590 1280,640"/>
+      <path class="branch main-branch" d="M1280,640 L1280,750"/>
+
+      <!-- Sap on Vrishni (main) branch -->
+      <line class="sap sap-d1" x1="800" y1="750" x2="800" y2="570"
+            stroke-dasharray="7 18" stroke-dashoffset="500"/>
+
+      <!-- ══════ VRISHNI → KRISHNA ══════ -->
+      <!-- Vrishni → Devamidha → Shura → Vasudeva → Krishna -->
+      <path class="branch main-branch" d="M800,770 L800,900" stroke="rgba(200,146,42,.85)" stroke-width="2.8"/>
+      <line class="sap sap-d2" x1="800" y1="900" x2="800" y2="770" stroke-dasharray="7 18" stroke-dashoffset="400"/>
+
+      <!-- ══════ POST-KRISHNA SPLITS (Medieval) ══════ -->
+      <!-- From 900, four main medieval branches -->
+      <!-- Branch A: North — UP/Bihar/Haryana (Ahir) -->
+      <path class="branch sub-branch" d="M800,920 Q580,950 420,1010"/>
+      <path class="branch sub-branch" d="M420,1010 L420,1120"/>
+      <!-- Branch B: Gujarat (Ahir Saurashtra) -->
+      <path class="branch sub-branch" d="M800,920 Q680,950 610,1010"/>
+      <path class="branch sub-branch" d="M610,1010 L610,1120"/>
+      <!-- Branch C: Central/MP/Rajasthan -->
+      <path class="branch sub-branch" d="M800,920 L800,1010"/>
+      <path class="branch sub-branch" d="M800,1010 L800,1120"/>
+      <!-- Branch D: Deccan (Yadava Kingdom / Golla) -->
+      <path class="branch sub-branch" d="M800,920 Q920,950 990,1010"/>
+      <path class="branch sub-branch" d="M990,1010 L990,1120"/>
+      <!-- Branch E: Bengal/Odisha (Gop/Sadgope) -->
+      <path class="branch sub-branch" d="M800,920 Q1100,950 1200,1010"/>
+      <path class="branch sub-branch" d="M1200,1010 L1200,1120"/>
+
+      <!-- ══════ MODERN LEAF BRANCHES ══════ -->
+      <!-- From North branch (420) → Ahir + Rewari + Bihar Yadava -->
+      <path class="branch leaf-branch" d="M420,1140 Q340,1165 270,1200"/>
+      <path class="branch leaf-branch" d="M420,1140 L420,1200"/>
+      <path class="branch leaf-branch" d="M420,1140 Q500,1165 530,1200"/>
+      <!-- From Gujarat (610) → Ahir Saurashtra + Amul -->
+      <path class="branch leaf-branch" d="M610,1140 Q560,1165 520,1200"/>
+      <path class="branch leaf-branch" d="M610,1140 Q640,1165 660,1200"/>
+      <!-- From Central (800) → MP + Rajasthan Yadava -->
+      <path class="branch leaf-branch" d="M800,1140 Q760,1165 730,1200"/>
+      <path class="branch leaf-branch" d="M800,1140 Q840,1165 870,1200"/>
+      <!-- From Deccan (990) → Golla + Kuruba -->
+      <path class="branch leaf-branch" d="M990,1140 Q950,1165 920,1200"/>
+      <path class="branch leaf-branch" d="M990,1140 Q1030,1165 1060,1200"/>
+      <!-- From Bengal (1200) → Gop + Sadgope -->
+      <path class="branch leaf-branch" d="M1200,1140 Q1155,1165 1130,1200"/>
+      <path class="branch leaf-branch" d="M1200,1140 Q1245,1165 1270,1200"/>
+
+      <!-- ══════ NODES ══════ -->
+      <!-- Macro helper: node = (cx, cy, r, gradId, labelDev, labelName, labelEra) -->
+
+      <!-- ─ BRAHMA (cosmic root) ─ -->
+      <g id="node-brahma" class="node-group" data-id="brahma">
+        <circle cx="800" cy="80" r="30" fill="url(#node-cosmic)" filter="url(#glow-gold)"/>
+        <circle cx="800" cy="80" r="36" class="branch node-ring-outer" stroke="rgba(247,216,112,.55)"/>
+        <circle cx="800" cy="80" r="42" stroke="rgba(200,146,42,.22)" fill="none" stroke-dasharray="3 5"/>
+        <!-- Pulsing aura -->
+        <circle cx="800" cy="80" r="2" fill="rgba(247,216,112,.4)" class="node-pulse"/>
+        <text x="800" y="76"  class="ndev"  font-size="13" fill="rgba(247,216,112,.9)" text-anchor="middle">ब्रह्मा</text>
+        <text x="800" y="90"  class="nname" font-size="8.5" fill="rgba(247,216,112,.72)" text-anchor="middle" letter-spacing=".06em">BRAHMA</text>
+        <text x="800" y="130" class="nera"  font-size="7.5" fill="rgba(200,146,42,.5)" text-anchor="middle" letter-spacing=".12em">COSMIC ORIGIN</text>
+        <rect class="node-hit" x="765" y="45" width="70" height="70" rx="4"/>
+      </g>
+
+      <!-- ─ CHANDRA (Moon) ─ -->
+      <g id="node-chandra" class="node-group" data-id="chandra">
+        <circle cx="800" cy="230" r="22" fill="url(#node-gold)"/>
+        <circle cx="800" cy="230" r="28" class="branch node-ring-outer" stroke="rgba(200,146,42,.45)"/>
+        <text x="800" y="226" class="ndev"  font-size="11" fill="rgba(247,216,112,.88)" text-anchor="middle">चन्द्र</text>
+        <text x="800" y="238" class="nname" font-size="7.5" fill="rgba(200,146,42,.65)" text-anchor="middle">CHANDRA</text>
+        <text x="800" y="270" class="nera"  font-size="7" fill="rgba(200,146,42,.44)" text-anchor="middle" letter-spacing=".1em">LUNAR DYNASTY</text>
+        <rect class="node-hit" x="772" y="202" width="56" height="56" rx="4"/>
+      </g>
+
+      <!-- ─ YAYATI (ancestor of Yadavas) ─ -->
+      <g id="node-yayati" class="node-group" data-id="yayati">
+        <circle cx="800" cy="390" r="20" fill="url(#node-gold)"/>
+        <circle cx="800" cy="390" r="26" class="branch node-ring-outer" stroke="rgba(200,146,42,.4)"/>
+        <text x="800" y="386" class="ndev"  font-size="11" fill="rgba(247,216,112,.86)" text-anchor="middle">ययाति</text>
+        <text x="800" y="398" class="nname" font-size="7.5" fill="rgba(200,146,42,.6)" text-anchor="middle">YAYATI</text>
+        <text x="800" y="428" class="nera"  font-size="7" fill="rgba(200,146,42,.4)" text-anchor="middle">ANCESTOR OF YADAVAS</text>
+        <rect class="node-hit" x="774" y="364" width="52" height="52" rx="4"/>
+      </g>
+
+      <!-- ─ YADU (progenitor) — highlighted ─ -->
+      <g id="node-yadu" class="node-group" data-id="yadu">
+        <circle cx="800" cy="555" r="26" fill="url(#node-gold)" filter="url(#glow-gold)"/>
+        <circle cx="800" cy="555" r="33" class="branch node-ring-outer" stroke="rgba(200,146,42,.6)"/>
+        <circle cx="800" cy="555" r="40" stroke="rgba(200,146,42,.2)" fill="none" stroke-dasharray="2 4"/>
+        <text x="800" y="551" class="ndev"  font-size="13" fill="rgba(247,216,112,.95)" text-anchor="middle">यदु</text>
+        <text x="800" y="565" class="nname" font-size="9" fill="rgba(247,216,112,.78)" text-anchor="middle" letter-spacing=".06em">YADU</text>
+        <text x="800" y="600" class="nera"  font-size="7.5" fill="rgba(200,146,42,.55)" text-anchor="middle">PROGENITOR OF YADAVAS</text>
+        <rect class="node-hit" x="768" y="522" width="64" height="64" rx="4"/>
+      </g>
+
+      <!-- ─ 5 SONS OF YADU ─ -->
+      <!-- Sahasrajit -->
+      <g id="node-sah" class="node-group" data-id="sahasrajit">
+        <circle cx="320" cy="750" r="16" fill="url(#node-gold)"/>
+        <circle cx="320" cy="750" r="21" class="branch node-ring-outer" stroke="rgba(200,146,42,.35)"/>
+        <text x="320" y="746" class="ndev"  font-size="9.5" fill="rgba(247,216,112,.82)" text-anchor="middle">सहस्रजित्</text>
+        <text x="320" y="757" class="nname" font-size="6.5" fill="rgba(200,146,42,.55)" text-anchor="middle">SAHASRAJIT</text>
+        <text x="320" y="782" class="nera"  font-size="6.5" fill="rgba(200,146,42,.38)" text-anchor="middle">Son I</text>
+        <rect class="node-hit" x="296" y="726" width="48" height="48" rx="3"/>
+      </g>
+      <!-- Kroshtu -->
+      <g id="node-kro" class="node-group" data-id="kroshtu">
+        <circle cx="580" cy="750" r="16" fill="url(#node-gold)"/>
+        <circle cx="580" cy="750" r="21" class="branch node-ring-outer" stroke="rgba(200,146,42,.35)"/>
+        <text x="580" y="746" class="ndev"  font-size="9.5" fill="rgba(247,216,112,.82)" text-anchor="middle">क्रोष्टु</text>
+        <text x="580" y="757" class="nname" font-size="6.5" fill="rgba(200,146,42,.55)" text-anchor="middle">KROSHTU</text>
+        <text x="580" y="782" class="nera"  font-size="6.5" fill="rgba(200,146,42,.38)" text-anchor="middle">Son II</text>
+        <rect class="node-hit" x="556" y="726" width="48" height="48" rx="3"/>
+      </g>
+      <!-- Vrishni (MAIN — centre) -->
+      <g id="node-vrishni" class="node-group" data-id="vrishni">
+        <circle cx="800" cy="760" r="22" fill="url(#node-gold)" filter="url(#glow-gold)"/>
+        <circle cx="800" cy="760" r="29" class="branch node-ring-outer" stroke="rgba(200,146,42,.55)"/>
+        <text x="800" y="756" class="ndev"  font-size="11" fill="rgba(247,216,112,.92)" text-anchor="middle">वृष्णि</text>
+        <text x="800" y="768" class="nname" font-size="7.5" fill="rgba(247,216,112,.72)" text-anchor="middle">VRISHNI</text>
+        <text x="800" y="800" class="nera"  font-size="7" fill="rgba(200,146,42,.5)" text-anchor="middle">Son III — Main Line</text>
+        <rect class="node-hit" x="770" y="730" width="60" height="60" rx="3"/>
+      </g>
+      <!-- Shantajit -->
+      <g id="node-sha" class="node-group" data-id="shantajit">
+        <circle cx="1020" cy="750" r="16" fill="url(#node-gold)"/>
+        <circle cx="1020" cy="750" r="21" class="branch node-ring-outer" stroke="rgba(200,146,42,.35)"/>
+        <text x="1020" y="746" class="ndev"  font-size="9.5" fill="rgba(247,216,112,.82)" text-anchor="middle">शान्तजित्</text>
+        <text x="1020" y="757" class="nname" font-size="6.5" fill="rgba(200,146,42,.55)" text-anchor="middle">SHANTAJIT</text>
+        <text x="1020" y="782" class="nera"  font-size="6.5" fill="rgba(200,146,42,.38)" text-anchor="middle">Son IV</text>
+        <rect class="node-hit" x="996" y="726" width="48" height="48" rx="3"/>
+      </g>
+      <!-- Dhrishtajit -->
+      <g id="node-dhr" class="node-group" data-id="dhrishtajit">
+        <circle cx="1280" cy="750" r="16" fill="url(#node-gold)"/>
+        <circle cx="1280" cy="750" r="21" class="branch node-ring-outer" stroke="rgba(200,146,42,.35)"/>
+        <text x="1280" y="746" class="ndev"  font-size="9.5" fill="rgba(247,216,112,.82)" text-anchor="middle">धृष्टजित्</text>
+        <text x="1280" y="757" class="nname" font-size="6.5" fill="rgba(200,146,42,.55)" text-anchor="middle">DHRISHTAJIT</text>
+        <text x="1280" y="782" class="nera"  font-size="6.5" fill="rgba(200,146,42,.38)" text-anchor="middle">Son V</text>
+        <rect class="node-hit" x="1256" y="726" width="48" height="48" rx="3"/>
+      </g>
+
+      <!-- ─ KRISHNA (divine node) ─ -->
+      <g id="node-krishna" class="node-group" data-id="krishna">
+        <circle cx="800" cy="880" r="32" fill="url(#node-divine)" filter="url(#glow-gold)"/>
+        <circle cx="800" cy="880" r="40" stroke="rgba(128,200,240,.35)" fill="none" stroke-width="1.5"/>
+        <circle cx="800" cy="880" r="48" stroke="rgba(32,80,160,.22)"  fill="none" stroke-dasharray="3 6"/>
+        <circle cx="800" cy="880" r="2"  fill="rgba(128,200,240,.5)" class="node-pulse"/>
+        <text x="800" y="875" class="ndev"  font-size="14" fill="rgba(180,220,255,.96)" text-anchor="middle">कृष्ण</text>
+        <text x="800" y="890" class="nname" font-size="9"  fill="rgba(128,200,240,.82)" text-anchor="middle" letter-spacing=".07em">KRISHNA</text>
+        <text x="800" y="932" class="nera"  font-size="7.5" fill="rgba(128,200,240,.46)" text-anchor="middle">DIVINE ANCESTOR · VRISHNI CHIEF</text>
+        <rect class="node-hit" x="762" y="842" width="76" height="76" rx="4"/>
+      </g>
+
+      <!-- ─ MEDIEVAL REGIONAL NODES ─ -->
+      <!-- North / Ahir-Yadava -->
+      <g id="node-ahir" class="node-group" data-id="ahir">
+        <circle cx="420" cy="1100" r="19" fill="url(#node-gold)"/>
+        <circle cx="420" cy="1100" r="25" class="branch node-ring-outer" stroke="rgba(200,146,42,.4)"/>
+        <text x="420" y="1096" class="ndev"  font-size="10" fill="rgba(247,216,112,.88)" text-anchor="middle">अहीर</text>
+        <text x="420" y="1108" class="nname" font-size="7" fill="rgba(200,146,42,.62)" text-anchor="middle">AHIR-YADAVA</text>
+        <text x="420" y="1135" class="nera"  font-size="6.5" fill="rgba(200,146,42,.4)" text-anchor="middle">North India</text>
+        <rect class="node-hit" x="394" y="1074" width="52" height="52" rx="3"/>
+      </g>
+      <!-- Gujarat Ahir -->
+      <g id="node-guj" class="node-group" data-id="gujarat-ahir">
+        <circle cx="610" cy="1100" r="19" fill="url(#node-gold)"/>
+        <circle cx="610" cy="1100" r="25" class="branch node-ring-outer" stroke="rgba(200,146,42,.4)"/>
+        <text x="610" y="1096" class="ndev"  font-size="10" fill="rgba(247,216,112,.88)" text-anchor="middle">अहीर</text>
+        <text x="610" y="1108" class="nname" font-size="7" fill="rgba(200,146,42,.62)" text-anchor="middle">GUJARAT AHIR</text>
+        <text x="610" y="1135" class="nera"  font-size="6.5" fill="rgba(200,146,42,.4)" text-anchor="middle">Saurashtra · Amul</text>
+        <rect class="node-hit" x="584" y="1074" width="52" height="52" rx="3"/>
+      </g>
+      <!-- Yadava Kingdom (Devagiri) -->
+      <g id="node-devagiri" class="node-group" data-id="devagiri">
+        <circle cx="800" cy="1100" r="21" fill="url(#node-gold)" filter="url(#glow-gold)"/>
+        <circle cx="800" cy="1100" r="27" class="branch node-ring-outer" stroke="rgba(200,146,42,.5)"/>
+        <text x="800" y="1095" class="ndev"  font-size="11" fill="rgba(247,216,112,.92)" text-anchor="middle">देवगिरि</text>
+        <text x="800" y="1108" class="nname" font-size="7.5" fill="rgba(200,146,42,.65)" text-anchor="middle">DEVAGIRI KINGDOM</text>
+        <text x="800" y="1136" class="nera"  font-size="6.5" fill="rgba(200,146,42,.42)" text-anchor="middle">850–1317 CE · Deccan</text>
+        <rect class="node-hit" x="773" y="1073" width="54" height="54" rx="3"/>
+      </g>
+      <!-- Golla (Deccan pastoral) -->
+      <g id="node-golla" class="node-group" data-id="golla">
+        <circle cx="990" cy="1100" r="19" fill="url(#node-gold)"/>
+        <circle cx="990" cy="1100" r="25" class="branch node-ring-outer" stroke="rgba(200,146,42,.4)"/>
+        <text x="990" y="1096" class="ndev"  font-size="10" fill="rgba(247,216,112,.88)" text-anchor="middle">गोल्ला</text>
+        <text x="990" y="1108" class="nname" font-size="7" fill="rgba(200,146,42,.62)" text-anchor="middle">GOLLA</text>
+        <text x="990" y="1135" class="nera"  font-size="6.5" fill="rgba(200,146,42,.4)" text-anchor="middle">Telangana · AP</text>
+        <rect class="node-hit" x="964" y="1074" width="52" height="52" rx="3"/>
+      </g>
+      <!-- Gop (Bengal/Odisha) -->
+      <g id="node-gop" class="node-group" data-id="gop">
+        <circle cx="1200" cy="1100" r="19" fill="url(#node-gold)"/>
+        <circle cx="1200" cy="1100" r="25" class="branch node-ring-outer" stroke="rgba(200,146,42,.4)"/>
+        <text x="1200" y="1096" class="ndev"  font-size="10" fill="rgba(247,216,112,.88)" text-anchor="middle">गोप</text>
+        <text x="1200" y="1108" class="nname" font-size="7" fill="rgba(200,146,42,.62)" text-anchor="middle">GOP</text>
+        <text x="1200" y="1135" class="nera"  font-size="6.5" fill="rgba(200,146,42,.4)" text-anchor="middle">Bengal · Odisha</text>
+        <rect class="node-hit" x="1174" y="1074" width="52" height="52" rx="3"/>
+      </g>
+
+      <!-- ─ MODERN LEAF NODES ─ -->
+      <!-- UP / Bihar Yadava -->
+      <g id="node-up" class="node-group" data-id="up-bihar">
+        <circle cx="270" cy="1220" r="14" fill="url(#node-sage)"/>
+        <circle cx="270" cy="1220" r="18" stroke="rgba(74,128,72,.5)" fill="none" stroke-width="1"/>
+        <text x="270" y="1216" class="ndev"  font-size="8.5" fill="rgba(136,216,136,.86)" text-anchor="middle">यादव</text>
+        <text x="270" y="1226" class="nname" font-size="6" fill="rgba(74,128,72,.65)" text-anchor="middle">UP · BIHAR</text>
+        <text x="270" y="1248" class="nera"  font-size="5.5" fill="rgba(74,128,72,.4)" text-anchor="middle">45M · SP-RJD base</text>
+        <rect class="node-hit" x="250" y="1200" width="40" height="40" rx="3"/>
+      </g>
+      <!-- Haryana Ahir -->
+      <g id="node-har" class="node-group" data-id="haryana">
+        <circle cx="420" cy="1220" r="14" fill="url(#node-sage)"/>
+        <circle cx="420" cy="1220" r="18" stroke="rgba(74,128,72,.5)" fill="none" stroke-width="1"/>
+        <text x="420" y="1216" class="ndev"  font-size="8.5" fill="rgba(136,216,136,.86)" text-anchor="middle">अहीर</text>
+        <text x="420" y="1226" class="nname" font-size="6" fill="rgba(74,128,72,.65)" text-anchor="middle">HARYANA</text>
+        <text x="420" y="1248" class="nera"  font-size="5.5" fill="rgba(74,128,72,.4)" text-anchor="middle">6.5M · Wrestlers</text>
+        <rect class="node-hit" x="400" y="1200" width="40" height="40" rx="3"/>
+      </g>
+      <!-- Amul / Saurashtra -->
+      <g id="node-amul" class="node-group" data-id="amul">
+        <circle cx="530" cy="1220" r="14" fill="url(#node-sage)"/>
+        <circle cx="530" cy="1220" r="18" stroke="rgba(74,128,72,.5)" fill="none" stroke-width="1"/>
+        <text x="530" y="1216" class="ndev"  font-size="8.5" fill="rgba(136,216,136,.86)" text-anchor="middle">अमूल</text>
+        <text x="530" y="1226" class="nname" font-size="6" fill="rgba(74,128,72,.65)" text-anchor="middle">AMUL · SAURASHTRA</text>
+        <text x="530" y="1248" class="nera"  font-size="5.5" fill="rgba(74,128,72,.4)" text-anchor="middle">₹72K Cr Coop</text>
+        <rect class="node-hit" x="510" y="1200" width="40" height="40" rx="3"/>
+      </g>
+      <!-- Gujarat Yadava -->
+      <g id="node-guja" class="node-group" data-id="gujarat-modern">
+        <circle cx="660" cy="1220" r="14" fill="url(#node-sage)"/>
+        <circle cx="660" cy="1220" r="18" stroke="rgba(74,128,72,.5)" fill="none" stroke-width="1"/>
+        <text x="660" y="1216" class="ndev"  font-size="8.5" fill="rgba(136,216,136,.86)" text-anchor="middle">यादव</text>
+        <text x="660" y="1226" class="nname" font-size="6" fill="rgba(74,128,72,.65)" text-anchor="middle">GUJARAT</text>
+        <text x="660" y="1248" class="nera"  font-size="5.5" fill="rgba(74,128,72,.4)" text-anchor="middle">9M · Dwarka</text>
+        <rect class="node-hit" x="640" y="1200" width="40" height="40" rx="3"/>
+      </g>
+      <!-- Rajasthan / MP -->
+      <g id="node-raj" class="node-group" data-id="rajasthan">
+        <circle cx="730" cy="1220" r="14" fill="url(#node-sage)"/>
+        <circle cx="730" cy="1220" r="18" stroke="rgba(74,128,72,.5)" fill="none" stroke-width="1"/>
+        <text x="730" y="1216" class="ndev"  font-size="8.5" fill="rgba(136,216,136,.86)" text-anchor="middle">यादव</text>
+        <text x="730" y="1226" class="nname" font-size="6" fill="rgba(74,128,72,.65)" text-anchor="middle">RAJASTHAN · MP</text>
+        <text x="730" y="1248" class="nera"  font-size="5.5" fill="rgba(74,128,72,.4)" text-anchor="middle">18M · Pastoral</text>
+        <rect class="node-hit" x="710" y="1200" width="40" height="40" rx="3"/>
+      </g>
+      <!-- Deccan / Maharashtra -->
+      <g id="node-mah" class="node-group" data-id="maharashtra">
+        <circle cx="870" cy="1220" r="14" fill="url(#node-sage)"/>
+        <circle cx="870" cy="1220" r="18" stroke="rgba(74,128,72,.5)" fill="none" stroke-width="1"/>
+        <text x="870" y="1216" class="ndev"  font-size="8.5" fill="rgba(136,216,136,.86)" text-anchor="middle">गाओली</text>
+        <text x="870" y="1226" class="nname" font-size="6" fill="rgba(74,128,72,.65)" text-anchor="middle">MAHARASHTRA</text>
+        <text x="870" y="1248" class="nera"  font-size="5.5" fill="rgba(74,128,72,.4)" text-anchor="middle">6M · Gaoli</text>
+        <rect class="node-hit" x="850" y="1200" width="40" height="40" rx="3"/>
+      </g>
+      <!-- Golla / AP -->
+      <g id="node-ap" class="node-group" data-id="andhra">
+        <circle cx="920" cy="1220" r="14" fill="url(#node-sage)"/>
+        <circle cx="920" cy="1220" r="18" stroke="rgba(74,128,72,.5)" fill="none" stroke-width="1"/>
+        <text x="920" y="1216" class="ndev"  font-size="8.5" fill="rgba(136,216,136,.86)" text-anchor="middle">गोल्ला</text>
+        <text x="920" y="1226" class="nname" font-size="6" fill="rgba(74,128,72,.65)" text-anchor="middle">TELANGANA · AP</text>
+        <text x="920" y="1248" class="nera"  font-size="5.5" fill="rgba(74,128,72,.4)" text-anchor="middle">12M · Deccan</text>
+        <rect class="node-hit" x="900" y="1200" width="40" height="40" rx="3"/>
+      </g>
+      <!-- Karnataka -->
+      <g id="node-kar" class="node-group" data-id="karnataka">
+        <circle cx="1060" cy="1220" r="14" fill="url(#node-sage)"/>
+        <circle cx="1060" cy="1220" r="18" stroke="rgba(74,128,72,.5)" fill="none" stroke-width="1"/>
+        <text x="1060" y="1216" class="ndev"  font-size="8.5" fill="rgba(136,216,136,.86)" text-anchor="middle">कुरुबा</text>
+        <text x="1060" y="1226" class="nname" font-size="6" fill="rgba(74,128,72,.65)" text-anchor="middle">KARNATAKA</text>
+        <text x="1060" y="1248" class="nera"  font-size="5.5" fill="rgba(74,128,72,.4)" text-anchor="middle">5M · Kuruba</text>
+        <rect class="node-hit" x="1040" y="1200" width="40" height="40" rx="3"/>
+      </g>
+      <!-- Bengal / Gop -->
+      <g id="node-ben" class="node-group" data-id="bengal">
+        <circle cx="1130" cy="1220" r="14" fill="url(#node-sage)"/>
+        <circle cx="1130" cy="1220" r="18" stroke="rgba(74,128,72,.5)" fill="none" stroke-width="1"/>
+        <text x="1130" y="1216" class="ndev"  font-size="8.5" fill="rgba(136,216,136,.86)" text-anchor="middle">गोप</text>
+        <text x="1130" y="1226" class="nname" font-size="6" fill="rgba(74,128,72,.65)" text-anchor="middle">BENGAL · ODISHA</text>
+        <text x="1130" y="1248" class="nera"  font-size="5.5" fill="rgba(74,128,72,.4)" text-anchor="middle">12M · Gop</text>
+        <rect class="node-hit" x="1110" y="1200" width="40" height="40" rx="3"/>
+      </g>
+      <!-- Diaspora -->
+      <g id="node-dia" class="node-group" data-id="diaspora">
+        <circle cx="1270" cy="1220" r="14" fill="url(#node-sage)"/>
+        <circle cx="1270" cy="1220" r="18" stroke="rgba(74,128,72,.5)" fill="none" stroke-width="1"/>
+        <text x="1270" y="1216" class="ndev"  font-size="8.5" fill="rgba(136,216,136,.86)" text-anchor="middle">प्रवासी</text>
+        <text x="1270" y="1226" class="nname" font-size="6" fill="rgba(74,128,72,.65)" text-anchor="middle">DIASPORA</text>
+        <text x="1270" y="1248" class="nera"  font-size="5.5" fill="rgba(74,128,72,.4)" text-anchor="middle">Mauritius · UK · USA</text>
+        <rect class="node-hit" x="1250" y="1200" width="40" height="40" rx="3"/>
+      </g>
+
+      <!-- ══════ LEGEND ══════ -->
+      <rect class="legend-frame" x="22" y="22" width="200" height="145" rx="3"/>
+      <text class="legend-title" x="34" y="42">Lineage Key</text>
+      <!-- Cosmic -->
+      <circle cx="38" cy="62" r="7" fill="url(#node-cosmic)"/>
+      <text class="legend-item" x="52" y="66">Cosmic / Divine Origin</text>
+      <!-- Divine -->
+      <circle cx="38" cy="84" r="7" fill="url(#node-divine)"/>
+      <text class="legend-item" x="52" y="88">Avatara — Krishna</text>
+      <!-- Gold -->
+      <circle cx="38" cy="106" r="7" fill="url(#node-gold)"/>
+      <text class="legend-item" x="52" y="110">Dynasty Ancestor / King</text>
+      <!-- Sage -->
+      <circle cx="38" cy="128" r="7" fill="url(#node-sage)"/>
+      <text class="legend-item" x="52" y="132">Living Community</text>
+      <!-- Sap -->
+      <line x1="28" y1="150" x2="54" y2="150" stroke="var(--sap)" stroke-width="1.2" stroke-dasharray="5 8"/>
+      <text class="legend-item" x="62" y="154">Flowing sap — lineage vitality</text>
+    </svg>
+  </div>
+</section>
+
+<!-- GOTRA SECTION -->
+<section id="gotra-section">
+  <div class="inner">
+    <p class="sec-eyebrow reveal">गोत्र प्रणाली</p>
+    <h2 class="sec-title reveal">The 84 Gotras — Sage-Lineage Groups</h2>
+    <p class="sec-lead reveal">The Yadava community is organised into 84+ exogamous gotra groups, each named after a Vedic sage (rishi) from whom the lineage claims patrilineal descent. Marriage within the same gotra is prohibited — the system has maintained genetic and social diversity across five thousand years. The gotras are the community's deepest genealogical memory.</p>
+
+    <div class="gotra-grid">
+      <!-- 16 primary gotras displayed -->
+      <div class="gotra-card reveal rd1">
+        <div class="g-num">01</div>
+        <div class="g-name">Krishnatreya</div>
+        <div class="g-dev">कृष्णात्रेय</div>
+        <div class="g-rishi">Descendant line of Sage Atri through the Krishna devotional tradition; the most widely distributed gotra among UP-Bihar Yadavas</div>
+        <div class="g-region">UP · Bihar · Haryana</div>
+      </div>
+      <div class="gotra-card reveal rd2">
+        <div class="g-num">02</div>
+        <div class="g-name">Kashyapa</div>
+        <div class="g-dev">काश्यप</div>
+        <div class="g-rishi">From Sage Kashyapa — one of the Saptarishis; his lineage is among the most ancient in all Hindu genealogy; widespread across all Yadava sub-communities</div>
+        <div class="g-region">Pan-India · All sub-clans</div>
+      </div>
+      <div class="gotra-card reveal rd3">
+        <div class="g-num">03</div>
+        <div class="g-name">Vishvamitra</div>
+        <div class="g-dev">विश्वामित्र</div>
+        <div class="g-rishi">From Sage Vishvamitra — the royal sage who became a Brahmarishi; this gotra connects Yadava pastoral communities to both royal and priestly symbolic heritage</div>
+        <div class="g-region">Haryana · Rajasthan</div>
+      </div>
+      <div class="gotra-card reveal rd4">
+        <div class="g-num">04</div>
+        <div class="g-name">Vatsa</div>
+        <div class="g-dev">वत्स</div>
+        <div class="g-rishi">From Sage Vatsa — a student of Sage Sandilya; particularly prominent among the Ahir communities of western UP and Haryana's pastoral belt</div>
+        <div class="g-region">Western UP · Haryana</div>
+      </div>
+      <div class="gotra-card reveal rd5">
+        <div class="g-num">05</div>
+        <div class="g-name">Bharadvaja</div>
+        <div class="g-dev">भरद्वाज</div>
+        <div class="g-rishi">From Sage Bharadvaja — one of the greatest Vedic rishis; his gotra is distributed across the entire Yadava geographic range from Punjab to Tamil Nadu</div>
+        <div class="g-region">Multi-regional · All India</div>
+      </div>
+      <div class="gotra-card reveal rd6">
+        <div class="g-num">06</div>
+        <div class="g-name">Gargya</div>
+        <div class="g-dev">गार्ग्य</div>
+        <div class="g-rishi">From Sage Garga — the royal astrologer who named and predicted the future of the infant Krishna; this gotra has the closest genealogical claim to the Krishna narrative</div>
+        <div class="g-region">Mathura · Vrindavana belt</div>
+      </div>
+      <div class="gotra-card reveal rd1">
+        <div class="g-num">07</div>
+        <div class="g-name">Vashishtha</div>
+        <div class="g-dev">वशिष्ठ</div>
+        <div class="g-rishi">From Sage Vashishtha — the chief priest of the Solar dynasty (Ikshvaku) and one of the Saptarishis; indicates ancient cross-dynastic lineage connections</div>
+        <div class="g-region">Bihar · Eastern UP</div>
+      </div>
+      <div class="gotra-card reveal rd2">
+        <div class="g-num">08</div>
+        <div class="g-name">Sandilya</div>
+        <div class="g-dev">शाण्डिल्य</div>
+        <div class="g-rishi">From Sage Shandilya — associated with the Chandogya Upanishad's Shandilya Vidya (meditation on Brahman as the self); strong Vaishnava devotional community connection</div>
+        <div class="g-region">Gujarat · Maharashtra</div>
+      </div>
+      <div class="gotra-card reveal rd3">
+        <div class="g-num">09</div>
+        <div class="g-name">Parashara</div>
+        <div class="g-dev">पाराशर</div>
+        <div class="g-rishi">From Sage Parashara — father of Veda Vyasa and author of the Vishnu Purana; this gotra's communities have strong Puranic and Bhakti literary traditions</div>
+        <div class="g-region">MP · Rajasthan</div>
+      </div>
+      <div class="gotra-card reveal rd4">
+        <div class="g-num">10</div>
+        <div class="g-name">Mudgala</div>
+        <div class="g-dev">मुद्गल</div>
+        <div class="g-rishi">From Sage Mudgala — associated with the Mudgala Purana; his lineage communities are particularly strong in the Gangetic plain's pastoral Yadava concentrations</div>
+        <div class="g-region">Eastern UP · Bihar</div>
+      </div>
+      <div class="gotra-card reveal rd5">
+        <div class="g-num">11</div>
+        <div class="g-name">Harita</div>
+        <div class="g-dev">हारित</div>
+        <div class="g-rishi">From Sage Harita — associated with the Harita Smriti; a gotra particularly prominent among the pastoral Ahir communities of Haryana and Rajasthan's pastoral belt</div>
+        <div class="g-region">Haryana · Rajasthan</div>
+      </div>
+      <div class="gotra-card reveal rd6">
+        <div class="g-num">12</div>
+        <div class="g-name">Atreya</div>
+        <div class="g-dev">आत्रेय</div>
+        <div class="g-rishi">From Sage Atri — father of the Moon (Chandra) in the Puranic genealogy, making this gotra's lineage traceable to the very root of the Chandravamsha dynasty</div>
+        <div class="g-region">Pan-India · Ancient root</div>
+      </div>
+      <div class="gotra-card reveal rd1">
+        <div class="g-num">13</div>
+        <div class="g-name">Kaundinya</div>
+        <div class="g-dev">कौण्डिन्य</div>
+        <div class="g-rishi">From Sage Kaundinya — one of the five disciples present at the Buddha's first discourse; this gotra's communities bridge the Vedic and post-Vedic pastoral traditions of South India</div>
+        <div class="g-region">South India · Karnataka · TN</div>
+      </div>
+      <div class="gotra-card reveal rd2">
+        <div class="g-num">14</div>
+        <div class="g-name">Kapila</div>
+        <div class="g-dev">कपिल</div>
+        <div class="g-rishi">From Sage Kapila — founder of the Samkhya school of philosophy; Golla communities of Telangana and Andhra Pradesh maintain this gotra with strong pastoral continuity</div>
+        <div class="g-region">Telangana · Andhra Pradesh</div>
+      </div>
+      <div class="gotra-card reveal rd3">
+        <div class="g-num">15</div>
+        <div class="g-name">Gotama</div>
+        <div class="g-dev">गौतम</div>
+        <div class="g-rishi">From Sage Gotama — one of the Saptarishis and author of the Nyaya Sutras; Gop and Sadgope communities of Bengal maintain this gotra with strong pastoral heritage</div>
+        <div class="g-region">West Bengal · Odisha</div>
+      </div>
+      <div class="gotra-card reveal rd4">
+        <div class="g-num">84+</div>
+        <div class="g-name">And More…</div>
+        <div class="g-dev">अनेक गोत्र</div>
+        <div class="g-rishi">The complete Yadava gotra system encompasses 84+ lineage groups, each maintaining distinct genealogical records, marriage networks, and regional traditions across the Indian subcontinent</div>
+        <div class="g-region">All sub-communities · Pan-India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DYNASTY TIMELINE -->
+<section id="timeline-section">
+  <div class="inner">
+    <p class="sec-eyebrow reveal">वंश-काल रेखा</p>
+    <h2 class="sec-title reveal">The Dynastic Timeline — From Cosmic Origin to Today</h2>
+    <p class="sec-lead reveal">The Yadava genealogy is not merely horizontal (who begat whom) but vertical — spanning six thousand years of documented or traditionally accepted history. This timeline anchors the family tree in historical time.</p>
+
+    <div class="tl-line reveal">
+      <div class="tl-item">
+        <div class="tl-era">Vedic Period · Before 3100 BCE (traditional)</div>
+        <div class="tl-title">Brahma → Atri → Chandra → Pururavas — The Cosmic Root</div>
+        <div class="tl-body">The Yadava genealogy begins in the Rigveda's cosmology — with Brahma as the ultimate progenitor, Atri as the Saptarishi whose son Chandra (the Moon) founds the Chandravamsha (Lunar Dynasty). Pururavas, the Moon's grandson, begins the royal line. These figures are pan-Hindu; their significance is that the Yadava genealogy is consciously anchored to the oldest layer of Indian cosmological thought.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-era">Epic Period · c.3100–1500 BCE (traditional)</div>
+        <div class="tl-title">Yayati → Yadu — The Founding Separation</div>
+        <div class="tl-body">King Yayati has five sons — Yadu by Devayani and Puru by Sharmishtha. Yayati curses Yadu for refusing to exchange youth, but simultaneously establishes the Yadu line as a parallel dynasty. Yadu's descendants — the Yadavas — become the premier pastoral-warrior community of north-west India. Yadu's five sons found five sub-lineages, of which the Vrishni line (through the third son) becomes paramount.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-era">Late Vedic · c.1500–800 BCE</div>
+        <div class="tl-title">The Vrishni Lineage — Devamidha, Shura, Vasudeva</div>
+        <div class="tl-body">The Vrishni sub-clan of the Yadava confederation establishes itself at Mathura in the Braj region. Through Devamidha → Shura → Vasudeva, the lineage reaches the generation of Krishna's father. Vasudeva is a chieftain of the Vrishni; his son Krishna will be simultaneously a Yadava king and the most significant figure in all of Indian religious and cultural history.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-era">Mahabharata Era · c.3100 BCE traditional / c.800 BCE scholarly</div>
+        <div class="tl-title">Krishna — The Divine Centre of the Yadava Tree</div>
+        <div class="tl-body">Krishna Vasudeva — warrior, king, philosopher, cowherd, divine ancestor — occupies the unique position in the Yadava genealogy of being simultaneously a historical figure within the lineage and the divine absolute whose birth within the lineage sanctifies the entire family tree retrospectively and prospectively. The Bhagavad Gita, taught to Arjuna on the Kurukshetra battlefield, is the world's most influential philosophical text produced within this lineage.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-era">Classical Period · 300 BCE – 600 CE</div>
+        <div class="tl-title">Post-Mahabharata Dispersal — The Sub-Communities Form</div>
+        <div class="tl-body">Following the Kurukshetra war and the submersion of Dvaraka, the Yadava community disperses across the Indian subcontinent. The Ahir, Gop, Gwala, Golla, Kuruba, Idaiyar, and Gaoli sub-communities solidify their distinct regional identities while maintaining the common thread of pastoral economy and Krishna devotion. Regional inscriptions (particularly the Abhira inscriptions of central India, 2nd–4th century CE) provide the first epigraphic evidence of these communities.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-era">Medieval Period · 600–1300 CE</div>
+        <div class="tl-title">Yadava Kingdom of Devagiri — Peak Political Power</div>
+        <div class="tl-body">The Yadava dynasty of Devagiri (present-day Daulatabad, Maharashtra) rules as the premier power of the Deccan from approximately 850 to 1317 CE. Under kings like Bhillama V, Singhana, and Ramachandra, the kingdom patronises Marathi language (the first Marathi literary works emerge under Yadava patronage), maintains a powerful military, and controls trade routes between North India and the Konkan coast. The dynasty ends with Ramachandra's submission to Alauddin Khalji in 1296 and the subsequent Khalji conquest.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-era">Bhakti Period · 1300–1700 CE</div>
+        <div class="tl-title">Surdas, Mirabai, Raidas — The Bhakti Flowering</div>
+        <div class="tl-body">The Bhakti movement produces the community's greatest cultural flowering — Surdas's Sur Sagar (800,000 verses of Krishna devotional poetry in Braj Bhasha), Mirabai's devotional lyrics (the most beloved female poet in all of Indian literature), Raidas's social-justice Bhakti (first Dalit saint of the Krishna tradition), and the entire Braj literary tradition centred on Mathura-Vrindavana. The community's devotional poetry in this period constitutes the apex of the entire Yadava cultural contribution to human civilization.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-era">Colonial Period · 1700–1947 CE</div>
+        <div class="tl-title">Rao Tula Ram, Mandal Commission — The Political Awakening</div>
+        <div class="tl-body">Under colonial rule, the Yadava community — classified as an "agricultural and pastoral caste" in British administrative categories — begins organising politically. Rao Tula Ram (1825–1863) leads the 1857 uprising in Haryana; B.P. Mandal (1918–1982) rises to Bihar CM and chairs the commission that will transform Indian democracy. The colonial period also produces the first documented community organisations (Yadava Mahasabha, 1920s) and the first self-conscious assertions of Yadava political identity.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-era">Post-Mandal Era · 1990 – Present</div>
+        <div class="tl-title">350 Million — The Living Tree's Present Moment</div>
+        <div class="tl-body">The Mandal revolution (1990) converts ancestral social cohesion into political power — Lalu Prasad Yadav and Mulayam Singh Yadav become Chief Ministers of India's two most populous states. Bihar's 2023 caste survey officially records Yadavas as 14.26% of Bihar's population. The community today encompasses 350 million people across India and the global diaspora, distributed across 1,200+ sub-communities, united by the ancestral pastoral tradition, Krishna devotion, and the long memory of five thousand years of continuous civilisational identity.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT CHAPTER -->
+<div class="next-band">
+  <p class="next-label">The Record Is Complete — For Now</p>
+  <h2 class="next-title">Return to Chapter X — The Community Today</h2>
+  <p class="next-sub">समाज · आर्थिकी · राजनीति · संस्कृति</p>
+  <p class="next-lead">The living community — demographics, economy, politics, culture, education, diaspora, challenges, and aspirations for 2050.</p>
+  <div class="next-btns">
+    <a href="community-today.html" class="nbtn nbtn-primary">← Chapter X — Community Today</a>
+    <a href="index.html"           class="nbtn nbtn-secondary">Return to Home</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">यादव वंश</div>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="cosmic-origin.html">I</a>
+      <a href="lunar-dynasty.html">II</a>
+      <a href="yadu.html">III</a>
+      <a href="krishna.html">IV</a>
+      <a href="clans-gotras.html">V</a>
+      <a href="medieval-kingdoms.html">VI</a>
+      <a href="bhakti-saints.html">VII</a>
+      <a href="modern-history.html">VIII</a>
+      <a href="notable-figures.html">IX</a>
+      <a href="community-today.html">X</a>
+      <a href="family-tree.html" class="active">XI ←</a>
+    </nav>
+    <div class="footer-copy">Yadav Vansh Digital Scripture · Chapter XI</div>
+  </div>
+</footer>
+
+<!-- DETAIL PANEL -->
+<div id="detail-panel">
+  <button class="dp-close" id="dp-close-btn">✕ Close</button>
+  <div id="dp-content">
+    <!-- Populated by JS -->
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════
+   NAV SCROLL
+══════════════════════════════════════════════ */
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', scrollY > 50);
+}, { passive: true });
+
+/* ══════════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════════ */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: .05, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ══════════════════════════════════════════════
+   NODE DATA — detail panel content
+══════════════════════════════════════════════ */
+const nodeData = {
+  brahma: {
+    glyph: 'ब्रह्मा', name: 'Brahma', era: 'Cosmic Origin · Vedic Cosmology',
+    tags: ['Cosmic Creator', 'Prajapati', 'Chandravamsha Root'],
+    body: '<strong>Brahma</strong> — the creator aspect of the Hindu divine trinity — is the ultimate progenitor in the Yadava genealogical tradition. The Puranic genealogies trace a line from Brahma through the seven great sages (Saptarishis), particularly through <strong>Sage Atri</strong>, to Atri\'s son Chandra (the Moon), and from Chandra through the Lunar Dynasty to Yadu and the Yadava line. The Yadava genealogy is thus anchored to the very beginning of created time.',
+    descendants: 'The entire Yadava lineage — 350 million living members across India and the global diaspora — traces this cosmic root through the Lunar Dynasty to Yadu.'
+  },
+  chandra: {
+    glyph: 'चन्द्र', name: 'Chandra (The Moon)', era: 'Lunar Dynasty · Chandravamsha Root',
+    tags: ['Moon God', 'Chandravamsha', 'Atri\'s Son'],
+    body: '<strong>Chandra</strong> (the Moon) is the son of Sage Atri in Puranic cosmology and the progenitor of the <strong>Chandravamsha</strong> — the Lunar Dynasty — which includes both the Pandavas and the Yadavas. His daughter-in-law Devayani is the mother of Yadu by King Yayati. The Yadavas thus claim the Moon as their dynastic progenitor, making the Lunar Dynasty the celestial family tree of which the Yadava lineage is the living continuation.',
+    descendants: 'Through Pururavas → Ayu → Nahusha → Yayati → Yadu. The entire Yadava lineage descends from this celestial root.'
+  },
+  yayati: {
+    glyph: 'ययाति', name: 'Yayati', era: 'Epic Period · Lunar Dynasty King',
+    tags: ['Lunar King', 'Father of Yadu', 'Devayani\'s Husband'],
+    body: 'King <strong>Yayati</strong> — son of Nahusha, grandson of Ayu — is among the most significant figures in the Mahabharata\'s genealogical narratives. He has two wives: <strong>Devayani</strong> (daughter of the preceptor Shukracharya) and <strong>Sharmishtha</strong> (daughter of the Danava king Vrishaparva). Yadu is Devayani\'s eldest son. When Yayati curses Yadu for refusing to exchange his youth, he simultaneously establishes the Yadu line as having its own dynastic destiny — separate from but parallel to the Puru line (from which the Pandavas descend).',
+    descendants: 'Five sons: Yadu, Turvasha, Druhyu, Anu, and Puru. The Yadava lineage descends through Yadu; the Pandavas through Puru.'
+  },
+  yadu: {
+    glyph: 'यदु', name: 'Yadu', era: 'Epic Period · Progenitor of All Yadavas',
+    tags: ['Progenitor', 'Chandravamsha', 'Devayani\'s Son', 'Five Sons'],
+    body: '<strong>Yadu</strong> is the founding ancestor of the entire Yadava lineage — the figure from whom all 350 million Yadavas across India and the world claim ultimate descent. Though cursed by his father Yayati to have his dynasty never attain the royal throne (a curse that in practice the Mahabharata itself challenges, since Krishna leads the Yadava confederacy), Yadu establishes a pastoral-warrior tradition that becomes one of the most persistent civilisational identities in human history. His five sons found the five major sub-lineages of the Yadava tradition.',
+    descendants: 'Five sons: Sahasrajit, Kroshtu, Nala (Vrishni line), Shantajit, and Dhrishtajit — from these five, all Yadava sub-communities claim descent.'
+  },
+  vrishni: {
+    glyph: 'वृष्णि', name: 'Vrishni', era: 'Epic Period · Son III of Yadu · Main Line',
+    tags: ['Main Yadava Line', 'Krishna\'s Ancestor', 'Mathura'],
+    body: '<strong>Vrishni</strong> — the third son of Yadu — is the ancestor of the Vrishni sub-clan, the most historically significant of the five Yadava lineages because it is from this line that <strong>Krishna</strong> himself is born. The Vrishni Yadavas establish themselves at Mathura on the Yamuna river, where they become the dominant power of the region. Their capital later shifts to Dvaraka (in present-day Gujarat) under Krishna\'s leadership. The Mahabharata refers to them as the Vrishnis and Andhakas — the leading clans of the Yadava confederacy.',
+    descendants: 'Through Devamidha → Shura → Vasudeva → Krishna. All communities claiming direct Vrishni-line descent include the Ahir communities of Mathura, Vrindavana, and the surrounding Braj region.'
+  },
+  krishna: {
+    glyph: 'कृष्ण', name: 'Krishna Vasudeva', era: 'Mahabharata Era · 8th Avatar of Vishnu · Vrishni Chief',
+    tags: ['Divine Ancestor', '8th Avatara', 'Bhagavad Gita', 'Dvaraka King', 'Vrishni Chief'],
+    body: '<strong>Krishna Vasudeva</strong> — son of Vasudeva and Devaki, raised by Nanda and Yashoda in Vrindavana — occupies the unique position in the Yadava genealogy of being simultaneously the community\'s greatest historical king and the divine absolute incarnate in human form. As a Yadava, he leads the Vrishni confederacy; as Vishnu\'s eighth avatara, he teaches the <strong>Bhagavad Gita</strong> to Arjuna on the Kurukshetra battlefield — the most influential philosophical text in Indian civilisation. His birth in the Yadava community sanctifies the entire lineage retroactively and prospectively: the Yadavas are the family into which God chose to be born.',
+    descendants: 'Direct descendants: Pradyumna, Amba, Samba, and many others. The post-Krishna Yadava communities spread across the entire Indian subcontinent; all Yadava sub-communities today claim this ultimate divine ancestor.'
+  },
+  sahasrajit: {
+    glyph: 'सहस्रजित्', name: 'Sahasrajit', era: 'Epic Period · Son I of Yadu',
+    tags: ['Son I of Yadu', 'Lateral Line'],
+    body: '<strong>Sahasrajit</strong> — the eldest son of Yadu — founds the first lateral branch of the Yadava lineage. His line produces several sub-clans in the western and north-western parts of the Yadava geographic range. Though less prominent in the canonical texts than the Vrishni-Krishna line, the Sahasrajit lineage communities maintain distinct gotra and lineage traditions in the Ahir communities of Rajasthan and western MP.',
+    descendants: 'Rajasthan and western MP Yadava communities with Sahasrajit gotra-line traditions. Merged over time with the broader Ahir identity.'
+  },
+  kroshtu: {
+    glyph: 'क्रोष्टु', name: 'Kroshtu', era: 'Epic Period · Son II of Yadu',
+    tags: ['Son II of Yadu', 'Punjab Line'],
+    body: '<strong>Kroshtu</strong> — the second son of Yadu — founds the Kroshtu line, which is mentioned in the Harivamsha as a distinct Yadava sub-dynasty in the Punjab and north-western territories. His lineage merges over centuries with the broader Ahir pastoral identity. The Kroshtu line\'s geographic spread into the Punjab region partially explains the historical Ahir presence in Haryana — a community that preserves both the Kroshtu and Vrishni lineage memories.',
+    descendants: 'Punjab and Haryana Ahir communities trace partial lineage through this branch. Merged with the Vrishni-dominant Ahir identity over the medieval period.'
+  },
+  shantajit: {
+    glyph: 'शान्तजित्', name: 'Shantajit', era: 'Epic Period · Son IV of Yadu',
+    tags: ['Son IV of Yadu', 'Eastern Line'],
+    body: '<strong>Shantajit</strong> — the fourth son of Yadu — founds the eastern branch of the Yadava lineage. His communities are associated with the eastern Gangetic plain — present-day Bihar, Jharkhand, and Odisha. The Gop communities of Odisha and parts of Bengal partially trace their lineage through this eastern Yadava branch.',
+    descendants: 'Eastern Yadava communities — Gop of Odisha, parts of Jharkhand Yadava communities. Merged with the broader Gop-Sadgope identity of Bengal-Odisha.'
+  },
+  dhrishtajit: {
+    glyph: 'धृष्टजित्', name: 'Dhrishtajit', era: 'Epic Period · Son V of Yadu',
+    tags: ['Son V of Yadu', 'South-Eastern Line'],
+    body: '<strong>Dhrishtajit</strong> — the fifth son of Yadu — founds the south-eastern branch. His lineage is associated with communities that over the centuries migrated toward the Deccan — potentially including ancestors of the Golla communities of Telangana and AP and the Idaiyar pastoral communities of Tamil Nadu.',
+    descendants: 'South Indian Yadava communities — Golla, Idaiyar, and Kuruba lineages partially trace through this fifth Yadava branch in their genealogical traditions.'
+  },
+  ahir: {
+    glyph: 'अहीर', name: 'Ahir-Yadava of North India', era: 'Medieval–Present · UP · Bihar · Haryana',
+    tags: ['North India', 'Pastoral', 'Olympic Wrestlers', 'SP-RJD Base', '45M+'],
+    body: 'The <strong>Ahir-Yadava</strong> of UP, Bihar, and Haryana are the largest and most politically prominent concentration of the Yadava community in the world. They claim descent through the Vrishni-Ahir line from Krishna himself, with Mathura-Vrindavana as their sacred heartland. Their pastoral tradition — cattle rearing, dairy farming, agricultural labour — survived through the medieval period into the present. Post-Mandal, this community has produced two state Chief Ministers (Mulayam Singh Yadav of UP, Lalu Prasad Yadav of Bihar), and their political mobilisation through SP and RJD constitutes the most significant backward-caste political movement in Indian democratic history.',
+    descendants: '~45M in UP, ~19M in Bihar, ~6.5M in Haryana. Olympic wrestlers (Phogat family), cricketers (MS Dhoni, Rohit Sharma), and the entire SP-RJD political leadership.'
+  },
+  'gujarat-ahir': {
+    glyph: 'अहीर', name: 'Gujarat Ahir-Yadava', era: 'Medieval–Present · Saurashtra · Amul',
+    tags: ['Gujarat', 'Dairy Cooperative', 'Amul', 'Saurashtra', 'Dwarka'],
+    body: 'The <strong>Ahir-Yadava of Gujarat</strong> — concentrated in Saurashtra (Jamnagar, Amreli, Bhavnagar) and north Gujarat (Mehsana, Sabarkantha) — are the community whose pastoral dairy skills gave the world the Amul cooperative. Through the visionary leadership of Tribhuvandas Patel and Verghese Kurien, the ancestral Ahir-Yadava cattle management tradition became the ₹72,000 crore Amul brand — the world\'s largest farmer-owned dairy cooperative. Dwarka — one of the four sacred Hindu pilgrimage cities (Char Dham) — is in Gujarat\'s Ahir heartland.',
+    descendants: '~9M in Gujarat. Amul cooperative (3.6M members). The Jadeja Rajput-Yadava communities of Saurashtra maintain dual Rajput-Yadava genealogical claims.'
+  },
+  devagiri: {
+    glyph: 'देवगिरि', name: 'Devagiri Yadava Kingdom', era: 'c.850–1317 CE · Deccan Empire',
+    tags: ['Kingdom', 'Deccan Power', 'Marathi Patronage', '850–1317 CE'],
+    body: 'The <strong>Yadava dynasty of Devagiri</strong> (present-day Daulatabad, Maharashtra) ruled as the premier power of the Deccan for over four centuries. Founded by Dridaprahara and rising to imperial prominence under Bhillama V (c.1187–1191), the dynasty reached its zenith under Singhana (c.1210–1247), who conquered territories from Gujarat to Andhra. The kingdom was the first royal patron of the Marathi language — the first Marathi literary works, including Jnaneshvara\'s Dnyaneshwari, emerged under Yadava patronage. The dynasty ended when Alauddin Khalji defeated king Ramachandra in 1296 and the subsequent Khalji conquest dismantled the kingdom.',
+    descendants: 'Maharashtra\'s Gaoli community (milk-seller pastoral Yadavas) claims lineage from the kingdom\'s peasant-pastoral base. The Devagiri fort remains a monument to this four-century Yadava imperial achievement.'
+  },
+  golla: {
+    glyph: 'गोल्ला', name: 'Golla — Pastoral Yadavas of the Deccan', era: 'Medieval–Present · Telangana · Andhra Pradesh',
+    tags: ['Deccan', 'Shepherd-Pastoral', 'Golla', 'Telugu-Speaking', '12M+'],
+    body: 'The <strong>Golla community</strong> — the pastoral Yadavas of Telangana and Andhra Pradesh — represent the Yadava lineage\'s southern continuity. Their name derives from the Sanskrit <em>Gopala</em> (cowherd) and they maintain the ancestral cattle-rearing and dairy tradition in the Deccan\'s pastoral zones (Nalgonda, Mahbubnagar, Kurnool, Prakasam districts). Strong connections to the Telugu devotional tradition around the Krishna district — the river itself named for their divine ancestor.',
+    descendants: '~12M in Telangana and AP. Prominent in Telugu-medium government service, dairy farming, and the Andhra Pradesh state-level political landscape.'
+  },
+  gop: {
+    glyph: 'गोप', name: 'Gop — Pastoral Yadavas of Bengal & Odisha', era: 'Medieval–Present · West Bengal · Odisha',
+    tags: ['Bengal', 'Odisha', 'Gop', 'Sadgope', 'Vaishnavism'],
+    body: 'The <strong>Gop and Sadgope communities</strong> of West Bengal and Odisha represent the Yadava lineage\'s eastern frontier. Closely associated with the great Vaishnava devotional tradition of Bengal — Chaitanya Mahaprabhu\'s Bengal Krishna-bhakti movement had its strongest base in the Gop-Sadgope communities — they maintain strong cultural continuity with the pastoral-devotional identity of the original Yadava tradition. The Sadgope (literally "virtuous cowherd") are a distinct sub-community with their own cultural institutions in Bengal.',
+    descendants: '~12M across Bengal, Odisha, Jharkhand. The Gwala community of the Bengal-Jharkhand border zone. Strong Vaishnavism through the Chaitanya tradition.'
+  },
+  'up-bihar': {
+    glyph: 'यादव', name: 'UP & Bihar Yadava — Present Day', era: 'Modern · India\'s Political Heartland',
+    tags: ['45M UP', '19M Bihar', 'SP · RJD', 'Birha', 'UPSC Generation'],
+    body: 'The Yadava communities of Uttar Pradesh (~45 million) and Bihar (~19 million, confirmed by the 2023 caste survey) form the world\'s largest concentration of the Yadava lineage in a single contiguous geographic zone. Politically represented by the Samajwadi Party (SP) in UP and the Rashtriya Janata Dal (RJD) in Bihar, this community produced the Mandal revolution\'s most prominent faces — Mulayam Singh Yadav, Lalu Prasad Yadav, Akhilesh Yadav, and Tejashwi Yadav — and is the base of the most significant backward-caste political movement in democratic India.',
+    descendants: 'SP won 37 Lok Sabha seats in 2024; RJD the largest Bihar opposition party. The Bihar 2023 survey confirmed Yadavas as 14.26% of Bihar — the first official data in post-independence India.'
+  },
+  diaspora: {
+    glyph: 'प्रवासी', name: 'The Global Yadava Diaspora', era: '1838–Present · Mauritius · Caribbean · UK · Gulf · USA',
+    tags: ['Mauritius', 'Trinidad', 'UK Leicester', 'Gulf 500K+', 'USA Tech'],
+    body: 'The Yadava diaspora spans the globe — from the oldest communities descended from British colonial indentured labourers (Mauritius, Trinidad, Fiji — 1838–1916) to the Gulf\'s 500,000+ construction and service workers from UP-Bihar, to the established UK community in Leicester and Birmingham, to the growing professional diaspora of IIT-educated engineers in Silicon Valley and Houston. Wherever they go, the community carries Chhath Puja as its most powerful trans-national cultural institution — performed at rivers, lakes, and sea coasts from Trinidad to Leicester to Dubai.',
+    descendants: 'Mauritius: 500,000+ (Presidents and Prime Ministers). Trinidad: 300,000+. Gulf: 500,000+ workers. UK: established Leicester community. USA: growing IIT-educated professional cohort.'
+  }
+};
+
+/* ══════════════════════════════════════════════
+   DETAIL PANEL
+══════════════════════════════════════════════ */
+const panel    = document.getElementById('detail-panel');
+const closeBtn = document.getElementById('dp-close-btn');
+const dpContent = document.getElementById('dp-content');
+
+function openPanel(id) {
+  const d = nodeData[id];
+  if (!d) return;
+  dpContent.innerHTML = `
+    <div class="dp-glyph">${d.glyph}</div>
+    <div class="dp-name">${d.name}</div>
+    <div class="dp-era">${d.era}</div>
+    <div class="dp-tags">${d.tags.map(t => `<span class="dp-tag">${t}</span>`).join('')}</div>
+    <div class="dp-rule"></div>
+    <div class="dp-section-title">Lineage &amp; Significance</div>
+    <div class="dp-text">${d.body}</div>
+    <div class="dp-descendants">
+      <div class="dp-desc-title">Living Descendants &amp; Legacy</div>
+      <div class="dp-desc-item">${d.descendants}</div>
+    </div>
+  `;
+  panel.classList.add('open');
+}
+
+closeBtn.addEventListener('click', () => panel.classList.remove('open'));
+panel.addEventListener('click', e => { if (e.target === panel) panel.classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') panel.classList.remove('open'); });
+
+/* Wire all node hit areas */
+document.querySelectorAll('.node-hit').forEach(hit => {
+  const g = hit.closest('.node-group');
+  if (!g) return;
+  const id = g.dataset.id;
+  hit.addEventListener('click', () => openPanel(id));
+  hit.style.cursor = 'pointer';
+
+  /* Hover glow effect — brighten the node dot */
+  hit.addEventListener('mouseenter', () => {
+    const dot = g.querySelector('circle');
+    if (dot) dot.style.filter = 'brightness(1.35) drop-shadow(0 0 8px rgba(247,216,112,.7))';
+  });
+  hit.addEventListener('mouseleave', () => {
+    const dot = g.querySelector('circle');
+    if (dot) dot.style.filter = '';
+  });
+});
+
+/* ══════════════════════════════════════════════
+   GOTRA CARD HOVER
+══════════════════════════════════════════════ */
+document.querySelectorAll('.gotra-card').forEach(c => {
+  c.addEventListener('mouseenter', () => { c.style.transform = 'translateY(-3px)'; });
+  c.addEventListener('mouseleave', () => { c.style.transform = ''; });
+});
+</script>
+</body>
+</html>

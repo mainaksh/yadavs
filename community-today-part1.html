@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Chapter X — The Yadava Community Today | Yadav Vansh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500;1,9..144,700&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ════════════════════════════════════════════════════════════
+   CHAPTER X — LIVING EARTH DESIGN SYSTEM
+   Terracotta · Harvest Saffron · Forest Green · Raw Linen
+   Wheat-field canvas · Ancient grain texture · Candlelight warmth
+════════════════════════════════════════════════════════════ */
+:root{
+  --earth:    #1C120A;
+  --earth2:   #231509;
+  --earth3:   #2C1D0E;
+  --earth4:   #351F10;
+  --clay:     #8B3A1A;
+  --clay-l:   #B85020;
+  --clay-p:   #E87848;
+  --clay-d:   #5C2510;
+  --saffron:  #C47A14;
+  --saffron-l:#E09C1E;
+  --saffron-p:#F6C84A;
+  --saffron-d:#7A4C08;
+  --forest:   #1A4229;
+  --forest-l: #2A6B3E;
+  --forest-p: #48AC68;
+  --teal:     #126B5C;
+  --teal-l:   #1E9A84;
+  --teal-p:   #3ECBA8;
+  --crimson:  #7A1A2A;
+  --crimson-l:#A82030;
+  --crimson-p:#D84858;
+  --ochre:    #A06820;
+  --ochre-l:  #C88A2A;
+  --linen:    #F0E8D8;
+  --linen2:   #E4D8C4;
+  --linen3:   #CCBA98;
+  --linen4:   #A8926C;
+  --ff:'Fraunces',serif;
+  --fh:'DM Serif Display',serif;
+  --fb:'Outfit',sans-serif;
+  --fd:'Noto Serif Devanagari',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--earth);color:var(--linen);font-family:var(--fb);font-size:17px;overflow-x:hidden;line-height:1.6}
+
+/* ── CANVAS + GRAIN ── */
+#field-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.65}
+.grain{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
+  background-size:128px 128px;opacity:.38;mix-blend-mode:overlay;
+}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 2rem;transition:all .4s}
+nav.scrolled{background:rgba(28,18,10,.97);border-bottom:1px solid rgba(196,122,20,.22);box-shadow:0 4px 40px rgba(0,0,0,.9)}
+.nav-inner{max-width:1380px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-logo{font-family:var(--fd);font-size:1.42rem;color:var(--saffron-p);text-decoration:none}
+.nav-logo span{font-family:var(--fb);font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;color:var(--linen3);display:block;margin-top:-2px}
+.nav-ch{font-family:var(--fb);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--clay-p);padding:.26rem .72rem;border:1px solid rgba(184,80,30,.32)}
+.nav-back{font-family:var(--fb);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--saffron-p);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:gap .22s}
+.nav-back:hover{gap:.9rem}
+@media(max-width:680px){.nav-ch{display:none}}
+
+/* ── HERO ── */
+.hero{
+  position:relative;z-index:10;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:9rem 2rem 6rem;overflow:hidden;
+}
+.hero-lines{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(176deg,transparent 0,transparent 46px,rgba(196,122,20,.032) 46px,rgba(196,122,20,.032) 47px);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 68% 54% at 50% 46%,rgba(139,58,26,.09) 0%,transparent 70%);
+}
+.hero-mandala{position:absolute;inset:0;pointer-events:none;opacity:.06}
+.hero-mandala svg{width:100%;height:100%}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes earthBloom{
+  0%{opacity:0;filter:blur(32px) brightness(.18);transform:scale(.82)}
+  42%{filter:blur(2px) brightness(1.7) drop-shadow(0 0 90px rgba(196,122,20,.75))}
+  100%{opacity:1;filter:drop-shadow(0 0 60px rgba(196,122,20,.36));transform:none}
+}
+@keyframes pulseDot{0%,100%{opacity:.18}50%{opacity:.72}}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.9rem;
+  font-family:var(--fb);font-size:.52rem;letter-spacing:.44em;text-transform:uppercase;
+  color:var(--clay-p);border:1px solid rgba(184,80,30,.32);padding:.32rem 1.1rem;margin-bottom:1.25rem;
+  opacity:0;animation:fadeUp .9s .3s forwards;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'✦';font-size:.4rem;color:var(--saffron-p)}
+.hero-era{
+  font-family:var(--fb);font-size:clamp(.46rem,.88vw,.6rem);letter-spacing:.44em;text-transform:uppercase;
+  color:rgba(196,122,20,.4);margin-bottom:.52rem;opacity:0;animation:fadeUp .9s .52s forwards;
+}
+.hero-glyph{
+  font-family:var(--fd);font-size:clamp(2rem,6.8vw,7.5rem);line-height:1.08;margin-bottom:.38rem;
+  background:linear-gradient(158deg,var(--saffron-p) 0%,var(--clay-p) 20%,var(--forest-p) 42%,var(--teal-p) 60%,var(--saffron-l) 80%,var(--linen) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 60px rgba(196,122,20,.36));
+  opacity:0;animation:earthBloom 2.8s .65s forwards;
+}
+.hero-title{
+  font-family:var(--ff);font-size:clamp(1.15rem,3.2vw,3rem);font-weight:700;
+  color:var(--linen);line-height:1.12;margin-bottom:.4rem;
+  opacity:0;animation:fadeUp 1.1s .95s forwards;
+}
+.hero-title em{font-style:italic;color:var(--saffron-p)}
+.hero-sub{
+  font-family:var(--fd);font-size:clamp(.88rem,1.65vw,1.12rem);
+  color:var(--saffron-l);margin-bottom:1.35rem;
+  opacity:0;animation:fadeUp .9s 1.15s forwards;
+}
+.hero-rule{
+  display:flex;align-items:center;gap:1rem;width:min(420px,72vw);margin:0 auto 1.4rem;
+  opacity:0;animation:fadeIn .9s 1.35s forwards;
+}
+.hero-rule::before,.hero-rule::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--clay-l),transparent)}
+.hr-gem{width:7px;height:7px;background:var(--clay-l);transform:rotate(45deg)}
+.hero-lead{
+  font-size:clamp(.88rem,1.32vw,1.04rem);color:var(--linen2);max-width:780px;line-height:2.08;margin-bottom:1.9rem;
+  opacity:0;animation:fadeUp 1s 1.55s forwards;
+}
+.domain-pills{display:flex;gap:.44rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.65rem;opacity:0;animation:fadeUp .9s 1.75s forwards}
+.dp{font-family:var(--fb);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;padding:.22rem .66rem;border-radius:2px}
+.dp-cl{background:rgba(139,58,26,.2);color:var(--clay-p);border:1px solid rgba(139,58,26,.35)}
+.dp-sf{background:rgba(196,122,20,.16);color:var(--saffron-p);border:1px solid rgba(196,122,20,.28)}
+.dp-fo{background:rgba(26,66,41,.22);color:var(--forest-p);border:1px solid rgba(26,66,41,.38)}
+.dp-tl{background:rgba(18,107,92,.18);color:var(--teal-p);border:1px solid rgba(18,107,92,.32)}
+.dp-cr{background:rgba(122,26,42,.18);color:var(--crimson-p);border:1px solid rgba(122,26,42,.32)}
+.nav-pills{display:flex;gap:.46rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp 1s 1.95s forwards}
+.npill{
+  font-family:var(--fb);font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--linen3);border:1px solid rgba(196,122,20,.17);padding:.22rem .68rem;
+  text-decoration:none;border-radius:2px;transition:all .22s;
+}
+.npill:hover,.npill.active{background:rgba(196,122,20,.1);border-color:var(--saffron-p);color:var(--saffron-p)}
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeIn 1s 2.6s forwards}
+.scroll-cue span{font-family:var(--fb);font-size:.42rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(196,122,20,.35)}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--clay-l),transparent);animation:pulseDot 2.3s ease-in-out infinite}
+
+/* ── SUTRA BAND ── */
+.sutra-band{
+  position:relative;z-index:10;
+  background:linear-gradient(135deg,rgba(35,21,9,.98),rgba(28,18,10,.99));
+  border-top:2px solid rgba(196,122,20,.46);border-bottom:1px solid rgba(26,66,41,.26);
+  padding:3.2rem 2rem;text-align:center;overflow:hidden;
+}
+.sutra-band::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 52% 68% at 50% 50%,rgba(139,58,26,.05),transparent)}
+.sutra-dev{font-family:var(--fd);font-size:clamp(.9rem,1.85vw,1.3rem);color:var(--saffron-p);line-height:2.14;margin-bottom:.88rem;position:relative}
+.sutra-tr{font-family:var(--ff);font-style:italic;font-size:clamp(.82rem,1.35vw,.98rem);color:var(--linen2);line-height:1.94;max-width:840px;margin:0 auto .66rem;position:relative}
+.sutra-src{font-family:var(--fb);font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--forest-p);position:relative}
+
+/* ── GLOBAL LAYOUT ── */
+main{position:relative;z-index:10}
+section{padding:5.5rem 2rem}
+.inner{max-width:1320px;margin:0 auto}
+.eyebrow{font-family:var(--fb);font-size:.56rem;letter-spacing:.42em;text-transform:uppercase;color:var(--clay-l);margin-bottom:.88rem;display:flex;align-items:center;gap:1rem}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--clay-l)}
+h2.sec-title{font-family:var(--ff);font-size:clamp(1.55rem,3.4vw,2.7rem);font-weight:600;color:var(--saffron-p);line-height:1.16;margin-bottom:1rem}
+.lead{font-size:1.02rem;color:var(--linen2);max-width:900px;line-height:2.1;margin-bottom:1.85rem}
+.body-text{font-size:.9rem;color:var(--linen2);line-height:2.06;max-width:900px;margin-bottom:1.3rem}
+.body-text strong{color:var(--saffron-p)}
+
+/* ── DOMAIN HEADER ── */
+.dom-hdr{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(196,122,20,.12)}
+.dom-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.55rem;border:1px solid;flex-shrink:0}
+.di-dem{border-color:rgba(139,58,26,.5);background:rgba(139,58,26,.1)}
+.di-geo{border-color:rgba(26,66,41,.5);background:rgba(26,66,41,.1)}
+.di-eco{border-color:rgba(196,122,20,.5);background:rgba(196,122,20,.08)}
+.di-cul{border-color:rgba(18,107,92,.5);background:rgba(18,107,92,.08)}
+.di-pol{border-color:rgba(122,26,42,.5);background:rgba(122,26,42,.08)}
+.di-edu{border-color:rgba(100,70,20,.5);background:rgba(100,70,20,.08)}
+.di-dia{border-color:rgba(26,66,41,.42);background:rgba(26,66,41,.07)}
+.di-fut{border-color:rgba(40,172,100,.4);background:rgba(40,172,100,.05)}
+.dom-title{font-family:var(--ff);font-size:clamp(1.3rem,2.6vw,2.1rem);font-weight:600;line-height:1.16}
+.dom-sub{font-family:var(--fb);font-size:.48rem;letter-spacing:.24em;text-transform:uppercase;margin-top:.2rem;opacity:.55}
+
+/* ── STAT GRID ── */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:1.15rem;margin:2.2rem 0}
+.stat-card{
+  background:linear-gradient(158deg,rgba(35,21,9,.9),rgba(28,18,10,.96));
+  border:1px solid rgba(196,122,20,.14);padding:1.55rem 1.25rem;text-align:center;
+  position:relative;overflow:hidden;transition:all .34s;
+}
+.stat-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 0%,rgba(196,122,20,.05),transparent)}
+.stat-card:hover{border-color:rgba(196,122,20,.46);transform:translateY(-4px);box-shadow:0 12px 42px rgba(0,0,0,.6)}
+.snum{
+  font-family:var(--ff);font-size:clamp(1.7rem,3.6vw,2.65rem);font-weight:700;
+  background:linear-gradient(135deg,var(--saffron-p),var(--clay-p));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.04;margin-bottom:.28rem;
+}
+.slbl{font-family:var(--fb);font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:var(--linen3);line-height:1.58}
+.snote{font-size:.62rem;color:rgba(204,186,152,.36);margin-top:.22rem;font-style:italic}
+
+/* ── INFO BOX ── */
+.info-box{background:linear-gradient(135deg,rgba(35,21,9,.46),rgba(28,18,10,.72));border:1px solid rgba(196,122,20,.17);padding:2.1rem;margin:2.1rem 0}
+.ib-title{font-family:var(--fb);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--saffron-p);margin-bottom:1.05rem;display:flex;align-items:center;gap:.75rem}
+.ib-title::after{content:'';flex:1;height:1px;background:rgba(196,122,20,.17)}
+.ib-list{list-style:none;display:flex;flex-direction:column;gap:.68rem}
+.ib-list li{font-size:.84rem;color:var(--linen2);line-height:1.9;display:flex;gap:.74rem;align-items:flex-start}
+.ib-list li::before{content:'✦';color:var(--clay-p);font-size:.42rem;margin-top:.3rem;flex-shrink:0}
+.ib-list li strong{color:var(--saffron-p)}
+
+/* ── DATA CARDS ── */
+.data-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.75rem;margin:2.1rem 0}
+.d-card{
+  background:linear-gradient(155deg,rgba(35,21,9,.86),rgba(28,18,10,.95));
+  border:1px solid rgba(196,122,20,.11);position:relative;overflow:hidden;transition:all .34s;
+}
+.d-card:hover{border-color:rgba(196,122,20,.38);transform:translateY(-3px);box-shadow:0 12px 42px rgba(0,0,0,.62)}
+.d-stripe{position:absolute;left:0;top:0;bottom:0;width:3px}
+
+/* Featured horizontal card */
+.d-card.feat{grid-column:1/-1;display:flex}
+.feat .d-left{width:300px;flex-shrink:0;padding:2.1rem;border-right:1px solid rgba(196,122,20,.1);background:linear-gradient(135deg,rgba(139,58,26,.06),transparent);display:flex;flex-direction:column;gap:.72rem}
+.feat .d-right{flex:1;padding:2.1rem;display:flex;flex-direction:column;gap:.82rem}
+@media(max-width:860px){.d-card.feat{flex-direction:column}.feat .d-left{width:100%;border-right:none;border-bottom:1px solid rgba(196,122,20,.1)}}
+
+.d-head{padding:1.55rem 1.55rem 0;display:flex;gap:1.05rem;align-items:flex-start}
+.d-icon{width:58px;height:58px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:2px solid}
+.d-meta{flex:1}
+.d-name{font-family:var(--fh);font-size:1.02rem;color:var(--saffron-p);line-height:1.2;margin-bottom:.1rem;font-style:italic}
+.d-sub{font-family:var(--fb);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--linen3);margin-bottom:.22rem}
+.d-tags{display:flex;flex-wrap:wrap;gap:.26rem;margin-top:.18rem}
+.d-tag{font-family:var(--fb);font-size:.4rem;letter-spacing:.1em;text-transform:uppercase;padding:.1rem .38rem;border-radius:2px}
+.tg-cl{background:rgba(139,58,26,.22);color:var(--clay-p);border:1px solid rgba(139,58,26,.34)}
+.tg-sf{background:rgba(196,122,20,.18);color:var(--saffron-p);border:1px solid rgba(196,122,20,.3)}
+.tg-fo{background:rgba(26,66,41,.22);color:var(--forest-p);border:1px solid rgba(26,66,41,.38)}
+.tg-tl{background:rgba(18,107,92,.2);color:var(--teal-p);border:1px solid rgba(18,107,92,.32)}
+.tg-cr{background:rgba(122,26,42,.2);color:var(--crimson-p);border:1px solid rgba(122,26,42,.34)}
+
+.d-div{height:1px;margin:.9rem 1.55rem;background:linear-gradient(to right,transparent,rgba(196,122,20,.18),transparent)}
+.d-body{padding:0 1.55rem 1.55rem;font-size:.83rem;color:var(--linen2);line-height:1.92}
+.d-body strong{color:var(--saffron-p)}
+.d-body em{color:var(--clay-p);font-style:italic}
+.feat .d-body{padding:0;font-size:.87rem}
+
+.d-list{padding:0 1.55rem 1.1rem;display:flex;flex-direction:column;gap:.26rem}
+.feat .d-list{padding:0}
+.d-li{display:flex;gap:.52rem;font-size:.76rem;color:var(--linen3);line-height:1.64}
+.d-li::before{content:'●';font-size:.34rem;color:var(--clay-p);flex-shrink:0;margin-top:.3rem}
+
+.d-table{width:100%;border-collapse:collapse}
+.d-table td{padding:.28rem .38rem;font-size:.7rem;color:var(--linen3);border-bottom:1px solid rgba(196,122,20,.055);vertical-align:top;line-height:1.58}
+.d-table td:first-child{font-family:var(--fb);font-size:.4rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clay-p);width:72px}
+
+.d-quote{margin:0 1.55rem 1.55rem;padding:.84rem 1.1rem;border-left:2px solid;font-style:italic;font-size:.78rem;color:rgba(230,215,195,.76);line-height:1.78}
+.feat .d-quote{margin:0}
+.d-qs{display:block;margin-top:.26rem;font-style:normal;font-family:var(--fb);font-size:.4rem;letter-spacing:.13em;text-transform:uppercase}
+
+/* ── PROGRESS BARS ── */
+.prog-list{display:flex;flex-direction:column;gap:1rem;margin:1.4rem 0}
+.prog-label{display:flex;justify-content:space-between;font-family:var(--fb);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--linen3);margin-bottom:.32rem}
+.prog-label span:last-child{color:var(--saffron-p)}
+.prog-bar{height:5px;background:rgba(255,255,255,.055);border-radius:4px;overflow:hidden}
+.prog-fill{height:100%;border-radius:4px;transition:width 1.4s cubic-bezier(.16,1,.3,1)}
+
+/* ── GEO GRID ── */
+.geo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:1.15rem;margin:2.1rem 0}
+.geo-card{background:linear-gradient(160deg,rgba(35,21,9,.86),rgba(28,18,10,.94));border:1px solid rgba(26,66,41,.2);padding:1.4rem;transition:all .3s}
+.geo-card:hover{border-color:rgba(72,172,104,.4);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.6)}
+.geo-state{font-family:var(--fh);font-size:1rem;color:var(--forest-p);margin-bottom:.26rem;font-style:italic}
+.geo-pct{font-family:var(--ff);font-size:1.55rem;font-weight:700;color:var(--saffron-p);line-height:1;margin-bottom:.18rem}
+.geo-pop{font-family:var(--fb);font-size:.68rem;color:var(--linen3);margin-bottom:.5rem}
+.geo-bar{height:5px;background:rgba(255,255,255,.055);border-radius:3px;overflow:hidden}
+.geo-fill{height:100%;border-radius:3px;background:linear-gradient(to right,var(--forest-l),var(--forest-p));transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+.geo-notes{font-size:.7rem;color:rgba(204,186,152,.5);margin-top:.54rem;font-style:italic;line-height:1.6}
+
+/* ── QUOTE BLOCK ── */
+.qblock{border-left:3px solid var(--clay-l);padding:1.4rem 1.8rem;margin:2.5rem 0;background:rgba(139,58,26,.036);position:relative}
+.qdev{font-family:var(--fd);font-size:.96rem;color:var(--saffron-p);line-height:2.08;margin-bottom:.74rem}
+.qtrans{font-family:var(--ff);font-style:italic;color:var(--linen2);font-size:.88rem;line-height:1.88;margin-bottom:.5rem}
+.qsrc{font-family:var(--fb);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--clay-p)}
+
+/* ── POLITICS TIMELINE ── */
+.pol-tl{display:flex;flex-direction:column;gap:0;margin:2rem 0;position:relative;padding-left:2.5rem}
+.pol-tl::before{content:'';position:absolute;left:.65rem;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(200,50,70,.44) 8%,rgba(200,50,70,.44) 92%,transparent)}
+.tl-item{position:relative;padding-bottom:2.3rem}
+.tl-item::before{content:'';position:absolute;left:-1.98rem;top:.32rem;width:10px;height:10px;border-radius:50%;background:var(--crimson-p);border:2px solid var(--earth);box-shadow:0 0 8px rgba(200,50,70,.5)}
+.tl-year{font-family:var(--fb);font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;color:var(--crimson-p);margin-bottom:.18rem}
+.tl-title{font-family:var(--ff);font-style:italic;font-size:.98rem;color:var(--saffron-l);margin-bottom:.32rem}
+.tl-body{font-size:.8rem;color:var(--linen3);line-height:1.84;max-width:680px}
+
+/* ── CHALLENGE / ASPIRATION CARDS ── */
+.challenge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin:2.1rem 0}
+.ch-card{background:linear-gradient(155deg,rgba(35,21,9,.86),rgba(28,18,10,.94));border:1px solid rgba(122,26,42,.18);padding:1.65rem;position:relative;transition:all .3s}
+.ch-card:hover{border-color:rgba(122,26,42,.42);transform:translateY(-3px)}
+.ch-num{font-family:var(--ff);font-size:2.9rem;font-weight:700;color:rgba(122,26,42,.2);position:absolute;top:1rem;right:1.15rem;line-height:1}
+.ch-title{font-family:var(--fh);font-size:1rem;color:var(--crimson-p);margin-bottom:.54rem;font-style:italic;position:relative}
+.ch-body{font-size:.8rem;color:var(--linen3);line-height:1.88;position:relative}
+.ch-body strong{color:var(--linen2)}
+
+.aspiration-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem;margin:2.1rem 0}
+.as-card{background:linear-gradient(155deg,rgba(26,66,41,.1),rgba(28,18,10,.92));border:1px solid rgba(26,66,41,.22);padding:1.55rem;transition:all .3s}
+.as-card:hover{border-color:rgba(72,172,104,.4);transform:translateY(-3px)}
+.as-icon{font-size:1.95rem;margin-bottom:.64rem}
+.as-title{font-family:var(--fh);font-size:.98rem;color:var(--forest-p);margin-bottom:.5rem;font-style:italic}
+.as-body{font-size:.8rem;color:var(--linen3);line-height:1.88}
+
+/* ── REFERENCES TABLE ── */
+.ref-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.ref-table th{font-family:var(--fb);font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--saffron-p);border-bottom:1px solid rgba(196,122,20,.26);padding:.78rem .9rem;text-align:left;background:rgba(196,122,20,.04);white-space:nowrap}
+.ref-table td{padding:.7rem .9rem;color:var(--linen3);border-bottom:1px solid rgba(196,122,20,.055);vertical-align:top;line-height:1.62}
+.ref-table tr:nth-child(even) td{background:rgba(196,122,20,.012)}
+.ref-tag{font-family:var(--fb);font-size:.4rem;letter-spacing:.1em;text-transform:uppercase;padding:.08rem .36rem;border-radius:2px;white-space:nowrap;display:inline-block}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}
+.rd4{transition-delay:.32s}.rd5{transition-delay:.4s} .rd6{transition-delay:.48s}
+
+/* ── NEXT / FOOTER ── */
+.next-band{position:relative;z-index:10;text-align:center;background:linear-gradient(135deg,rgba(35,21,9,.5),rgba(13,8,2,.98));border-top:1px solid rgba(196,122,20,.36);padding:4.5rem 2rem;overflow:hidden}
+.next-label{font-family:var(--fb);font-size:.56rem;letter-spacing:.35em;text-transform:uppercase;color:var(--clay-l);margin-bottom:1rem}
+.next-title{font-family:var(--ff);font-size:clamp(1.4rem,2.8vw,2.4rem);color:var(--saffron-p);font-weight:600;margin-bottom:.8rem}
+.next-sub{font-family:var(--fd);font-size:1.05rem;color:var(--saffron-l);margin-bottom:1.6rem}
+.next-lead{font-size:.9rem;font-style:italic;color:var(--linen2);max-width:540px;margin:0 auto 2.2rem;line-height:1.9}
+.next-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+.nbtn{font-family:var(--fb);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;padding:.9rem 2.2rem;text-decoration:none;transition:all .3s;clip-path:polygon(10px 0%,calc(100% - 10px) 0%,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0% calc(100% - 10px),0% 10px)}
+.nbtn-p{background:linear-gradient(135deg,var(--saffron-p),var(--clay-p));color:var(--earth)}
+.nbtn-s{border:1px solid rgba(196,122,20,.44);color:var(--saffron-l);background:transparent}
+footer{position:relative;z-index:10;background:rgba(5,3,1,1);border-top:1px solid rgba(196,122,20,.07);padding:2.4rem 2rem}
+.footer-inner{max-width:1320px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.1rem}
+.footer-logo{font-family:var(--fd);font-size:1.3rem;color:var(--saffron-p)}
+.footer-nav{display:flex;gap:1.1rem;flex-wrap:wrap;align-items:center}
+.footer-nav a{font-family:var(--fb);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--linen3);text-decoration:none;transition:color .2s}
+.footer-nav a:hover{color:var(--saffron-p)}
+.footer-nav a.active{color:var(--saffron-p);border-bottom:1px solid var(--saffron-p)}
+.footer-copy{font-family:var(--fb);font-size:.46rem;letter-spacing:.1em;color:rgba(196,122,20,.2)}
+@media(max-width:680px){.data-grid,.geo-grid{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,1fr)}.challenge-grid,.aspiration-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="field-canvas"></canvas>
+<div class="grain"></div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">यादव वंश <span>Yadav Lineage · Digital Scripture</span></a>
+    <span class="nav-ch">Chapter X — The Yadava Community Today</span>
+    <a href="notable-figures.html" class="nav-back">← Chapter IX</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-lines"></div>
+  <div class="hero-mandala">
+    <svg viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="20" width="1340" height="860" fill="none" stroke="rgba(196,122,20,0.55)" stroke-width=".8"/>
+      <rect x="44" y="34" width="1312" height="832" fill="none" stroke="rgba(196,122,20,0.24)" stroke-width=".5"/>
+      <circle cx="700" cy="450" r="380" stroke="rgba(196,122,20,0.55)" stroke-width="1.1" fill="none"/>
+      <circle cx="700" cy="450" r="290" stroke="rgba(139,58,26,0.5)"   stroke-width="1"   fill="none"/>
+      <circle cx="700" cy="450" r="200" stroke="rgba(26,66,41,0.52)"   stroke-width="1.1" fill="none"/>
+      <circle cx="700" cy="450" r="110" stroke="rgba(18,107,92,0.48)"  stroke-width=".9"  fill="none"/>
+      <circle cx="700" cy="450" r="42"  stroke="rgba(196,122,20,0.6)"  stroke-width="1.1" fill="rgba(196,122,20,0.025)"/>
+      <g stroke="rgba(196,122,20,0.18)" stroke-width=".72">
+        <line x1="700" y1="55" x2="700" y2="845"/>
+        <line x1="310" y1="450" x2="1090" y2="450"/>
+        <line x1="431" y1="181" x2="969" y2="719"/>
+        <line x1="969" y1="181" x2="431" y2="719"/>
+      </g>
+      <circle cx="700" cy="55"  r="6" fill="rgba(139,58,26,0.7)"/>
+      <circle cx="1090" cy="450" r="5" fill="rgba(26,66,41,0.7)"/>
+      <circle cx="700" cy="845" r="6" fill="rgba(196,122,20,0.64)"/>
+      <circle cx="310" cy="450" r="5" fill="rgba(18,107,92,0.64)"/>
+      <text x="700" y="458" text-anchor="middle" font-family="'Noto Serif Devanagari',serif" font-size="22" fill="rgba(196,122,20,0.66)">आज</text>
+      <g stroke="rgba(196,122,20,0.12)" stroke-width=".7" fill="none">
+        <path d="M70 820 Q84 778 78 736 Q74 694 82 652"/>
+        <path d="M90 820 Q102 774 96 732 Q92 688 100 646"/>
+        <path d="M1310 820 Q1296 778 1302 736 Q1306 694 1298 652"/>
+        <path d="M1290 820 Q1278 774 1284 732 Q1288 688 1280 646"/>
+      </g>
+    </svg>
+  </div>
+  <p class="hero-eyebrow">Chapter X · दशम अध्याय</p>
+  <div class="hero-era">Demographics · Geography · Economy · Culture · Politics · Education · Diaspora · Future</div>
+  <div class="hero-glyph">यादव समाज — आज</div>
+  <h1 class="hero-title">The Yadava Community <em>Today</em></h1>
+  <p class="hero-sub">350 मिलियन यादव — भारत की सबसे बड़ी जाति समूह</p>
+  <div class="hero-rule"><div class="hr-gem"></div></div>
+  <p class="hero-lead">With an estimated 350 million members across India and the global diaspora, the Yadava community stands as one of the largest single-community groupings in the world — larger than the entire population of the United States. This chapter documents where they live, how they earn, what they believe, how they govern, the challenges they face, and the aspirations that drive them forward into the 21st century.</p>
+  <div class="domain-pills">
+    <span class="dp dp-cl">Demographics</span><span class="dp dp-fo">Geography</span><span class="dp dp-sf">Economy</span>
+    <span class="dp dp-tl">Culture</span><span class="dp dp-cr">Politics</span><span class="dp dp-cl">Education</span>
+    <span class="dp dp-fo">Diaspora</span><span class="dp dp-sf">Future</span>
+  </div>
+  <div class="nav-pills">
+    <a href="#overview" class="npill active">Overview</a>
+    <a href="#demographics" class="npill">Demographics</a>
+    <a href="#geography" class="npill">Geography</a>
+    <a href="#economy" class="npill">Economy</a>
+    <a href="#culture" class="npill">Culture</a>
+    <a href="#politics" class="npill">Politics</a>
+    <a href="#education" class="npill">Education</a>
+    <a href="#diaspora" class="npill">Diaspora</a>
+    <a href="#challenges" class="npill">Challenges</a>
+    <a href="#future" class="npill">Future</a>
+  </div>
+  <div class="scroll-cue"><span>Enter the Living Community</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- SUTRA BAND -->
+<div class="sutra-band">
+  <p class="sutra-dev">उत्तिष्ठत जाग्रत प्राप्य वरान्निबोधत।<br/>क्षुरस्य धारा निशिता दुरत्यया<br/>दुर्गं पथस्तत्कवयो वदन्ति।।</p>
+  <p class="sutra-tr">"Arise, awake, and stop not till the goal is reached. Sharp as a razor's edge is this path — difficult to cross, hard to tread — so declare the wise ones."</p>
+  <p class="sutra-src">— Katha Upanishad I.3.14 · The verse that Swami Vivekananda drew from as his rallying cry — and that captures the Yadava community's 21st-century moment: path sharp, purpose clear, resolve unbroken</p>
+</div>
+
+<main>
+
+<!-- ══ OVERVIEW ══ -->
+<section id="overview" style="background:linear-gradient(180deg,var(--earth) 0%,var(--earth2) 100%);">
+<div class="inner">
+  <p class="eyebrow reveal">समग्र चित्र</p>
+  <h2 class="sec-title reveal">350 Million — The Scale of a Civilisation Within a Nation</h2>
+  <p class="lead reveal">The Yadava community is not merely a social group — it is a civilisation within the Indian civilisation. It possesses its own geographic heartland, its own economic traditions, its own cultural forms, its own literary heritage rooted in the Rigveda and the Bhagavata Purana, its own devotional practice centred on Krishna and the Mathura-Vrindavana sacred landscape, and its own political institutions that have shaped north and central India for decades. To understand the Yadava community today is to understand one of the foundational communities of the subcontinent — a presence as ancient as the earliest Sanskrit hymns and as contemporary as the Bihar caste survey of 2023.</p>
+
+  <div class="stat-grid reveal">
+    <div class="stat-card"><div class="snum">350M+</div><div class="slbl">Total Population — India + Diaspora</div><div class="snote">2024 est.; no national caste census since 1931</div></div>
+    <div class="stat-card"><div class="snum">~27%</div><div class="slbl">Share of India's OBC Population</div><div class="snote">Largest single OBC grouping nationally</div></div>
+    <div class="stat-card"><div class="snum">6</div><div class="slbl">States of Political Dominance</div><div class="snote">UP, Bihar, Haryana, Jharkhand, MP, Rajasthan</div></div>
+    <div class="stat-card"><div class="snum">₹72,000Cr</div><div class="slbl">Amul Cooperative Turnover</div><div class="snote">Built on Ahir-Yadava dairy tradition; FY 2023–24</div></div>
+    <div class="stat-card"><div class="snum">1,200+</div><div class="slbl">Distinct Sub-Communities</div><div class="snote">Ahir, Gop, Gwala, Golla, Gaoli, Kuruba…</div></div>
+    <div class="stat-card"><div class="snum">5,000+</div><div class="slbl">Years Documented Heritage</div><div class="snote">Rigveda pastoral traditions through present day</div></div>
+    <div class="stat-card"><div class="snum">3.6M</div><div class="slbl">Amul Farmer-Members</div><div class="snote">Majority Yadava pastoral dairy farmers, Gujarat</div></div>
+    <div class="stat-card"><div class="snum">14.26%</div><div class="slbl">Bihar Official Yadava Share 2023</div><div class="snote">India's first post-independence official caste data</div></div>
+  </div>
+
+  <div class="info-box reveal">
+    <div class="ib-title">Why a Precise National Count Is Impossible — and Why That Matters</div>
+    <ul class="ib-list">
+      <li><strong>No national caste census since 1931</strong> — India has not conducted an official caste enumeration since the last colonial census. All OBC population figures are estimates derived from state surveys, academic fieldwork, and the Mandal Commission's 1980 exercise. The community's actual national share remains officially undocumented — a deliberate omission with profound political consequences.</li>
+      <li><strong>Sub-community definitional complexity</strong> — The "Yadava" umbrella encompasses over 1,200 distinct regional sub-communities: Ahir (Haryana, UP, Bihar, Rajasthan, Gujarat), Gop and Sadgope (Bengal, Odisha), Gwala (Bengal-Jharkhand border), Gaoli (Maharashtra), Golla (Telangana, Andhra Pradesh), Kuruba (Karnataka), Idaiyar (Tamil Nadu), and dozens more. Whether all are counted together dramatically shifts the total figure.</li>
+      <li><strong>Bihar 2023 — India's only hard post-independence caste data</strong> — Bihar's state government conducted the first official post-independence caste enumeration in 2023. It found OBCs at 63.13% of Bihar's population, with Yadavas as the single largest group at <strong>14.26% — approximately 19 million people in Bihar alone</strong>. This is the sole official caste-specific data in post-independence Indian history.</li>
+      <li><strong>Why the data absence matters politically</strong> — Without accurate census data, the gap between demographic weight and institutional representation — in government employment, higher education, judiciary, corporate leadership, and elected legislatures — cannot be quantified and is therefore more easily dismissed. The demand for a national Socio-Economic Caste Census (SECC) is simultaneously a political claim, a social justice argument, and a basic administrative necessity. Bihar's data is the empirical weapon that makes the argument undeniable.</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ══ DEMOGRAPHICS ══ -->
+<section id="demographics" style="background:linear-gradient(180deg,var(--earth2) 0%,var(--earth3) 100%);">
+<div class="inner">
+  <div class="dom-hdr reveal">
+    <div class="dom-icon di-dem">👥</div>
+    <div>
+      <div class="dom-title" style="color:var(--clay-p)">Demographics &amp; Population Structure</div>
+      <div class="dom-sub" style="color:var(--clay-p)">जनसंख्या · आयु संरचना · लिंगानुपात · साक्षरता · शहरीकरण</div>
+    </div>
+  </div>
+  <p class="lead reveal">The demographic profile of the Yadava community reflects both its deep rural and agrarian roots and its accelerating transition into urban, professional, and globally distributed life. This profile — understood honestly, with both its strengths and its challenges — is essential to understanding the community's trajectory through the 21st century.</p>
+
+  <div class="data-grid">
+
+    <!-- FEATURED: Bihar 2023 Survey -->
+    <div class="d-card feat reveal">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--clay-p),var(--saffron-p),var(--forest-p))"></div>
+      <div class="d-left">
+        <div class="d-icon" style="width:110px;height:110px;font-size:2.6rem;border-color:rgba(196,122,20,.5);background:rgba(196,122,20,.08)">📋</div>
+        <div style="font-family:var(--fh);font-size:1.2rem;color:var(--saffron-p);font-style:italic;line-height:1.2">Bihar Caste Survey 2023</div>
+        <div style="font-family:var(--fb);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--linen3)">India's First Post-Independence Official Caste Enumeration</div>
+        <div class="d-tags" style="margin-top:.5rem">
+          <span class="d-tag tg-fo">Official State Data</span>
+          <span class="d-tag tg-sf">First Since 1931</span>
+          <span class="d-tag tg-cr">Supreme Court Cited</span>
+        </div>
+        <table class="d-table" style="margin-top:.8rem">
+          <tr><td>OBC Total</td><td>63.13% of Bihar — most consequential finding</td></tr>
+          <tr><td>Yadava</td><td>14.26% of Bihar — largest single caste group; ~19M</td></tr>
+          <tr><td>EBC</td><td>36.01% — Extremely Backward Classes within OBC</td></tr>
+          <tr><td>SC + ST</td><td>21.99% combined</td></tr>
+          <tr><td>Upper Caste</td><td>15.52% — less than Yadavas alone</td></tr>
+          <tr><td>Method</td><td>House-to-house official Bihar government enumeration</td></tr>
+        </table>
+      </div>
+      <div class="d-right">
+        <div style="font-family:var(--fh);font-size:clamp(.84rem,1.26vw,1.04rem);color:var(--saffron-l);font-style:italic;line-height:1.42">"The most politically consequential dataset published in India since the Mandal Commission Report of 1980 — the first empirical confirmation of what the community has always known about its demographic weight relative to the institutions it has been excluded from."</div>
+        <div class="feat d-body">The Bihar Socio-Economic and Caste Survey of 2023 is India's first post-independence official enumeration of caste populations at the state level. Its findings were explosive: <strong>OBCs constitute 63.13% of Bihar's population</strong>, with Yadavas as the single largest group at 14.26% — approximately 19 million people. Extremely Backward Classes (EBCs) form 36.01%, meaning the most disadvantaged OBC sub-groups alone exceed the total upper-caste population (15.52%). Upper-caste Hindus — who have dominated Bihar's administrative, judicial, and educational institutions since independence — constitute just <strong>15.52% of the population: less than the Yadava community alone</strong>. The survey was immediately cited in the Supreme Court challenge to the 50% OBC reservation cap, forming the empirical backbone of the argument that proportional representation demands far exceed what the current reservation ceiling allows. Bihar Chief Minister Nitish Kumar's decision to release the data in full was one of the most consequential acts of political transparency in post-independence Indian history.</div>
+        <div class="feat d-list">
+          <div class="d-li">The survey launched the national caste census demand into mainstream electoral politics — the INDIA alliance's primary platform item heading into the 2024 general elections was the SECC demand, directly citing Bihar's findings as proof that national data is essential and attainable</div>
+          <div class="d-li">Bihar's 14.26% for Yadavas means the community in a single state numbers approximately 19 million — more than the entire population of the Netherlands; extrapolated nationally this implies 170–270 million Yadavas in India alone</div>
+          <div class="d-li">The upper-caste figure of 15.52% dismantled the false narrative that OBC reservations benefit a "majority" at the expense of a "minority" — when the dominant institution-holding group is the demographic minority, the entire framing of the reservation debate shifts irrevocably</div>
+          <div class="d-li">Subsequent to Bihar, several other states (Karnataka, Telangana) initiated similar exercises — Bihar's survey established the template and political legitimacy for state-level caste enumeration across India</div>
+        </div>
+        <div class="feat d-quote" style="border-color:var(--clay-p)">
+          "Backward classes are not a minority seeking favours — they are a majority asserting their constitutional rights."
+          <span class="d-qs" style="color:var(--clay-p)">— Tejashwi Prasad Yadav, Bihar Deputy Chief Minister, press conference following publication of Bihar 2023 caste survey data, October 2023</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Age Structure -->
+    <div class="d-card reveal rd1">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--saffron-p),var(--clay-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(196,122,20,.5);background:rgba(196,122,20,.08)">📊</div>
+        <div class="d-meta">
+          <div class="d-name">Age Structure — A Overwhelmingly Young Community</div>
+          <div class="d-sub">Demographic Dividend in Motion — 2024</div>
+          <div class="d-tags"><span class="d-tag tg-sf">Median Age ~24–26</span><span class="d-tag tg-sf">60%+ Below Age 35</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The Yadava community's age structure is <strong>significantly younger than the national average</strong> (national median ~28 years). The estimated community median age of 24–26 years means that approximately 60–65% of the entire community is below age 35. This creates the largest-ever cohort of young Yadava men and women simultaneously entering higher education, competitive examinations (UPSC, JEE, NEET, judiciary), and the formal labour market. Whether this demographic dividend translates into prosperity or frustration depends almost entirely on whether educational and employment infrastructure expands fast enough to absorb it. Youth concentration is highest in eastern UP and Bihar — precisely the states with the greatest gap between aspiration density and institutional capacity. The post-Mandal political investment in schools, colleges, and reservation seats has created demand; the challenge of the 2020s is meeting that demand with quality.</div>
+      <div class="prog-list" style="padding:0 1.55rem 1.55rem">
+        <div><div class="prog-label"><span>Population below age 35</span><span>~62%</span></div><div class="prog-bar"><div class="prog-fill" style="width:62%;background:linear-gradient(to right,var(--saffron),var(--saffron-l))"></div></div></div>
+        <div><div class="prog-label"><span>Working age 15–60</span><span>~58%</span></div><div class="prog-bar"><div class="prog-fill" style="width:58%;background:linear-gradient(to right,var(--clay-l),var(--clay-p))"></div></div></div>
+        <div><div class="prog-label"><span>Currently in education (est.)</span><span>~28%</span></div><div class="prog-bar"><div class="prog-fill" style="width:28%;background:linear-gradient(to right,var(--forest-l),var(--forest-p))"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Urban-Rural -->
+    <div class="d-card reveal rd2">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--forest-p),var(--teal-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(26,66,41,.5);background:rgba(26,66,41,.08)">🏘️</div>
+        <div class="d-meta">
+          <div class="d-name">Urban-Rural Distribution</div>
+          <div class="d-sub">The Great Migration — Pastoral to Professional</div>
+          <div class="d-tags"><span class="d-tag tg-fo">~72% Rural</span><span class="d-tag tg-fo">~28% Urban</span><span class="d-tag tg-tl">Rapidly Urbanising</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">Approximately <strong>72% of the community remains rural</strong> — more rural than the national average (~65%). This reflects deep agricultural and pastoral roots in the Hindi belt: eastern UP, Bihar, Jharkhand, rural Rajasthan, and the pastoral zones of Haryana and Saurashtra Gujarat. However, urbanisation is accelerating rapidly, driven by government employment access (the Mandal reservation's primary channel), transport and logistics entrepreneurship, and the children of government-employed parents seeking professional education in cities. <strong>Cities of significant Yadava concentration:</strong> Delhi (transport, construction, government service); Mumbai (Gaoli dairy community, construction); Lucknow, Patna, Hyderabad, Ranchi, Bhopal, Jaipur (government, small business); Bengaluru and Hyderabad IT corridors (second-generation IIT-educated engineers). The urban community's economic profile is transforming within a single generation — construction labour in the 1990s to software engineer and government officer in the 2020s.</div>
+      <div class="prog-list" style="padding:0 1.55rem 1.55rem">
+        <div><div class="prog-label"><span>Rural population</span><span>~72%</span></div><div class="prog-bar"><div class="prog-fill" style="width:72%;background:linear-gradient(to right,var(--forest),var(--forest-l))"></div></div></div>
+        <div><div class="prog-label"><span>Urban population</span><span>~28%</span></div><div class="prog-bar"><div class="prog-fill" style="width:28%;background:linear-gradient(to right,var(--teal-l),var(--teal-p))"></div></div></div>
+        <div><div class="prog-label"><span>Primary agri-pastoral workforce</span><span>~58%</span></div><div class="prog-bar"><div class="prog-fill" style="width:58%;background:linear-gradient(to right,var(--ochre),var(--ochre-l))"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Women & Social Change -->
+    <div class="d-card reveal rd3">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--clay-p),var(--forest-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(139,58,26,.5);background:rgba(139,58,26,.1)">👩</div>
+        <div class="d-meta">
+          <div class="d-name">Women — Literacy, Sport &amp; Changing Roles</div>
+          <div class="d-sub">स्त्री शक्ति — Transformation Within One Generation</div>
+          <div class="d-tags"><span class="d-tag tg-cl">Literacy ~62% Female</span><span class="d-tag tg-cl">Olympic Wrestlers</span><span class="d-tag tg-fo">Panchayat Leaders</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">Women's status within the Yadava community has undergone dramatic transformation in 30 years — though significant challenges remain in rural areas. Female literacy has risen from below 25% in 1991 to approximately 62% overall and 75%+ urban by 2021, driven by government school expansion in Yadava-concentrated districts, the post-Mandal political investment in UP and Bihar's rural school infrastructure, and the cultural shift catalysed by the <strong>Phogat wrestling family's story</strong> (the basis for the Dangal film, 2016). Yadava women in competitive sport — wrestling, kabaddi, boxing — have become community icons redefining expectations for an entire generation of girls. Women's political participation has expanded through the 33% panchayat reservation, with Yadava women increasingly holding sarpanch positions across UP and Bihar. Major challenges remain: early marriage practices limit girls' secondary completion rates in parts of rural Bihar and eastern UP; son preference persists in household resource allocation; and the community's political leadership has been insufficiently vocal in confronting gender-based violence.</div>
+      <div class="d-list">
+        <div class="d-li">Female literacy: from below 25% (1991) to ~62% overall and ~75%+ urban (2021) — one of the steeper literacy improvement curves of any large Indian community in the liberalisation era</div>
+        <div class="d-li">Phogat family — Vinesh, Babita, Geeta: three Haryana Ahir-Yadava wrestlers at Olympic level; the Dangal cultural phenomenon permanently shifted community narratives around girls' ambition and physical capability</div>
+        <div class="d-li">Panchayat reservation has produced a first generation of Yadava women sarpanches navigating administrative roles across UP and Bihar that their grandmothers could not have imagined, and transmitting new models of female authority to the next generation</div>
+        <div class="d-li">Ongoing challenge: early marriage in rural areas remains documented, limiting secondary school completion rates for girls and creating long-term human capital constraints the community cannot afford in a competitive knowledge economy</div>
+      </div>
+    </div>
+
+  </div><!-- /data-grid demographics -->
+
+  <div class="qblock reveal">
+    <p class="qdev">या देवी सर्वभूतेषु शक्तिरूपेण संस्थिता।<br/>नमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः।।</p>
+    <p class="qtrans">"Salutations to the Goddess present in all beings in the form of Power — again and again, salutations."</p>
+    <p class="qsrc">— Devi Mahatmya XI.10 · The verse that the Yadava community's women — wrestlers, sarpanches, teachers, farmers — embody as they redefine what the community's strength means in the 21st century</p>
+  </div>
+</div>
+</section>
+<!-- ═══════════ END PART 1 — PART 2 APPENDS BELOW ═══════════ -->

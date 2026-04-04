@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Chapter X — The Yadava Community Today | Yadav Vansh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500;1,9..144,700&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ════════════════════════════════════════════════════════════
+   CHAPTER X — LIVING EARTH DESIGN SYSTEM
+   Terracotta · Harvest Saffron · Forest Green · Raw Linen
+   Wheat-field canvas · Ancient grain texture · Candlelight warmth
+════════════════════════════════════════════════════════════ */
+:root{
+  --earth:    #1C120A;
+  --earth2:   #231509;
+  --earth3:   #2C1D0E;
+  --earth4:   #351F10;
+  --clay:     #8B3A1A;
+  --clay-l:   #B85020;
+  --clay-p:   #E87848;
+  --clay-d:   #5C2510;
+  --saffron:  #C47A14;
+  --saffron-l:#E09C1E;
+  --saffron-p:#F6C84A;
+  --saffron-d:#7A4C08;
+  --forest:   #1A4229;
+  --forest-l: #2A6B3E;
+  --forest-p: #48AC68;
+  --teal:     #126B5C;
+  --teal-l:   #1E9A84;
+  --teal-p:   #3ECBA8;
+  --crimson:  #7A1A2A;
+  --crimson-l:#A82030;
+  --crimson-p:#D84858;
+  --ochre:    #A06820;
+  --ochre-l:  #C88A2A;
+  --linen:    #F0E8D8;
+  --linen2:   #E4D8C4;
+  --linen3:   #CCBA98;
+  --linen4:   #A8926C;
+  --ff:'Fraunces',serif;
+  --fh:'DM Serif Display',serif;
+  --fb:'Outfit',sans-serif;
+  --fd:'Noto Serif Devanagari',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--earth);color:var(--linen);font-family:var(--fb);font-size:17px;overflow-x:hidden;line-height:1.6}
+
+/* ── CANVAS + GRAIN ── */
+#field-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.65}
+.grain{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
+  background-size:128px 128px;opacity:.38;mix-blend-mode:overlay;
+}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 2rem;transition:all .4s}
+nav.scrolled{background:rgba(28,18,10,.97);border-bottom:1px solid rgba(196,122,20,.22);box-shadow:0 4px 40px rgba(0,0,0,.9)}
+.nav-inner{max-width:1380px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-logo{font-family:var(--fd);font-size:1.42rem;color:var(--saffron-p);text-decoration:none}
+.nav-logo span{font-family:var(--fb);font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;color:var(--linen3);display:block;margin-top:-2px}
+.nav-ch{font-family:var(--fb);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--clay-p);padding:.26rem .72rem;border:1px solid rgba(184,80,30,.32)}
+.nav-back{font-family:var(--fb);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--saffron-p);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:gap .22s}
+.nav-back:hover{gap:.9rem}
+@media(max-width:680px){.nav-ch{display:none}}
+
+/* ── HERO ── */
+.hero{
+  position:relative;z-index:10;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:9rem 2rem 6rem;overflow:hidden;
+}
+.hero-lines{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(176deg,transparent 0,transparent 46px,rgba(196,122,20,.032) 46px,rgba(196,122,20,.032) 47px);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 68% 54% at 50% 46%,rgba(139,58,26,.09) 0%,transparent 70%);
+}
+.hero-mandala{position:absolute;inset:0;pointer-events:none;opacity:.06}
+.hero-mandala svg{width:100%;height:100%}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes earthBloom{
+  0%{opacity:0;filter:blur(32px) brightness(.18);transform:scale(.82)}
+  42%{filter:blur(2px) brightness(1.7) drop-shadow(0 0 90px rgba(196,122,20,.75))}
+  100%{opacity:1;filter:drop-shadow(0 0 60px rgba(196,122,20,.36));transform:none}
+}
+@keyframes pulseDot{0%,100%{opacity:.18}50%{opacity:.72}}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.9rem;
+  font-family:var(--fb);font-size:.52rem;letter-spacing:.44em;text-transform:uppercase;
+  color:var(--clay-p);border:1px solid rgba(184,80,30,.32);padding:.32rem 1.1rem;margin-bottom:1.25rem;
+  opacity:0;animation:fadeUp .9s .3s forwards;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'✦';font-size:.4rem;color:var(--saffron-p)}
+.hero-era{
+  font-family:var(--fb);font-size:clamp(.46rem,.88vw,.6rem);letter-spacing:.44em;text-transform:uppercase;
+  color:rgba(196,122,20,.4);margin-bottom:.52rem;opacity:0;animation:fadeUp .9s .52s forwards;
+}
+.hero-glyph{
+  font-family:var(--fd);font-size:clamp(2rem,6.8vw,7.5rem);line-height:1.08;margin-bottom:.38rem;
+  background:linear-gradient(158deg,var(--saffron-p) 0%,var(--clay-p) 20%,var(--forest-p) 42%,var(--teal-p) 60%,var(--saffron-l) 80%,var(--linen) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 60px rgba(196,122,20,.36));
+  opacity:0;animation:earthBloom 2.8s .65s forwards;
+}
+.hero-title{
+  font-family:var(--ff);font-size:clamp(1.15rem,3.2vw,3rem);font-weight:700;
+  color:var(--linen);line-height:1.12;margin-bottom:.4rem;
+  opacity:0;animation:fadeUp 1.1s .95s forwards;
+}
+.hero-title em{font-style:italic;color:var(--saffron-p)}
+.hero-sub{
+  font-family:var(--fd);font-size:clamp(.88rem,1.65vw,1.12rem);
+  color:var(--saffron-l);margin-bottom:1.35rem;
+  opacity:0;animation:fadeUp .9s 1.15s forwards;
+}
+.hero-rule{
+  display:flex;align-items:center;gap:1rem;width:min(420px,72vw);margin:0 auto 1.4rem;
+  opacity:0;animation:fadeIn .9s 1.35s forwards;
+}
+.hero-rule::before,.hero-rule::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--clay-l),transparent)}
+.hr-gem{width:7px;height:7px;background:var(--clay-l);transform:rotate(45deg)}
+.hero-lead{
+  font-size:clamp(.88rem,1.32vw,1.04rem);color:var(--linen2);max-width:780px;line-height:2.08;margin-bottom:1.9rem;
+  opacity:0;animation:fadeUp 1s 1.55s forwards;
+}
+.domain-pills{display:flex;gap:.44rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.65rem;opacity:0;animation:fadeUp .9s 1.75s forwards}
+.dp{font-family:var(--fb);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;padding:.22rem .66rem;border-radius:2px}
+.dp-cl{background:rgba(139,58,26,.2);color:var(--clay-p);border:1px solid rgba(139,58,26,.35)}
+.dp-sf{background:rgba(196,122,20,.16);color:var(--saffron-p);border:1px solid rgba(196,122,20,.28)}
+.dp-fo{background:rgba(26,66,41,.22);color:var(--forest-p);border:1px solid rgba(26,66,41,.38)}
+.dp-tl{background:rgba(18,107,92,.18);color:var(--teal-p);border:1px solid rgba(18,107,92,.32)}
+.dp-cr{background:rgba(122,26,42,.18);color:var(--crimson-p);border:1px solid rgba(122,26,42,.32)}
+.nav-pills{display:flex;gap:.46rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp 1s 1.95s forwards}
+.npill{
+  font-family:var(--fb);font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--linen3);border:1px solid rgba(196,122,20,.17);padding:.22rem .68rem;
+  text-decoration:none;border-radius:2px;transition:all .22s;
+}
+.npill:hover,.npill.active{background:rgba(196,122,20,.1);border-color:var(--saffron-p);color:var(--saffron-p)}
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeIn 1s 2.6s forwards}
+.scroll-cue span{font-family:var(--fb);font-size:.42rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(196,122,20,.35)}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--clay-l),transparent);animation:pulseDot 2.3s ease-in-out infinite}
+
+/* ── SUTRA BAND ── */
+.sutra-band{
+  position:relative;z-index:10;
+  background:linear-gradient(135deg,rgba(35,21,9,.98),rgba(28,18,10,.99));
+  border-top:2px solid rgba(196,122,20,.46);border-bottom:1px solid rgba(26,66,41,.26);
+  padding:3.2rem 2rem;text-align:center;overflow:hidden;
+}
+.sutra-band::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 52% 68% at 50% 50%,rgba(139,58,26,.05),transparent)}
+.sutra-dev{font-family:var(--fd);font-size:clamp(.9rem,1.85vw,1.3rem);color:var(--saffron-p);line-height:2.14;margin-bottom:.88rem;position:relative}
+.sutra-tr{font-family:var(--ff);font-style:italic;font-size:clamp(.82rem,1.35vw,.98rem);color:var(--linen2);line-height:1.94;max-width:840px;margin:0 auto .66rem;position:relative}
+.sutra-src{font-family:var(--fb);font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--forest-p);position:relative}
+
+/* ── GLOBAL LAYOUT ── */
+main{position:relative;z-index:10}
+section{padding:5.5rem 2rem}
+.inner{max-width:1320px;margin:0 auto}
+.eyebrow{font-family:var(--fb);font-size:.56rem;letter-spacing:.42em;text-transform:uppercase;color:var(--clay-l);margin-bottom:.88rem;display:flex;align-items:center;gap:1rem}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--clay-l)}
+h2.sec-title{font-family:var(--ff);font-size:clamp(1.55rem,3.4vw,2.7rem);font-weight:600;color:var(--saffron-p);line-height:1.16;margin-bottom:1rem}
+.lead{font-size:1.02rem;color:var(--linen2);max-width:900px;line-height:2.1;margin-bottom:1.85rem}
+.body-text{font-size:.9rem;color:var(--linen2);line-height:2.06;max-width:900px;margin-bottom:1.3rem}
+.body-text strong{color:var(--saffron-p)}
+
+/* ── DOMAIN HEADER ── */
+.dom-hdr{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(196,122,20,.12)}
+.dom-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.55rem;border:1px solid;flex-shrink:0}
+.di-dem{border-color:rgba(139,58,26,.5);background:rgba(139,58,26,.1)}
+.di-geo{border-color:rgba(26,66,41,.5);background:rgba(26,66,41,.1)}
+.di-eco{border-color:rgba(196,122,20,.5);background:rgba(196,122,20,.08)}
+.di-cul{border-color:rgba(18,107,92,.5);background:rgba(18,107,92,.08)}
+.di-pol{border-color:rgba(122,26,42,.5);background:rgba(122,26,42,.08)}
+.di-edu{border-color:rgba(100,70,20,.5);background:rgba(100,70,20,.08)}
+.di-dia{border-color:rgba(26,66,41,.42);background:rgba(26,66,41,.07)}
+.di-fut{border-color:rgba(40,172,100,.4);background:rgba(40,172,100,.05)}
+.dom-title{font-family:var(--ff);font-size:clamp(1.3rem,2.6vw,2.1rem);font-weight:600;line-height:1.16}
+.dom-sub{font-family:var(--fb);font-size:.48rem;letter-spacing:.24em;text-transform:uppercase;margin-top:.2rem;opacity:.55}
+
+/* ── STAT GRID ── */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:1.15rem;margin:2.2rem 0}
+.stat-card{
+  background:linear-gradient(158deg,rgba(35,21,9,.9),rgba(28,18,10,.96));
+  border:1px solid rgba(196,122,20,.14);padding:1.55rem 1.25rem;text-align:center;
+  position:relative;overflow:hidden;transition:all .34s;
+}
+.stat-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 0%,rgba(196,122,20,.05),transparent)}
+.stat-card:hover{border-color:rgba(196,122,20,.46);transform:translateY(-4px);box-shadow:0 12px 42px rgba(0,0,0,.6)}
+.snum{
+  font-family:var(--ff);font-size:clamp(1.7rem,3.6vw,2.65rem);font-weight:700;
+  background:linear-gradient(135deg,var(--saffron-p),var(--clay-p));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.04;margin-bottom:.28rem;
+}
+.slbl{font-family:var(--fb);font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:var(--linen3);line-height:1.58}
+.snote{font-size:.62rem;color:rgba(204,186,152,.36);margin-top:.22rem;font-style:italic}
+
+/* ── INFO BOX ── */
+.info-box{background:linear-gradient(135deg,rgba(35,21,9,.46),rgba(28,18,10,.72));border:1px solid rgba(196,122,20,.17);padding:2.1rem;margin:2.1rem 0}
+.ib-title{font-family:var(--fb);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--saffron-p);margin-bottom:1.05rem;display:flex;align-items:center;gap:.75rem}
+.ib-title::after{content:'';flex:1;height:1px;background:rgba(196,122,20,.17)}
+.ib-list{list-style:none;display:flex;flex-direction:column;gap:.68rem}
+.ib-list li{font-size:.84rem;color:var(--linen2);line-height:1.9;display:flex;gap:.74rem;align-items:flex-start}
+.ib-list li::before{content:'✦';color:var(--clay-p);font-size:.42rem;margin-top:.3rem;flex-shrink:0}
+.ib-list li strong{color:var(--saffron-p)}
+
+/* ── DATA CARDS ── */
+.data-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.75rem;margin:2.1rem 0}
+.d-card{
+  background:linear-gradient(155deg,rgba(35,21,9,.86),rgba(28,18,10,.95));
+  border:1px solid rgba(196,122,20,.11);position:relative;overflow:hidden;transition:all .34s;
+}
+.d-card:hover{border-color:rgba(196,122,20,.38);transform:translateY(-3px);box-shadow:0 12px 42px rgba(0,0,0,.62)}
+.d-stripe{position:absolute;left:0;top:0;bottom:0;width:3px}
+
+/* Featured horizontal card */
+.d-card.feat{grid-column:1/-1;display:flex}
+.feat .d-left{width:300px;flex-shrink:0;padding:2.1rem;border-right:1px solid rgba(196,122,20,.1);background:linear-gradient(135deg,rgba(139,58,26,.06),transparent);display:flex;flex-direction:column;gap:.72rem}
+.feat .d-right{flex:1;padding:2.1rem;display:flex;flex-direction:column;gap:.82rem}
+@media(max-width:860px){.d-card.feat{flex-direction:column}.feat .d-left{width:100%;border-right:none;border-bottom:1px solid rgba(196,122,20,.1)}}
+
+.d-head{padding:1.55rem 1.55rem 0;display:flex;gap:1.05rem;align-items:flex-start}
+.d-icon{width:58px;height:58px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:2px solid}
+.d-meta{flex:1}
+.d-name{font-family:var(--fh);font-size:1.02rem;color:var(--saffron-p);line-height:1.2;margin-bottom:.1rem;font-style:italic}
+.d-sub{font-family:var(--fb);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--linen3);margin-bottom:.22rem}
+.d-tags{display:flex;flex-wrap:wrap;gap:.26rem;margin-top:.18rem}
+.d-tag{font-family:var(--fb);font-size:.4rem;letter-spacing:.1em;text-transform:uppercase;padding:.1rem .38rem;border-radius:2px}
+.tg-cl{background:rgba(139,58,26,.22);color:var(--clay-p);border:1px solid rgba(139,58,26,.34)}
+.tg-sf{background:rgba(196,122,20,.18);color:var(--saffron-p);border:1px solid rgba(196,122,20,.3)}
+.tg-fo{background:rgba(26,66,41,.22);color:var(--forest-p);border:1px solid rgba(26,66,41,.38)}
+.tg-tl{background:rgba(18,107,92,.2);color:var(--teal-p);border:1px solid rgba(18,107,92,.32)}
+.tg-cr{background:rgba(122,26,42,.2);color:var(--crimson-p);border:1px solid rgba(122,26,42,.34)}
+
+.d-div{height:1px;margin:.9rem 1.55rem;background:linear-gradient(to right,transparent,rgba(196,122,20,.18),transparent)}
+.d-body{padding:0 1.55rem 1.55rem;font-size:.83rem;color:var(--linen2);line-height:1.92}
+.d-body strong{color:var(--saffron-p)}
+.d-body em{color:var(--clay-p);font-style:italic}
+.feat .d-body{padding:0;font-size:.87rem}
+
+.d-list{padding:0 1.55rem 1.1rem;display:flex;flex-direction:column;gap:.26rem}
+.feat .d-list{padding:0}
+.d-li{display:flex;gap:.52rem;font-size:.76rem;color:var(--linen3);line-height:1.64}
+.d-li::before{content:'●';font-size:.34rem;color:var(--clay-p);flex-shrink:0;margin-top:.3rem}
+
+.d-table{width:100%;border-collapse:collapse}
+.d-table td{padding:.28rem .38rem;font-size:.7rem;color:var(--linen3);border-bottom:1px solid rgba(196,122,20,.055);vertical-align:top;line-height:1.58}
+.d-table td:first-child{font-family:var(--fb);font-size:.4rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clay-p);width:72px}
+
+.d-quote{margin:0 1.55rem 1.55rem;padding:.84rem 1.1rem;border-left:2px solid;font-style:italic;font-size:.78rem;color:rgba(230,215,195,.76);line-height:1.78}
+.feat .d-quote{margin:0}
+.d-qs{display:block;margin-top:.26rem;font-style:normal;font-family:var(--fb);font-size:.4rem;letter-spacing:.13em;text-transform:uppercase}
+
+/* ── PROGRESS BARS ── */
+.prog-list{display:flex;flex-direction:column;gap:1rem;margin:1.4rem 0}
+.prog-label{display:flex;justify-content:space-between;font-family:var(--fb);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--linen3);margin-bottom:.32rem}
+.prog-label span:last-child{color:var(--saffron-p)}
+.prog-bar{height:5px;background:rgba(255,255,255,.055);border-radius:4px;overflow:hidden}
+.prog-fill{height:100%;border-radius:4px;transition:width 1.4s cubic-bezier(.16,1,.3,1)}
+
+/* ── GEO GRID ── */
+.geo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:1.15rem;margin:2.1rem 0}
+.geo-card{background:linear-gradient(160deg,rgba(35,21,9,.86),rgba(28,18,10,.94));border:1px solid rgba(26,66,41,.2);padding:1.4rem;transition:all .3s}
+.geo-card:hover{border-color:rgba(72,172,104,.4);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.6)}
+.geo-state{font-family:var(--fh);font-size:1rem;color:var(--forest-p);margin-bottom:.26rem;font-style:italic}
+.geo-pct{font-family:var(--ff);font-size:1.55rem;font-weight:700;color:var(--saffron-p);line-height:1;margin-bottom:.18rem}
+.geo-pop{font-family:var(--fb);font-size:.68rem;color:var(--linen3);margin-bottom:.5rem}
+.geo-bar{height:5px;background:rgba(255,255,255,.055);border-radius:3px;overflow:hidden}
+.geo-fill{height:100%;border-radius:3px;background:linear-gradient(to right,var(--forest-l),var(--forest-p));transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+.geo-notes{font-size:.7rem;color:rgba(204,186,152,.5);margin-top:.54rem;font-style:italic;line-height:1.6}
+
+/* ── QUOTE BLOCK ── */
+.qblock{border-left:3px solid var(--clay-l);padding:1.4rem 1.8rem;margin:2.5rem 0;background:rgba(139,58,26,.036);position:relative}
+.qdev{font-family:var(--fd);font-size:.96rem;color:var(--saffron-p);line-height:2.08;margin-bottom:.74rem}
+.qtrans{font-family:var(--ff);font-style:italic;color:var(--linen2);font-size:.88rem;line-height:1.88;margin-bottom:.5rem}
+.qsrc{font-family:var(--fb);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--clay-p)}
+
+/* ── POLITICS TIMELINE ── */
+.pol-tl{display:flex;flex-direction:column;gap:0;margin:2rem 0;position:relative;padding-left:2.5rem}
+.pol-tl::before{content:'';position:absolute;left:.65rem;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(200,50,70,.44) 8%,rgba(200,50,70,.44) 92%,transparent)}
+.tl-item{position:relative;padding-bottom:2.3rem}
+.tl-item::before{content:'';position:absolute;left:-1.98rem;top:.32rem;width:10px;height:10px;border-radius:50%;background:var(--crimson-p);border:2px solid var(--earth);box-shadow:0 0 8px rgba(200,50,70,.5)}
+.tl-year{font-family:var(--fb);font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;color:var(--crimson-p);margin-bottom:.18rem}
+.tl-title{font-family:var(--ff);font-style:italic;font-size:.98rem;color:var(--saffron-l);margin-bottom:.32rem}
+.tl-body{font-size:.8rem;color:var(--linen3);line-height:1.84;max-width:680px}
+
+/* ── CHALLENGE / ASPIRATION CARDS ── */
+.challenge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin:2.1rem 0}
+.ch-card{background:linear-gradient(155deg,rgba(35,21,9,.86),rgba(28,18,10,.94));border:1px solid rgba(122,26,42,.18);padding:1.65rem;position:relative;transition:all .3s}
+.ch-card:hover{border-color:rgba(122,26,42,.42);transform:translateY(-3px)}
+.ch-num{font-family:var(--ff);font-size:2.9rem;font-weight:700;color:rgba(122,26,42,.2);position:absolute;top:1rem;right:1.15rem;line-height:1}
+.ch-title{font-family:var(--fh);font-size:1rem;color:var(--crimson-p);margin-bottom:.54rem;font-style:italic;position:relative}
+.ch-body{font-size:.8rem;color:var(--linen3);line-height:1.88;position:relative}
+.ch-body strong{color:var(--linen2)}
+
+.aspiration-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem;margin:2.1rem 0}
+.as-card{background:linear-gradient(155deg,rgba(26,66,41,.1),rgba(28,18,10,.92));border:1px solid rgba(26,66,41,.22);padding:1.55rem;transition:all .3s}
+.as-card:hover{border-color:rgba(72,172,104,.4);transform:translateY(-3px)}
+.as-icon{font-size:1.95rem;margin-bottom:.64rem}
+.as-title{font-family:var(--fh);font-size:.98rem;color:var(--forest-p);margin-bottom:.5rem;font-style:italic}
+.as-body{font-size:.8rem;color:var(--linen3);line-height:1.88}
+
+/* ── REFERENCES TABLE ── */
+.ref-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.ref-table th{font-family:var(--fb);font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--saffron-p);border-bottom:1px solid rgba(196,122,20,.26);padding:.78rem .9rem;text-align:left;background:rgba(196,122,20,.04);white-space:nowrap}
+.ref-table td{padding:.7rem .9rem;color:var(--linen3);border-bottom:1px solid rgba(196,122,20,.055);vertical-align:top;line-height:1.62}
+.ref-table tr:nth-child(even) td{background:rgba(196,122,20,.012)}
+.ref-tag{font-family:var(--fb);font-size:.4rem;letter-spacing:.1em;text-transform:uppercase;padding:.08rem .36rem;border-radius:2px;white-space:nowrap;display:inline-block}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}
+.rd4{transition-delay:.32s}.rd5{transition-delay:.4s} .rd6{transition-delay:.48s}
+
+/* ── NEXT / FOOTER ── */
+.next-band{position:relative;z-index:10;text-align:center;background:linear-gradient(135deg,rgba(35,21,9,.5),rgba(13,8,2,.98));border-top:1px solid rgba(196,122,20,.36);padding:4.5rem 2rem;overflow:hidden}
+.next-label{font-family:var(--fb);font-size:.56rem;letter-spacing:.35em;text-transform:uppercase;color:var(--clay-l);margin-bottom:1rem}
+.next-title{font-family:var(--ff);font-size:clamp(1.4rem,2.8vw,2.4rem);color:var(--saffron-p);font-weight:600;margin-bottom:.8rem}
+.next-sub{font-family:var(--fd);font-size:1.05rem;color:var(--saffron-l);margin-bottom:1.6rem}
+.next-lead{font-size:.9rem;font-style:italic;color:var(--linen2);max-width:540px;margin:0 auto 2.2rem;line-height:1.9}
+.next-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+.nbtn{font-family:var(--fb);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;padding:.9rem 2.2rem;text-decoration:none;transition:all .3s;clip-path:polygon(10px 0%,calc(100% - 10px) 0%,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0% calc(100% - 10px),0% 10px)}
+.nbtn-p{background:linear-gradient(135deg,var(--saffron-p),var(--clay-p));color:var(--earth)}
+.nbtn-s{border:1px solid rgba(196,122,20,.44);color:var(--saffron-l);background:transparent}
+footer{position:relative;z-index:10;background:rgba(5,3,1,1);border-top:1px solid rgba(196,122,20,.07);padding:2.4rem 2rem}
+.footer-inner{max-width:1320px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.1rem}
+.footer-logo{font-family:var(--fd);font-size:1.3rem;color:var(--saffron-p)}
+.footer-nav{display:flex;gap:1.1rem;flex-wrap:wrap;align-items:center}
+.footer-nav a{font-family:var(--fb);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--linen3);text-decoration:none;transition:color .2s}
+.footer-nav a:hover{color:var(--saffron-p)}
+.footer-nav a.active{color:var(--saffron-p);border-bottom:1px solid var(--saffron-p)}
+.footer-copy{font-family:var(--fb);font-size:.46rem;letter-spacing:.1em;color:rgba(196,122,20,.2)}
+@media(max-width:680px){.data-grid,.geo-grid{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,1fr)}.challenge-grid,.aspiration-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="field-canvas"></canvas>
+<div class="grain"></div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">यादव वंश <span>Yadav Lineage · Digital Scripture</span></a>
+    <span class="nav-ch">Chapter X — The Yadava Community Today</span>
+    <a href="notable-figures.html" class="nav-back">← Chapter IX</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-lines"></div>
+  <div class="hero-mandala">
+    <svg viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="20" width="1340" height="860" fill="none" stroke="rgba(196,122,20,0.55)" stroke-width=".8"/>
+      <rect x="44" y="34" width="1312" height="832" fill="none" stroke="rgba(196,122,20,0.24)" stroke-width=".5"/>
+      <circle cx="700" cy="450" r="380" stroke="rgba(196,122,20,0.55)" stroke-width="1.1" fill="none"/>
+      <circle cx="700" cy="450" r="290" stroke="rgba(139,58,26,0.5)"   stroke-width="1"   fill="none"/>
+      <circle cx="700" cy="450" r="200" stroke="rgba(26,66,41,0.52)"   stroke-width="1.1" fill="none"/>
+      <circle cx="700" cy="450" r="110" stroke="rgba(18,107,92,0.48)"  stroke-width=".9"  fill="none"/>
+      <circle cx="700" cy="450" r="42"  stroke="rgba(196,122,20,0.6)"  stroke-width="1.1" fill="rgba(196,122,20,0.025)"/>
+      <g stroke="rgba(196,122,20,0.18)" stroke-width=".72">
+        <line x1="700" y1="55" x2="700" y2="845"/>
+        <line x1="310" y1="450" x2="1090" y2="450"/>
+        <line x1="431" y1="181" x2="969" y2="719"/>
+        <line x1="969" y1="181" x2="431" y2="719"/>
+      </g>
+      <circle cx="700" cy="55"  r="6" fill="rgba(139,58,26,0.7)"/>
+      <circle cx="1090" cy="450" r="5" fill="rgba(26,66,41,0.7)"/>
+      <circle cx="700" cy="845" r="6" fill="rgba(196,122,20,0.64)"/>
+      <circle cx="310" cy="450" r="5" fill="rgba(18,107,92,0.64)"/>
+      <text x="700" y="458" text-anchor="middle" font-family="'Noto Serif Devanagari',serif" font-size="22" fill="rgba(196,122,20,0.66)">आज</text>
+      <g stroke="rgba(196,122,20,0.12)" stroke-width=".7" fill="none">
+        <path d="M70 820 Q84 778 78 736 Q74 694 82 652"/>
+        <path d="M90 820 Q102 774 96 732 Q92 688 100 646"/>
+        <path d="M1310 820 Q1296 778 1302 736 Q1306 694 1298 652"/>
+        <path d="M1290 820 Q1278 774 1284 732 Q1288 688 1280 646"/>
+      </g>
+    </svg>
+  </div>
+  <p class="hero-eyebrow">Chapter X · दशम अध्याय</p>
+  <div class="hero-era">Demographics · Geography · Economy · Culture · Politics · Education · Diaspora · Future</div>
+  <div class="hero-glyph">यादव समाज — आज</div>
+  <h1 class="hero-title">The Yadava Community <em>Today</em></h1>
+  <p class="hero-sub">350 मिलियन यादव — भारत की सबसे बड़ी जाति समूह</p>
+  <div class="hero-rule"><div class="hr-gem"></div></div>
+  <p class="hero-lead">With an estimated 350 million members across India and the global diaspora, the Yadava community stands as one of the largest single-community groupings in the world — larger than the entire population of the United States. This chapter documents where they live, how they earn, what they believe, how they govern, the challenges they face, and the aspirations that drive them forward into the 21st century.</p>
+  <div class="domain-pills">
+    <span class="dp dp-cl">Demographics</span><span class="dp dp-fo">Geography</span><span class="dp dp-sf">Economy</span>
+    <span class="dp dp-tl">Culture</span><span class="dp dp-cr">Politics</span><span class="dp dp-cl">Education</span>
+    <span class="dp dp-fo">Diaspora</span><span class="dp dp-sf">Future</span>
+  </div>
+  <div class="nav-pills">
+    <a href="#overview" class="npill active">Overview</a>
+    <a href="#demographics" class="npill">Demographics</a>
+    <a href="#geography" class="npill">Geography</a>
+    <a href="#economy" class="npill">Economy</a>
+    <a href="#culture" class="npill">Culture</a>
+    <a href="#politics" class="npill">Politics</a>
+    <a href="#education" class="npill">Education</a>
+    <a href="#diaspora" class="npill">Diaspora</a>
+    <a href="#challenges" class="npill">Challenges</a>
+    <a href="#future" class="npill">Future</a>
+  </div>
+  <div class="scroll-cue"><span>Enter the Living Community</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- SUTRA BAND -->
+<div class="sutra-band">
+  <p class="sutra-dev">उत्तिष्ठत जाग्रत प्राप्य वरान्निबोधत।<br/>क्षुरस्य धारा निशिता दुरत्यया<br/>दुर्गं पथस्तत्कवयो वदन्ति।।</p>
+  <p class="sutra-tr">"Arise, awake, and stop not till the goal is reached. Sharp as a razor's edge is this path — difficult to cross, hard to tread — so declare the wise ones."</p>
+  <p class="sutra-src">— Katha Upanishad I.3.14 · The verse that Swami Vivekananda drew from as his rallying cry — and that captures the Yadava community's 21st-century moment: path sharp, purpose clear, resolve unbroken</p>
+</div>
+
+<main>
+
+<!-- ══ OVERVIEW ══ -->
+<section id="overview" style="background:linear-gradient(180deg,var(--earth) 0%,var(--earth2) 100%);">
+<div class="inner">
+  <p class="eyebrow reveal">समग्र चित्र</p>
+  <h2 class="sec-title reveal">350 Million — The Scale of a Civilisation Within a Nation</h2>
+  <p class="lead reveal">The Yadava community is not merely a social group — it is a civilisation within the Indian civilisation. It possesses its own geographic heartland, its own economic traditions, its own cultural forms, its own literary heritage rooted in the Rigveda and the Bhagavata Purana, its own devotional practice centred on Krishna and the Mathura-Vrindavana sacred landscape, and its own political institutions that have shaped north and central India for decades. To understand the Yadava community today is to understand one of the foundational communities of the subcontinent — a presence as ancient as the earliest Sanskrit hymns and as contemporary as the Bihar caste survey of 2023.</p>
+
+  <div class="stat-grid reveal">
+    <div class="stat-card"><div class="snum">350M+</div><div class="slbl">Total Population — India + Diaspora</div><div class="snote">2024 est.; no national caste census since 1931</div></div>
+    <div class="stat-card"><div class="snum">~27%</div><div class="slbl">Share of India's OBC Population</div><div class="snote">Largest single OBC grouping nationally</div></div>
+    <div class="stat-card"><div class="snum">6</div><div class="slbl">States of Political Dominance</div><div class="snote">UP, Bihar, Haryana, Jharkhand, MP, Rajasthan</div></div>
+    <div class="stat-card"><div class="snum">₹72,000Cr</div><div class="slbl">Amul Cooperative Turnover</div><div class="snote">Built on Ahir-Yadava dairy tradition; FY 2023–24</div></div>
+    <div class="stat-card"><div class="snum">1,200+</div><div class="slbl">Distinct Sub-Communities</div><div class="snote">Ahir, Gop, Gwala, Golla, Gaoli, Kuruba…</div></div>
+    <div class="stat-card"><div class="snum">5,000+</div><div class="slbl">Years Documented Heritage</div><div class="snote">Rigveda pastoral traditions through present day</div></div>
+    <div class="stat-card"><div class="snum">3.6M</div><div class="slbl">Amul Farmer-Members</div><div class="snote">Majority Yadava pastoral dairy farmers, Gujarat</div></div>
+    <div class="stat-card"><div class="snum">14.26%</div><div class="slbl">Bihar Official Yadava Share 2023</div><div class="snote">India's first post-independence official caste data</div></div>
+  </div>
+
+  <div class="info-box reveal">
+    <div class="ib-title">Why a Precise National Count Is Impossible — and Why That Matters</div>
+    <ul class="ib-list">
+      <li><strong>No national caste census since 1931</strong> — India has not conducted an official caste enumeration since the last colonial census. All OBC population figures are estimates derived from state surveys, academic fieldwork, and the Mandal Commission's 1980 exercise. The community's actual national share remains officially undocumented — a deliberate omission with profound political consequences.</li>
+      <li><strong>Sub-community definitional complexity</strong> — The "Yadava" umbrella encompasses over 1,200 distinct regional sub-communities: Ahir (Haryana, UP, Bihar, Rajasthan, Gujarat), Gop and Sadgope (Bengal, Odisha), Gwala (Bengal-Jharkhand border), Gaoli (Maharashtra), Golla (Telangana, Andhra Pradesh), Kuruba (Karnataka), Idaiyar (Tamil Nadu), and dozens more. Whether all are counted together dramatically shifts the total figure.</li>
+      <li><strong>Bihar 2023 — India's only hard post-independence caste data</strong> — Bihar's state government conducted the first official post-independence caste enumeration in 2023. It found OBCs at 63.13% of Bihar's population, with Yadavas as the single largest group at <strong>14.26% — approximately 19 million people in Bihar alone</strong>. This is the sole official caste-specific data in post-independence Indian history.</li>
+      <li><strong>Why the data absence matters politically</strong> — Without accurate census data, the gap between demographic weight and institutional representation — in government employment, higher education, judiciary, corporate leadership, and elected legislatures — cannot be quantified and is therefore more easily dismissed. The demand for a national Socio-Economic Caste Census (SECC) is simultaneously a political claim, a social justice argument, and a basic administrative necessity. Bihar's data is the empirical weapon that makes the argument undeniable.</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ══ DEMOGRAPHICS ══ -->
+<section id="demographics" style="background:linear-gradient(180deg,var(--earth2) 0%,var(--earth3) 100%);">
+<div class="inner">
+  <div class="dom-hdr reveal">
+    <div class="dom-icon di-dem">👥</div>
+    <div>
+      <div class="dom-title" style="color:var(--clay-p)">Demographics &amp; Population Structure</div>
+      <div class="dom-sub" style="color:var(--clay-p)">जनसंख्या · आयु संरचना · लिंगानुपात · साक्षरता · शहरीकरण</div>
+    </div>
+  </div>
+  <p class="lead reveal">The demographic profile of the Yadava community reflects both its deep rural and agrarian roots and its accelerating transition into urban, professional, and globally distributed life. This profile — understood honestly, with both its strengths and its challenges — is essential to understanding the community's trajectory through the 21st century.</p>
+
+  <div class="data-grid">
+
+    <!-- FEATURED: Bihar 2023 Survey -->
+    <div class="d-card feat reveal">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--clay-p),var(--saffron-p),var(--forest-p))"></div>
+      <div class="d-left">
+        <div class="d-icon" style="width:110px;height:110px;font-size:2.6rem;border-color:rgba(196,122,20,.5);background:rgba(196,122,20,.08)">📋</div>
+        <div style="font-family:var(--fh);font-size:1.2rem;color:var(--saffron-p);font-style:italic;line-height:1.2">Bihar Caste Survey 2023</div>
+        <div style="font-family:var(--fb);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--linen3)">India's First Post-Independence Official Caste Enumeration</div>
+        <div class="d-tags" style="margin-top:.5rem">
+          <span class="d-tag tg-fo">Official State Data</span>
+          <span class="d-tag tg-sf">First Since 1931</span>
+          <span class="d-tag tg-cr">Supreme Court Cited</span>
+        </div>
+        <table class="d-table" style="margin-top:.8rem">
+          <tr><td>OBC Total</td><td>63.13% of Bihar — most consequential finding</td></tr>
+          <tr><td>Yadava</td><td>14.26% of Bihar — largest single caste group; ~19M</td></tr>
+          <tr><td>EBC</td><td>36.01% — Extremely Backward Classes within OBC</td></tr>
+          <tr><td>SC + ST</td><td>21.99% combined</td></tr>
+          <tr><td>Upper Caste</td><td>15.52% — less than Yadavas alone</td></tr>
+          <tr><td>Method</td><td>House-to-house official Bihar government enumeration</td></tr>
+        </table>
+      </div>
+      <div class="d-right">
+        <div style="font-family:var(--fh);font-size:clamp(.84rem,1.26vw,1.04rem);color:var(--saffron-l);font-style:italic;line-height:1.42">"The most politically consequential dataset published in India since the Mandal Commission Report of 1980 — the first empirical confirmation of what the community has always known about its demographic weight relative to the institutions it has been excluded from."</div>
+        <div class="feat d-body">The Bihar Socio-Economic and Caste Survey of 2023 is India's first post-independence official enumeration of caste populations at the state level. Its findings were explosive: <strong>OBCs constitute 63.13% of Bihar's population</strong>, with Yadavas as the single largest group at 14.26% — approximately 19 million people. Extremely Backward Classes (EBCs) form 36.01%, meaning the most disadvantaged OBC sub-groups alone exceed the total upper-caste population (15.52%). Upper-caste Hindus — who have dominated Bihar's administrative, judicial, and educational institutions since independence — constitute just <strong>15.52% of the population: less than the Yadava community alone</strong>. The survey was immediately cited in the Supreme Court challenge to the 50% OBC reservation cap, forming the empirical backbone of the argument that proportional representation demands far exceed what the current reservation ceiling allows. Bihar Chief Minister Nitish Kumar's decision to release the data in full was one of the most consequential acts of political transparency in post-independence Indian history.</div>
+        <div class="feat d-list">
+          <div class="d-li">The survey launched the national caste census demand into mainstream electoral politics — the INDIA alliance's primary platform item heading into the 2024 general elections was the SECC demand, directly citing Bihar's findings as proof that national data is essential and attainable</div>
+          <div class="d-li">Bihar's 14.26% for Yadavas means the community in a single state numbers approximately 19 million — more than the entire population of the Netherlands; extrapolated nationally this implies 170–270 million Yadavas in India alone</div>
+          <div class="d-li">The upper-caste figure of 15.52% dismantled the false narrative that OBC reservations benefit a "majority" at the expense of a "minority" — when the dominant institution-holding group is the demographic minority, the entire framing of the reservation debate shifts irrevocably</div>
+          <div class="d-li">Subsequent to Bihar, several other states (Karnataka, Telangana) initiated similar exercises — Bihar's survey established the template and political legitimacy for state-level caste enumeration across India</div>
+        </div>
+        <div class="feat d-quote" style="border-color:var(--clay-p)">
+          "Backward classes are not a minority seeking favours — they are a majority asserting their constitutional rights."
+          <span class="d-qs" style="color:var(--clay-p)">— Tejashwi Prasad Yadav, Bihar Deputy Chief Minister, press conference following publication of Bihar 2023 caste survey data, October 2023</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Age Structure -->
+    <div class="d-card reveal rd1">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--saffron-p),var(--clay-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(196,122,20,.5);background:rgba(196,122,20,.08)">📊</div>
+        <div class="d-meta">
+          <div class="d-name">Age Structure — A Overwhelmingly Young Community</div>
+          <div class="d-sub">Demographic Dividend in Motion — 2024</div>
+          <div class="d-tags"><span class="d-tag tg-sf">Median Age ~24–26</span><span class="d-tag tg-sf">60%+ Below Age 35</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The Yadava community's age structure is <strong>significantly younger than the national average</strong> (national median ~28 years). The estimated community median age of 24–26 years means that approximately 60–65% of the entire community is below age 35. This creates the largest-ever cohort of young Yadava men and women simultaneously entering higher education, competitive examinations (UPSC, JEE, NEET, judiciary), and the formal labour market. Whether this demographic dividend translates into prosperity or frustration depends almost entirely on whether educational and employment infrastructure expands fast enough to absorb it. Youth concentration is highest in eastern UP and Bihar — precisely the states with the greatest gap between aspiration density and institutional capacity. The post-Mandal political investment in schools, colleges, and reservation seats has created demand; the challenge of the 2020s is meeting that demand with quality.</div>
+      <div class="prog-list" style="padding:0 1.55rem 1.55rem">
+        <div><div class="prog-label"><span>Population below age 35</span><span>~62%</span></div><div class="prog-bar"><div class="prog-fill" style="width:62%;background:linear-gradient(to right,var(--saffron),var(--saffron-l))"></div></div></div>
+        <div><div class="prog-label"><span>Working age 15–60</span><span>~58%</span></div><div class="prog-bar"><div class="prog-fill" style="width:58%;background:linear-gradient(to right,var(--clay-l),var(--clay-p))"></div></div></div>
+        <div><div class="prog-label"><span>Currently in education (est.)</span><span>~28%</span></div><div class="prog-bar"><div class="prog-fill" style="width:28%;background:linear-gradient(to right,var(--forest-l),var(--forest-p))"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Urban-Rural -->
+    <div class="d-card reveal rd2">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--forest-p),var(--teal-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(26,66,41,.5);background:rgba(26,66,41,.08)">🏘️</div>
+        <div class="d-meta">
+          <div class="d-name">Urban-Rural Distribution</div>
+          <div class="d-sub">The Great Migration — Pastoral to Professional</div>
+          <div class="d-tags"><span class="d-tag tg-fo">~72% Rural</span><span class="d-tag tg-fo">~28% Urban</span><span class="d-tag tg-tl">Rapidly Urbanising</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">Approximately <strong>72% of the community remains rural</strong> — more rural than the national average (~65%). This reflects deep agricultural and pastoral roots in the Hindi belt: eastern UP, Bihar, Jharkhand, rural Rajasthan, and the pastoral zones of Haryana and Saurashtra Gujarat. However, urbanisation is accelerating rapidly, driven by government employment access (the Mandal reservation's primary channel), transport and logistics entrepreneurship, and the children of government-employed parents seeking professional education in cities. <strong>Cities of significant Yadava concentration:</strong> Delhi (transport, construction, government service); Mumbai (Gaoli dairy community, construction); Lucknow, Patna, Hyderabad, Ranchi, Bhopal, Jaipur (government, small business); Bengaluru and Hyderabad IT corridors (second-generation IIT-educated engineers). The urban community's economic profile is transforming within a single generation — construction labour in the 1990s to software engineer and government officer in the 2020s.</div>
+      <div class="prog-list" style="padding:0 1.55rem 1.55rem">
+        <div><div class="prog-label"><span>Rural population</span><span>~72%</span></div><div class="prog-bar"><div class="prog-fill" style="width:72%;background:linear-gradient(to right,var(--forest),var(--forest-l))"></div></div></div>
+        <div><div class="prog-label"><span>Urban population</span><span>~28%</span></div><div class="prog-bar"><div class="prog-fill" style="width:28%;background:linear-gradient(to right,var(--teal-l),var(--teal-p))"></div></div></div>
+        <div><div class="prog-label"><span>Primary agri-pastoral workforce</span><span>~58%</span></div><div class="prog-bar"><div class="prog-fill" style="width:58%;background:linear-gradient(to right,var(--ochre),var(--ochre-l))"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Women & Social Change -->
+    <div class="d-card reveal rd3">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--clay-p),var(--forest-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(139,58,26,.5);background:rgba(139,58,26,.1)">👩</div>
+        <div class="d-meta">
+          <div class="d-name">Women — Literacy, Sport &amp; Changing Roles</div>
+          <div class="d-sub">स्त्री शक्ति — Transformation Within One Generation</div>
+          <div class="d-tags"><span class="d-tag tg-cl">Literacy ~62% Female</span><span class="d-tag tg-cl">Olympic Wrestlers</span><span class="d-tag tg-fo">Panchayat Leaders</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">Women's status within the Yadava community has undergone dramatic transformation in 30 years — though significant challenges remain in rural areas. Female literacy has risen from below 25% in 1991 to approximately 62% overall and 75%+ urban by 2021, driven by government school expansion in Yadava-concentrated districts, the post-Mandal political investment in UP and Bihar's rural school infrastructure, and the cultural shift catalysed by the <strong>Phogat wrestling family's story</strong> (the basis for the Dangal film, 2016). Yadava women in competitive sport — wrestling, kabaddi, boxing — have become community icons redefining expectations for an entire generation of girls. Women's political participation has expanded through the 33% panchayat reservation, with Yadava women increasingly holding sarpanch positions across UP and Bihar. Major challenges remain: early marriage practices limit girls' secondary completion rates in parts of rural Bihar and eastern UP; son preference persists in household resource allocation; and the community's political leadership has been insufficiently vocal in confronting gender-based violence.</div>
+      <div class="d-list">
+        <div class="d-li">Female literacy: from below 25% (1991) to ~62% overall and ~75%+ urban (2021) — one of the steeper literacy improvement curves of any large Indian community in the liberalisation era</div>
+        <div class="d-li">Phogat family — Vinesh, Babita, Geeta: three Haryana Ahir-Yadava wrestlers at Olympic level; the Dangal cultural phenomenon permanently shifted community narratives around girls' ambition and physical capability</div>
+        <div class="d-li">Panchayat reservation has produced a first generation of Yadava women sarpanches navigating administrative roles across UP and Bihar that their grandmothers could not have imagined, and transmitting new models of female authority to the next generation</div>
+        <div class="d-li">Ongoing challenge: early marriage in rural areas remains documented, limiting secondary school completion rates for girls and creating long-term human capital constraints the community cannot afford in a competitive knowledge economy</div>
+      </div>
+    </div>
+
+  </div><!-- /data-grid demographics -->
+
+  <div class="qblock reveal">
+    <p class="qdev">या देवी सर्वभूतेषु शक्तिरूपेण संस्थिता।<br/>नमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः।।</p>
+    <p class="qtrans">"Salutations to the Goddess present in all beings in the form of Power — again and again, salutations."</p>
+    <p class="qsrc">— Devi Mahatmya XI.10 · The verse that the Yadava community's women — wrestlers, sarpanches, teachers, farmers — embody as they redefine what the community's strength means in the 21st century</p>
+  </div>
+</div>
+</section>
+<!-- ═══════════ END PART 1 — PART 2 APPENDS BELOW ═══════════ -->
+
+<!-- ══ GEOGRAPHY ══ -->
+<section id="geography" style="background:linear-gradient(180deg,var(--earth3) 0%,var(--earth4) 100%);">
+<div class="inner">
+  <div class="dom-hdr reveal">
+    <div class="dom-icon di-geo">🗺️</div>
+    <div>
+      <div class="dom-title" style="color:var(--forest-p)">Geographic Distribution — The Yadava Heartland &amp; Frontiers</div>
+      <div class="dom-sub" style="color:var(--forest-p)">भौगोलिक वितरण · हृदयभूमि · सीमान्त · प्रवासी</div>
+    </div>
+  </div>
+  <p class="lead reveal">The Yadava community's geographic distribution reflects its 5,000-year journey from the pastoral zones of north-west India outward across the entire subcontinent. There is a dense northern core, a significant southern presence, a distinct eastern frontier, and a growing global diaspora. No other community in India occupies so many distinct geographic contexts while maintaining so coherent an identity rooted in the cattle-keeping, Krishna-worshipping pastoral tradition.</p>
+
+  <div class="geo-grid">
+    <div class="geo-card reveal rd1">
+      <div class="geo-state">Uttar Pradesh</div>
+      <div class="geo-pct">~18–22%</div>
+      <div class="geo-pop">~45–50 million · North India's largest state</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:90%"></div></div>
+      <div class="geo-notes">The political and demographic heartland. Concentrated in Mathura-Vrindavana (sacred Krishna belt), Agra division, Azamgarh, Jaunpur, Varanasi, Gorakhpur, Faizabad. SP's primary stronghold. The Braj region around Mathura is the community's most sacred geographic identity. Birha folk music originated in the Ahir communities of eastern UP.</div>
+    </div>
+    <div class="geo-card reveal rd2">
+      <div class="geo-state">Bihar</div>
+      <div class="geo-pct">14.26%</div>
+      <div class="geo-pop">~19 million · Confirmed by 2023 official survey</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:71%"></div></div>
+      <div class="geo-notes">The only officially documented Yadava population in post-independence India. Concentrated in Siwan, Gopalganj, Saran, Muzaffarpur, Vaishali, Patna, Nalanda districts. RJD's primary base — the community that made Lalu Prasad Yadav and Tejashwi Yadav into national figures. Strong Chhath Puja devotional tradition; Bhojpuri-speaking Ahir community.</div>
+    </div>
+    <div class="geo-card reveal rd3">
+      <div class="geo-state">Haryana</div>
+      <div class="geo-pct">~16–20%</div>
+      <div class="geo-pop">~6–7 million · Rewari-Mahendragarh-Bhiwani belt</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:80%"></div></div>
+      <div class="geo-notes">The Ahir-Yadava community of Haryana occupies the south-west of the state in what is historically called the "Ahirwal" region — Rewari, Mahendragarh, Bhiwani, and parts of Gurugram. This is India's premier wrestling belt — Phogat family (Dangal), Sushil Kumar, Yogeshwar Dutt, Bajrang Punia all come from this compact geographic zone. The Ahir Regiment demand has been this community's 160-year military aspiration.</div>
+    </div>
+    <div class="geo-card reveal rd4">
+      <div class="geo-state">Madhya Pradesh</div>
+      <div class="geo-pct">~12–16%</div>
+      <div class="geo-pop">~12–16 million · Central India pastoral belt</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:65%"></div></div>
+      <div class="geo-notes">Distributed across Sagar, Damoh, Jabalpur, Chhattarpur, Tikamgarh (Bundelkhand zone) and the central plateau. Known for the Yadava Mahasabha's strong institutional presence. The Alha oral epic tradition — a heroic ballad form of extraordinary antiquity — is particularly strong in the Bundelkhand Yadava communities. Gwalior division has significant Ahir presence.</div>
+    </div>
+    <div class="geo-card reveal rd5">
+      <div class="geo-state">Rajasthan</div>
+      <div class="geo-pct">~12–15%</div>
+      <div class="geo-pop">~10–14 million · Western pastoral communities</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:62%"></div></div>
+      <div class="geo-notes">The Ahir communities of Rajasthan occupy Jaipur, Sikar, Jhunjhunu (Shekhawati zone), Bharatpur, and Alwar districts. Historically overlapping with the Gurjar and Jat pastoral communities in the north-east, and with Rajput communities in the west. The Rajasthan Yadavas have strong Pushkar and Vrindavana pilgrimage traditions. Army service — particularly in the Rajputana Rifles and the Grenadiers — is a major community institution.</div>
+    </div>
+    <div class="geo-card reveal rd6">
+      <div class="geo-state">Gujarat</div>
+      <div class="geo-pct">~9–12%</div>
+      <div class="geo-pop">~7–9 million · Amul country — Saurashtra heartland</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:55%"></div></div>
+      <div class="geo-notes">The Ahir-Yadava of Saurashtra (Jamnagar, Amreli, Bhavnagar, Rajkot) and north Gujarat (Mehsana, Sabarkantha) are the community whose pastoral dairy skills produced Amul — the world's largest farmer-owned dairy cooperative (₹72,000 Cr turnover, 3.6 million members). Dwarka — one of the four sacred Hindu Char Dham pilgrimage cities — is in Saurashtra's Ahir heartland. Gujarat Yadavas align more with the BJP than their UP-Bihar counterparts.</div>
+    </div>
+    <div class="geo-card reveal rd1">
+      <div class="geo-state">Jharkhand</div>
+      <div class="geo-pct">~11–14%</div>
+      <div class="geo-pop">~4–5 million · Chota Nagpur pastoral communities</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:58%"></div></div>
+      <div class="geo-notes">The Gwala (cowherd) and Ahir communities of Jharkhand occupy the agricultural plains surrounding the Chota Nagpur plateau. Ranchi is a significant urban Yadava centre. M.S. Dhoni — born in Ranchi to a Yadava family — is the community's most iconic contemporary figure from this state. The Jharkhand Yadava community has strong cultural links to the Bihar Bhojpuri-speaking belt.</div>
+    </div>
+    <div class="geo-card reveal rd2">
+      <div class="geo-state">Telangana &amp; Andhra Pradesh</div>
+      <div class="geo-pct">~6–9%</div>
+      <div class="geo-pop">~12–15 million combined · Golla communities</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:50%"></div></div>
+      <div class="geo-notes">The Golla community — the pastoral Yadavas of the Deccan — are the Telugu-speaking presence of the Yadava lineage, concentrated in Nalgonda, Mahbubnagar, Kurnool, and Prakasam districts. Their name derives from Sanskrit Gopala (cowherd). The River Krishna — which crosses their heartland — is named for the divine ancestor. Strong traditions in Telugu devotional music and Bathukamma festival. The Telangana state government has given Golla community members significant OBC benefits.</div>
+    </div>
+    <div class="geo-card reveal rd3">
+      <div class="geo-state">West Bengal &amp; Odisha</div>
+      <div class="geo-pct">~5–8%</div>
+      <div class="geo-pop">~12 million combined · Gop and Sadgope</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:45%"></div></div>
+      <div class="geo-notes">The Gop and Sadgope communities of Bengal and Odisha represent the Yadava lineage's eastern frontier. Closely associated with the Chaitanya Mahaprabhu Vaishnava devotional tradition of Bengal — the most powerful bhakti movement in eastern India — they maintain strong cultural continuity with the pastoral-devotional identity. The Sadgope (Sanskrit: "virtuous cowherd") are a distinct sub-community with their own cultural institutions in Bengal's Burdwan, Birbhum, and Medinipur districts.</div>
+    </div>
+    <div class="geo-card reveal rd4">
+      <div class="geo-state">Karnataka</div>
+      <div class="geo-pct">~6–9%</div>
+      <div class="geo-pop">~4–6 million · Kuruba communities</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:42%"></div></div>
+      <div class="geo-notes">The Kuruba (also Kuruba Gowda) community of Karnataka — the pastoral shepherd-cultivator community — is the Karnataka expression of the Yadava lineage. Concentrated in Dharwad, Gadag, Haveri, Bellary, and Raichur districts in northern Karnataka. Strong presence in the Kannada film industry and in Karnataka state politics. The Kuruba community's traditional occupation of sheep and cattle herding connects directly to the Yadava ancestral pastoral identity.</div>
+    </div>
+    <div class="geo-card reveal rd5">
+      <div class="geo-state">Maharashtra</div>
+      <div class="geo-pct">~4–6%</div>
+      <div class="geo-pop">~6–8 million · Gaoli dairy community</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:38%"></div></div>
+      <div class="geo-notes">The Gaoli (milk-seller pastoral community) of Maharashtra are the Yadava presence in the Maratha heartland — concentrated in Vidarbha, Marathwada, and the western Maharashtra plateau. The Gaoli community's dairy tradition in Mumbai supplies a significant proportion of the metropolitan city's milk. Historical connection to the Devagiri Yadava Kingdom (850–1317 CE) which had its capital in present-day Aurangabad district — the community's most significant medieval political achievement.</div>
+    </div>
+    <div class="geo-card reveal rd6">
+      <div class="geo-state">Tamil Nadu</div>
+      <div class="geo-pct">~4–6%</div>
+      <div class="geo-pop">~3–5 million · Idaiyar communities</div>
+      <div class="geo-bar"><div class="geo-fill" style="width:35%"></div></div>
+      <div class="geo-notes">The Idaiyar (Tamil: shepherd) community of Tamil Nadu are the southernmost expression of the Yadava lineage, concentrated in Madurai, Tirunelveli, Coimbatore, Salem, and Vellore districts. The Idaiyar Nattupura Padal (folk music tradition) maintains an ancient pastoral oral poetry tradition. The community's connection to Muruga devotion (the Tamil pastoral deity) overlaps with Krishna devotion. Idaiyar communities have had significant representation in the AIADMK and DMK political structures.</div>
+    </div>
+  </div>
+
+  <div class="info-box reveal">
+    <div class="ib-title">The Sacred Geography — Tirtha Kshetras of the Yadava Tradition</div>
+    <ul class="ib-list">
+      <li><strong>Mathura-Vrindavana</strong> — The community's paramount sacred landscape. Krishna's birthplace (Mathura), childhood home (Vrindavana and Gokul), and the Braj cultural region are simultaneously the most sacred sites in Vaishnavism and the most intense concentration of Yadava cultural identity in the world. Over 10 million pilgrims annually. Janmashtami is the supreme festival — celebrated across the entire Yadava geographic range from Haryana to Tamil Nadu.</li>
+      <li><strong>Dwaraka (Gujarat)</strong> — The ancient capital of the Yadava confederacy under Krishna's leadership, and one of the four Char Dham pilgrimage cities. Submerged in the sea following the Mahabharata era according to tradition; the archaeological marine survey has identified submerged structures in the Gulf of Khambhat that may correspond to the ancient city. The Gujarat Ahir community's sacred heartland.</li>
+      <li><strong>Kurukshetra (Haryana)</strong> — The site of the Mahabharata war and the delivery of the Bhagavad Gita — Krishna's supreme philosophical discourse. Kurukshetra is in the Ahirwal-adjacent region of Haryana, giving the Haryana Ahir community a living connection to the site where their divine ancestor spoke the words that became the most influential philosophical text in the world.</li>
+      <li><strong>Nandgaon and Barsana (UP)</strong> — Krishna's foster-father Nanda's village and Radha's birthplace village, both in the Braj cultural zone of western UP. The Lathmar Holi of Barsana-Nandgaon — where women beat men with sticks in playful re-enactment of Krishna-Radha lore — has become internationally recognised and is the community's most celebrated public cultural event globally.</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ══ ECONOMY ══ -->
+<section id="economy" style="background:linear-gradient(180deg,var(--earth4) 0%,var(--earth3) 100%);">
+<div class="inner">
+  <div class="dom-hdr reveal">
+    <div class="dom-icon di-eco">🌾</div>
+    <div>
+      <div class="dom-title" style="color:var(--saffron-l)">Economy — From Pastoral to Professional</div>
+      <div class="dom-sub" style="color:var(--saffron-l)">कृषि · पशुपालन · व्यापार · सरकारी सेवा · प्रौद्योगिकी</div>
+    </div>
+  </div>
+  <p class="lead reveal">The Yadava community's economic base is undergoing the most dramatic transformation in its documented history — from an almost entirely pastoral and agricultural economy as recently as 1990 to a diversified livelihood structure that now includes cooperative dairy enterprise, government service, transport entrepreneurship, digital media, technical professions, and a growing diaspora remittance economy. Understanding this transformation — its achievements, its speed, and its incompleteness — is essential to understanding the community's 21st-century trajectory.</p>
+
+  <div class="data-grid">
+
+    <!-- Agriculture & Dairy FEATURED -->
+    <div class="d-card feat reveal">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--saffron-p),var(--forest-p),var(--teal-p))"></div>
+      <div class="d-left">
+        <div class="d-icon" style="width:110px;height:110px;font-size:2.6rem;border-color:rgba(196,122,20,.5);background:rgba(196,122,20,.06)">🐄</div>
+        <div style="font-family:var(--fh);font-size:1.2rem;color:var(--saffron-p);font-style:italic;line-height:1.2">Agriculture &amp; Dairy — The Ancestral Base</div>
+        <div style="font-family:var(--fb);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--linen3)">~58% Agri-Dependent · Amul ₹72,000 Crore</div>
+        <div class="d-tags" style="margin-top:.5rem">
+          <span class="d-tag tg-fo">58% Agri-Dependent</span>
+          <span class="d-tag tg-sf">World's Largest Dairy Coop</span>
+          <span class="d-tag tg-tl">Amul ₹72,000 Cr</span>
+        </div>
+        <table class="d-table" style="margin-top:.8rem">
+          <tr><td>Primary</td><td>Agriculture — paddy, wheat, sugarcane, pulses; smallholder farming</td></tr>
+          <tr><td>Pastoral</td><td>Cattle and buffalo dairy; ancestral occupation across all sub-communities</td></tr>
+          <tr><td>Amul</td><td>GCMMF — Gujarat Cooperative Milk Marketing Federation; world's largest dairy cooperative; ₹72,000 Cr FY 2023–24</td></tr>
+          <tr><td>Livestock</td><td>India's largest cattle-holding communities; strong bovine husbandry tradition</td></tr>
+          <tr><td>Challenge</td><td>Agrarian distress — average smallholding UP 1.2 acres; falling commodity prices; inadequate MSP implementation</td></tr>
+          <tr><td>Aspiration</td><td>Swaminathan Commission MSP at C2+50% — the community's primary agricultural policy demand</td></tr>
+        </table>
+      </div>
+      <div class="d-right">
+        <div style="font-family:var(--fh);font-size:clamp(.84rem,1.26vw,1.04rem);color:var(--saffron-l);font-style:italic;line-height:1.42">"The Yadava community's relationship with cattle is not merely economic — it is ontological. The cow is Krishna's companion, the community's livelihood, the farmer's capital, and the nation's sacred symbol. That this relationship has been converted into the world's largest dairy cooperative — Amul — is the community's most remarkable economic achievement of the 20th century."</div>
+        <div class="feat d-body">Approximately <strong>58% of the Yadava community remains primarily dependent on agriculture and livestock</strong> for livelihood — a percentage that makes the community one of the most rural-agricultural major communities in India. The average landholding in UP and Bihar is approximately 1.2 acres — insufficient for economic viability as a sole income source, which drives the push toward subsidiary income through government employment, transport, and seasonal urban migration. The <strong>Amul cooperative model</strong> represents the pastoral economy's most successful conversion into institutional economic power: Gujarat's Ahir-Yadava dairy farmers, through the Amul cooperative structure (3.6 million members, ₹72,000 Cr turnover), have created the world's largest farmer-owned dairy organisation, proving that the ancestral cattle economy can be the foundation of 21st-century institutional power when organised cooperatively. Agrarian distress — falling commodity prices, rising input costs, inadequate Minimum Support Price implementation, and the structural vulnerability of smallholder farming to climate variability — remains the community's most pressing economic challenge. The unimplemented Swaminathan Commission recommendation (MSP at C2+50% of production cost) is the community's primary agricultural policy demand.</div>
+        <div class="feat d-list">
+          <div class="d-li">Amul collected 9 billion litres of milk annually from its Gujarat Ahir-Yadava farmer-members — the single largest dairy procurement operation in human history, run cooperatively by the farmers themselves</div>
+          <div class="d-li">Gujarat's dairy cooperative network: 18,000+ village dairy cooperative societies, 3.6 million farmer-members, processing capacity distributed across the state — a model the FAO has cited as the global standard for farmer-cooperative dairy development</div>
+          <div class="d-li">Haryana Ahir-Yadava dairy farmers supply a significant proportion of Delhi-NCR's milk; the pastoral dairy economy of the Ahirwal region supports both local consumption and surplus sale to the metropolitan market</div>
+          <div class="d-li">Average Yadava smallholder landholding UP: 1.2 acres — below the threshold for economic self-sufficiency; the push toward non-agricultural income is economic necessity, not preference, for the majority of the community's farming households</div>
+        </div>
+        <div class="feat d-quote" style="border-color:var(--forest-p)">
+          "When I joined the cooperative, I had two buffaloes and no market. Now I supply Amul. My daughters go to college. The cow gave us what the landlord never would."
+          <span class="d-qs" style="color:var(--forest-p)">— Ahir dairy farmer, Mehsana district, Gujarat; oral history documentation project, 2022</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Government Employment -->
+    <div class="d-card reveal rd1">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--clay-p),var(--saffron-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(196,122,20,.5);background:rgba(196,122,20,.08)">🏛️</div>
+        <div class="d-meta">
+          <div class="d-name">Government Employment — The Mandal Engine</div>
+          <div class="d-sub">27% OBC Central Quota · IAS · IPS · Railways · Paramilitary</div>
+          <div class="d-tags"><span class="d-tag tg-sf">Post-Mandal 1993+</span><span class="d-tag tg-cr">Primary Mobility Channel</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">Government employment — central and state — is the <strong>primary channel of economic mobility</strong> for the Yadava community in the post-Mandal era (OBC reservation implemented centrally from 1993). The 27% OBC reservation in central government services, combined with varying state OBC reservations (27% UP, 14% Bihar within the 50% cap, higher in some southern states), has produced a steadily growing cohort of Yadava employees at every level of the Indian state. <strong>Indian Railways</strong> — India's largest employer with 1.4 million employees — is the single largest OBC employer; a significant proportion of the Yadava community's salaried workforce is in railways across every category from engine driver to station master to clerk to engineer. <strong>CRPF, BSF, CISF, SSB</strong> — the Central Armed Police Forces — have large Yadava representation, particularly from Bihar, UP, Haryana, and Jharkhand. The demand for caste-wise disaggregated data on government employment — currently unavailable — is precisely because the community believes its actual representation falls significantly below the 27% OBC quota allocation even after 30 years of reservation.</div>
+      <div class="d-list">
+        <div class="d-li">30 years of central OBC reservation (1993–2024) have produced a substantial first-generation cohort of Yadava government employees — clerks, teachers, officers, engineers, doctors — who represent the Mandal revolution's most concrete economic outcome</div>
+        <div class="d-li">Indian Railways: the community's single largest salaried employer; IRCTC, zonal railways, production units all employ Yadava workers across every skill tier from unskilled labour to Group A gazetted officer</div>
+        <div class="d-li">CRPF and BSF have significant Yadava-Ahir representation, particularly in the Bihar, UP, Haryana, and Jharkhand battalions — paramilitary service is a major economic institution for these states' Yadava communities</div>
+        <div class="d-li">The demand for caste-wise government employment data remains unmet — the community insists its actual share in IAS, IPS, IFS, and Group A services is far below its population share even after reservation, because the pipeline toward these roles requires quality education that rural government schools do not yet provide</div>
+      </div>
+    </div>
+
+    <!-- Transport & Private Sector -->
+    <div class="d-card reveal rd2">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--teal-p),var(--forest-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(18,107,92,.5);background:rgba(18,107,92,.08)">🚛</div>
+        <div class="d-meta">
+          <div class="d-name">Transport, Logistics &amp; Bhojpuri Media</div>
+          <div class="d-sub">Truck Ownership · Construction · Gulf Remittances</div>
+          <div class="d-tags"><span class="d-tag tg-tl">Trucking Entrepreneurs</span><span class="d-tag tg-fo">Gulf 500K+ Workers</span><span class="d-tag tg-sf">Bhojpuri Industry</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">Transport — particularly truck ownership and logistics — is the <strong>Yadava community's most significant private sector economic activity</strong>. Across UP, Bihar, Haryana, and Jharkhand, Yadava men have entered truck ownership and long-haul freight transport as the primary non-agricultural private enterprise, leveraging access to institutional credit through OBC financial schemes and the community's traditional comfort with managing large animals (translated into managing large vehicles). Construction contracting — particularly in Yadava-governed states where political connections provide access to government infrastructure projects — is another significant private sector activity. <strong>Gulf remittances</strong>: approximately 500,000+ Yadava workers from UP and Bihar work in the UAE, Saudi Arabia, Qatar, Kuwait, and Oman in construction, security, and service roles — remittances of ₹15,000–20,000 crore annually transform village economies in Saran, Bhojpur, Siwan, and Vaishali districts. The <strong>Bhojpuri film and music industry</strong> — dominated by Ahir-Yadava cultural entrepreneurs — is a multi-hundred-crore economy centred on Patna, Varanasi, and Mumbai, with 50 million+ Bhojpuri speakers as its audience.</div>
+      <div class="d-list">
+        <div class="d-li">Bhojpuri YouTube channels run by Yadava community creators have individual subscriber counts of 1–5 million; the Birha music revival (traditional Ahir-Yadava folk form) has found its largest-ever audience through YouTube and Facebook Live in the 2020s</div>
+        <div class="d-li">Gulf construction and service workforce: ~500,000+ Yadava workers; remittances fund UPSC coaching for the next generation, house construction, and agricultural capital investment in the home districts</div>
+        <div class="d-li">Construction contracting in UP, Bihar, and Jharkhand: a significant Yadava entrepreneurial activity, particularly in road and infrastructure projects where political access translates into contract access</div>
+        <div class="d-li">Truck ownership and long-haul freight: a major private capital accumulation pathway, especially in Bihar's Muzaffarpur-Darbhanga-Samastipur transport corridor and UP's Azamgarh-Varanasi freight belt</div>
+      </div>
+    </div>
+
+    <!-- Professional Class -->
+    <div class="d-card reveal rd3">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--forest-p),var(--saffron-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(26,66,41,.5);background:rgba(26,66,41,.08)">💻</div>
+        <div class="d-meta">
+          <div class="d-name">Emerging Professional Class — Post-Mandal Generation</div>
+          <div class="d-sub">IIT Engineers · MBBS Doctors · Chartered Accountants</div>
+          <div class="d-tags"><span class="d-tag tg-fo">IIT OBC 27%</span><span class="d-tag tg-fo">AIIMS Doctors</span><span class="d-tag tg-sf">First Generation</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The post-Mandal generation of Yadava community members entering IITs (27% OBC reservation since 2008 Mandal-II), NITs, medical colleges (NEET OBC quota), law schools, and IIMs represents <strong>the most significant economic transformation in the community's modern history</strong>: the emergence of a first-generation professional and knowledge-economy class. IIT-educated Yadava engineers working in Bengaluru, Hyderabad, and Pune technology companies earn 15–25 times the average rural income of their parents' generation — representing the steepest intergenerational income jump in the community's documented economic history. AIIMS and government medical college-trained Yadava doctors — particularly returning to serve in UP and Bihar government health infrastructure — represent both economic uplift and social return. Chartered Accountants, lawyers, and civil service examination toppers from Yadava backgrounds are increasingly visible in India's professional landscape. This professional class remains a small proportion of the community overall but its cultural and aspirational significance — as visible proof that the Mandal reservation argument was correct — is disproportionate to its numbers.</div>
+      <div class="d-list">
+        <div class="d-li">IIT OBC reservation (27% since 2008): hundreds of Yadava students enter IITs and NITs annually — the combined IIT+NIT pipeline now produces thousands of Yadava engineers per year across all disciplines</div>
+        <div class="d-li">AIIMS and government medical colleges: Yadava MBBS and MD doctors increasingly serving in UP and Bihar's government health infrastructure — the community's most tangible return investment in the states that gave it political power</div>
+        <div class="d-li">UPSC toppers from Yadava backgrounds: Prayagraj, Patna, and Delhi coaching cluster pilgrimage produces a growing cohort of Yadava IAS and IPS officers — each one a community institution, celebrated at scale comparable to an Olympic medallist</div>
+        <div class="d-li">The economic gap between the professional class (IIT engineer: ₹15–25 LPA starting) and the agricultural majority (smallholder farmer: ₹1–2 LPA) is the community's central internal economic challenge and the primary driver of its political investment in education quality improvement</div>
+      </div>
+    </div>
+
+  </div><!-- /data-grid economy -->
+</div>
+</section>
+
+<!-- ══ CULTURE ══ -->
+<section id="culture" style="background:linear-gradient(180deg,var(--earth3) 0%,var(--earth2) 100%);">
+<div class="inner">
+  <div class="dom-hdr reveal">
+    <div class="dom-icon di-cul">🦚</div>
+    <div>
+      <div class="dom-title" style="color:var(--teal-p)">Culture, Religion &amp; Living Traditions</div>
+      <div class="dom-sub" style="color:var(--teal-p)">कृष्णभक्ति · लोकसंगीत · भाषा · सामाजिक संस्थाएं</div>
+    </div>
+  </div>
+  <p class="lead reveal">The Yadava community's cultural life is extraordinarily rich — rooted in five thousand years of pastoral experience, devotional poetry, folk music, seasonal festivals, and a devotional tradition centred on the figure who is simultaneously their divine ancestor and the world's most influential philosophical teacher. The culture is not museum piece: it is living, digitally revived, globally exported through the diaspora, and contested internally by the forces of modernisation and social change.</p>
+
+  <div class="data-grid">
+
+    <!-- Krishna Devotion FEATURED -->
+    <div class="d-card feat reveal">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,#2050A0,var(--teal-p),var(--saffron-p))"></div>
+      <div class="d-left">
+        <div class="d-icon" style="width:110px;height:110px;font-size:2.6rem;border-color:rgba(32,80,160,.5);background:rgba(32,80,160,.08)">🔱</div>
+        <div style="font-family:var(--fh);font-size:1.2rem;color:var(--teal-p);font-style:italic;line-height:1.2">Krishna Devotion — Identity as Theology</div>
+        <div style="font-family:var(--fb);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--linen3)">Vaishnavism · Janmashtami · Mathura-Vrindavana</div>
+        <div class="d-tags" style="margin-top:.5rem">
+          <span class="d-tag tg-tl">10M+ Pilgrims Annually</span>
+          <span class="d-tag tg-tl">Janmashtami Supreme Festival</span>
+          <span class="d-tag tg-fo">Lathmar Holi Global</span>
+        </div>
+        <table class="d-table" style="margin-top:.8rem">
+          <tr><td>Centre</td><td>Mathura-Vrindavana — 10M+ pilgrims annually; world's densest temple concentration per square kilometre</td></tr>
+          <tr><td>Janmashtami</td><td>Supreme community festival — celebrated from Mathura to Trinidad to Leicester with equal intensity</td></tr>
+          <tr><td>Lathmar Holi</td><td>Barsana-Nandgaon — internationally recognised; BBC, CNN, NatGeo coverage; unique Krishna-Radha lore re-enactment</td></tr>
+          <tr><td>Gopashtami</td><td>Cattle-worship festival — the pastoral identity made sacred; community's most distinctively own festival</td></tr>
+          <tr><td>Temples</td><td>Thousands of new Krishna temples constructed across geographic range in post-independence era; community identity expressed in stone</td></tr>
+        </table>
+      </div>
+      <div class="d-right">
+        <div style="font-family:var(--fh);font-size:clamp(.84rem,1.26vw,1.04rem);color:var(--teal-l);font-style:italic;line-height:1.42">"Krishna worship is not the Yadava community's religion — it is the Yadava community's identity made divine. To worship Krishna is not an act of devotion alone; it is the deepest possible affirmation of who you are, where you come from, and what you carry forward."</div>
+        <div class="feat d-body">The Yadava community's devotional life is centred on <strong>Krishna Vaishnavism</strong> — the worship of Krishna as the Supreme Being, divine ancestor, pastoral cowherd, and philosophical teacher simultaneously. This is not a religion adopted — it is a religion that emerged from within the community's own pastoral experience: the cowherd songs of the Rigveda, the Gopala tradition of Krishna's childhood in Vrindavana, the devotional poetry of Surdas (born in the Yadava community) in Braj Bhasha. <strong>Mathura-Vrindavana</strong> receives over 10 million pilgrims annually and contains the highest density of active temples of any comparable area in the world. <strong>Janmashtami</strong> (Krishna's birth festival) is the community's supreme annual celebration — observed with fasting, night-long kirtan, theatrical enactments of Krishna's life (Raasleela), and the Dahi Handi (breaking of the curd pot) tradition that has become Mumbai's most spectacular urban festival. <strong>Lathmar Holi</strong> of Barsana and Nandgaon — where women of Barsana (Radha's village) beat the men of Nandgaon (Krishna's foster-village) with lathis in playful re-enactment of Krishna-Radha lore — has been covered by BBC, CNN, National Geographic, and is one of India's most internationally recognised cultural events. <strong>Gopashtami</strong> — the festival honouring the day Krishna was first entrusted to take the cows to pasture — is the community's most distinctively own festival, celebrating the pastoral identity as sacred rather than secular.</div>
+        <div class="feat d-list">
+          <div class="d-li">The Mathura-Vrindavana sacred landscape is simultaneously the community's holiest site, India's second-most-visited pilgrimage destination (after Vaishno Devi), and the geographic expression of the Yadava community's 3,000-year claim to the Braj cultural zone</div>
+          <div class="d-li">Lathmar Holi: the Barsana-Nandgaon ritual attracts 200,000–500,000 participants and witnesses annually, plus global media coverage that makes it one of India's most internationally visible cultural events — a community festival that has become a national and global cultural asset</div>
+          <div class="d-li">New temple construction across the Yadava geographic range has accelerated dramatically in the post-Mandal era — community economic improvement directly expressed as devotional investment; thousands of new Krishna, Radha-Krishna, and Gopala temples across UP, Bihar, Haryana, Gujarat, and the diaspora destinations</div>
+          <div class="d-li">The Hare Krishna (ISKCON) movement — founded by A.C. Bhaktivedanta Swami in 1966 and now a global organisation with 500+ temples in 60+ countries — is the most significant export of the Mathura-Vrindavana devotional tradition, carrying the Yadava community's spiritual inheritance to every continent</div>
+        </div>
+        <div class="feat d-quote" style="border-color:rgba(62,203,168,.4)">
+          "कृष्णं वन्दे जगद्गुरुम् — I bow to Krishna, the world-teacher. Not my caste's teacher alone. The world's. That is what we carry."
+          <span class="d-qs" style="color:var(--teal-p)">— Pandit of Vrindavana's Banke Bihari temple; oral tradition documentation project 2021</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Folk Music -->
+    <div class="d-card reveal rd1">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--saffron-p),var(--clay-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(196,122,20,.5);background:rgba(196,122,20,.08)">🎵</div>
+        <div class="d-meta">
+          <div class="d-name">Folk Music — Birha, Sohar, Alha &amp; Digital Revival</div>
+          <div class="d-sub">Oral Heritage · YouTube Millions · Bhojpuri 50M+ Speakers</div>
+          <div class="d-tags"><span class="d-tag tg-sf">Birha Digital Revival</span><span class="d-tag tg-cl">50M+ Bhojpuri Speakers</span><span class="d-tag tg-sf">Chhath Geet Global</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The Yadava community's folk music tradition is one of the most sophisticated and historically documented oral literary traditions in north India. <strong>Birha</strong> — the competitive oral poetry-singing tradition of the Ahir-Yadava communities of eastern UP and Bihar — is a complex performance form involving extended improvised narratives in Bhojpuri or Awadhi, competitive duels between singers, and themes drawn from Krishna devotion, heroic history, and the experience of seasonal migration. Hira Lal Yadav (Padma Shri 2019) is the form's 20th-century master. Birha is experiencing a <strong>21st-century digital revival</strong> — YouTube channels run by Birha singers have individual subscriber counts of 1–5 million, bringing a rural folk tradition to the largest audience it has ever had. <strong>Sohar</strong> (birth songs), <strong>Vivah geet</strong> (wedding songs), and <strong>Alha</strong> (heroic ballads of the Bundelkhand tradition, celebrating warrior kings and pastoral heroes) together constitute a body of oral literature that has been transmitted intact for centuries and is now finding new life on digital platforms. <strong>Chhath Geet</strong> — the devotional songs of the Chhath Puja festival — are sung globally wherever the Bihar-UP diaspora has settled: from Patna ghats to Leicester parks to Dubai labour camps.</div>
+      <div class="d-list">
+        <div class="d-li">Birha YouTube channels: individual singers with 1–5 million subscribers each; collective view counts in the hundreds of millions; the digitisation of a rural oral tradition that was in danger of marginalisation has instead given it the largest audience in its history</div>
+        <div class="d-li">Bhojpuri film and music industry: an estimated ₹500–1,000 crore annual economy; 50 million+ Bhojpuri speakers across India and the diaspora (Mauritius, Trinidad, Fiji, Suriname, UK, UAE) constitute a trans-national cultural market</div>
+        <div class="d-li">Alha heroic ballad tradition — originating in the 12th-century warrior lore of the Ahir-Yadava communities of Bundelkhand — is among the longest-surviving oral epic traditions in India; performance events draw audiences of thousands in rural UP and MP</div>
+        <div class="d-li">Chhath Geet: Sharda Sinha's recordings (particularly "Ho Deenanath" and "Kanchan Haath Badhaiya") are broadcast globally wherever the Bihar diaspora celebrates Chhath — making her the community's most globally distributed voice and Chhath the community's most powerful trans-national cultural institution</div>
+      </div>
+    </div>
+
+    <!-- Language -->
+    <div class="d-card reveal rd2">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--teal-p),var(--forest-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(18,107,92,.5);background:rgba(18,107,92,.08)">📖</div>
+        <div class="d-meta">
+          <div class="d-name">Language — Bhojpuri, Braj Bhasha, Surdas &amp; Sur Sagar</div>
+          <div class="d-sub">Literary Heritage · Spoken Traditions · Devanagari Script</div>
+          <div class="d-tags"><span class="d-tag tg-tl">Braj Bhasha — Krishna's Language</span><span class="d-tag tg-fo">Sur Sagar — 800,000 Verses</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The Yadava community's linguistic landscape is extraordinarily diverse, reflecting its geographic spread across every major Hindi-belt language zone. <strong>Bhojpuri</strong> (eastern UP, western Bihar) is the primary spoken vernacular of the largest single Yadava population concentration — a language with 50+ million speakers globally, a rich oral literature, and a film-music industry of its own. <strong>Awadhi</strong> (central and eastern UP) is the language zone of Lucknow and Faizabad, where the Yadava community's UP political leadership is concentrated. <strong>Haryanvi</strong> (Haryana Ahirwal region) with its distinctive pastoral vocabulary is the language of the wrestling-belt Yadava community. <strong>Braj Bhasha</strong> — the mediaeval Hindi dialect of the Mathura-Vrindavana zone — is the language of Surdas and the entire Vaishnava devotional poetry tradition: it is, in the most literal sense, the language in which Krishna was worshipped by the community's greatest poets for five centuries. <strong>Surdas's Sur Sagar</strong> — an estimated 800,000 verses of Krishna devotional poetry in Braj Bhasha, composed in the 15th–16th century — is the community's supreme literary achievement and one of the greatest devotional literary works in any language in the world.</div>
+      <div class="d-list">
+        <div class="d-li">Sur Sagar (c. 1478–1583 CE): Surdas — born blind in the Yadava community at Sihi near Mathura — composed an estimated 800,000 verses of Krishna devotional poetry in Braj Bhasha; only ~7,000–8,000 survive; among the greatest bodies of devotional verse in world literature; Surdas is one of the Ashtachap (Eight Seals) — the eight poet-saints recognised by the Pushti Marg as the supreme singers of Krishna's glory</div>
+        <div class="d-li">Bhojpuri: 50+ million speakers globally including major diaspora populations in Mauritius (where it is an official language), Trinidad, Fiji, Suriname, Guyana — making it one of the most globally distributed Indian vernaculars outside the major literary languages</div>
+        <div class="d-li">The Braj Bhasha devotional poetry tradition — Surdas, Nandadas, Kumbhandas, Krishnadas — constitutes the single most sustained literary project of the Yadava community: five centuries of Krishna devotional verse that is simultaneously theology, autobiography, and the community's most enduring cultural monument</div>
+        <div class="d-li">The modern dilemma: Bhojpuri-speaking Yadava youth navigate between their mother tongue (emotional authenticity, cultural depth, folk music career) and Hindi or English (social capital, competitive examinations, professional employment) — a linguistic code-switching that mirrors the community's broader tension between rootedness and aspiration</div>
+      </div>
+    </div>
+
+    <!-- Social Institutions -->
+    <div class="d-card reveal rd3">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--clay-p),var(--teal-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(139,58,26,.5);background:rgba(139,58,26,.08)">🏛️</div>
+        <div class="d-meta">
+          <div class="d-name">Social Institutions — Mahasabha, Panchayat &amp; Gotra</div>
+          <div class="d-sub">Yadava Mahasabha · Caste Panchayats · 84+ Gotras</div>
+          <div class="d-tags"><span class="d-tag tg-cl">Founded 1920s</span><span class="d-tag tg-sf">84+ Gotras</span><span class="d-tag tg-fo">Panchayat System</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The Yadava community's social organisation rests on three interlocking institutional systems. <strong>Caste panchayats</strong> — the traditional governing councils of the community — adjudicate disputes, regulate marriage arrangements, maintain community solidarity, and impose social sanctions. These panchayats operate parallel to the state legal system, with authority derived from social consensus rather than statutory law. Their power is strongest in rural UP and Bihar; weakest in urban and educated professional contexts. <strong>Yadava Mahasabha</strong> — founded in the 1920s under the inspiration of B.P. Mandal and allied social reformers — is the pan-India community organisation that has coordinated advocacy for OBC reservation, Ahir Regiment creation, and the national caste census demand. State-level chapters in every major state coordinate political representation and community welfare activities. <strong>Gotra system</strong> — the 84+ exogamous patrilineal lineage groups (Krishnatreya, Vishvamitra, Kashyapa, Vatsa, Bharadvaja, Gargya, Sandilya, etc.) — is the community's deepest genealogical memory, tracing lineage to Vedic sages and maintaining endogamy at the community level while prohibiting marriage within the gotra. The festivals that organise community life: <strong>Janmashtami</strong>, <strong>Gopashtami</strong>, <strong>Lathmar Holi</strong>, <strong>Chhath Puja</strong>, <strong>Teej</strong>, <strong>Hariyali Teej</strong>.</div>
+      <div class="d-list">
+        <div class="d-li">Yadava Mahasabha national coordination: the organisation has consistently maintained the three-point demand — Ahir Regiment, national caste census, Swaminathan MSP — across political cycles and regardless of which Yadava-aligned party is in power, serving as the community's institutional memory beyond electoral politics</div>
+        <div class="d-li">84+ gotras maintained as exogamous marriage units: Krishnatreya, Vishvamitra, Kashyapa, Vatsa, Bharadvaja, Gargya, Sandilya, Parashara, Atreya, Gotama, Kaundinya, Kapila, Harita, Mudgala, Vashishtha — each tracing descent from a specific Vedic rishi, the community's genealogical link to the Saptarishi tradition</div>
+        <div class="d-li">Panchayat institution tension: traditional caste panchayats increasingly come into tension with constitutional values in cases involving inter-caste marriage, women's autonomy, and property rights — a tension the community's educated and professional class is navigating with increasing urgency</div>
+        <div class="d-li">Digital community organisation: WhatsApp groups, YouTube channels, and Facebook communities have created new forms of pan-India community solidarity that transcend geography — connecting a Haryana Ahir wrestler, a Bihar government servant, a Gujarat dairy farmer, and an IIT Bombay student in shared community identity discourse for the first time in history</div>
+      </div>
+    </div>
+
+  </div><!-- /data-grid culture -->
+</div>
+</section>
+<!-- ═══════════ END PART 2 — PART 3 APPENDS BELOW ═══════════ -->
+
+<!-- ══ POLITICS ══ -->
+<section id="politics" style="background:linear-gradient(180deg,var(--earth2) 0%,var(--earth3) 100%);">
+<div class="inner">
+  <div class="dom-hdr reveal">
+    <div class="dom-icon di-pol">🗳️</div>
+    <div>
+      <div class="dom-title" style="color:var(--crimson-p)">Political Power — The Mandal Legacy in the 21st Century</div>
+      <div class="dom-sub" style="color:var(--crimson-p)">सामाजिक न्याय · मण्डल क्रांति · लोकतन्त्र · प्रतिनिधित्व</div>
+    </div>
+  </div>
+  <p class="lead reveal">The Yadava community is the most significant single-community political force in Hindi-belt India — a position achieved through three decades of post-Mandal political organisation, two generations of charismatic leadership, and the conversion of demographic weight into electoral arithmetic. The community's political story is simultaneously a story of unprecedented empowerment, significant governance achievement, honest failures, and an evolving challenge to maintain the broad backward-caste coalition that was the source of its political power.</p>
+
+  <!-- Politics Timeline -->
+  <div class="pol-tl reveal">
+    <div class="tl-item">
+      <div class="tl-year">1977–1979</div>
+      <div class="tl-title">Karpoori Thakur and Bihar's First OBC Revolution</div>
+      <div class="tl-body">Bihar Chief Minister Karpoori Thakur implements the Karpoori Formula in 1978 — a reservation system giving backward classes 26% of state government jobs, with sub-categories for the most disadvantaged. This is Bihar's Mandal revolution 12 years before Mandal Commission's national implementation. The Yadava community is a primary beneficiary. Karpoori Thakur — himself from the Nai (barber) community — models the cross-caste OBC solidarity politics that Lalu Prasad Yadav and Mulayam Singh Yadav will later institutionalise. The political vocabulary of Bihar's backward-caste assertion takes its foundational form in this period.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1989–1990</div>
+      <div class="tl-title">The Mandal Revolution — V.P. Singh, Lalu Prasad, Mulayam Singh</div>
+      <div class="tl-body">Prime Minister V.P. Singh implements the Mandal Commission's recommendation — 27% OBC reservation in central government services — in August 1990. The decision detonates a political revolution. Lalu Prasad Yadav (Bihar) and Mulayam Singh Yadav (UP) emerge as the faces of backward-caste assertion. Upper-caste anti-Mandal protests — including self-immolations by young men fearing lost employment — are met by Lalu's defiant declaration that Mandal will be implemented regardless. The Yadava community, which had been organised through the Yadava Mahasabha for decades, now has a national political vehicle for the first time since independence. The Hindi belt's political geography is permanently remapped.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1990–2005</div>
+      <div class="tl-title">The Yadava Decade — Direct Control of UP and Bihar</div>
+      <div class="tl-body">The apex of Yadava community political power: Lalu Prasad Yadav as Bihar Chief Minister 1990–97 (followed by Rabri Devi 1997–2005 after his conviction in the fodder scam); Mulayam Singh Yadav as UP Chief Minister 1993–95 and 2003–07. For the first time in post-independence history, both of India's most populous Hindi-belt states are governed by Yadava community leaders. The governance record is mixed: social dignity for backward classes expands dramatically; law and order deteriorates significantly (particularly in Bihar under Lalu); economic infrastructure investment is inadequate. The fodder scam conviction of Lalu Prasad Yadav in 1997 is the era's defining political tragedy — the community's most capable politician compromised by institutional corruption.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2012–2017</div>
+      <div class="tl-title">Akhilesh Yadav — Youngest UP Chief Minister, Developmental Turn</div>
+      <div class="tl-body">Akhilesh Yadav — born 1973, Environmental Engineering from the University of Sydney, Kannauj MP — becomes UP Chief Minister in 2012 at age 38, the youngest in the state's history. His administration builds the Agra-Lucknow Expressway (302 km, longest expressway in India at construction, completed in 22 months) and expands Lucknow Metro. The Akhilesh era signals a deliberate attempt to shift the Yadava political brand from social justice assertion alone toward developmental governance — a necessary evolution for a community whose youth increasingly demands roads, electricity, and jobs alongside dignity. The 2017 SP-Congress alliance fails against BJP's Hindu consolidation under Yogi Adityanath, ending the SP government and beginning a period of opposition.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2017–2022</div>
+      <div class="tl-title">BJP Counter-Revolution — Non-Yadava OBC Fragmentation</div>
+      <div class="tl-body">BJP's electoral strategy under Amit Shah identifies the Yadava political dominance of the OBC space as the primary obstacle to Hindi-belt hegemony. The strategy: recruit non-Yadava OBC sub-communities (Nishad, Kurmi, Patel, Bind, Mallah, Rajbhar) away from SP and RJD by arguing that Yadava political dominance has concentrated OBC reservation benefits within the Yadava community at the expense of smaller OBC groups. This argument — empirically contestable but politically effective — enables BJP to win UP in 2017 and 2022 and Bihar (with Nitish Kumar as ally) in 2020. Yogi Adityanath's UP government uses Hindu consolidation and aggressive law enforcement to displace Yadava political networks from district-level administration and police.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2022–2024</div>
+      <div class="tl-title">PDA Alliance, Caste Census, and Electoral Recovery</div>
+      <div class="tl-body">Akhilesh Yadav's PDA strategy (Pichda, Dalit, Alpasankhyak — Backward, Dalit, Minority) reframes the SP's appeal as a broad coalition rather than a Yadava vehicle. Result: SP wins 111 seats in 2022 UP Assembly elections and a remarkable 37 Lok Sabha seats in the 2024 general elections — the party's strongest performance since the Akhilesh-era peak. Tejashwi Prasad Yadav serves as Bihar Deputy CM 2022–2024, converting the Bihar 2023 caste survey into the national SECC demand that becomes the primary INDIA alliance platform. The Supreme Court's 2024 judgment in Punjab v. Davinder Singh permitting states to sub-categorise OBC reservations creates new internal OBC dynamics that the Yadava community must navigate carefully in the coming decade.</div>
+    </div>
+  </div>
+
+  <div class="data-grid" style="margin-top:3rem">
+
+    <!-- SP & RJD -->
+    <div class="d-card reveal rd1">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--crimson-p),var(--saffron-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(122,26,42,.5);background:rgba(122,26,42,.08)">⚖️</div>
+        <div class="d-meta">
+          <div class="d-name">SP &amp; RJD — The Yadava Political Institutions</div>
+          <div class="d-sub">Samajwadi Party · Rashtriya Janata Dal · 2024 Elections</div>
+          <div class="d-tags"><span class="d-tag tg-cr">SP 37 LS 2024</span><span class="d-tag tg-cr">RJD Bihar's Largest Opposition</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The <strong>Samajwadi Party</strong> (founded 1992 by Mulayam Singh Yadav) and the <strong>Rashtriya Janata Dal</strong> (founded 1997 by Lalu Prasad Yadav following his resignation from Janata Dal) are the two primary political institutions of the Yadava community — and, more broadly, of Hindi-belt backward-caste politics. SP's 37 Lok Sabha seats in 2024 (driven by Akhilesh Yadav's PDA strategy) is the strongest national electoral performance the party has delivered since its Mulayam-era peak, and represents the most significant Hindi-belt challenge to BJP's 2014-era dominance. RJD under Tejashwi Yadav remains Bihar's largest single-party opposition despite Nitish Kumar's realignment with BJP in January 2024. Both parties face the same structural challenge: building a genuinely broad OBC-Dalit coalition in which the Yadava community is the largest component but explicitly not the only beneficiary — a coalition politics that requires Yadava community leaders to advocate visibly for non-Yadava OBC sub-communities' interests as energetically as for their own.</div>
+      <div class="d-list">
+        <div class="d-li">SP 2024: 37 Lok Sabha seats — the strongest performance since the Akhilesh era and the primary contributor to NDA's failure to achieve a simple majority; Akhilesh Yadav has established himself as the most electorally effective opposition leader in the Hindi belt</div>
+        <div class="d-li">RJD Bihar: largest opposition party in Bihar Legislative Assembly; Tejashwi Yadav's 2022 campaign ("10 lakh government jobs" promise) secured the largest youth turnout in Bihar election history and demonstrated that development-first framing can coexist with social justice assertion</div>
+        <div class="d-li">National caste census demand: both SP and RJD have made SECC the centrepiece of their political advocacy — the Bihar 2023 survey is their empirical weapon; the Supreme Court OBC sub-categorisation judgment of 2024 makes the data question even more urgent</div>
+        <div class="d-li">Sub-categorisation challenge: the SC 2024 judgment creates both risk (Yadava community's share of OBC quota may be further subdivided) and opportunity (the community can demonstrate leadership by explicitly supporting equitable sub-categorisation that prioritises the most marginalised OBC groups)</div>
+      </div>
+    </div>
+
+    <!-- Next Generation Leadership -->
+    <div class="d-card reveal rd2">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--saffron-p),var(--crimson-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(196,122,20,.5);background:rgba(196,122,20,.08)">🌱</div>
+        <div class="d-meta">
+          <div class="d-name">Akhilesh &amp; Tejashwi — The Post-Mandal Generation</div>
+          <div class="d-sub">Engineering Degrees · Development Politics · 2029 Horizon</div>
+          <div class="d-tags"><span class="d-tag tg-sf">Akhilesh — 37 LS 2024</span><span class="d-tag tg-sf">Tejashwi — Bihar 2025</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body"><strong>Akhilesh Yadav</strong> (born 1973, Etawah UP; Environmental Engineering, University of Sydney) is Mulayam Singh Yadav's son and the Samajwadi Party's president. As UP Chief Minister 2012–17, he delivered the Agra-Lucknow Expressway (302 km in 22 months) and Lucknow Metro expansion — demonstrating that governance ambition and infrastructure delivery are possible within the Yadava political tradition. His 2024 PDA strategy (37 LS seats) represents the most sophisticated electoral engineering in SP history. His challenge: converting opposition seats into government, maintaining a genuinely multi-community coalition, and navigating the sub-categorisation judgment without fragmenting the OBC alliance. <strong>Tejashwi Prasad Yadav</strong> (born 1989, Patna; former Jharkhand Ranji Trophy cricketer) is Lalu Prasad Yadav's son and RJD's heir. As Bihar Deputy Chief Minister 2022–24, he initiated the caste survey that became the SECC national demand and demonstrated developmental governance competence in the health sector. His "10 lakh jobs" campaign is the model for how Yadava political leadership can combine social justice assertion with development-focused framing. Bihar 2025 state elections are his defining test.</div>
+      <div class="d-list">
+        <div class="d-li">Akhilesh's 2024 achievement: 37 Lok Sabha seats from a state where SP had been reduced to 5 in 2019 — a 7× improvement driven by the PDA alliance formula, Muslim-Yadava core plus Dalit and non-Yadava OBC outreach; the most remarkable single-cycle electoral recovery in UP political history</div>
+        <div class="d-li">Tejashwi's Bihar 2023 caste survey: the decision to commission and fully publish Bihar's first official caste enumeration — politically risky because the data could have been used against the government — instead became the most powerful empirical contribution to the national OBC rights debate in three decades</div>
+        <div class="d-li">Both leaders face the same generational challenge: demonstrating to non-Yadava OBC communities that their parties are vehicles for broad backward-caste empowerment rather than Yadava family political enterprises — the difference between a movement and a dynasty</div>
+        <div class="d-li">2029 horizon: UP and Bihar state elections in 2027 and 2025 respectively will determine whether Akhilesh and Tejashwi can translate 2024's opposition success into actual government power — the true test of whether the Mandal revolution's second generation can govern as effectively as it can mobilise</div>
+      </div>
+    </div>
+
+    <!-- Yadavas in BJP & Non-Congress Space -->
+    <div class="d-card reveal rd3">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--forest-p),var(--crimson-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(26,66,41,.5);background:rgba(26,66,41,.08)">🏛️</div>
+        <div class="d-meta">
+          <div class="d-name">Yadavas Beyond SP-RJD — Gujarat, Haryana, Professional Class</div>
+          <div class="d-sub">Gujarat BJP · Haryana JJP · Urban Professional Voters</div>
+          <div class="d-tags"><span class="d-tag tg-fo">Gujarat Ahir — BJP Aligned</span><span class="d-tag tg-cl">Professional Class Swing</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The political behaviour of the Yadava community is <strong>not monolithic</strong> — significant sub-communities vote differently from the dominant UP-Bihar SP-RJD pattern. <strong>Gujarat Ahir community</strong>: the Saurashtra and north Gujarat Ahir communities are substantially aligned with the BJP, partly through the Amul cooperative's apolitical institutional culture, partly through BJP's effective Hindutva appeal in Gujarat's politically consolidated environment. <strong>Haryana Ahir community</strong>: historically divided between Congress (which has supported Ahir Regiment demands) and BJP (which governs Haryana), with JJP (Jannayak Janta Party) adding a third option — Dushyant Chautala's JJP peeled significant Ahir votes in 2019. <strong>Professional and urban Yadava class</strong>: the IIT-educated engineer, the IAS officer, the doctor — this cohort votes increasingly on governance criteria rather than caste identity alone, creating a swing constituency within the community that no party can take for granted. <strong>RSS-Yadava interface</strong>: the RSS's Samajik Samrasta Manch (Social Harmony Forum) actively courts Yadava youth with Hindu nationalist framing, arguing that Krishna devotion and Hindutva are the same project — an argument the community's political mainstream has consistently rejected but which finds some traction among certain youth segments.</div>
+      <div class="d-list">
+        <div class="d-li">Gujarat Ahir BJP alignment: the Amul cooperative's institutional success under BJP-governed Gujarat has created a pragmatic political alignment; Gujarat Yadavas are the most BJP-aligned major Yadava sub-community nationally</div>
+        <div class="d-li">Haryana Ahir community: the Ahir Regiment demand cuts across party lines — any party that credibly champions it gains Ahir votes; BJP's Haryana government has twice promised the regiment and twice failed to deliver, creating a credibility gap that Congress and JJP have exploited</div>
+        <div class="d-li">Urban professional Yadava: the first generation of IIT engineers, IAS officers, and doctors from Yadava backgrounds is the community's most politically independent cohort — they vote on infrastructure, education quality, rule of law, and economic opportunity as much as on caste identity</div>
+        <div class="d-li">The community's political diversity is a sign of maturity, not fragmentation — a community whose political behaviour is complex, contextual, and not reducible to a single party allegiance is a community that has graduated from bloc-vote politics to multi-dimensional democratic participation</div>
+      </div>
+    </div>
+
+  </div><!-- /data-grid politics -->
+</div>
+</section>
+
+<!-- ══ EDUCATION ══ -->
+<section id="education" style="background:linear-gradient(180deg,var(--earth3) 0%,var(--earth4) 100%);">
+<div class="inner">
+  <div class="dom-hdr reveal">
+    <div class="dom-icon di-edu">📖</div>
+    <div>
+      <div class="dom-title" style="color:var(--ochre-l)">Education — The Great Transformation</div>
+      <div class="dom-sub" style="color:var(--ochre-l)">साक्षरता · उच्च शिक्षा · प्रतियोगी परीक्षाएं · गुणवत्ता का अंतर</div>
+    </div>
+  </div>
+  <p class="lead reveal">Education is the central drama of the Yadava community's 21st-century story — the arena in which the post-Mandal investment in opportunity confronts the structural barriers of educational quality, geographic access, and the gap between reservation at the destination and the inadequate preparation at the starting point. The transformation has been real and documented; the incompleteness is equally real and demands honest acknowledgement.</p>
+
+  <div class="data-grid">
+
+    <div class="d-card reveal rd1">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--ochre-l),var(--saffron-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(100,70,20,.5);background:rgba(100,70,20,.08)">📚</div>
+        <div class="d-meta">
+          <div class="d-name">Literacy &amp; Educational Attainment</div>
+          <div class="d-sub">The Post-Independence Transformation in Numbers</div>
+          <div class="d-tags"><span class="d-tag tg-sf">Overall ~74%</span><span class="d-tag tg-sf">Urban Youth ~95%</span><span class="d-tag tg-cl">Rural Female Still Lagging</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The Yadava community's literacy transformation over 75 years of independence represents one of the most dramatic educational mobilisations in Indian history, driven by political investment in rural public schools during Yadava-led government periods in UP and Bihar, by the hunger for education as the primary route to government employment, and by the social pressure of a community that understands — from the Mandal experience — that educational attainment is the prerequisite for institutional power. Overall literacy approximately 74% (male ~84%, female ~62%); urban youth aged 18–30 approximately 95% literate — effectively universal. Rural female literacy in eastern UP and Bihar remains significantly below the community average, reflecting the persistent education access gap for girls in the most remote areas. The graduate and above percentage remains below 18% — reflecting that while literacy has been achieved, the transition to higher education completion at scale is still in progress. Quality of rural government schools — the infrastructure that delivers primary and secondary education to the majority — is the community's most critical educational challenge and the primary determinant of competitive examination success.</div>
+      <div class="prog-list" style="padding:0 1.55rem 1.55rem">
+        <div><div class="prog-label"><span>Overall literacy rate</span><span>~74%</span></div><div class="prog-bar"><div class="prog-fill" style="width:74%;background:linear-gradient(to right,var(--ochre),var(--ochre-l))"></div></div></div>
+        <div><div class="prog-label"><span>Male literacy</span><span>~84%</span></div><div class="prog-bar"><div class="prog-fill" style="width:84%;background:linear-gradient(to right,var(--saffron),var(--saffron-l))"></div></div></div>
+        <div><div class="prog-label"><span>Female literacy</span><span>~62%</span></div><div class="prog-bar"><div class="prog-fill" style="width:62%;background:linear-gradient(to right,var(--clay-l),var(--clay-p))"></div></div></div>
+        <div><div class="prog-label"><span>Graduate and above</span><span>~18%</span></div><div class="prog-bar"><div class="prog-fill" style="width:18%;background:linear-gradient(to right,var(--forest-l),var(--forest-p))"></div></div></div>
+        <div><div class="prog-label"><span>Urban youth (18–30) literacy</span><span>~95%</span></div><div class="prog-bar"><div class="prog-fill" style="width:95%;background:linear-gradient(to right,var(--teal-l),var(--teal-p))"></div></div></div>
+      </div>
+    </div>
+
+    <div class="d-card reveal rd2">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--clay-p),var(--ochre-l))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(139,58,26,.5);background:rgba(139,58,26,.08)">🏆</div>
+        <div class="d-meta">
+          <div class="d-name">UPSC — The Community's Supreme Educational Aspiration</div>
+          <div class="d-sub">Prayagraj · Patna · Delhi — The Coaching Pilgrimages</div>
+          <div class="d-tags"><span class="d-tag tg-cl">27% OBC Quota All Stages</span><span class="d-tag tg-cl">IAS = Community Monument</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The UPSC Civil Services Examination — India's most competitive examination — has become the Yadava community's supreme educational ambition and the most concentrated expression of its post-Mandal aspiration. Tens of thousands of Yadava aspirants are preparing for the UPSC at any given time, concentrated in three coaching clusters: <strong>Prayagraj</strong> (India's largest UPSC coaching hub, with Yadava aspirants from across UP and Bihar forming the single largest OBC community in its coaching institutes); <strong>Patna</strong>; and <strong>Mukherjee Nagar, Delhi</strong>. The 27% OBC reservation at all three stages of the UPSC examination (Prelims, Mains, Interview) is the community's constitutional guarantee of access. Yadava IAS toppers are celebrated at a scale comparable to Olympic medalists — their photographs in local newspapers, their felicitation ceremonies in home villages, their WhatsApp-viral announcements represent the community's deepest aspirational fulfilment. Each Yadava IAS officer who becomes a District Collector in UP or Bihar administers the same villages his grandparents farmed as tenants — the most concrete possible expression of the Mandal revolution's transformation of power.</div>
+      <div class="d-list">
+        <div class="d-li">Prayagraj coaching cluster: the largest single concentration of Yadava UPSC aspirants in India; Kareli, Civil Lines, and Allahapur coaching institutes host thousands of Yadava students from Azamgarh, Jaunpur, Varanasi, Gorakhpur, Siwan, Muzaffarpur — the core UP-Bihar Yadava geography</div>
+        <div class="d-li">OBC 27% reservation at all UPSC stages means the community has a constitutional pathway; the challenge is the preparation gap — a rural government school education in Azamgarh competes against Delhi private school education for the same examination seats, starting the race many laps behind</div>
+        <div class="d-li">Growing Yadava IAS cohort: serving as District Collectors, Additional Secretaries, and senior administrators across central and state governments — each one a community institution whose trajectory is watched by hundreds of thousands of aspirants who see in that officer proof that the path is open</div>
+        <div class="d-li">Financial barrier: UPSC coaching in Prayagraj costs ₹50,000–₹2 lakh annually plus living expenses — a substantial burden for families with agricultural incomes of ₹1–2 lakh annually; community self-funding networks (elder siblings, community loans) and state scholarship schemes are the primary support mechanisms</div>
+      </div>
+    </div>
+
+    <div class="d-card reveal rd3">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--forest-p),var(--ochre-l))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(26,66,41,.5);background:rgba(26,66,41,.08)">🔬</div>
+        <div class="d-meta">
+          <div class="d-name">IIT, NEET &amp; Technical Education — The Mandal-II Pipeline</div>
+          <div class="d-sub">27% OBC IIT Reservation 2008 · AIIMS Doctors · 31 NITs</div>
+          <div class="d-tags"><span class="d-tag tg-fo">IIT OBC 27% Since 2008</span><span class="d-tag tg-fo">NEET OBC Quota</span><span class="d-tag tg-tl">First-Gen Professionals</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The expansion of OBC reservation to IITs, NITs, IIMs, and AIIMS (Mandal-II, implemented 2008) has created a pipeline of Yadava community students into India's premier technical institutions for the first time. <strong>IIT OBC 27%</strong>: hundreds of Yadava students enter IITs and NITs annually — the combined IIT+NIT system (23 IITs, 31 NITs) now produces thousands of Yadava engineers per year across all disciplines, from computer science to civil to chemical. <strong>NEET and medical education</strong>: OBC reservation in government medical colleges has produced a generation of Yadava MBBS and MD doctors serving in UP and Bihar's government health infrastructure — doctors who grew up in the communities they now serve. <strong>IIM and management</strong>: OBC reservation in IIMs has opened management education, though the pipeline here is still thin because the preparation requirements (CAT examination) demand prior quality education that rural government schools inadequately provide. The quality gap — between the standard required for IIT-JEE or NEET success and the education available in a rural government school in Azamgarh, Saran, or Bhiwani — is the community's central unresolved educational challenge and the primary argument for investing in primary and secondary school quality rather than focusing exclusively on higher education reservation.</div>
+      <div class="d-list">
+        <div class="d-li">IIT OBC quota impact (2008–2024): sixteen years of 27% OBC reservation across 23 IITs has produced a cohort of Yadava engineering graduates working in India's technology sector, in global corporations, and in Indian startups — the beginning of a community-scale knowledge-economy presence that was structurally impossible before Mandal-II</div>
+        <div class="d-li">AIIMS and government medical colleges: Yadava MBBS doctors returning to serve in UP and Bihar government hospitals represent the most meaningful loop of social investment — the community's political power funded the education infrastructure; the educated generation returns to improve the community's health outcomes</div>
+        <div class="d-li">The quality gap challenge: Kota and Delhi coaching institutes charge ₹2–5 lakh annually for JEE/NEET preparation — standard for upper-caste and wealthy OBC students who dominate the top ranks of OBC quota seats; rural Yadava students competing with government school preparation face the same reservation seats with vastly different preparation quality</div>
+        <div class="d-li">31 NITs across India provide a more geographically accessible alternative to IITs; NIT Patna, NIT Jamshedpur, NIT Allahabad, and NIT Kurukshetra are the most accessible to core Yadava geographic zones and have seen significant OBC enrollment growth post-2008</div>
+      </div>
+    </div>
+
+  </div><!-- /data-grid education -->
+</div>
+</section>
+
+<!-- ══ DIASPORA ══ -->
+<section id="diaspora" style="background:linear-gradient(180deg,var(--earth4) 0%,var(--earth3) 100%);">
+<div class="inner">
+  <div class="dom-hdr reveal">
+    <div class="dom-icon di-dia">✈️</div>
+    <div>
+      <div class="dom-title" style="color:var(--forest-p)">The Yadava Diaspora — Global Presence</div>
+      <div class="dom-sub" style="color:var(--forest-p)">मॉरीशस · त्रिनिदाद · युके · खाड़ी · अमेरिका</div>
+    </div>
+  </div>
+  <p class="lead reveal">The Yadava diaspora spans the globe in two distinct waves: the colonial-era indentured labour migration (1838–1916) that transported hundreds of thousands of UP-Bihar Yadava-Ahir community members to Mauritius, Trinidad, Fiji, Guyana, and Suriname; and the contemporary migration through Gulf construction and service labour, UK community settlement, and professional migration to the United States. Wherever they have gone, the community carries its pastoral identity, its Krishna devotion, and its Chhath Puja — the festival that has become the community's most powerful trans-national cultural institution.</p>
+
+  <div class="data-grid">
+
+    <!-- Indentured Labour Diaspora FEATURED -->
+    <div class="d-card feat reveal">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--forest-p),var(--teal-p),var(--saffron-p))"></div>
+      <div class="d-left">
+        <div class="d-icon" style="width:110px;height:110px;font-size:2.6rem;border-color:rgba(26,66,41,.5);background:rgba(26,66,41,.07)">🚢</div>
+        <div style="font-family:var(--fh);font-size:1.2rem;color:var(--forest-p);font-style:italic;line-height:1.2">Indentured Labour Diaspora 1838–1916</div>
+        <div style="font-family:var(--fb);font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--linen3)">Mauritius · Trinidad · Fiji · Guyana · Suriname</div>
+        <div class="d-tags" style="margin-top:.5rem">
+          <span class="d-tag tg-fo">Mauritius 500K+</span>
+          <span class="d-tag tg-fo">Trinidad 300K+</span>
+          <span class="d-tag tg-tl">3rd–5th Generation</span>
+        </div>
+        <table class="d-table" style="margin-top:.8rem">
+          <tr><td>Period</td><td>British colonial indentured labour — 1838 to 1916</td></tr>
+          <tr><td>Origins</td><td>Eastern UP and western Bihar — the Yadava-Ahir, Kurmi, and Chamar belt</td></tr>
+          <tr><td>Mauritius</td><td>500,000+ descendants; 3rd–5th generation; Presidents, Prime Ministers; Bhojpuri official language</td></tr>
+          <tr><td>Trinidad</td><td>300,000+ Indo-Trinidadians; Chhath Puja at beaches; Bhojpuri maintained</td></tr>
+          <tr><td>Fiji</td><td>Significant community displaced by coups toward Australia and New Zealand</td></tr>
+          <tr><td>Chhath</td><td>Performed at rivers, lakes, and sea coasts from Patna to Port of Spain to Suva</td></tr>
+        </table>
+      </div>
+      <div class="d-right">
+        <div style="font-family:var(--fh);font-size:clamp(.84rem,1.26vw,1.04rem);color:var(--forest-l);font-style:italic;line-height:1.42">"We crossed the black water. We lost our surnames and our gotras in the records of the ships' manifests. But we carried Chhath. We carried the Ram Charit Manas. We carried the way we spoke to cows. That is how they knew we were the same people."</div>
+        <div class="feat d-body">British colonial indentured labour migration between 1838 and 1916 transported over 1 million Indians from the UP-Bihar belt — under contracts of "girmitriya" (agreement) labour — to British colonial sugar plantations in Mauritius, Trinidad and Tobago, Fiji, Guyana, and Suriname. A substantial proportion of these migrants were from the Yadava-Ahir, Kurmi, and Chamar communities of eastern UP and western Bihar — the same geographic belt that is the Yadava community's political heartland today. Now in their 3rd through 5th generations, these diaspora communities have retained remarkable cultural continuity. <strong>Mauritius</strong> — where over 500,000 descendants of Indian indentured labourers constitute more than 70% of the population — has produced Presidents and Prime Ministers from the Indo-Mauritian community and recognises Bhojpuri as an official language. The Mauritian Indian community is the most politically successful post-colonial diaspora in the world. <strong>Trinidad and Tobago</strong> — 300,000+ Indo-Trinidadians — has produced Prime Ministers (Basdeo Panday) and maintains Chhath Puja celebrations on the island's beaches, Ramayan-reading traditions, and Bhojpuri folk music even five generations after the last ship arrived. <strong>Fiji</strong> — the Indo-Fijian community was displaced by two military coups (1987, 2000) led by indigenous Fijian military officers; the majority now live in Australia and New Zealand but maintain cultural networks through Hindu temples, Bhojpuri music, and Chhath celebrations.</div>
+        <div class="feat d-list">
+          <div class="d-li">Mauritius: the most politically successful post-colonial indentured labour diaspora in history — Indo-Mauritians have held the Presidency and Prime Ministership of Mauritius; Bhojpuri is an officially recognised language; Chhath Puja is a public holiday; the community has maintained devotional and linguistic heritage more robustly than any comparable colonial diaspora</div>
+          <div class="d-li">Trinidad Chhath: performed on the beaches of Trinidad's north coast — sunrise and sunset prayers to the sun at the Caribbean sea — the most powerful image of the community's trans-national cultural continuity, exactly the same ritual performed on the Ganga in Bihar 10,000 kilometres away</div>
+          <div class="d-li">Gotra loss and recovery: the colonial records of indentured labourers often recorded only first names, without caste surnames or gotra information; many Caribbean and Pacific diaspora descendants are reconnecting with their Bihar-UP community origins through genealogical research, DNA testing, and digital archives maintained by NGOs in Patna and Lucknow</div>
+          <div class="d-li">Bhojpuri as diaspora glue: the same language spoken in Azamgarh villages in 1880 is still spoken — in modified form — in Mauritius, Trinidad, and Fiji in 2024; Bhojpuri is the most geographically distributed Indian vernacular diaspora language, connecting descendants of colonial labour with the ancestral homeland more directly than any other cultural form</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contemporary Migration -->
+    <div class="d-card reveal rd1">
+      <div class="d-stripe" style="background:linear-gradient(to bottom,var(--saffron-p),var(--forest-p))"></div>
+      <div class="d-head">
+        <div class="d-icon" style="border-color:rgba(196,122,20,.5);background:rgba(196,122,20,.08)">🌍</div>
+        <div class="d-meta">
+          <div class="d-name">Contemporary Migration — Gulf, UK, USA</div>
+          <div class="d-sub">Labour Migration · Professional Diaspora · Remittances</div>
+          <div class="d-tags"><span class="d-tag tg-sf">Gulf 500K+ Workers</span><span class="d-tag tg-fo">UK Leicester</span><span class="d-tag tg-tl">USA Tech Professionals</span></div>
+        </div>
+      </div>
+      <div class="d-div"></div>
+      <div class="d-body">The contemporary Yadava diaspora operates in three distinct streams. <strong>Gulf labour migration</strong>: approximately 500,000+ Yadava workers from UP and Bihar work in the UAE, Saudi Arabia, Qatar, Kuwait, and Oman primarily in construction, security, and service roles. Remittances of ₹15,000–20,000 crore annually transform village economies in Saran, Bhojpur, Siwan, Gopalganj, and Vaishali districts — funding UPSC coaching for younger siblings, house construction, and agricultural capital. <strong>UK settlement</strong>: the Yadava community in the UK — concentrated in Leicester, Coventry, Birmingham, and Southall, London — was established primarily through 1960s–70s migration from Gujarat and East Africa. Leicester's Navratri celebration is the largest outside India. UK Yadava communities have built Krishna temples, established Yadava community organisations, and participate actively in Labour Party and Conservative Party structures at the local level. Leicester's October 2022 Hindu-community unrest dramatically raised the profile of the British Indian Hindu community in UK politics. <strong>USA professional migration</strong>: IIT-educated Yadava engineers from the post-Mandal generation are working in Silicon Valley, Houston, New York/New Jersey, and the Research Triangle — a growing professional diaspora whose community identity is maintained through Hindu temples, WhatsApp groups, and Navratri-Janmashtami celebrations.</div>
+      <div class="d-list">
+        <div class="d-li">Gulf remittances: the ₹15,000–20,000 crore annually flowing from Yadava Gulf workers to UP-Bihar village households is transformative at the micro level — concrete houses replacing mud, motorcycles replacing bicycles, UPSC coaching funded, daughters' higher education enabled — and represents the community's largest single source of private capital inflow</div>
+        <div class="d-li">Leicester's Hindu community: the UK's most prominent Yadava-community cultural institution outside India; Navratri celebrations draw 50,000+ participants; Krishna temples in Leicester, Coventry, and Birmingham serve as community anchors; the October 2022 events established the British Hindu community as a significant political constituency</div>
+        <div class="d-li">USA IIT professional diaspora: IIT Bombay, IIT Delhi, IIT Kharagpur, and IIT Madras graduates from Yadava backgrounds working in US technology companies (Google, Microsoft, Amazon, Meta) represent the community's first-ever knowledge-economy professional diaspora — a cohort that did not exist before Mandal-II expanded IIT OBC access in 2008</div>
+        <div class="d-li">Trans-national Chhath: the single most powerful cultural demonstration of Yadava diaspora identity — Chhath Puja performed at rivers, lakes, and sea coasts in Mauritius, Trinidad, Leicester, Dubai, Houston, and Singapore simultaneously with Patna's Ganga ghats; the festival's strict sunrise-sunset water-ritual format has survived every diaspora context unchanged, making it the community's most resilient cultural institution</div>
+      </div>
+    </div>
+
+  </div><!-- /data-grid diaspora -->
+</div>
+</section>
+
+<!-- ══ CHALLENGES ══ -->
+<section id="challenges" style="background:linear-gradient(180deg,var(--earth3) 0%,var(--earth2) 100%);">
+<div class="inner">
+  <p class="eyebrow reveal">आत्म-परीक्षण</p>
+  <h2 class="sec-title reveal">Challenges — The Community's 21st-Century Tests</h2>
+  <p class="lead reveal">The achievements documented in this chapter are real and significant. The challenges are equally real and demand honest acknowledgement — not as admission of defeat but as the prerequisite for honest self-assessment that any community seeking sustained progress must undertake. The Yadava community's challenges are not the challenges of a marginalised minority: they are the challenges of a community with sufficient power to address them, if it chooses to do so with the same energy it has brought to political mobilisation.</p>
+
+  <div class="challenge-grid">
+    <div class="ch-card reveal rd1">
+      <div class="ch-num">01</div>
+      <div class="ch-title">Agrarian Distress — The Majority's Unresolved Crisis</div>
+      <div class="ch-body">Approximately <strong>58% of the community remains primarily dependent on agriculture</strong> — with average landholdings of 1.2 acres in UP and Bihar, falling commodity prices, rising input costs, inadequate MSP implementation, and increasing climate variability (erratic monsoon, heat stress on wheat, unseasonal floods). The Swaminathan Commission recommendation — MSP at C2+50% of production cost — remains unimplemented 18 years after the Commission's report. This is simultaneously the community's most consequential unaddressed policy demand and the one it has the political power to advance most forcefully. Every Yadava political leader who governs without implementing supportive agricultural policy for smallholders betrays the 58% of the community that still lives by the land.</div>
+    </div>
+    <div class="ch-card reveal rd2">
+      <div class="ch-num">02</div>
+      <div class="ch-title">Educational Quality Gap — Access Without Preparation</div>
+      <div class="ch-body">OBC reservation provides access to IIT, AIIMS, and UPSC — but cannot compensate for the quality gap in the preceding 12 years of schooling. A student from a rural government school in Azamgarh or Muzaffarpur competes for the same OBC-reserved IIT seat with a student from a Kota coaching institute — <strong>starting the race many laps behind</strong>. The reservation resolves the access problem at the destination; it does not resolve the preparation problem along the journey. The community's political investment in schools — teacher attendance, curriculum quality, mid-day meal nutrition, toilet infrastructure for girls — is systematically insufficient relative to investment in competitive examination coaching and higher education reservation advocacy. This mismatch is the community's central educational policy failure.</div>
+    </div>
+    <div class="ch-card reveal rd3">
+      <div class="ch-num">03</div>
+      <div class="ch-title">OBC Coalition Fragmentation — The Non-Yadava Grievance</div>
+      <div class="ch-body">The broad OBC-Dalit coalition that brought the Mandal revolution to power in 1990 has fragmented over three decades. Non-Yadava OBC sub-communities — Nishad, Mallah, Bind, Rajbhar, Kurmi, Patel — perceive that Yadava political dominance of SP and RJD has concentrated benefits within the Yadava community at the expense of smaller, more marginalised OBC groups. <strong>This perception — whether statistically accurate or not — is politically potent</strong>: it enabled BJP's non-Yadava OBC outreach strategy that dismantled SP-RJD dominance in 2017 and 2019. Rebuilding a broad, equitable backward-caste solidarity — in which the Yadava community is the largest partner but explicitly not the exclusive beneficiary — is the defining political challenge for Akhilesh Yadav and Tejashwi Prasad Yadav in the coming decade. The SC 2024 sub-categorisation judgment makes this challenge more urgent, not less.</div>
+    </div>
+    <div class="ch-card reveal rd4">
+      <div class="ch-num">04</div>
+      <div class="ch-title">Internal Social Reform — The Mirror Turned Inward</div>
+      <div class="ch-body">A community that demands equality from the state must practice equality within its own boundaries. This is the Yadava community's most uncomfortable internal challenge. Early marriage practices in rural Bihar and eastern UP continue to limit girls' educational completion. Son preference in household economic decisions persists in areas of high agricultural pressure. Violence against women — documented in UP and Bihar crime statistics — includes members of the Yadava community among both perpetrators and victims. Caste panchayat authority sometimes conflicts with constitutional rights. The community that produced Surdas's verses on the equality of all before Krishna cannot simultaneously be indifferent to internal inequality. The community's educated and professional class — IAS officers, doctors, engineers, academics — must become as vocal about internal reform as their forebears were about Mandal.</div>
+    </div>
+    <div class="ch-card reveal rd5">
+      <div class="ch-num">05</div>
+      <div class="ch-title">Criminalisation of Politics — The Bahubali Legacy</div>
+      <div class="ch-body">The backward-caste political movements of the 1990s produced, alongside genuine social justice, a culture of strongman politics in which <strong>criminal record became a mark of defiance</strong> rather than a disqualification. A disproportionate share of politicians with serious criminal cases in UP and Bihar have come from Yadava-aligned parties. While many such cases are politically motivated, others represent genuine criminality that the community's political institutions sheltered and legitimised. The Bahubali culture that served as community protection in an era of upper-caste police violence has become an obstacle to the rule of law and a source of governance failure in Yadava-majority districts. The community's next generation of political leadership — Akhilesh, Tejashwi, and the cohort emerging from competitive examinations and professional education — must explicitly dismantle this culture rather than accommodate it.</div>
+    </div>
+    <div class="ch-card reveal rd6">
+      <div class="ch-num">06</div>
+      <div class="ch-title">OBC Sub-Categorisation — Challenge and Opportunity</div>
+      <div class="ch-body">The Supreme Court's 2024 judgment in Punjab v. Davinder Singh permitting states to sub-categorise OBC reservations — creating sub-quotas for the most marginalised OBC communities (Musahars, Mallah, Bind, Nishad, Dhanak) — poses both a challenge and an opportunity. <strong>Challenge</strong>: if states sub-categorise in ways that reduce the Yadava community's effective OBC quota share, this creates genuine economic hardship for community members who have been accessing OBC reservation as their primary mobility channel. <strong>Opportunity</strong>: accepting equitable sub-categorisation — where the most marginalised OBC groups receive dedicated sub-quotas — is morally correct, constitutionally sound, and politically necessary for rebuilding the broad OBC coalition that BJP has fragmented. The Yadava community's response to sub-categorisation will be among the most important political choices it makes in the 2020s.</div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- ═══════════ END PART 3 — PART 4 APPENDS BELOW ═══════════ -->
+
+<!-- ══ FUTURE ══ -->
+<section id="future" style="background:linear-gradient(180deg,var(--earth2) 0%,var(--earth) 100%);">
+<div class="inner">
+  <div class="dom-hdr reveal">
+    <div class="dom-icon di-fut">🌱</div>
+    <div>
+      <div class="dom-title" style="color:var(--forest-p)">Aspirations — The Community's Vision for 2050</div>
+      <div class="dom-sub" style="color:var(--forest-p)">आकांक्षाएं · न्याय · समृद्धि · प्रतिनिधित्व · स्वाभिमान</div>
+    </div>
+  </div>
+  <p class="lead reveal">The aspirations of the Yadava community for the coming decades are not merely the aspirations of a single community — they are aspirations whose fulfilment would transform India itself. A community of 350 million achieving proportional representation in India's institutions, economic security for its farming majority, quality education for its children, and recognition of its civilisational heritage would constitute the deepest possible realisation of the Indian Constitution's promise of substantive equality.</p>
+
+  <div class="aspiration-grid">
+    <div class="as-card reveal rd1">
+      <div class="as-icon">📋</div>
+      <div class="as-title">National Caste Census — The First Demand</div>
+      <div class="as-body">The most fundamental and urgent aspiration: an accurate national Socio-Economic Caste Census (SECC) that establishes, for the first time since 1931, the precise population, educational attainment, employment share, and economic status of every caste community in India. Without this data, the gap between constitutional promise and social reality cannot be quantified, contested, or closed. Bihar's 2023 survey is the template — national implementation is the demand. Every other aspiration depends on this data foundation: you cannot claim proportional representation without knowing the proportions.</div>
+    </div>
+    <div class="as-card reveal rd2">
+      <div class="as-icon">🪖</div>
+      <div class="as-title">Ahir Regiment — 160 Years of Military Honour</div>
+      <div class="as-body">The demand for a dedicated Ahir Regiment in the Indian Army — honouring the martial tradition of the Ahir-Yadava community and the sacrifice of Rao Tula Ram in 1857, General Sagat Singh in 1971, and tens of thousands of Yadava soldiers who have served in every Indian military campaign since independence — is the community's oldest, most emotionally charged, and most consistently unmet institutional aspiration. The Ahirwal region of Haryana (Rewari, Mahendragarh, Bhiwani) contributes disproportionately to Indian Army recruitment relative to its population. A dedicated Ahir Regiment would be, simultaneously, a recognition of historical sacrifice, an institutional honour, and a martial pathway for the next generation of Haryana Ahir youth.</div>
+    </div>
+    <div class="as-card reveal rd3">
+      <div class="as-icon">🌾</div>
+      <div class="as-title">Swaminathan MSP — The Farming Majority's Economic Survival</div>
+      <div class="as-body">Implementation of the Swaminathan Commission's recommendation — Minimum Support Price at C2+50% (comprehensive cost of production plus 50% return) — is the community's most consequential agricultural policy demand. With approximately 58% of the community dependent on agriculture, the economics of farming determines the economic condition of the majority. Current MSP implementation is partial, inadequately enforced, and set below the C2+50% threshold the Commission recommended in 2006. Every year of non-implementation is a year of agricultural income inadequacy for the farming majority. The community's political power makes this the most achievable of its aspirations — if its political representatives prioritise it as vigorously as electoral mobilisation.</div>
+    </div>
+    <div class="as-card reveal rd4">
+      <div class="as-icon">🏫</div>
+      <div class="as-title">Quality Government Schools — Investment in the Journey, Not Just the Destination</div>
+      <div class="as-body">The community's most urgently needed educational investment is not more reservation at IIT — it is better government primary and secondary schools in Azamgarh, Muzaffarpur, Bhiwani, Churu, and Mehsana. Quality of school education determines competitive examination performance; the reservation at the destination cannot compensate for inadequate preparation along the journey. Community political leaders who govern UP, Bihar, Haryana, Gujarat, and Rajasthan must be held accountable for teacher attendance rates, curriculum quality, mid-day meal nutrition, girls' toilet infrastructure, and learning outcomes in the government schools that serve the community's rural majority. This is the most direct possible investment in the next generation's aspiration.</div>
+    </div>
+    <div class="as-card reveal rd5">
+      <div class="as-icon">⚖️</div>
+      <div class="as-title">Proportional Representation — Completing the Mandal Revolution</div>
+      <div class="as-body">The Mandal revolution opened doors in government employment and public higher education. The doors that remain closed — in the judiciary, in the military officer corps, in IAS Group A services, in corporate boardrooms, in academic establishments, and in national media — represent the next frontier of the proportional representation demand. Seventy-five years after independence, the Yadava community's share of Supreme Court judges, IFS officers, RBI board members, UPSC commission members, university vice-chancellors, and national newspaper editors remains far below its population share. Completing the Mandal revolution means extending its principle to every institution that exercises power over the lives of India's citizens.</div>
+    </div>
+    <div class="as-card reveal rd6">
+      <div class="as-icon">🤝</div>
+      <div class="as-title">Internal Social Reform — Practicing What the Community Preaches</div>
+      <div class="as-body">The deepest aspiration — and the most demanding — is for the community to practice within its own boundaries the equality it demands from the state. This means: confronting the discrimination that some Yadava community members exercise toward Dalit communities and acknowledging where this has occurred; addressing gender inequality in marriage practices, property rights, and household decision-making with the same energy brought to external political demands; reforming caste panchayat practices that violate constitutional rights; and building the just internal community that Surdas, Kabirdas, and Ravidas demanded five centuries ago in their devotional poetry. A community that has suffered discrimination has the most powerful moral argument for demanding its elimination — and the heaviest moral obligation to ensure it practices none itself.</div>
+    </div>
+  </div>
+
+  <div class="qblock reveal" style="margin-top:3rem">
+    <p class="qdev">तमसो मा ज्योतिर्गमय।<br/>
+    मृत्योर्मा अमृतं गमय।।</p>
+    <p class="qtrans">"From darkness, lead me to light. From death, lead me to immortality."</p>
+    <p class="qsrc">— Brihadaranyaka Upanishad I.3.28 · The ancient prayer of the Yadava pastoral tradition — the journey from the darkness of colonial exclusion and post-independence marginalisation to the light of constitutional rights, educational access, and political representation is not yet complete; it is unmistakably underway. The path from the Rigvedic pastoralists who first sang this prayer to the Yadava IAS officer, the Olympic wrestler, the Amul dairy farmer-owner, and the Bihar Deputy Chief Minister is not a straight line — but it moves, unmistakably, toward the light.</p>
+  </div>
+</div>
+</section>
+
+<!-- ══ REFERENCES ══ -->
+<section id="references" style="background:linear-gradient(180deg,var(--earth) 0%,rgba(5,3,1,1) 100%);border-top:1px solid rgba(196,122,20,.08);">
+<div class="inner">
+  <p class="eyebrow reveal">स्रोत एवं संदर्भ</p>
+  <h2 class="sec-title reveal">Sources &amp; References — Chapter X</h2>
+  <p class="lead reveal">Primary and secondary sources consulted in the preparation of this chapter, covering demographic scholarship, historical records, cooperative economics, political science, cultural documentation, and diaspora studies across all eleven sections.</p>
+
+  <table class="ref-table reveal">
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th>Source / Author</th>
+        <th>Full Reference</th>
+        <th>Relevance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="ref-tag" style="background:rgba(139,58,26,.25);color:var(--clay-p);border:1px solid rgba(139,58,26,.4)">Demographics</span></td>
+        <td style="color:var(--linen)">Bihar Government — SEBC Survey 2023</td>
+        <td>Socio-Economic and Caste Survey of Bihar, Government of Bihar Official Report, October 2023; Chief Minister Nitish Kumar press conference data release</td>
+        <td style="color:var(--linen4);font-style:italic">The only official post-independence caste data in Indian history — primary source for all Bihar-specific figures; foundational document for national SECC demand</td>
+      </tr>
+      <tr>
+        <td><span class="ref-tag" style="background:rgba(139,58,26,.25);color:var(--clay-p);border:1px solid rgba(139,58,26,.4)">Demographics</span></td>
+        <td style="color:var(--linen)">Mandal Commission Report 1980</td>
+        <td>B.P. Mandal (Chairman), Report of the Backward Classes Commission, Government of India, Volumes I–IV, 1980; 52% OBC national population estimate methodology</td>
+        <td style="color:var(--linen4);font-style:italic">Foundational OBC population estimate; primary source for the political context of the 27% reservation and the demographic argument underlying Mandal</td>
+      </tr>
+      <tr>
+        <td><span class="ref-tag" style="background:rgba(26,66,41,.25);color:var(--forest-p);border:1px solid rgba(26,66,41,.4)">Geography</span></td>
+        <td style="color:var(--linen)">Census of India 2011</td>
+        <td>Office of the Registrar General and Census Commissioner of India, Census 2011 — District-level data for UP, Bihar, Haryana, Gujarat, Rajasthan, MP, Maharashtra, Telangana, Karnataka, Bengal; OBC enumeration not conducted at national level</td>
+        <td style="color:var(--linen4);font-style:italic">Primary source for geographic population distribution, urbanisation rates, literacy disaggregation, and district-level demographic baselines used throughout the Geography section</td>
+      </tr>
+      <tr>
+        <td><span class="ref-tag" style="background:rgba(196,122,20,.2);color:var(--saffron-p);border:1px solid rgba(196,122,20,.35)">Economy</span></td>
+        <td style="color:var(--linen)">GCMMF Annual Reports 2021–24</td>
+        <td>Gujarat Cooperative Milk Marketing Federation (Amul), Annual Reports 2021–22, 2022–23, 2023–24; NDDB India Dairy Report 2023; FAO Rome, Operation Flood Documentation 1996</td>
+        <td style="color:var(--linen4);font-style:italic">Primary source for Amul turnover (₹72,000 Cr), farmer membership (3.6M), cooperative structure; FAO document for global dairy cooperative benchmarking</td>
+      </tr>
+      <tr>
+        <td><span class="ref-tag" style="background:rgba(196,122,20,.2);color:var(--saffron-p);border:1px solid rgba(196,122,20,.35)">Economy</span></td>
+        <td style="color:var(--linen)">M.S. Swaminathan Commission Report 2006</td>
+        <td>National Commission on Farmers (Swaminathan Commission), Reports I–V, Ministry of Agriculture, Government of India, 2004–2006; C2+50% MSP recommendation — Volume V, December 2006</td>
+        <td style="color:var(--linen4);font-style:italic">Primary source for the MSP C2+50% demand; the unimplemented recommendation that is the Yadava community's primary agricultural policy demand 18 years after its submission</td>
+      </tr>
+      <tr>
+        <td><span class="ref-tag" style="background:rgba(18,107,92,.2);color:var(--teal-p);border:1px solid rgba(18,107,92,.35)">Culture</span></td>
+        <td style="color:var(--linen)">Archana Prasad &amp; N.K. Jha; Sahitya Akademi</td>
+        <td>Prasad, A. &amp; Jha, N.K., Birha: The Songs of Eastern UP, Sahitya Akademi Documentation Project, New Delhi, 2005; YouTube analytics data — Birha channel subscriber and view counts, 2023</td>
+        <td style="color:var(--linen4);font-style:italic">Primary scholarly documentation of the Birha tradition — its Ahir-Yadava origins, competitive dangal performance format, and 21st-century digital revival trajectory</td>
+      </tr>
+      <tr>
+        <td><span class="ref-tag" style="background:rgba(122,26,42,.2);color:var(--crimson-p);border:1px solid rgba(122,26,42,.35)">Politics</span></td>
+        <td style="color:var(--linen)">Christophe Jaffrelot</td>
+        <td>India's Silent Revolution: The Rise of the Lower Castes in North India, Columbia University Press, New York, 2003; ECI election data 2022–2024; Supreme Court, Punjab v. Davinder Singh (2024)</td>
+        <td style="color:var(--linen4);font-style:italic">The definitive scholarly analysis of the Yadava community's post-Mandal political trajectory; ECI data for 2022 UP assembly and 2024 Lok Sabha results; SC judgment on OBC sub-categorisation</td>
+      </tr>
+      <tr>
+        <td><span class="ref-tag" style="background:rgba(100,70,20,.25);color:var(--ochre-l);border:1px solid rgba(100,70,20,.4)">Education</span></td>
+        <td style="color:var(--linen)">AISHE Report 2021–22</td>
+        <td>All India Survey on Higher Education 2021–22, Ministry of Education, Government of India; OBC enrollment data IITs, NITs, AIIMS, IIMs; District Institute of Education and Training (DIET) school quality reports UP and Bihar</td>
+        <td style="color:var(--linen4);font-style:italic">Primary source for OBC enrollment statistics in central higher education institutions; baseline data for the quality gap analysis between rural government schools and urban coaching institutes</td>
+      </tr>
+      <tr>
+        <td><span class="ref-tag" style="background:rgba(26,66,41,.25);color:var(--forest-p);border:1px solid rgba(26,66,41,.4)">Diaspora</span></td>
+        <td style="color:var(--linen)">Marina Carter &amp; Khal Torabully; MEA</td>
+        <td>Carter, M. &amp; Torabully, K., Coolitude: An Anthology of the Indian Labour Diaspora, Anthem Press, London, 2002; Ministry of External Affairs, Indian Diaspora Report 2020; Bhojpuri diaspora demographic studies, Mauritius Statistics Office 2022</td>
+        <td style="color:var(--linen4);font-style:italic">Primary scholarly source for indentured labour migration history and cultural continuity; MEA data for contemporary diaspora populations; Mauritius official data for Indo-Mauritian demographics</td>
+      </tr>
+      <tr>
+        <td><span class="ref-tag" style="background:rgba(122,26,42,.2);color:var(--crimson-p);border:1px solid rgba(122,26,42,.35)">Challenges</span></td>
+        <td style="color:var(--linen)">Supreme Court of India 2024</td>
+        <td>Punjab v. Davinder Singh &amp; Ors., Supreme Court of India, Constitutional Bench Judgment, August 2024; Indra Sawhney v. Union of India (1992) 3 SCC 217 (Mandal judgment); NCRB Annual Report 2022–23</td>
+        <td style="color:var(--linen4);font-style:italic">Primary legal sources for the OBC sub-categorisation challenge; Indra Sawhney for the constitutional framework of OBC reservation; NCRB for crime data context in the internal reform challenge section</td>
+      </tr>
+      <tr>
+        <td><span class="ref-tag" style="background:rgba(139,58,26,.25);color:var(--clay-p);border:1px solid rgba(139,58,26,.4)">Overview</span></td>
+        <td style="color:var(--linen)">Ram Shankar Yadav; Sudhir Panwar</td>
+        <td>Yadav, R.S., Yadava Community in Modern India: Social Mobility and Political Assertion, Rawat Publications, Jaipur, 2012; Panwar, S., OBC Politics and Social Justice in India, Primus Books, Delhi, 2019</td>
+        <td style="color:var(--linen4);font-style:italic">Community-authored scholarly sources providing the internal analytical framework — essential for understanding the community's self-description of its own trajectory, challenges, and aspirations</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<!-- NEXT CHAPTER BAND -->
+<div class="next-band">
+  <p class="next-label">The Record Is Living — Continuously Written</p>
+  <h2 class="next-title">Chapter XI — The Family Tree</h2>
+  <p class="next-sub">वंशावली · कुल · गोत्र · पीढ़ी</p>
+  <p class="next-lead">From Brahma's first breath to the child born today — the complete genealogical record of the Yadava dynasty, interactive and fully documented across five thousand years.</p>
+  <div class="next-btns">
+    <a href="family-tree.html" class="nbtn nbtn-p">Enter Chapter XI →</a>
+    <a href="notable-figures.html" class="nbtn nbtn-s">← Chapter IX — Notable Figures</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">यादव वंश</div>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="cosmic-origin.html">I</a>
+      <a href="lunar-dynasty.html">II</a>
+      <a href="yadu.html">III</a>
+      <a href="krishna.html">IV</a>
+      <a href="clans-gotras.html">V</a>
+      <a href="medieval-kingdoms.html">VI</a>
+      <a href="bhakti-saints.html">VII</a>
+      <a href="modern-history.html">VIII</a>
+      <a href="notable-figures.html">IX</a>
+      <a href="community-today.html" class="active">X ←</a>
+      <a href="family-tree.html">XI</a>
+    </nav>
+    <div class="footer-copy">Yadav Vansh Digital Scripture · Chapter X · The Community Today</div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   WHEAT FIELD CANVAS — animated pastoral landscape
+   Amber waves, drifting light motes, distant horizon
+══════════════════════════════════════════════════════ */
+(function(){
+  const cvs = document.getElementById('field-canvas');
+  const ctx = cvs.getContext('2d');
+  let W,H;
+  let stalks=null, motes=[], sun=null;
+
+  function resize(){
+    W=cvs.width=innerWidth;
+    H=cvs.height=innerHeight;
+    stalks=null; sun=null;
+  }
+
+  /* Build wheat stalks */
+  function buildStalks(){
+    const n=Math.floor(W/14);
+    stalks=[];
+    for(let i=0;i<n;i++){
+      const x=Math.random()*W;
+      const baseY=H*(.62+Math.random()*.22);
+      const h=H*(.09+Math.random()*.11);
+      const col=`rgba(${180+Math.random()*40},${110+Math.random()*40},${20+Math.random()*25}`;
+      stalks.push({x,baseY,h,col,
+        sw:.65+Math.random()*.55,
+        ph:Math.random()*Math.PI*2,
+        sp:.006+Math.random()*.008
+      });
+    }
+    /* floating light motes */
+    for(let i=0;i<55;i++){
+      motes.push({
+        x:Math.random()*W, y:Math.random()*H*.7,
+        r:.6+Math.random()*2.2,
+        vx:(Math.random()-.5)*.18,
+        vy:-.04-Math.random()*.12,
+        life:0,max:180+Math.random()*280,
+        hue:28+Math.random()*28,
+        al:.28+Math.random()*.44
+      });
+    }
+    /* horizon sun glow */
+    sun={x:W*.5,y:H*.28,r:H*.22};
+  }
+
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+
+    /* Sky gradient */
+    const sky=ctx.createLinearGradient(0,0,0,H);
+    sky.addColorStop(0,  'rgba(12,7,3,1)');
+    sky.addColorStop(.3, 'rgba(20,12,5,1)');
+    sky.addColorStop(.6, 'rgba(30,18,8,1)');
+    sky.addColorStop(1,  'rgba(40,24,10,1)');
+    ctx.fillStyle=sky;
+    ctx.fillRect(0,0,W,H);
+
+    /* Sun / harvest glow on horizon */
+    if(!sun) return;
+    const sg=ctx.createRadialGradient(sun.x,sun.y,0,sun.x,sun.y,sun.r);
+    sg.addColorStop(0,  'rgba(196,122,20,0.06)');
+    sg.addColorStop(.4, 'rgba(139,58,26,0.04)');
+    sg.addColorStop(1,  'transparent');
+    ctx.fillStyle=sg;
+    ctx.beginPath();
+    ctx.arc(sun.x,sun.y,sun.r,0,Math.PI*2);
+    ctx.fill();
+
+    /* Wheat stalks */
+    for(const s of stalks){
+      const sway=Math.sin(t*s.sp+s.ph)*6;
+      const osc=(Math.sin(t*s.sp+s.ph)+1)*.5;
+      ctx.save();
+      ctx.translate(s.x+sway,0);
+      /* stalk */
+      ctx.beginPath();
+      ctx.moveTo(0,s.baseY);
+      ctx.lineTo(0,s.baseY-s.h);
+      ctx.strokeStyle=s.col+`,${.18+osc*.12})`;
+      ctx.lineWidth=s.sw;
+      ctx.stroke();
+      /* head */
+      ctx.beginPath();
+      ctx.ellipse(0,s.baseY-s.h,s.sw*1.8,s.h*.22,0,0,Math.PI*2);
+      ctx.fillStyle=s.col+`,${.22+osc*.14})`;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    /* Ground gradient */
+    const grd=ctx.createLinearGradient(0,H*.58,0,H);
+    grd.addColorStop(0,'rgba(28,18,10,0)');
+    grd.addColorStop(.4,'rgba(20,13,6,.55)');
+    grd.addColorStop(1,'rgba(12,8,3,.92)');
+    ctx.fillStyle=grd;
+    ctx.fillRect(0,0,W,H);
+
+    /* Floating motes */
+    motes=motes.filter(m=>{
+      m.x+=m.vx; m.y+=m.vy; m.life++;
+      const prog=m.life/m.max;
+      const env=prog<.15?prog/.15:prog>.7?(1-prog)/.3:1;
+      const al=m.al*env;
+      if(al<.004) return false;
+      ctx.beginPath();
+      ctx.arc(m.x,m.y,m.r,0,Math.PI*2);
+      ctx.fillStyle=`hsla(${m.hue},62%,58%,${al})`;
+      ctx.fill();
+      return true;
+    });
+    /* Respawn motes */
+    while(motes.length<55){
+      motes.push({
+        x:Math.random()*W, y:H*(.55+Math.random()*.22),
+        r:.6+Math.random()*2.2,
+        vx:(Math.random()-.5)*.18,
+        vy:-.04-Math.random()*.12,
+        life:0,max:180+Math.random()*280,
+        hue:28+Math.random()*28,
+        al:.28+Math.random()*.44
+      });
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize',resize);
+  buildStalks();
+  requestAnimationFrame(draw);
+}());
+
+/* ══════════════════════════════════════════════════════
+   NAV SCROLL
+══════════════════════════════════════════════════════ */
+const mainNav=document.getElementById('main-nav');
+window.addEventListener('scroll',()=>{
+  mainNav.classList.toggle('scrolled',scrollY>50);
+},{passive:true});
+
+/* ══════════════════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════════════════ */
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+},{threshold:.055,rootMargin:'0px 0px -55px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+/* ══════════════════════════════════════════════════════
+   PROGRESS BAR ANIMATION — trigger on scroll reveal
+══════════════════════════════════════════════════════ */
+const progObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const fills=e.target.querySelectorAll('.prog-fill,.geo-fill');
+      fills.forEach(f=>{
+        const target=f.style.width;
+        f.style.width='0';
+        requestAnimationFrame(()=>requestAnimationFrame(()=>{ f.style.width=target; }));
+      });
+      progObs.unobserve(e.target);
+    }
+  });
+},{threshold:.1});
+document.querySelectorAll('.d-card,.geo-card,.stat-card').forEach(el=>progObs.observe(el));
+
+/* ══════════════════════════════════════════════════════
+   ACTIVE PILL — track current section on scroll
+══════════════════════════════════════════════════════ */
+const sections=document.querySelectorAll('section[id]');
+const pills=document.querySelectorAll('.npill');
+const pillObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      pills.forEach(p=>p.classList.toggle('active',p.getAttribute('href')==='#'+id));
+    }
+  });
+},{threshold:.14});
+sections.forEach(s=>pillObs.observe(s));
+
+/* ══════════════════════════════════════════════════════
+   HOVER LIFT — data cards
+══════════════════════════════════════════════════════ */
+document.querySelectorAll('.d-card:not(.feat),.ch-card,.as-card,.geo-card,.stat-card').forEach(c=>{
+  c.addEventListener('mouseenter',()=>{ if(!c.classList.contains('feat')) c.style.transition='all .32s cubic-bezier(.16,1,.3,1)'; });
+});
+</script>
+</body>
+</html>
